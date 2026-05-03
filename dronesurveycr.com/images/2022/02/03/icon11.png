@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - Drone Survey Costa Rica</title>
+  <meta name="description" content="The page you're looking for doesn't exist or has been moved. Contact Drone Survey Costa Rica for precision aerial surveying services.">
+  <link rel="canonical" href="https://www.dronesurveycr.com/404.html">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+    
+    header {
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+      color: #302F40;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .logo img {
+      height: 36px;
+      width: auto;
+    }
+    
+    .nav-center {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .nav-center a {
+      text-decoration: none;
+      color: #302F40;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-center a:hover {
+      color: #0080FE;
+    }
+    
+    .nav-right {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .nav-right a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-right .whatsapp {
+      background-color: #28a745;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+    
+    .nav-right .whatsapp:hover {
+      background-color: #218838;
+    }
+    
+    .nav-right .reviews {
+      color: #0080FE;
+    }
+    
+    .nav-right .reviews:hover {
+      color: #0063CC;
+    }
+    
+    .nav-right .portal {
+      color: #302F40;
+    }
+    
+    .nav-right .portal:hover {
+      color: #0080FE;
+    }
+    
+    main {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    .error-code {
+      font-size: 120px;
+      font-weight: 700;
+      color: #0080FE;
+      line-height: 1;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    h1 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #302F40;
+      margin-bottom: 15px;
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    
+    .message {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 12px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background-color: #0080FE;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #0063CC;
+    }
+    
+    .btn-secondary {
+      background-color: #302F40;
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #1a1a25;
+    }
+    
+    .btn-whatsapp {
+      background-color: #28a745;
+      color: white;
+    }
+    
+    .btn-whatsapp:hover {
+      background-color: #218838;
+    }
+    
+    footer {
+      background-color: #302F40;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 80px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    footer p {
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      nav {
+        height: auto;
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .nav-center {
+        order: 3;
+        flex-basis: 100%;
+        gap: 15px;
+        justify-content: flex-start;
+      }
+      
+      .nav-right {
+        gap: 10px;
+        font-size: 12px;
+      }
+      
+      .error-code {
+        font-size: 80px;
+      }
+      
+      h1 {
+        font-size: 28px;
+      }
+      
+      .subtitle {
+        font-size: 16px;
+      }
+      
+      main {
+        margin: 40px auto;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <img src="/images/dscrlogo.jpg" alt="Drone Survey Costa Rica">
+      </a>
+      <div class="nav-center">
+        <a href="/">Home</a>
+        <a href="/index.html#services">Services</a>
+        <a href="/quote.html">Get a Quote</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" class="portal">Client Portal</a>
+        <a href="https://wa.me/50672938970" class="whatsapp">WhatsApp</a>
+        <a href="https://g.co/kgs/VnbxFYr" class="reviews">Reviews</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="error-code">404</div>
+    <h1>Page Not Found</h1>
+    <p class="subtitle">Oops! Something went wrong.</p>
+    <p class="message">The page you're looking for doesn't exist or has been moved. Don't worry, we're here to help!</p>
+    
+    <div class="cta-buttons">
+      <a href="/" class="btn btn-primary">Go Home</a>
+      <a href="/quote.html" class="btn btn-secondary">Get a Quote</a>
+      <a href="https://wa.me/50672938970" class="btn btn-whatsapp">WhatsApp Us</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Drone Survey Costa Rica. All rights reserved.</p>
+    <p>Costa Rica's trusted partner for precision aerial surveying and LiDAR mapping.</p>
+  </footer>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6L0PFQRYF6');
+  </script>
+</body>
+</html>

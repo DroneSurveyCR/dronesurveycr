@@ -1,0 +1,22 @@
+# HTTrack website mirror artifacts
+hts-cache/
+hts-log.txt
+cookies.txt
+backblue.gif
+fade.gif
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Node/npm (if ever added)
+node_modules/
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
