@@ -3,7 +3,9 @@
     "allow": [
       "Bash(bash \"C:/Users/nicki/.claude/sync-token-to-vps.sh\")",
       "Read(//c/Users/nicki/.claude/**)",
-      "Bash(ssh root@100.68.57.10 \"echo 'say hello' | timeout 5 claude 2>&1 | head -5\")"
+      "Bash(ssh root@100.68.57.10 \"echo 'say hello' | timeout 5 claude 2>&1 | head -5\")",
+      "Read(//root/.happy/**)",
+      "Bash(ssh root@100.68.57.10 \"systemctl status happy-daemon --no-pager; echo '---PROCESSES---'; ps aux | grep happy | grep -v grep; echo '---RECENT LOGS---'; tail -50 /root/.happy/logs/$\\(ls -t /root/.happy/logs/)"
     ]
   }
 }
