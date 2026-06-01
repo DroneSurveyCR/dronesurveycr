@@ -425,19 +425,7 @@
 			transition: background 0.2s;
 		}
 		.service-card:hover { background: var(--bg-raised); }
-		.service-icon {
-			width: 48px;
-			height: 48px;
-			border-radius: 12px;
-			background: var(--accent-dim);
-			border: 1px solid var(--border-hi);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-bottom: 20px;
-			font-size: 22px;
-		}
-		.service-card h3 {
+.service-card h3 {
 			font-size: 20px;
 			margin: 0 0 12px;
 			color: var(--heading);
@@ -467,8 +455,20 @@
 
 		/* ── Topographic pattern ─────────────────────────────────── */
 		.topo-pattern {
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M100 20 Q140 60 100 100 Q60 140 100 180' fill='none' stroke='rgba(34,197,94,0.06)' stroke-width='1.5'/%3E%3Cpath d='M80 20 Q120 60 80 100 Q40 140 80 180' fill='none' stroke='rgba(34,197,94,0.04)' stroke-width='1'/%3E%3Cpath d='M120 20 Q160 60 120 100 Q80 140 120 180' fill='none' stroke='rgba(34,197,94,0.04)' stroke-width='1'/%3E%3Cpath d='M60 20 Q100 60 60 100 Q20 140 60 180' fill='none' stroke='rgba(34,197,94,0.03)' stroke-width='1'/%3E%3Cpath d='M140 20 Q180 60 140 100 Q100 140 140 180' fill='none' stroke='rgba(34,197,94,0.03)' stroke-width='1'/%3E%3C/svg%3E");
-			background-size: 200px 200px;
+			background-image: url('images/topo-bg.svg');
+			background-size: 1000px 500px;
+			background-repeat: repeat;
+		}
+		[data-theme="light"] .topo-pattern {
+			background-image: url('images/topo-bg-light.svg');
+		}
+		.stats-bar {
+			background-image: url('images/topo-bg.svg');
+			background-size: 1000px 500px;
+			background-repeat: repeat;
+		}
+		[data-theme="light"] .stats-bar {
+			background-image: url('images/topo-bg-light.svg');
 		}
 
 		/* ── Stats bar ───────────────────────────────────────────── */
@@ -477,6 +477,7 @@
 			border-top: 1px solid var(--border);
 			border-bottom: 1px solid var(--border);
 			padding: 0;
+			background-blend-mode: overlay;
 		}
 		.stats-bar-inner {
 			display: grid;
@@ -750,7 +751,6 @@
 			transition: border-color 0.2s;
 		}
 		.feature-pill:hover { border-color: var(--border-hi); }
-		.feature-pill .icon { font-size: 28px; margin-bottom: 12px; }
 		.feature-pill h4 { font-size: 15px; margin: 0; color: var(--heading); }
 
 		/* ── Footer ──────────────────────────────────────────────── */
@@ -979,21 +979,18 @@
 			</div>
 			<div class="services-grid">
 				<div class="service-card">
-					<div class="service-icon">🛸</div>
 					<img src="images/new-project.jpg" alt="Lidar Drone Survey Costa Rica" loading="lazy">
 					<h3 data-i18n="services.lidar.title">Lidar Drone Surveying</h3>
 					<p data-i18n="services.lidar.desc">Laser scanning captures terrain data with centimeter accuracy — penetrating forest canopy to map the true ground surface beneath, even in dense Costa Rican jungle.</p>
 					<a href="services/lidar-mapping.html" class="card-link" data-i18n="services.learn.lidar">Learn about Lidar →</a>
 				</div>
 				<div class="service-card" id="aerial-media">
-					<div class="service-icon">🎬</div>
 					<img src="images/vlcsnap-2022-01-24-23h03m50s335.png" alt="Aerial drone video Costa Rica" loading="lazy">
 					<h3 data-i18n="services.video.title">Aerial Video &amp; Photography</h3>
 					<p data-i18n="services.video.desc">Professional 4K aerial video and high-resolution photography for real estate listings, construction progress, property marketing, and promotions across Costa Rica.</p>
 					<a href="quote.html" class="card-link" data-i18n="services.learn.video">Get a video quote →</a>
 				</div>
 				<div class="service-card">
-					<div class="service-icon">📡</div>
 					<img src="images/dji-d-rtk-2-base-station-tripod4.png" alt="GPS RTK geopositioning Costa Rica" loading="lazy">
 					<h3 data-i18n="services.gps.title">GPS Geopositioning</h3>
 					<p data-i18n="services.gps.desc">GPS RTK base station determines exact geographic coordinates for any location — essential for precise boundary demarcation and topographic surveys.</p>
@@ -1036,7 +1033,7 @@
 			</div>
 			<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:20px;">
 				<div style="background:var(--bg-card); border:1px solid var(--border); border-radius:14px; overflow:hidden;">
-					<img src="images/new-project.jpg" alt="LiDAR topographic survey" loading="lazy" style="width:100%;height:180px;object-fit:cover;">
+					<img src="images/analize.jpg" alt="LiDAR topographic survey" loading="lazy" style="width:100%;height:180px;object-fit:cover;">
 					<div style="padding:24px;">
 						<h3 style="font-size:18px;margin:0 0 10px;">LiDAR Topographic Survey</h3>
 						<p style="color:var(--muted);font-size:14px;margin:0 0 16px;">Centimeter-accuracy terrain mapping with 3D point cloud, digital elevation model, and topographic contour maps — delivered in 3–7 days.</p>
@@ -1052,7 +1049,7 @@
 					</div>
 				</div>
 				<div style="background:var(--bg-card); border:1px solid var(--border); border-radius:14px; overflow:hidden;">
-					<img src="images/dji-d-rtk-2-base-station-tripod4.png" alt="GPS boundary survey" loading="lazy" style="width:100%;height:180px;object-fit:cover;">
+					<img src="images/fly.jpg" alt="GPS boundary survey" loading="lazy" style="width:100%;height:180px;object-fit:cover;">
 					<div style="padding:24px;">
 						<h3 style="font-size:18px;margin:0 0 10px;">GPS Boundary Survey</h3>
 						<p style="color:var(--muted);font-size:14px;margin:0 0 16px;">Precise geographic coordinates for legal boundary demarcation, property registration, and engineering control points.</p>
@@ -1101,7 +1098,7 @@
 					</div>
 				</div>
 				<div class="workflow-card">
-					<img src="images/fly.jpg" alt="Flight Mission Execution" loading="lazy">
+					<img src="images/dji-zenmuse-l1-lidar.jpg" alt="Flight Mission Execution" loading="lazy">
 					<div class="workflow-card-body">
 						<div class="workflow-step">Step 02</div>
 						<h3 data-i18n="workflow.fly.title">Flight Mission Execution</h3>
@@ -1109,7 +1106,7 @@
 					</div>
 				</div>
 				<div class="workflow-card">
-					<img src="images/analize.jpg" alt="Data Processing" loading="lazy">
+					<img src="images/a083f93b173459b7a95cb59530a89d3e.jpg" alt="Data Processing" loading="lazy">
 					<div class="workflow-card-body">
 						<div class="workflow-step">Step 03</div>
 						<h3 data-i18n="workflow.analyze.title">Capture, Analyze, Visualize</h3>
@@ -1230,19 +1227,15 @@
 		<div class="container">
 			<div class="features-grid">
 				<div class="feature-pill">
-					<div class="icon">🎯</div>
 					<h4 data-i18n="feat.goal">Goal Driven</h4>
 				</div>
 				<div class="feature-pill">
-					<div class="icon">🤖</div>
 					<h4 data-i18n="feat.auto">Autonomous Workflow</h4>
 				</div>
 				<div class="feature-pill">
-					<div class="icon">🧑‍✈️</div>
 					<h4 data-i18n="feat.pilots">Expert Team of Pilots</h4>
 				</div>
 				<div class="feature-pill">
-					<div class="icon">📐</div>
 					<h4 data-i18n="feat.accurate">Accurate &amp; Precise</h4>
 				</div>
 			</div>
