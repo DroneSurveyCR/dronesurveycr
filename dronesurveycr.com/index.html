@@ -300,34 +300,41 @@
 		/* ── Hero ────────────────────────────────────────────────── */
 		.hero {
 			position: relative;
-			min-height: 88vh;
+			min-height: 92vh;
 			display: flex;
 			align-items: center;
 			overflow: hidden;
-			background: var(--bg);
+			background: #040a06;
 		}
-		.hero-bg {
+		.hero-video {
 			position: absolute;
 			inset: 0;
-			background: url('images/dji-zenmuse-l1-lidar.jpg') 50% 50% / cover no-repeat;
-			filter: brightness(0.25) saturate(0.6);
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: brightness(0.45) saturate(0.8);
 		}
 		.hero-overlay {
 			position: absolute;
 			inset: 0;
-			background: linear-gradient(135deg, rgba(8,12,24,0.9) 0%, rgba(8,12,24,0.5) 60%, transparent 100%);
+			background: linear-gradient(
+				135deg,
+				rgba(4,10,6,0.88) 0%,
+				rgba(4,10,6,0.55) 50%,
+				rgba(4,10,6,0.25) 100%
+			);
 		}
 		.hero-glow {
 			position: absolute;
 			width: 700px;
 			height: 700px;
 			border-radius: 50%;
-			background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 65%);
-			top: -150px;
-			left: -150px;
+			background: radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 65%);
+			bottom: -200px;
+			right: -100px;
 			pointer-events: none;
 		}
-		.hero .container { position: relative; z-index: 2; padding-top: 40px; padding-bottom: 40px; }
+		.hero .container { position: relative; z-index: 2; padding-top: 40px; padding-bottom: 60px; }
 		.hero-eyebrow {
 			display: inline-flex;
 			align-items: center;
@@ -442,6 +449,12 @@
 			gap: 6px;
 		}
 		.card-link:hover { color: var(--accent-hi); gap: 10px; }
+
+		/* ── Topographic pattern ─────────────────────────────────── */
+		.topo-pattern {
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M100 20 Q140 60 100 100 Q60 140 100 180' fill='none' stroke='rgba(34,197,94,0.06)' stroke-width='1.5'/%3E%3Cpath d='M80 20 Q120 60 80 100 Q40 140 80 180' fill='none' stroke='rgba(34,197,94,0.04)' stroke-width='1'/%3E%3Cpath d='M120 20 Q160 60 120 100 Q80 140 120 180' fill='none' stroke='rgba(34,197,94,0.04)' stroke-width='1'/%3E%3Cpath d='M60 20 Q100 60 60 100 Q20 140 60 180' fill='none' stroke='rgba(34,197,94,0.03)' stroke-width='1'/%3E%3Cpath d='M140 20 Q180 60 140 100 Q100 140 140 180' fill='none' stroke='rgba(34,197,94,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+			background-size: 200px 200px;
+		}
 
 		/* ── Stats bar ───────────────────────────────────────────── */
 		.stats-bar {
@@ -780,27 +793,33 @@
 		/* ── Video section ───────────────────────────────────────── */
 		#video-section { background: var(--bg-raised); }
 		.video-wrapper {
-			max-width: 860px;
+			max-width: 960px;
 			margin: 0 auto;
 			border-radius: 16px;
 			overflow: hidden;
 			border: 1px solid var(--border);
 			position: relative;
-			background: url('images/vlcsnap-2022-01-24-23h03m50s335.png') 50% 50% / cover no-repeat;
+		}
+		.video-wrapper video {
+			width: 100%;
+			display: block;
+			border-radius: 16px;
 		}
 		.video-overlay {
 			position: absolute;
 			inset: 0;
-			background: rgba(8,12,24,0.55);
+			background: rgba(4,10,6,0.35);
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			transition: background 0.2s;
 		}
+		.video-overlay:hover { background: rgba(4,10,6,0.15); }
 		.play-btn {
 			width: 72px;
 			height: 72px;
 			border-radius: 50%;
-			background: rgba(34,197,94,0.85);
+			background: rgba(34,197,94,0.9);
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -808,13 +827,20 @@
 			color: #fff;
 			transition: all 0.2s;
 			text-decoration: none;
+			box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
+			animation: pulse-green 2.5s infinite;
 		}
 		.play-btn:hover {
 			background: var(--accent);
-			transform: scale(1.08);
+			transform: scale(1.1);
 			color: #fff;
+			animation: none;
 		}
-		.video-spacer { padding-top: 50%; }
+		@keyframes pulse-green {
+			0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+			70%  { box-shadow: 0 0 0 20px rgba(34,197,94,0); }
+			100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+		}
 
 		/* ── Responsive ──────────────────────────────────────────── */
 		@media (max-width: 768px) {
@@ -892,11 +918,14 @@
 
 	<!-- Hero -->
 	<section class="hero">
-		<div class="hero-bg"></div>
+		<video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/dji-zenmuse-l1-lidar.jpg">
+			<source src="images/hero-drone-1.webm" type="video/webm">
+			<source src="images/hero-drone-1.mp4" type="video/mp4">
+		</video>
 		<div class="hero-overlay"></div>
 		<div class="hero-glow"></div>
 		<div class="container">
-			<div class="hero-eyebrow" data-i18n="hero.eyebrow">Costa Rica's Aerial Survey Specialists</div>
+			<div class="hero-eyebrow" data-i18n="hero.eyebrow">DJI Matrice 350 RTK · Costa Rica's Aerial Survey Specialists</div>
 			<h1 data-i18n="hero.h1">Lidar Drone Surveying<br><span>in Costa Rica</span></h1>
 			<p data-i18n="hero.p">Centimeter-accurate terrain data for real estate, construction, and agriculture. Lidar mapping, aerial photography &amp; GPS geopositioning across all of Costa Rica.</p>
 			<div class="hero-actions">
@@ -1027,9 +1056,12 @@
 				<p data-i18n="future.intro">The latest drone technology makes capturing terrain at any scale fast, accurate, and repeatable. Centimeter-accurate 3D environments you can measure, map, and modify.</p>
 			</div>
 			<div class="video-wrapper">
-				<div class="video-spacer"></div>
+				<video autoplay muted loop playsinline preload="auto" style="max-height:540px;object-fit:cover;">
+					<source src="images/hero-drone-2.webm" type="video/webm">
+					<source src="images/hero-drone-2.mp4" type="video/mp4">
+				</video>
 				<div class="video-overlay">
-					<a href="https://www.youtube.com/watch?v=c0v-oCD8bX0" target="_blank" rel="noopener noreferrer" class="play-btn" title="Watch video">▶</a>
+					<a href="https://www.youtube.com/watch?v=c0v-oCD8bX0" target="_blank" rel="noopener noreferrer" class="play-btn" title="Watch our work on YouTube">▶</a>
 				</div>
 			</div>
 		</div>
@@ -1073,7 +1105,7 @@
 	</section>
 
 	<!-- How to get started -->
-	<section id="how-it-works">
+	<section id="how-it-works" class="topo-pattern">
 		<div class="container">
 			<div class="steps-grid">
 				<div class="steps-intro">
