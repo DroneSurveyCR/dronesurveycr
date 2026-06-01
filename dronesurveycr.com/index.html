@@ -246,7 +246,22 @@
 			flex-wrap: wrap;
 			gap: 10px;
 		}
-		.logo img { height: 34px; }
+		.logo a {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			text-decoration: none;
+		}
+		.logo img { height: 34px; flex-shrink: 0; }
+		.logo-name {
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-size: 15px;
+			font-weight: 700;
+			color: var(--heading);
+			line-height: 1.2;
+			white-space: nowrap;
+		}
+		.logo-name span { color: var(--accent); }
 		nav ul {
 			list-style: none;
 			margin: 0;
@@ -891,6 +906,7 @@
 			<div class="logo">
 				<a href="index.html">
 					<img src="images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
 				</a>
 			</div>
 			<nav>
