@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS & RTK Surveying in Costa Rica | DroneSurveyCR</title>
+    <meta name="description" content="Professional GPS and RTK drone surveying services in Costa Rica. ±2cm accuracy for boundary surveys, construction staking, and Plano Catastro compliance. DJI D-RTK 2 technology.">
+    <meta name="keywords" content="GPS surveying Costa Rica, RTK drone survey, boundary surveys, construction staking, Plano Catastro, geospatial data">
+    <meta name="author" content="DroneSurveyCR">
+    <meta property="og:title" content="GPS & RTK Surveying Services in Costa Rica">
+    <meta property="og:description" content="Professional GPS and RTK surveying with ±2cm accuracy. Plano Catastro compliant surveys for Costa Rica.">
+    <meta property="og:type" content="website">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6L0PFQRYF6');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #5C5C69;
+            background-color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 1rem 0;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #302F40;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #0080FE;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #302F40 0%, #1a1a24 100%);
+            color: #FFFFFF;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid #0080FE;
+        }
+
+        .hero h1 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #0080FE;
+            color: #FFFFFF;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #0066CC;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: #302F40;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #0080FE;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: #302F40;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background-color: #F5F5F7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #0080FE;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 128, 254, 0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            margin: 0.5rem 0;
+        }
+
+        /* Process List */
+        .process-list {
+            counter-reset: step-counter;
+            list-style: none;
+        }
+
+        .process-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+
+        .process-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #0080FE;
+            color: #FFFFFF;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .comparison-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .comparison-list li {
+            background-color: #F5F5F7;
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 3px solid #0080FE;
+        }
+
+        /* Deliverables Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #E5E5EA;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0080FE;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Pricing */
+        .pricing-box {
+            background-color: #F5F5F7;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid #0080FE;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-box h3 {
+            margin-top: 0;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: #0080FE;
+            font-weight: 600;
+            margin: 1rem 0;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            border-bottom: 1px solid #E5E5EA;
+            padding: 1.5rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #302F40;
+            padding: 0.5rem 0;
+            user-select: none;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .faq-question:hover {
+            color: #0080FE;
+        }
+
+        .faq-toggle {
+            color: #0080FE;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle.open {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-top: 0;
+            color: #5C5C69;
+        }
+
+        .faq-answer.open {
+            max-height: 500px;
+            padding-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #302F40;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: #0080FE;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="lidar-mapping.html">LiDAR</a></li>
+            <li><a href="photogrammetry.html">Photogrammetry</a></li>
+            <li><a href="geopositioning.html">GPS</a></li>
+            <li><a href="../quote.html">Quote</a></li>
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Portal</a></li>
+            <li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>GPS & RTK Surveying in Costa Rica</h1>
+        <p>Professional geospatial surveying with centimeter-level accuracy. Perfect for boundary surveys, construction staking, and Plano Catastro compliance.</p>
+        <button class="cta-button" onclick="window.location.href='../quote.html'">Get Your Survey Quote</button>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Introduction Section -->
+        <section>
+            <h2>What is GPS & RTK Surveying?</h2>
+            <p>GPS and Real-Time Kinematic (RTK) surveying represents the highest precision positioning technology available for drone-based geospatial work. While standard GPS provides accuracy within several meters, RTK technology leverages real-time corrections to achieve ±2cm horizontal and ±3cm vertical accuracy—transforming drone surveys into professional surveying tools suitable for legal boundary documentation and construction staking.</p>
+            
+            <p>Our RTK-equipped drones utilize the DJI D-RTK 2 base station system, which establishes a local reference frame and broadcasts real-time differential corrections to the airborne platform. Every waypoint the drone passes through is recorded with centimeter-level precision, creating survey-grade geospatial data directly compatible with Costa Rican cadastral standards.</p>
+
+            <h3>The RTK Advantage Over Standard GPS</h3>
+            <ul class="process-list">
+                <li><strong>Real-Time Corrections:</strong> Base station broadcasts differential corrections, eliminating post-processing delays</li>
+                <li><strong>Centimeter Accuracy:</strong> ±2cm horizontal, ±3cm vertical—suitable for legal surveys and staking</li>
+                <li><strong>Faster Data Collection:</strong> No need for hours of post-processing with differential corrections</li>
+                <li><strong>Direct Integration:</strong> RTK points are immediately usable in CAD, GIS, and surveying software</li>
+                <li><strong>Weather Flexibility:</strong> Functions effectively in many weather conditions without requiring sky exposure during processing</li>
+                <li><strong>Legal Recognition:</strong> Meets Costa Rican standards for boundary documentation</li>
+            </ul>
+        </section>
+
+        <!-- Equipment Section -->
+        <section>
+            <h2>Professional RTK Equipment</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>DJI D-RTK 2 Base Station</h3>
+                    <p>Advanced real-time kinematic base station providing differential GNSS corrections via radio link. Enables centimeter-level accuracy across service area.</p>
+                    <p><strong>Range:</strong> Up to 10km effective coverage in optimal conditions</p>
+                </div>
+                <div class="card">
+                    <h3>Multi-Constellation GNSS</h3>
+                    <p>Receives signals from GPS, GLONASS, Galileo, and BeiDou satellite systems simultaneously. Improves accuracy and reliability in challenging environments.</p>
+                    <p><strong>Update Rate:</strong> 5Hz real-time positioning</p>
+                </div>
+                <div class="card">
+                    <h3>Integrated RTK Module</h3>
+                    <p>Aircraft carries RTK receiver that processes base station corrections. No external antenna required—all corrections transmitted via radio link.</p>
+                    <p><strong>Accuracy:</strong> ±2cm horizontal, ±3cm vertical</p>
+                </div>
+                <div class="card">
+                    <h3>Survey-Grade Data Recording</h3>
+                    <p>Every aircraft position recorded with full accuracy metadata. Data exported in industry-standard formats compatible with CAD, GIS, and surveying software.</p>
+                    <p><strong>Formats:</strong> Shapefiles, DXF, LAS, CSV</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section>
+            <h2>RTK Surveying Applications in Costa Rica</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Boundary & Property Surveys</h3>
+                    <p>Establish precise property boundaries for legal documentation and dispute resolution. RTK accuracy meets requirements for Plano Catastro registration and title verification.</p>
+                </div>
+                <div class="card">
+                    <h3>Construction Staking</h3>
+                    <p>Mark building corners, utilities, and grade reference points with centimeter precision. Reduce surveyor visits and accelerate construction schedules.</p>
+                </div>
+                <div class="card">
+                    <h3>Plano Catastro Compliance</h3>
+                    <p>Generate survey-grade boundary documentation meeting Costa Rican cadastral standards. Legal property registration requires precise geospatial data; RTK delivers this directly.</p>
+                </div>
+                <div class="card">
+                    <h3>Infrastructure Mapping</h3>
+                    <p>Survey utility corridors, power lines, and water systems with precise positioning. Track infrastructure assets for maintenance planning and compliance.</p>
+                </div>
+                <div class="card">
+                    <h3>Road & Grade Establishment</h3>
+                    <p>Mark alignment centerlines, grade elevations, and cross-sections for road construction. Precise vertical accuracy ensures correct grade establishment.</p>
+                </div>
+                <div class="card">
+                    <h3>Easement & Right-of-Way</h3>
+                    <p>Identify and document easements, utility corridors, and property access rights. Survey-grade accuracy supports legal documentation and dispute prevention.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deliverables Section -->
+        <section>
+            <h2>RTK Survey Deliverables</h2>
+            <p>Every RTK survey includes comprehensive data packages ready for integration into your existing workflows:</p>
+            <ul class="checklist">
+                <li><strong>Point Shapefile:</strong> Survey points in Costa Rican coordinate system (CRTM05) with attribute data</li>
+                <li><strong>CAD Drawing (DXF):</strong> Ready for import into AutoCAD, Civil 3D, and other design software</li>
+                <li><strong>Survey Report:</strong> Comprehensive documentation including methodology, accuracy assessment, and metadata</li>
+                <li><strong>Georeferenced Orthomosaic:</strong> Visual reference showing survey point locations and property features</li>
+                <li><strong>CSV Data Export:</strong> Raw point coordinates and elevations in spreadsheet format</li>
+                <li><strong>Elevation Model:</strong> Digital surface model from RTK-positioned drone imagery</li>
+                <li><strong>Control Point Documentation:</strong> Full methodology and base station setup documentation</li>
+                <li><strong>Accuracy Report:</strong> Detailed positional accuracy analysis and quality metrics</li>
+                <li><strong>Data Package:</strong> All files organized and documented for archival and future reference</li>
+            </ul>
+        </section>
+
+        <!-- Costa Rica Standards Section -->
+        <section>
+            <h2>Costa Rican Plano Catastro Standards</h2>
+            <p>Property registration in Costa Rica requires survey-grade documentation meeting Plano Catastro (cadastral plan) standards. Our RTK surveying delivers the precision and legal recognition required:</p>
+            
+            <h3>What is Plano Catastro?</h3>
+            <p>Plano Catastro is the Costa Rican cadastral survey requirement—a precise property boundary survey that must be conducted by licensed surveyors or approved mapping providers. RTK drone surveying is recognized as an approved method when paired with proper control points and methodology documentation.</p>
+
+            <h3>Our Plano Catastro Process:</h3>
+            <ul class="process-list">
+                <li><strong>Property Identification:</strong> Review existing property documents and identify survey area</li>
+                <li><strong>Base Station Setup:</strong> Establish RTK base station with reference to known control points or satellite positioning</li>
+                <li><strong>RTK Survey Flight:</strong> Drone surveys property boundaries with centimeter-level real-time accuracy</li>
+                <li><strong>Corner Marking:</strong> Property corners recorded with full position and elevation data</li>
+                <li><strong>Documentation Package:</strong> Complete survey report with methodology, accuracy assessment, and legal metadata</li>
+                <li><strong>Cadastral Registration:</strong> Deliver survey package suitable for Costa Rican property registration</li>
+            </ul>
+
+            <h3>Why RTK for Plano Catastro?</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>Legal Recognition</h3>
+                    <p>RTK surveying is recognized by Costa Rican authorities as meeting cadastral survey standards when properly documented.</p>
+                </div>
+                <div class="card">
+                    <h3>Rapid Documentation</h3>
+                    <p>Survey completion in days rather than weeks. Faster property registration and legal clarity.</p>
+                </div>
+                <div class="card">
+                    <h3>Lower Cost</h3>
+                    <p>Significantly less expensive than traditional land surveying while maintaining legal validity.</p>
+                </div>
+                <div class="card">
+                    <h3>Complete Record</h3>
+                    <p>Aerial orthomosaics provide visual documentation complementing traditional boundary surveys.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section>
+            <h2>RTK Survey Pricing</h2>
+            <div class="pricing-box">
+                <h3>Transparent, Competitive Pricing</h3>
+                <div class="price">$1,000 base + $80/hectare</div>
+                <p><strong>Pricing Structure:</strong> Base service fee covers survey setup, flight planning, and data processing. Per-hectare rate applies to property area.</p>
+                <p><strong>Example:</strong> 5-hectare property = $1,000 + (5 × $80) = $1,400 total</p>
+
+                <h3>What's Included:</h3>
+                <ul class="checklist">
+                    <li>Full RTK survey with centimeter-level accuracy</li>
+                    <li>Property orthomosaic with survey points marked</li>
+                    <li>Point shapefile in CRTM05 coordinate system</li>
+                    <li>CAD drawing (DXF) for integration into design software</li>
+                    <li>Survey report with accuracy documentation</li>
+                    <li>Elevation data for topographic analysis</li>
+                    <li>Metadata and control point documentation</li>
+                    <li>30-day revisions and clarifications</li>
+                </ul>
+
+                <h3>Turnaround Time</h3>
+                <p><strong>Standard Service:</strong> 72 hours from survey completion to deliverables</p>
+                <p><strong>Express Service:</strong> 24 hours (additional 25% fee)</p>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section>
+            <h2>Why Choose DroneSurveyCR for RTK Surveying?</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Professional Equipment</h3>
+                    <p>DJI D-RTK 2 system with multi-constellation GNSS. Enterprise-grade equipment ensuring consistent accuracy and reliability.</p>
+                </div>
+                <div class="card">
+                    <h3>DGAC Licensed</h3>
+                    <p>Authorized by Costa Rica's aviation authority. All pilots hold commercial drone licenses and comprehensive insurance.</p>
+                </div>
+                <div class="card">
+                    <h3>Plano Catastro Expertise</h3>
+                    <p>Extensive experience with Costa Rican cadastral standards. Surveys prepared for legal property registration.</p>
+                </div>
+                <div class="card">
+                    <h3>Rapid Turnaround</h3>
+                    <p>72-hour standard service—24-hour express available. Accelerate property registration and construction schedules.</p>
+                </div>
+                <div class="card">
+                    <h3>Certified Accuracy</h3>
+                    <p>Every survey includes detailed accuracy assessment. Independent verification available for critical projects.</p>
+                </div>
+                <div class="card">
+                    <h3>Experienced Team</h3>
+                    <p>Team with decade-plus combined experience in geospatial surveying. Qualified to handle complex projects and challenging sites.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(event)">
+                    <span>What is the difference between RTK and standard GPS positioning?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard GPS accuracy depends on atmospheric conditions and satellite geometry, typically achieving 2-5 meter accuracy. RTK uses real-time corrections from a base station to eliminate atmospheric errors, achieving ±2cm accuracy. For surveying applications, RTK is the only appropriate technology.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(event)">
+                    <span>Is RTK surveying legally recognized for Plano Catastro in Costa Rica?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. RTK drone surveying is recognized as an approved cadastral survey method when conducted with proper methodology, control point documentation, and accuracy verification. We prepare all surveys for legal property registration meeting Costa Rican standards.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(event)">
+                    <span>What is the maximum range of RTK corrections?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Typical RTK effective range is 5-10km depending on terrain and radio signal propagation. For larger properties or remote areas, we deploy additional base stations to maintain centimeter accuracy across the entire survey area.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(event)">
+                    <span>Can RTK surveying work in poor weather?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>RTK positioning requires clear sky visibility for satellite signals. Heavy cloud cover and rain can degrade accuracy. We monitor weather conditions and schedule surveys during optimal windows. Most Costa Rican locations offer adequate clear-sky opportunities for surveying.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(event)">
+                    <span>What coordinate system do you use for Costa Rican surveys?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We deliver all surveys in CRTM05 (Costa Rican Transverse Mercator 2005)—the official Costa Rican projection system. This coordinate system is required for Plano Catastro registration and all official property documentation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(event)">
+                    <span>How long does a typical RTK survey take?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Flight time depends on property size. A typical 5-hectare property requires 15-30 minutes of flight time. Total site time including base station setup and verification usually ranges 2-4 hours. Data processing and report generation add 24-72 hours depending on complexity.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024-2025 DroneSurveyCR. All rights reserved.</p>
+        <p>Professional drone surveying services throughout Costa Rica. | <a href="../quote.html">Contact Us</a></p>
+        <p>DGAC Licensed Operators | Full Commercial Insurance | Costa Rican Cadastral Standards Compliant</p>
+    </footer>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        function toggleFAQ(event) {
+            const question = event.currentTarget;
+            const answer = question.nextElementSibling;
+            const toggle = question.querySelector('.faq-toggle');
+
+            // Close all other answers
+            document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                if (openAnswer !== answer) {
+                    openAnswer.classList.remove('open');
+                    openAnswer.previousElementSibling.querySelector('.faq-toggle').classList.remove('open');
+                }
+            });
+
+            // Toggle current answer
+            answer.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
+    </script>
+
+    <!-- Schema.org FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the difference between RTK and standard GPS positioning?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Standard GPS accuracy depends on atmospheric conditions and satellite geometry, typically achieving 2-5 meter accuracy. RTK uses real-time corrections from a base station to eliminate atmospheric errors, achieving ±2cm accuracy. For surveying applications, RTK is the only appropriate technology."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is RTK surveying legally recognized for Plano Catastro in Costa Rica?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. RTK drone surveying is recognized as an approved cadastral survey method when conducted with proper methodology, control point documentation, and accuracy verification. We prepare all surveys for legal property registration meeting Costa Rican standards."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the maximum range of RTK corrections?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Typical RTK effective range is 5-10km depending on terrain and radio signal propagation. For larger properties or remote areas, we deploy additional base stations to maintain centimeter accuracy across the entire survey area."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can RTK surveying work in poor weather?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RTK positioning requires clear sky visibility for satellite signals. Heavy cloud cover and rain can degrade accuracy. We monitor weather conditions and schedule surveys during optimal windows. Most Costa Rican locations offer adequate clear-sky opportunities for surveying."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What coordinate system do you use for Costa Rican surveys?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We deliver all surveys in CRTM05 (Costa Rican Transverse Mercator 2005)—the official Costa Rican projection system. This coordinate system is required for Plano Catastro registration and all official property documentation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does a typical RTK survey take?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Flight time depends on property size. A typical 5-hectare property requires 15-30 minutes of flight time. Total site time including base station setup and verification usually ranges 2-4 hours. Data processing and report generation add 24-72 hours depending on complexity."
+                }
+            }
+        ]
+    }
+    </script>
+</body>
+</html>
