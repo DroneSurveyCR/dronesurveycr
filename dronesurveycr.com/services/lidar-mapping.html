@@ -1,414 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiDAR Drone Mapping in Costa Rica | DroneSurveyCR</title>
-    <meta name="description" content="Professional LiDAR drone surveying in Costa Rica. High-precision topographic mapping with ±1-3cm accuracy. DJI Matrice 300 RTK equipped. DGAC licensed. 72-hour delivery.">
-    <meta name="keywords" content="LiDAR mapping Costa Rica, drone survey, topographic survey, point cloud, DEM, DJI Matrice 300 RTK">
-    <link rel="canonical" href="https://www.dronesurveycr.com/services/lidar-mapping.html">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="LiDAR Drone Mapping in Costa Rica | DroneSurveyCR">
-    <meta property="og:description" content="High-precision LiDAR drone surveys across Costa Rica. Topographic mapping, point clouds, and digital elevation models.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.dronesurveycr.com/services/lidar-mapping.html">
-    <meta name="theme-color" content="#0080FE">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-6L0PFQRYF6');
-    </script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #5C5C69; background: #fff; }
-        h1, h2, h3, h4 { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; color: #302F40; margin-top: 1.5em; margin-bottom: 0.5em; }
-        h1 { font-size: 2.5em; line-height: 1.2; margin-top: 0; }
-        h2 { font-size: 1.8em; }
-        h3 { font-size: 1.3em; }
-        a { color: #0080FE; text-decoration: none; transition: color 0.3s; }
-        a:hover { color: #005BB3; text-decoration: underline; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Navigation */
-        nav { background: #302F40; padding: 1em 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
-        nav .logo { display: flex; align-items: center; }
-        nav .logo img { height: 40px; margin-right: 1em; }
-        nav .logo a { color: #fff; font-weight: 600; font-size: 1.1em; }
-        nav ul { list-style: none; display: flex; gap: 2em; align-items: center; flex-wrap: wrap; }
-        nav a { color: #fff; font-size: 0.95em; }
-        nav a:hover { color: #0080FE; }
-        
-        /* Hero Section */
-        .hero { background: linear-gradient(135deg, #302F40 0%, #1a1820 100%); color: #fff; padding: 6em 0; text-align: center; }
-        .hero h1 { color: #fff; margin-bottom: 0.5em; }
-        .hero .subtitle { font-size: 1.2em; margin-bottom: 2em; color: #ddd; }
-        
-        /* Main Content */
-        .content { padding: 4em 0; }
-        .section { margin-bottom: 4em; }
-        .section p { margin-bottom: 1em; line-height: 1.8; }
-        
-        /* Stats/Specs Grid */
-        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2em; margin: 2em 0; }
-        .spec-card { background: #f8f9fa; padding: 2em; border-left: 4px solid #0080FE; border-radius: 4px; }
-        .spec-card h4 { color: #0080FE; margin-top: 0; }
-        .spec-card p { font-size: 0.95em; margin: 0.5em 0; }
-        
-        /* Use Cases */
-        .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2em; margin: 2em 0; }
-        .use-case { background: #fff; border: 1px solid #e0e0e0; padding: 1.5em; border-radius: 4px; }
-        .use-case h4 { color: #0080FE; margin-top: 0; }
-        .use-case p { font-size: 0.95em; }
-        
-        /* Deliverables List */
-        .deliverables { background: #f8f9fa; padding: 2em; border-radius: 4px; margin: 2em 0; }
-        .deliverables ul { list-style: none; padding-left: 0; }
-        .deliverables li { padding: 0.7em 0; padding-left: 2em; position: relative; }
-        .deliverables li:before { content: "✓"; position: absolute; left: 0; color: #0080FE; font-weight: bold; }
-        
-        /* Why Choose Us */
-        .why-choose { background: #e8f4ff; padding: 2.5em; border-radius: 4px; margin: 2em 0; border-left: 5px solid #0080FE; }
-        .why-choose h3 { color: #0080FE; margin-top: 0; }
-        .why-choose ul { list-style-position: inside; padding-left: 1em; }
-        .why-choose li { margin-bottom: 0.8em; }
-        
-        /* Pricing */
-        .pricing { background: #302F40; color: #fff; padding: 2.5em; border-radius: 4px; margin: 2em 0; text-align: center; }
-        .pricing h3 { color: #0080FE; margin-top: 0; }
-        .price-detail { font-size: 1.1em; margin: 1em 0; }
-        
-        /* CTA Buttons */
-        .cta-group { display: flex; gap: 1em; justify-content: center; margin: 2em 0; flex-wrap: wrap; }
-        .btn { display: inline-block; padding: 1em 2em; border-radius: 4px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-align: center; border: none; font-size: 1em; }
-        .btn-primary { background: #0080FE; color: #fff; }
-        .btn-primary:hover { background: #005BB3; text-decoration: none; }
-        .btn-secondary { background: #302F40; color: #fff; }
-        .btn-secondary:hover { background: #1a1820; text-decoration: none; }
-        
-        /* FAQ */
-        .faq { margin: 3em 0; }
-        .faq-item { margin-bottom: 1.5em; border-bottom: 1px solid #e0e0e0; padding-bottom: 1.5em; }
-        .faq-item h4 { color: #0080FE; margin-top: 0; cursor: pointer; user-select: none; }
-        .faq-item p { margin: 0.7em 0; }
-        
-        /* Footer */
-        footer { background: #302F40; color: #fff; padding: 3em 0; margin-top: 4em; }
-        footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2em; }
-        footer a { color: #0080FE; }
-        footer a:hover { color: #fff; }
-        footer .footer-section h4 { color: #fff; font-size: 1em; margin-top: 0; margin-bottom: 1em; }
-        footer ul { list-style: none; }
-        footer li { margin-bottom: 0.5em; }
-        footer .copyright { grid-column: 1 / -1; border-top: 1px solid #5C5C69; padding-top: 2em; text-align: center; color: #999; margin-top: 1em; }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.4em; }
-            nav ul { gap: 1em; }
-            footer .container { grid-template-columns: 1fr; }
-            footer .copyright { grid-column: 1; }
-            .hero { padding: 3em 0; }
-            .cta-group { flex-direction: column; }
-            .btn { width: 100%; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiDAR Drone Mapping in Costa Rica | DroneSurveyCR</title>
+  <meta name="description" content="Professional LiDAR drone surveying in Costa Rica. High-precision topographic mapping with ±1-3cm accuracy. DJI Matrice 300 RTK equipped. DGAC licensed. 72-hour delivery.">
+  <meta name="keywords" content="LiDAR mapping Costa Rica, drone survey, topographic survey, point cloud, DEM, DJI Matrice 300 RTK">
+  <link rel="canonical" href="https://www.dronesurveycr.com/services/lidar-mapping.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="LiDAR Drone Mapping in Costa Rica | DroneSurveyCR">
+  <meta property="og:description" content="High-precision LiDAR drone surveys across Costa Rica. Topographic mapping, point clouds, and digital elevation models.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.dronesurveycr.com/services/lidar-mapping.html">
+  <meta name="theme-color" content="#22c55e">
+  <link rel="icon" href="../images/favicon.ico">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6L0PFQRYF6');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How accurate is LiDAR mapping compared to traditional surveying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LiDAR achieves ±1-3cm vertical accuracy in optimal conditions, matching or exceeding traditional ground surveys. The key advantage is speed and the ability to map terrain under vegetation."
         }
-    </style>
+      },
+      {
+        "@type": "Question",
+        "name": "Can LiDAR penetrate dense rainforest vegetation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, LiDAR laser pulses can penetrate 2-4 meters of forest canopy, allowing us to classify ground points beneath vegetation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a LiDAR survey take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flight time depends on survey area. Data collection takes 1-2 days. Processing and delivery of final products typically takes 48-72 hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What weather conditions are suitable for LiDAR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LiDAR operates in light to moderate rain and cloud cover. Heavy rain or storm conditions prevent operations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "In what formats do you deliver LiDAR data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We deliver point clouds in LAS/LAZ format, DEMs and DSMs as GeoTIFF, contour maps as DWG/DXF, and data also in Shapefile and GeoJSON formats."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you monitor volume changes over time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. By conducting repeat LiDAR surveys at different dates, we can detect volume changes in stockpiles, excavations, and landforms."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">
-                <img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica Logo">
-                <a href="../index.html">DroneSurveyCR</a>
-            </div>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="lidar-mapping.html">Services</a></li>
-                <li><a href="photogrammetry.html">Photogrammetry</a></li>
-                <li><a href="geopositioning.html">GPS</a></li>
-                <li><a href="../quote.html">Get a Quote</a></li>
-                <li><a href="../blog/">Blog</a></li>
-                <li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank">Portal</a></li>
-                <li><a href="https://wa.me/50672938970" target="_blank">WhatsApp</a></li>
-                <li><a href="https://g.co/kgs/VnbxFYr" target="_blank">Reviews</a></li>
-            </ul>
+
+<!-- Top bar -->
+<div id="top-bar">
+	<div class="container">
+		<div class="inner">
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+			</div>
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Header -->
+<header id="site-header">
+	<div class="container">
+		<div class="inner">
+			<div class="logo">
+				<a href="../index.html">
+					<img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="index.html" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="photogrammetry.html">Photogrammetry</a></li>
+						</ul>
+					</li>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer" data-i18n="nav.portal">Client Portal</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Services</a> / LiDAR Mapping</div>
+      <div class="tag">Aerial Laser Scanning</div>
+      <h1>LiDAR Drone Mapping in Costa Rica</h1>
+      <p class="lead">Precision topographic surveys with ±1–3 cm accuracy using DJI Matrice 300 RTK and Livox LiDAR technology — penetrating Costa Rica's densest forest canopy.</p>
+    </div>
+  </section>
+
+  <!-- What is LiDAR -->
+  <section>
+    <div class="container">
+      <div class="prose wide">
+        <h2>What is LiDAR Drone Mapping?</h2>
+        <p>LiDAR (Light Detection and Ranging) is an advanced surveying technology that uses laser pulses to create highly accurate 3D maps of terrain and structures. Unlike traditional surveying methods that require ground crews and are limited by vegetation, LiDAR can penetrate forest canopy and dense vegetation to reveal the precise topography underneath.</p>
+        <p>At Drone Survey Costa Rica, we utilize the DJI Matrice 300 RTK equipped with a Livox LiDAR module — a professional-grade system that delivers survey-quality accuracy across diverse Costa Rican landscapes, from dense rainforests to construction sites.</p>
+        <p>LiDAR surveying is particularly valuable in Costa Rica where terrain complexity, vegetation density, and climate conditions make traditional surveying challenging. Our aerial LiDAR solution eliminates the need for ground crews to access difficult terrain, reducing costs and safety risks while delivering results in days instead of weeks.</p>
+
+        <h2>How LiDAR Mapping Works</h2>
+        <p><strong>Equipment:</strong> The DJI Matrice 300 RTK carries a Livox LiDAR module that emits laser pulses at a rate of 240,000 points per second. This system also integrates RTK GPS for absolute positioning accuracy.</p>
+        <p><strong>Data Collection:</strong> As the drone flies predetermined flight paths over your survey area, the LiDAR sensor continuously emits laser pulses and measures the time for light to return after reflecting off terrain, vegetation, and structures. RTK GPS provides real-time positional accuracy of ±2 cm horizontally.</p>
+        <p><strong>Point Cloud Generation:</strong> The reflected signals are converted into a 3D point cloud — millions of individual points with precise XYZ coordinates. Each point represents a reflection from terrain, vegetation, buildings, or other objects.</p>
+        <p><strong>Data Processing:</strong> Our post-processing workflow classifies points into ground, vegetation, and objects, then generates deliverable products including Digital Elevation Models (DEM), orthophoto mosaics, and contour maps.</p>
+        <p><strong>Output:</strong> All data is georeferenced to Costa Rica's official coordinate system and delivered in standard industry formats compatible with AutoCAD, GIS software, and engineering platforms.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- System Specifications -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Equipment</div>
+        <h2>System Specifications</h2>
+      </div>
+      <table class="spec-table">
+        <tbody>
+          <tr>
+            <th>Accuracy</th>
+            <td>±1–3 cm vertical accuracy in optimal conditions; ±5–10 cm under dense vegetation</td>
+          </tr>
+          <tr>
+            <th>Range</th>
+            <td>200 meters maximum operational altitude with point cloud collection up to 150 m</td>
+          </tr>
+          <tr>
+            <th>Data Density</th>
+            <td>240,000 points per second collection rate; 20–50 points per square meter ground density</td>
+          </tr>
+          <tr>
+            <th>Vegetation Penetration</th>
+            <td>Penetrates 2–4 meters of forest canopy to reveal ground topography beneath vegetation</td>
+          </tr>
+          <tr>
+            <th>Flight Time</th>
+            <td>45-minute operational endurance per battery; scalable to large survey areas</td>
+          </tr>
+          <tr>
+            <th>Coverage Area</th>
+            <td>Single projects from 50 hectares to 5,000+ hectares across all of Costa Rica</td>
+          </tr>
+          <tr>
+            <th>Platform</th>
+            <td>DJI Matrice 300 RTK with Zenmuse L1 LiDAR + 1-inch CMOS camera, 3-axis gimbal</td>
+          </tr>
+          <tr>
+            <th>Coordinate System</th>
+            <td>Georeferenced to Costa Rica's official coordinate system (CRTM05)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Use Cases -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Applications</div>
+        <h2>LiDAR Mapping Use Cases in Costa Rica</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <img src="../images/dji-zenmuse-l1-lidar.jpg" alt="Topographic Surveys">
+          <h3>Topographic Surveys</h3>
+          <p>Obtain precise elevation data for engineering design, infrastructure planning, and feasibility studies. Perfect for baseline topographic documentation of undeveloped land.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>LiDAR Drone Mapping in Costa Rica</h1>
-            <p class="subtitle">Precision topographic surveys with ±1-3cm accuracy using DJI Matrice 300 RTK and Livox LiDAR technology</p>
+        <div class="info-card">
+          <img src="../images/new-project.jpg" alt="Construction Site Mapping">
+          <h3>Construction Site Mapping</h3>
+          <p>Create detailed pre-construction surveys, track site progress with periodic scans, and verify cut/fill volumes. LiDAR ensures centimeter-level accuracy for design compliance.</p>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="content">
-        <div class="container">
-            <!-- What is LiDAR -->
-            <section class="section">
-                <h2>What is LiDAR Drone Mapping?</h2>
-                <p>LiDAR (Light Detection and Ranging) is an advanced surveying technology that uses laser pulses to create highly accurate 3D maps of terrain and structures. Unlike traditional surveying methods that require ground crews and are limited by vegetation, LiDAR can penetrate forest canopy and dense vegetation to reveal the precise topography underneath.</p>
-                <p>At Drone Survey Costa Rica, we utilize the DJI Matrice 300 RTK equipped with a Livox LiDAR module—a professional-grade system that delivers survey-quality accuracy across diverse Costa Rican landscapes, from dense rainforests to construction sites.</p>
-                <p>LiDAR surveying is particularly valuable in Costa Rica where terrain complexity, vegetation density, and climate conditions make traditional surveying challenging. Our aerial LiDAR solution eliminates the need for ground crews to access difficult terrain, reducing costs and safety risks while delivering results in days instead of weeks.</p>
-            </section>
-
-            <!-- How It Works -->
-            <section class="section">
-                <h2>How LiDAR Mapping Works</h2>
-                <p><strong>Equipment:</strong> The DJI Matrice 300 RTK carries a Livox LiDAR module that emits laser pulses at a rate of 240,000 points per second. This system also integrates RTK GPS for absolute positioning accuracy.</p>
-                <p><strong>Data Collection:</strong> As the drone flies predetermined flight paths over your survey area, the LiDAR sensor continuously emits laser pulses and measures the time for light to return after reflecting off terrain, vegetation, and structures. RTK GPS provides real-time positional accuracy of ±2cm horizontally.</p>
-                <p><strong>Point Cloud Generation:</strong> The reflected signals are converted into a 3D point cloud—millions of individual points with precise XYZ coordinates. Each point represents a reflection from terrain, vegetation, buildings, or other objects.</p>
-                <p><strong>Data Processing:</strong> Our post-processing workflow classifies points into ground, vegetation, and objects, then generates deliverable products including Digital Elevation Models (DEM), orthophoto mosaics, and contour maps.</p>
-                <p><strong>Output:</strong> All data is georeferenced to Costa Rica's official coordinate system and delivered in standard industry formats compatible with AutoCAD, GIS software, and engineering platforms.</p>
-            </section>
-
-            <!-- Specifications -->
-            <section class="section">
-                <h2>System Specifications</h2>
-                <div class="specs-grid">
-                    <div class="spec-card">
-                        <h4>Accuracy</h4>
-                        <p>±1-3cm vertical accuracy in optimal conditions; ±5-10cm under dense vegetation</p>
-                    </div>
-                    <div class="spec-card">
-                        <h4>Range</h4>
-                        <p>200 meters maximum operational altitude with point cloud collection up to 150m</p>
-                    </div>
-                    <div class="spec-card">
-                        <h4>Data Density</h4>
-                        <p>240,000 points per second collection rate; 20-50 points per square meter ground density</p>
-                    </div>
-                    <div class="spec-card">
-                        <h4>Vegetation Penetration</h4>
-                        <p>Penetrates 2-4 meters of forest canopy to reveal ground topography beneath vegetation</p>
-                    </div>
-                    <div class="spec-card">
-                        <h4>Flight Time</h4>
-                        <p>45-minute operational endurance per battery; scalable to large survey areas</p>
-                    </div>
-                    <div class="spec-card">
-                        <h4>Coverage Area</h4>
-                        <p>Process surveys across entire Costa Rica; single projects from 50 hectares to 5,000+ hectares</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Use Cases -->
-            <section class="section">
-                <h2>LiDAR Mapping Use Cases in Costa Rica</h2>
-                <div class="use-cases">
-                    <div class="use-case">
-                        <h4>Topographic Surveys</h4>
-                        <p>Obtain precise elevation data for engineering design, infrastructure planning, and feasibility studies. Perfect for baseline topographic documentation of undeveloped land.</p>
-                    </div>
-                    <div class="use-case">
-                        <h4>Construction Site Mapping</h4>
-                        <p>Create detailed pre-construction surveys, track site progress with periodic scans, and verify cut/fill volumes. LiDAR ensures centimeter-level accuracy for design compliance.</p>
-                    </div>
-                    <div class="use-case">
-                        <h4>Forestry Analysis</h4>
-                        <p>Measure forest structure, canopy height, timber volume, and biomass. Essential for sustainable forest management, carbon credits, and reforestation monitoring in Costa Rica's conservation projects.</p>
-                    </div>
-                    <div class="use-case">
-                        <h4>Flood Risk Assessment</h4>
-                        <p>Generate precise Digital Elevation Models to identify flood-prone areas, model water flow, and design drainage solutions. Critical for property development near rivers and coastal zones.</p>
-                    </div>
-                    <div class="use-case">
-                        <h4>Agriculture & Land Development</h4>
-                        <p>Survey terrain for agricultural planning, terrace design, and soil conservation. Determine drainage patterns and optimal land use allocation across properties.</p>
-                    </div>
-                    <div class="use-case">
-                        <h4>Infrastructure Design</h4>
-                        <p>Support road design, utility corridor planning, and facility siting with accurate terrain models. LiDAR provides the elevation data foundation for engineering projects.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Deliverables -->
-            <section class="section">
-                <h2>LiDAR Survey Deliverables</h2>
-                <div class="deliverables">
-                    <ul>
-                        <li><strong>3D Point Cloud</strong> - Complete LiDAR point cloud in LAS/LAZ format with RGB color and intensity values</li>
-                        <li><strong>Digital Elevation Model (DEM)</strong> - Bare earth elevation grid at 25cm resolution, removing vegetation and structures</li>
-                        <li><strong>Digital Surface Model (DSM)</strong> - Elevation surface including vegetation and buildings for volume calculations</li>
-                        <li><strong>Contour Maps</strong> - Vector contour lines at specified intervals (typically 0.5m or 1m) in DWG/DXF format</li>
-                        <li><strong>Orthophoto Mosaic</strong> - High-resolution aerial image perfectly registered to coordinates (GeoTIFF, 5cm resolution)</li>
-                        <li><strong>Classified Point Cloud</strong> - Ground points, vegetation, buildings, and power lines classified and separated</li>
-                        <li><strong>Hillshade Visualization</strong> - 3D terrain visualization for presentation and analysis</li>
-                        <li><strong>Shapefiles & GeoJSON</strong> - Vector formats for GIS integration and further analysis</li>
-                        <li><strong>AutoCAD Compatibility</strong> - All data available in DWG format for direct CAD integration</li>
-                        <li><strong>RINEX GPS Data</strong> - Raw GPS data for post-processing corrections if required</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Why Choose Us -->
-            <section class="section">
-                <div class="why-choose">
-                    <h3>Why Choose Drone Survey Costa Rica for LiDAR Mapping?</h3>
-                    <ul>
-                        <li><strong>Professional Equipment:</strong> DJI Matrice 300 RTK with Livox LiDAR—the industry standard for aerial surveying</li>
-                        <li><strong>DGAC Licensed:</strong> All our pilots hold official drone operating licenses from Costa Rica's aviation authority</li>
-                        <li><strong>National Coverage:</strong> We operate throughout all of Costa Rica, including remote rainforest and mountain regions</li>
-                        <li><strong>Rapid Turnaround:</strong> Typical 72-hour delivery for processed data; rush options available for time-sensitive projects</li>
-                        <li><strong>Survey-Grade Accuracy:</strong> ±1-3cm vertical accuracy meets engineering and surveying standards</li>
-                        <li><strong>Vegetation Penetration:</strong> LiDAR reveals terrain under Costa Rica's dense forest canopy where traditional methods fail</li>
-                        <li><strong>Cost-Effective:</strong> More affordable than conventional ground surveys while delivering superior data quality and coverage</li>
-                        <li><strong>Local Expertise:</strong> We understand Costa Rica's terrain, climate, and regulatory environment</li>
-                        <li><strong>Data Longevity:</strong> Your point cloud data never expires—archive for future reference, comparison, and analysis</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Pricing -->
-            <section class="section">
-                <div class="pricing">
-                    <h3>LiDAR Mapping Pricing</h3>
-                    <div class="price-detail">
-                        <strong>Base Fee:</strong> $1,000 USD per survey project
-                    </div>
-                    <div class="price-detail">
-                        <strong>Area Fee:</strong> $80 USD per hectare
-                    </div>
-                    <p style="margin-top: 1.5em; font-size: 0.95em;">Example: A 100-hectare survey costs $1,000 + ($80 × 100) = $9,000 total</p>
-                    <p style="font-size: 0.95em;">Travel to remote locations may incur additional costs. Complex terrain or rush delivery increases fees. Contact us for a detailed quote tailored to your specific project.</p>
-                </div>
-            </section>
-
-            <!-- CTA -->
-            <section class="section" style="text-align: center;">
-                <h2>Ready to Map Your Property?</h2>
-                <p>Get precise LiDAR survey data for your Costa Rican project. Rapid turnaround, professional results, competitive pricing.</p>
-                <div class="cta-group">
-                    <a href="../quote.html" class="btn btn-primary">Get a Quote</a>
-                    <a href="https://wa.me/50672938970" class="btn btn-secondary" target="_blank">Message WhatsApp</a>
-                </div>
-            </section>
-
-            <!-- FAQ -->
-            <section class="section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq">
-                    <div class="faq-item">
-                        <h4>How accurate is LiDAR mapping compared to traditional surveying?</h4>
-                        <p>LiDAR achieves ±1-3cm vertical accuracy in optimal conditions, matching or exceeding traditional ground surveys. The key advantage is speed and the ability to map terrain under vegetation. Traditional surveyors cannot easily access steep, forested, or swampy terrain that LiDAR covers effortlessly.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h4>Can LiDAR penetrate dense rainforest vegetation?</h4>
-                        <p>Yes, LiDAR laser pulses can penetrate 2-4 meters of forest canopy. Multiple laser pulses reflect off canopy layers and the ground, allowing us to classify ground points beneath vegetation. This makes LiDAR invaluable for Costa Rica's densely forested areas where aerial photography alone cannot reveal terrain.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h4>How long does a LiDAR survey take?</h4>
-                        <p>Flight time depends on survey area. A 100-hectare area typically requires 2-4 flights. Data collection takes 1-2 days depending on weather and logistics. Processing and delivery of final products typically takes 48-72 hours. We offer expedited processing for time-critical projects.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h4>What weather conditions are suitable for LiDAR?</h4>
-                        <p>LiDAR operates in light to moderate rain and cloud cover. Heavy rain or storm conditions prevent operations. Unlike photography-based surveys, light cloud cover does not significantly impact LiDAR data quality. We can often survey on days when photogrammetry is impossible.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h4>In what formats do you deliver LiDAR data?</h4>
-                        <p>We deliver point clouds in LAS/LAZ format, DEMs and DSMs as GeoTIFF, contour maps as DWG/DXF, and data also in Shapefile and GeoJSON formats. All data is georeferenced to Costa Rica's official coordinate system and compatible with AutoCAD, ArcGIS, QGIS, and specialized surveying software.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h4>Can you monitor volume changes over time?</h4>
-                        <p>Yes. By conducting repeat LiDAR surveys at different dates, we can detect volume changes in stockpiles, excavations, and landforms. This is valuable for construction progress tracking, mining operations, and erosion monitoring. Contact us to discuss multi-temporal survey programs.</p>
-                    </div>
-                </div>
-            </section>
+        <div class="info-card">
+          <img src="../images/fly.jpg" alt="Forestry Analysis">
+          <h3>Forestry Analysis</h3>
+          <p>Measure forest structure, canopy height, timber volume, and biomass. Essential for sustainable forest management, carbon credits, and reforestation monitoring in Costa Rica's conservation projects.</p>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-section">
-                <h4>Drone Survey Costa Rica</h4>
-                <p>Professional aerial surveying with LiDAR, photogrammetry, and GPS technology across Costa Rica.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../quote.html">Get a Quote</a></li>
-                    <li><a href="../sitemap.xml">Sitemap</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="https://wa.me/50672938970" target="_blank">WhatsApp: +506 7293 8970</a></li>
-                    <li><a href="https://g.co/kgs/VnbxFYr" target="_blank">Google Reviews</a></li>
-                </ul>
-            </div>
+        <div class="info-card">
+          <img src="../images/analize.jpg" alt="Flood Risk Assessment">
+          <h3>Flood Risk Assessment</h3>
+          <p>Generate precise Digital Elevation Models to identify flood-prone areas, model water flow, and design drainage solutions. Critical for property development near rivers and coastal zones.</p>
         </div>
-        <div class="container">
-            <div class="copyright">
-                © 2026 Drone Survey Costa Rica. All rights reserved. | <a href="../index.html">Home</a> | <a href="../quote.html">Quote</a> | <a href="../sitemap.xml">Sitemap</a>
-            </div>
+        <div class="info-card">
+          <img src="../images/plan.jpg" alt="Agriculture and Land Development">
+          <h3>Agriculture &amp; Land Development</h3>
+          <p>Survey terrain for agricultural planning, terrace design, and soil conservation. Determine drainage patterns and optimal land use allocation across properties.</p>
         </div>
-    </footer>
+        <div class="info-card">
+          <img src="../images/dji-d-rtk-2-base-station-tripod4.png" alt="Infrastructure Design">
+          <h3>Infrastructure Design</h3>
+          <p>Support road design, utility corridor planning, and facility siting with accurate terrain models. LiDAR provides the elevation data foundation for engineering projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "How accurate is LiDAR mapping compared to traditional surveying?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "LiDAR achieves ±1-3cm vertical accuracy in optimal conditions, matching or exceeding traditional ground surveys. The key advantage is speed and the ability to map terrain under vegetation."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can LiDAR penetrate dense rainforest vegetation?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, LiDAR laser pulses can penetrate 2-4 meters of forest canopy, allowing us to classify ground points beneath vegetation."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How long does a LiDAR survey take?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Flight time depends on survey area. Data collection takes 1-2 days. Processing and delivery of final products typically takes 48-72 hours."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What weather conditions are suitable for LiDAR?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "LiDAR operates in light to moderate rain and cloud cover. Heavy rain or storm conditions prevent operations."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "In what formats do you deliver LiDAR data?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "We deliver point clouds in LAS/LAZ format, DEMs and DSMs as GeoTIFF, contour maps as DWG/DXF, and data also in Shapefile and GeoJSON formats."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can you monitor volume changes over time?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. By conducting repeat LiDAR surveys at different dates, we can detect volume changes in stockpiles, excavations, and landforms."
-                }
-            }
-        ]
-    }
-    </script>
+  <div class="divider"></div>
+
+  <!-- Deliverables -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Deliverables</div>
+        <h2>LiDAR Survey Deliverables</h2>
+      </div>
+      <ul class="check-list">
+        <li><strong>3D Point Cloud</strong> — Complete LiDAR point cloud in LAS/LAZ format with RGB color and intensity values</li>
+        <li><strong>Digital Elevation Model (DEM)</strong> — Bare earth elevation grid at 25 cm resolution, removing vegetation and structures</li>
+        <li><strong>Digital Surface Model (DSM)</strong> — Elevation surface including vegetation and buildings for volume calculations</li>
+        <li><strong>Contour Maps</strong> — Vector contour lines at specified intervals (typically 0.5 m or 1 m) in DWG/DXF format</li>
+        <li><strong>Orthophoto Mosaic</strong> — High-resolution aerial image perfectly registered to coordinates (GeoTIFF, 5 cm resolution)</li>
+        <li><strong>Classified Point Cloud</strong> — Ground points, vegetation, buildings, and power lines classified and separated</li>
+        <li><strong>Hillshade Visualization</strong> — 3D terrain visualization for presentation and analysis</li>
+        <li><strong>Shapefiles &amp; GeoJSON</strong> — Vector formats for GIS integration and further analysis</li>
+        <li><strong>AutoCAD Compatibility</strong> — All data available in DWG format for direct CAD integration</li>
+        <li><strong>RINEX GPS Data</strong> — Raw GPS data for post-processing corrections if required</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Why Choose Us -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Why Us</div>
+        <h2>Why Choose Drone Survey Costa Rica for LiDAR Mapping?</h2>
+      </div>
+      <ul class="check-list">
+        <li><strong>Professional Equipment:</strong> DJI Matrice 300 RTK with Livox LiDAR — the industry standard for aerial surveying</li>
+        <li><strong>DGAC Licensed:</strong> All our pilots hold official drone operating licenses from Costa Rica's aviation authority</li>
+        <li><strong>National Coverage:</strong> We operate throughout all of Costa Rica, including remote rainforest and mountain regions</li>
+        <li><strong>Rapid Turnaround:</strong> Typical 72-hour delivery for processed data; rush options available for time-sensitive projects</li>
+        <li><strong>Survey-Grade Accuracy:</strong> ±1–3 cm vertical accuracy meets engineering and surveying standards</li>
+        <li><strong>Vegetation Penetration:</strong> LiDAR reveals terrain under Costa Rica's dense forest canopy where traditional methods fail</li>
+        <li><strong>Cost-Effective:</strong> More affordable than conventional ground surveys while delivering superior data quality and coverage</li>
+        <li><strong>Local Expertise:</strong> We understand Costa Rica's terrain, climate, and regulatory environment</li>
+        <li><strong>Data Longevity:</strong> Your point cloud data never expires — archive for future reference, comparison, and analysis</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Pricing -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Pricing</div>
+        <h2>LiDAR Mapping Pricing</h2>
+        <p>Transparent, competitive pricing for professional LiDAR surveys across Costa Rica.</p>
+      </div>
+      <div class="highlight-box">
+        <h3>Standard LiDAR Survey</h3>
+        <div class="price-tag">$1,000 <span>base fee / project</span></div>
+        <p>Plus <strong>$80 USD per hectare</strong> of survey area.</p>
+        <p><em>Example: A 100-hectare survey costs $1,000 + ($80 × 100) = $9,000 total.</em></p>
+        <p>Travel to remote locations may incur additional costs. Complex terrain or rush delivery increases fees. Contact us for a detailed quote tailored to your specific project.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">FAQ</div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>How accurate is LiDAR mapping compared to traditional surveying?</summary>
+          <p>LiDAR achieves ±1–3 cm vertical accuracy in optimal conditions, matching or exceeding traditional ground surveys. The key advantage is speed and the ability to map terrain under vegetation. Traditional surveyors cannot easily access steep, forested, or swampy terrain that LiDAR covers effortlessly.</p>
+        </details>
+        <details>
+          <summary>Can LiDAR penetrate dense rainforest vegetation?</summary>
+          <p>Yes, LiDAR laser pulses can penetrate 2–4 meters of forest canopy. Multiple laser pulses reflect off canopy layers and the ground, allowing us to classify ground points beneath vegetation. This makes LiDAR invaluable for Costa Rica's densely forested areas where aerial photography alone cannot reveal terrain.</p>
+        </details>
+        <details>
+          <summary>How long does a LiDAR survey take?</summary>
+          <p>Flight time depends on survey area. A 100-hectare area typically requires 2–4 flights. Data collection takes 1–2 days depending on weather and logistics. Processing and delivery of final products typically takes 48–72 hours. We offer expedited processing for time-critical projects.</p>
+        </details>
+        <details>
+          <summary>What weather conditions are suitable for LiDAR?</summary>
+          <p>LiDAR operates in light to moderate rain and cloud cover. Heavy rain or storm conditions prevent operations. Unlike photography-based surveys, light cloud cover does not significantly impact LiDAR data quality. We can often survey on days when photogrammetry is impossible.</p>
+        </details>
+        <details>
+          <summary>In what formats do you deliver LiDAR data?</summary>
+          <p>We deliver point clouds in LAS/LAZ format, DEMs and DSMs as GeoTIFF, contour maps as DWG/DXF, and data also in Shapefile and GeoJSON formats. All data is georeferenced to Costa Rica's official coordinate system and compatible with AutoCAD, ArcGIS, QGIS, and specialized surveying software.</p>
+        </details>
+        <details>
+          <summary>Can you monitor volume changes over time?</summary>
+          <p>Yes. By conducting repeat LiDAR surveys at different dates, we can detect volume changes in stockpiles, excavations, and landforms. This is valuable for construction progress tracking, mining operations, and erosion monitoring. Contact us to discuss multi-temporal survey programs.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Bottom CTA -->
+  <section>
+    <div class="container">
+      <div class="inner-cta">
+        <h2>Ready to Map Your Property?</h2>
+        <p>Get precise LiDAR survey data for your Costa Rican project. Rapid turnaround, professional results, competitive pricing.</p>
+        <div class="inner-cta-actions">
+          <a href="../quote.html" class="btn btn-primary">Get a Quote</a>
+          <a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Message WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h5>Services</h5>
+				<ul>
+					<li><a href="lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="../quote.html">Get a Free Quote</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Company</h5>
+				<ul>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="index.html">All Services</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
+					<li><a href="../quote.html">Get a Quote</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="../sitemap.xml">Sitemap</a></p>
+		</div>
+	</div>
+</footer>
+
+<script>
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': "Costa Rica's Aerial Survey Specialists",
+		'hero.h1': 'Lidar Drone Surveying in Costa Rica',
+		'hero.p': "Costa Rica's specialists in lidar drone surveys, topographic mapping, aerial video & photography. Centimeter-accurate data for real estate, construction, and agriculture.",
+		'cta.talk': '💬 Talk to Us Now', 'cta.quote': 'Get a Quote Online', 'cta.getquote': 'Get a Quote',
+		'label.services': 'Services', 'label.future': 'Technology', 'label.workflow': 'Process', 'label.start': 'Getting Started', 'label.accuracy': 'Technology',
+		'services.title': 'Our Services', 'services.subtitle': 'Professional aerial surveying solutions using the latest drone technology.',
+		'services.lidar.title': 'Lidar Drone Surveying', 'services.lidar.desc': 'Laser scanning captures terrain data with centimeter accuracy — penetrating forest canopy to map the true ground surface beneath.',
+		'services.video.title': 'Aerial Video & Photography', 'services.video.desc': 'Professional 4K aerial video and high-resolution photography for real estate, construction progress, and promotions across Costa Rica.',
+		'services.gps.title': 'GPS Geopositioning', 'services.gps.desc': 'GPS RTK base station determines exact geographic coordinates — essential for precise boundary demarcation and topographic surveys.',
+		'services.learn.lidar': 'Learn about Lidar →', 'services.learn.video': 'Get a video quote →', 'services.learn.geo': 'Learn about GPS →',
+		'future.title': 'The Future of Aerial Surveying', 'future.intro': 'The latest drone technology makes capturing terrain at any scale fast, accurate, and repeatable — centimeter-accurate 3D data you can measure, map, and use.',
+		'workflow.title': 'How We Work', 'workflow.plan.title': 'Virtual Mission Planning', 'workflow.plan.desc': "Mission planning software lets us visualize the drone's flight path and run time before a single flight.",
+		'workflow.fly.title': 'Flight Mission Execution', 'workflow.fly.desc': 'Our team executes the planned mission on-site to capture photo and lidar data for centimeter-accurate 3D mapping.',
+		'workflow.analyze.title': 'Capture, Analyze, Visualize', 'workflow.analyze.desc': 'Data is processed through our software to produce high-quality 3D photogrammetry and topographic maps.',
+		'start.title': 'Getting started is very easy with us', 'start.desc': 'Fill out our online service request with your location and project size — we\'ll email you a free quote.', 'start.cta': 'Get a Quote Now',
+		'start.step1.title': 'Request a Quote', 'start.step1.desc': 'Takes 5 minutes. Fill out our online form and receive a free quote for your project.',
+		'start.step2.title': 'Select Date & Sign Contract', 'start.step2.desc': 'Once the quote is agreed, pick a date. We send a contract and invoice — 50% deposit on signature.',
+		'start.step3.title': 'Mission Execution & Delivery', 'start.step3.desc': 'We fly, process the data, and deliver your maps and reports in 3–7 business days.',
+		'accuracy.title': 'Centimeter Accuracy Mapping', 'accuracy.desc': 'The Zenmuse L1 integrates a Livox Lidar module, a high-accuracy IMU, and a 1-inch CMOS camera on a 3-axis stabilized gimbal.', 'accuracy.stat1': 'Lidar return layers', 'accuracy.stat2': 'Points per second',
+		'talk.title': 'Want to talk to a real human before you commit?', 'talk.desc': 'Lidar technology is powerful — and most people are still learning what it can do. We have 7+ years of experience and 25 five-star reviews. Ask us anything.',
+		'feat.goal': 'Goal Driven', 'feat.auto': 'Autonomous Workflow', 'feat.pilots': 'Expert Team of Pilots', 'feat.accurate': 'Accurate & Precise',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Especialistas en Levantamiento Aéreo en Costa Rica',
+		'hero.h1': 'Levantamiento con Dron Lidar en Costa Rica',
+		'hero.p': 'Ofrecemos levantamientos aéreos de alta precisión con Lidar y fotogrametría. Datos centimétricos para bienes raíces, construcción y agricultura.',
+		'cta.talk': '💬 ¡Hablemos Ahora!', 'cta.quote': 'Obtener Cotización Online', 'cta.getquote': 'Obtener Cotización',
+		'label.services': 'Servicios', 'label.future': 'Tecnología', 'label.workflow': 'Proceso', 'label.start': 'Cómo Empezar', 'label.accuracy': 'Tecnología',
+		'services.title': 'Nuestros Servicios', 'services.subtitle': 'Soluciones profesionales de levantamiento aéreo con la última tecnología de drones.',
+		'services.lidar.title': 'Levantamiento Lidar con Dron', 'services.lidar.desc': 'Escaneo láser que captura datos del terreno con precisión centimétrica, penetrando el dosel forestal.',
+		'services.video.title': 'Video Aéreo y Fotografía', 'services.video.desc': 'Video aéreo 4K y fotografía de alta resolución para bienes raíces, construcción y marketing.',
+		'services.gps.title': 'Geoposicionamiento GPS', 'services.gps.desc': 'Estación base GPS RTK para determinar coordenadas geográficas exactas en cualquier ubicación.',
+		'services.learn.lidar': 'Conocer más sobre Lidar →', 'services.learn.video': 'Cotizar video →', 'services.learn.geo': 'Conocer más sobre GPS →',
+		'future.title': 'El Futuro del Levantamiento Aéreo', 'future.intro': 'La última tecnología de drones permite capturar terrenos de cualquier tamaño de forma rápida, precisa y repetible.',
+		'workflow.title': 'Cómo Trabajamos', 'workflow.plan.title': 'Planificación Virtual de Misión', 'workflow.plan.desc': 'Nuestro software visualiza la ruta de vuelo del dron antes de despegar.',
+		'workflow.fly.title': 'Ejecución de la Misión', 'workflow.fly.desc': 'Nuestro equipo ejecuta la misión en campo para capturar datos foto y lidar con precisión centimétrica.',
+		'workflow.analyze.title': 'Capturar, Analizar, Visualizar', 'workflow.analyze.desc': 'Procesamos los datos con software especializado para crear fotogrametría 3D y mapas topográficos.',
+		'start.title': 'Comenzar es muy fácil con nosotros', 'start.desc': 'Llena nuestro formulario en línea con tu ubicación y el tamaño del proyecto — te enviaremos una cotización gratis.', 'start.cta': 'Obtener Cotización Ahora',
+		'start.step1.title': 'Solicitar una Cotización', 'start.step1.desc': 'Solo 5 minutos. Llena el formulario y recibe una cotización gratuita.',
+		'start.step2.title': 'Seleccionar Fecha y Firmar Contrato', 'start.step2.desc': 'Una vez acordada la cotización, elige la fecha. Enviamos contrato y factura — depósito del 50% al firmar.',
+		'start.step3.title': 'Ejecución y Entrega', 'start.step3.desc': 'Volamos, procesamos los datos y entregamos mapas e informes en 3–7 días hábiles.',
+		'accuracy.title': 'Mapeo de Precisión Centimétrica', 'accuracy.desc': 'El Zenmuse L1 integra módulo Lidar Livox, IMU de alta precisión y cámara CMOS de 1 pulgada en gimbal de 3 ejes.', 'accuracy.stat1': 'Capas de retorno Lidar', 'accuracy.stat2': 'Puntos por segundo',
+		'talk.title': '¿Quieres hablar con una persona real antes de decidir?', 'talk.desc': 'La tecnología Lidar es poderosa y la mayoría aún la está descubriendo. Contamos con 7+ años de experiencia y 25 reseñas de 5 estrellas.',
+		'feat.goal': 'Orientados a Resultados', 'feat.auto': 'Flujo Autónomo', 'feat.pilots': 'Equipo de Pilotos Expertos', 'feat.accurate': 'Preciso y Exacto',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Spécialistes du Relevé Aérien au Costa Rica',
+		'hero.h1': 'Relevé par Drone Lidar au Costa Rica',
+		'hero.p': 'Relevés aériens haute précision avec Lidar et photogrammétrie. Données centimétriques pour l\'immobilier, la construction et l\'agriculture.',
+		'cta.talk': '💬 Parlez-nous Maintenant', 'cta.quote': 'Obtenir un Devis', 'cta.getquote': 'Obtenir un Devis',
+		'label.services': 'Services', 'label.future': 'Technologie', 'label.workflow': 'Processus', 'label.start': 'Démarrer', 'label.accuracy': 'Technologie',
+		'services.title': 'Nos Services', 'services.subtitle': 'Solutions professionnelles de relevé aérien avec la dernière technologie drone.',
+		'services.lidar.title': 'Relevé Drone Lidar', 'services.lidar.desc': 'Scan laser capturant les données terrain avec précision centimétrique, même sous couvert forestier dense.',
+		'services.video.title': 'Vidéo et Photographie Aériennes', 'services.video.desc': 'Vidéo aérienne 4K et photos haute résolution pour immobilier, construction et marketing.',
+		'services.gps.title': 'Géopositionnement GPS', 'services.gps.desc': 'Station base GPS RTK pour déterminer les coordonnées géographiques exactes de tout emplacement.',
+		'services.learn.lidar': 'En savoir plus sur Lidar →', 'services.learn.video': 'Demander un devis vidéo →', 'services.learn.geo': 'En savoir plus sur GPS →',
+		'future.title': "L'Avenir du Relevé Aérien", 'future.intro': 'La dernière technologie drone permet de capturer tout terrain rapidement, avec précision et de façon répétable.',
+		'workflow.title': 'Notre Processus', 'workflow.plan.title': 'Planification Virtuelle', 'workflow.plan.desc': 'Notre logiciel visualise la trajectoire de vol avant le décollage.',
+		'workflow.fly.title': 'Exécution de la Mission', 'workflow.fly.desc': 'Notre équipe exécute la mission sur site pour capturer données photo et lidar.',
+		'workflow.analyze.title': 'Capturer, Analyser, Visualiser', 'workflow.analyze.desc': 'Traitement des données pour créer photogrammétrie 3D et cartes topographiques.',
+		'start.title': 'Commencer est très simple avec nous', 'start.desc': 'Remplissez notre formulaire en ligne avec votre lieu et la taille du projet — nous vous enverrons un devis gratuit.', 'start.cta': 'Obtenir un Devis',
+		'start.step1.title': 'Demander un Devis', 'start.step1.desc': '5 minutes suffisent. Remplissez le formulaire et recevez un devis gratuit.',
+		'start.step2.title': 'Choisir une Date et Signer', 'start.step2.desc': 'Une fois le devis accepté, choisissez la date. Contrat et facture envoyés — acompte 50% à la signature.',
+		'start.step3.title': 'Mission et Livraison', 'start.step3.desc': 'Nous volons, traitons les données et livrons cartes et rapports en 3–7 jours ouvrés.',
+		'accuracy.title': 'Cartographie de Précision Centimétrique', 'accuracy.desc': 'Le Zenmuse L1 intègre module Lidar Livox, IMU haute précision et caméra CMOS 1 pouce sur nacelle 3 axes.', 'accuracy.stat1': 'Couches de retour Lidar', 'accuracy.stat2': 'Points par seconde',
+		'talk.title': 'Vous souhaitez parler à une vraie personne avant de vous engager ?', 'talk.desc': 'La technologie Lidar est puissante. Nous avons 7+ ans d\'expérience et 25 avis 5 étoiles. Posez-nous vos questions.',
+		'feat.goal': 'Orientés Résultats', 'feat.auto': 'Flux Autonome', 'feat.pilots': 'Équipe de Pilotes Experts', 'feat.accurate': 'Précis et Exact',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'dark';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
+</script>
 </body>
 </html>
