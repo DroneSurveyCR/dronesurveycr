@@ -4,239 +4,1454 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Drone Survey Costa Rica | Lidar Mapping, Aerial Video &amp; Photography</title>
-	<style>
-		:root{
-			--bg:#080e10;--bg-card:#0c1410;--bg-raised:#101e14;
-			--border:rgba(134,183,120,0.12);--border-hi:rgba(34,197,94,0.3);
-			--accent:#22c55e;--accent-hi:#4ade80;--accent-dim:rgba(34,197,94,0.1);
-			--blue:#0ea5e9;--blue-hi:#38bdf8;
-			--text:#e2e8f0;--muted:#94a3b8;--dimmed:#64748b;--heading:#f8fafc;
-		}
-		[data-theme=light]{
-			--bg:#f7faf7;--bg-card:#fff;--bg-raised:#eef5ee;
-			--border:rgba(22,101,52,0.12);--border-hi:rgba(22,163,74,0.3);
-			--accent:#16a34a;--accent-hi:#15803d;--accent-dim:rgba(22,163,74,0.08);
-			--blue:#0284c7;--blue-hi:#0369a1;
-			--text:#1e2a1e;--muted:#4b5563;--dimmed:#9ca3af;--heading:#0f1a0f;
-		}
-		*{box-sizing:border-box}
-		body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
-		h1,h2,h3,h4,h5,h6{font-family:'IBM Plex Sans',sans-serif;color:var(--heading);line-height:1.2}
-		a{color:var(--accent);text-decoration:none}
-		.container{max-width:1160px;margin:0 auto;padding:0 20px}
-		/* TOP BAR */
-		#top-bar{background:var(--bg-card);border-bottom:1px solid var(--border);padding:6px 0;font-size:13px}
-		#top-bar .inner{display:flex;justify-content:space-between;align-items:center}
-		.lang-btn{background:none;border:1px solid transparent;padding:3px 10px;border-radius:5px;cursor:pointer;font-size:12px;font-weight:600;color:var(--muted);transition:all .15s}
-		.lang-btn:hover{border-color:var(--accent);color:var(--accent)}
-		.lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-		/* HEADER */
-		#site-header{position:sticky;top:0;z-index:100;background:var(--bg-card);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-		#site-header .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;flex-wrap:wrap;gap:10px}
-		.logo a{display:flex;align-items:center;gap:10px;text-decoration:none}
-		.logo img{height:34px;flex-shrink:0}
-		.logo-name{font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:700;color:var(--heading);line-height:1.2;white-space:nowrap}
-		.logo-name span{color:var(--accent)}
-		nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:2px;align-items:center}
-		nav>ul>li{position:relative}
-		nav a{color:var(--muted);padding:7px 12px;font-weight:500;font-size:14px;border-radius:6px;transition:all .15s;display:inline-block}
-		nav a:hover{color:var(--heading);background:rgba(255,255,255,.05)}
-		nav ul ul{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;min-width:210px;padding:6px;z-index:20;box-shadow:0 16px 48px rgba(0,0,0,.5)}
-		nav ul li:hover>ul{display:block}
-		nav ul ul li{display:block}
-		nav ul ul a{display:block;padding:9px 14px;border-radius:6px;white-space:nowrap}
-		.nav-cta{background:var(--accent)!important;color:#fff!important;border-radius:7px;padding:7px 16px!important;font-weight:600!important}
-		/* HERO */
-		.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:#040a06}
-		.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(4,10,6,.88) 0%,rgba(4,10,6,.55) 50%,rgba(4,10,6,.25) 100%)}
-		.hero .container{position:relative;z-index:2;padding-top:40px;padding-bottom:60px}
-		.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
-		.hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
-		.hero h1{font-size:clamp(38px,7vw,84px);font-weight:700;letter-spacing:-.04em;margin:0 0 24px;max-width:780px;color:#fff}
-		.hero h1 span{color:var(--accent);text-shadow:0 0 40px rgba(34,197,94,.3)}
-		.hero p{font-size:18px;color:rgba(226,232,240,.75);max-width:560px;margin:0 0 40px;line-height:1.7}
-		.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
-		.hero-stats{display:flex;gap:40px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border);flex-wrap:wrap}
-		.hero-stat-num{font-family:'IBM Plex Sans',sans-serif;font-size:36px;font-weight:700;color:#fff;letter-spacing:-.03em;line-height:1}
-		.hero-stat-num span{color:var(--accent)}
-		.hero-stat-label{font-size:13px;color:var(--muted);margin-top:4px}
-		/* BUTTONS */
-		.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;font-weight:600;font-size:15px;border:none;cursor:pointer;text-decoration:none;transition:all .18s;white-space:nowrap}
-		.btn-primary{background:var(--accent);color:#fff}
-		.btn-primary:hover{background:var(--accent-hi);color:#fff;transform:translateY(-1px)}
-		.btn-green{background:var(--blue);color:#fff}
-		.btn-green:hover{background:var(--blue-hi);color:#fff;transform:translateY(-1px)}
-		.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
-		.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-		/* SECTIONS */
-		section{padding:80px 0}
-		.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--border-hi);padding:4px 12px;border-radius:100px;margin-bottom:16px}
-		.section-label{text-align:center;margin-bottom:56px}
-		.section-label h2{font-size:clamp(28px,4vw,44px);margin:8px 0 16px;letter-spacing:-.03em}
-		.section-label p{color:var(--muted);max-width:560px;margin:0 auto;font-size:17px}
-		/* SERVICES */
-		#services{background:var(--bg-card)}
-		.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
-		.service-card{background:var(--bg-card);padding:36px 32px;transition:background .2s}
-		.service-card:hover{background:var(--bg-raised)}
-		.service-icon{width:48px;height:48px;border-radius:12px;background:var(--accent-dim);border:1px solid var(--border-hi);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:22px}
-		.service-card h3{font-size:20px;margin:0 0 12px;color:var(--heading)}
-		.service-card p{font-size:15px;color:var(--muted);margin:0 0 24px;line-height:1.65}
-		.service-card img{width:100%;border-radius:10px;margin-bottom:20px;object-fit:cover;height:200px}
-		.card-link{font-size:14px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
-		/* STATS */
-		.stats-bar{background:var(--bg-raised);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-		.stats-bar-inner{display:grid;grid-template-columns:repeat(3,1fr)}
-		.stat-item{padding:44px 32px;border-right:1px solid var(--border);text-align:center}
-		.stat-item:last-child{border-right:none}
-		.stat-num{font-family:'IBM Plex Sans',sans-serif;font-size:52px;font-weight:700;color:var(--accent);letter-spacing:-.04em;line-height:1}
-		.stat-label{font-size:14px;font-weight:600;color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.06em}
-		/* REVIEWS */
-		#testimonials{background:var(--bg)}
-		.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-		.review-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:28px;transition:border-color .2s}
-		.review-card:hover{border-color:var(--border-hi)}
-		.stars{color:#fbbf24;font-size:16px;margin-bottom:14px;letter-spacing:2px}
-		.review-text{font-size:15px;color:var(--muted);font-style:italic;line-height:1.7;margin:0 0 20px}
-		.reviewer-name{font-weight:600;color:var(--heading);font-size:14px}
-		.reviewer-role{font-size:13px;color:var(--dimmed);margin-top:2px}
-		/* FAQ */
-		#faq{background:var(--bg)}
-		.faq-list{max-width:800px;margin:0 auto}
-		details{border-bottom:1px solid var(--border)}
-		details:first-child{border-top:1px solid var(--border)}
-		summary{font-size:17px;font-weight:600;color:var(--heading);cursor:pointer;padding:22px 0;font-family:'IBM Plex Sans',sans-serif;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
-		summary::-webkit-details-marker{display:none}
-		summary::after{content:'+';font-size:22px;font-weight:400;color:var(--accent);flex-shrink:0;transition:transform .2s}
-		details[open] summary::after{transform:rotate(45deg)}
-		details p{color:var(--muted);font-size:15px;padding:0 0 22px;margin:0;line-height:1.7}
-		/* FOOTER */
-		footer{background:var(--bg-card);border-top:1px solid var(--border);padding:60px 0 24px}
-		.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-		.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-		.footer-bottom p{font-size:13px;color:var(--dimmed);margin:0}
-		@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}.stats-bar-inner{grid-template-columns:1fr}.stat-item{border-right:none;border-bottom:1px solid var(--border)}.hero{min-height:70vh}}
-		@media(max-width:500px){.footer-grid{grid-template-columns:1fr}}
-		/* NOTE: Video hero uses local files — showing poster image in this preview */
-		.hero-bg{position:absolute;inset:0;background:url('https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg') 50% 50%/cover no-repeat;filter:brightness(.3) saturate(.7)}
-	</style>
+	<meta name="description" content="Costa Rica's #1 lidar drone survey company. Centimeter-accurate topographic mapping, aerial video &amp; photography for real estate, construction &amp; agriculture. Free quote.">
+	<meta name="robots" content="index, follow">
+	<link rel="canonical" href="https://www.dronesurveycr.com/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Drone Survey Costa Rica | Lidar Mapping, Aerial Video &amp; Photography">
+	<meta property="og:description" content="Costa Rica's #1 lidar drone survey company. Centimeter-accurate topographic mapping plus aerial video &amp; photography for real estate, construction &amp; agriculture.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:site_name" content="DroneSurveyCR">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Drone Survey Costa Rica | Lidar &amp; Photogrammetry">
+	<meta name="twitter:description" content="Centimeter-accurate aerial surveying in Costa Rica. Free quote for lidar mapping &amp; photogrammetry.">
+	<meta name="twitter:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": ["LocalBusiness", "ProfessionalService"],
+		"@id": "https://www.dronesurveycr.com/#business",
+		"name": "Drone Survey Costa Rica",
+		"alternateName": "DroneSurveyCR",
+		"description": "Professional drone survey company in Costa Rica specializing in Lidar drone mapping, topographic surveys, aerial video production, and drone photography with centimeter-level accuracy.",
+		"url": "https://www.dronesurveycr.com/",
+		"telephone": "+50672938970",
+		"foundingDate": "2017",
+		"openingHours": "Mo-Su 00:00-23:59",
+		"priceRange": "$$",
+		"areaServed": {"@type": "Country","name": "Costa Rica"},
+		"address": {"@type": "PostalAddress","addressCountry": "CR","addressRegion": "Costa Rica"},
+		"geo": {"@type": "GeoCoordinates","latitude": "9.9319444","longitude": "-84.0827778"},
+		"sameAs": ["https://wa.me/50672938970","https://g.co/kgs/VnbxFYr"],
+		"aggregateRating": {"@type": "AggregateRating","ratingValue": "5.0","reviewCount": "25","bestRating": "5","worstRating": "1"}
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{"@type": "Question","name": "How much does a drone survey cost in Costa Rica?","acceptedAnswer": {"@type": "Answer","text": "Our drone surveys start at $1,000 USD for up to 5 hectares, including the full flight mission, GPS base station, data processing, and all deliverables. Each additional hectare beyond 5 is $80 USD."}},
+			{"@type": "Question","name": "What is the difference between Lidar and photogrammetry?","acceptedAnswer": {"@type": "Answer","text": "Lidar uses laser pulses to measure distances and can penetrate dense vegetation to map the ground surface below. Photogrammetry uses overlapping aerial photos to create 3D models and is more cost-effective for open terrain."}},
+			{"@type": "Question","name": "How accurate is a drone survey in Costa Rica?","acceptedAnswer": {"@type": "Answer","text": "Our drone surveys using the DJI Zenmuse L1 Lidar system achieve centimeter-level accuracy (typically 1–3 cm horizontal, 2–5 cm vertical)."}},
+			{"@type": "Question","name": "How long does a drone survey take in Costa Rica?","acceptedAnswer": {"@type": "Answer","text": "Field data collection for most properties takes 2–8 hours depending on size and terrain. Data processing and delivery typically takes 3–7 business days."}},
+			{"@type": "Question","name": "Do you survey all areas of Costa Rica?","acceptedAnswer": {"@type": "Answer","text": "Yes, we survey all regions of Costa Rica including San José, Guanacaste, the Central Valley, Caribbean coast, Southern Zone, and remote areas."}}
+		]
+	}
+	</script>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+	<style>
+		/* ── Design tokens — dark (default) ─────────────────────── */
+		:root {
+			--bg:        #080e10;
+			--bg-card:   #0c1410;
+			--bg-raised: #101e14;
+			--border:    rgba(134,183,120,0.12);
+			--border-hi: rgba(34,197,94,0.3);
+			--accent:    #22c55e;
+			--accent-hi: #4ade80;
+			--accent-dim:rgba(34,197,94,0.1);
+			--blue:      #0ea5e9;
+			--blue-hi:   #38bdf8;
+			--text:      #e2e8f0;
+			--muted:     #94a3b8;
+			--dimmed:    #64748b;
+			--heading:   #f8fafc;
+			--shadow:    rgba(0,0,0,0.5);
+		}
+		/* ── Light theme ─────────────────────────────────────────── */
+		[data-theme="light"] {
+			--bg:        #f7faf7;
+			--bg-card:   #ffffff;
+			--bg-raised: #eef5ee;
+			--border:    rgba(22,101,52,0.12);
+			--border-hi: rgba(22,163,74,0.3);
+			--accent:    #16a34a;
+			--accent-hi: #15803d;
+			--accent-dim:rgba(22,163,74,0.08);
+			--blue:      #0284c7;
+			--blue-hi:   #0369a1;
+			--text:      #1e2a1e;
+			--muted:     #4b5563;
+			--dimmed:    #9ca3af;
+			--heading:   #0f1a0f;
+			--shadow:    rgba(0,0,0,0.08);
+		}
+
+		/* ── Reset & base ────────────────────────────────────────── */
+		*, *::before, *::after { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			font-family: 'Inter', sans-serif;
+			font-size: 16px;
+			line-height: 1.65;
+			color: var(--text);
+			background: var(--bg);
+			transition: background 0.3s, color 0.3s;
+		}
+		h1,h2,h3,h4,h5,h6 {
+			font-family: 'IBM Plex Sans', sans-serif;
+			color: var(--heading);
+			line-height: 1.2;
+		}
+		a { color: var(--accent); text-decoration: none; }
+		a:hover { color: var(--accent-hi); }
+		img { max-width: 100%; height: auto; display: block; }
+
+		/* ── Layout ──────────────────────────────────────────────── */
+		.container { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+		section { padding: 80px 0; }
+
+		/* ── Utility ─────────────────────────────────────────────── */
+		.tag {
+			display: inline-block;
+			font-size: 11px;
+			font-weight: 600;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: var(--accent);
+			background: var(--accent-dim);
+			border: 1px solid var(--border-hi);
+			padding: 4px 12px;
+			border-radius: 100px;
+			margin-bottom: 16px;
+		}
+		.section-label {
+			text-align: center;
+			margin-bottom: 56px;
+		}
+		.section-label h2 {
+			font-size: clamp(28px, 4vw, 44px);
+			margin: 8px 0 16px;
+			letter-spacing: -0.03em;
+		}
+		.section-label p {
+			color: var(--muted);
+			max-width: 560px;
+			margin: 0 auto;
+			font-size: 17px;
+		}
+		.divider {
+			border: none;
+			border-top: 1px solid var(--border);
+			margin: 24px 0;
+		}
+
+		/* ── Buttons ─────────────────────────────────────────────── */
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 13px 28px;
+			border-radius: 8px;
+			font-weight: 600;
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-size: 15px;
+			border: none;
+			cursor: pointer;
+			text-decoration: none;
+			transition: all 0.18s ease;
+			white-space: nowrap;
+		}
+		.btn-primary {
+			background: var(--accent);
+			color: #fff;
+		}
+		.btn-primary:hover { background: var(--accent-hi); color: #fff; transform: translateY(-1px); }
+		.btn-green {
+			background: var(--blue);
+			color: #fff;
+		}
+		.btn-green:hover { background: var(--blue-hi); color: #fff; transform: translateY(-1px); }
+		.btn-outline {
+			background: transparent;
+			color: var(--text);
+			border: 1px solid var(--border);
+		}
+		.btn-outline:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+			background: rgba(14,165,233,0.06);
+		}
+		.btn-ghost {
+			background: rgba(255,255,255,0.07);
+			color: var(--text);
+			border: 1px solid var(--border);
+		}
+		.btn-ghost:hover {
+			background: rgba(255,255,255,0.12);
+			color: #fff;
+		}
+
+		/* ── Top bar ─────────────────────────────────────────────── */
+		#top-bar {
+			background: var(--bg-card);
+			border-bottom: 1px solid var(--border);
+			padding: 6px 0;
+			font-size: 13px;
+		}
+		#top-bar .inner {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.lang-switcher { display: flex; gap: 4px; }
+		.lang-btn {
+			background: none;
+			border: 1px solid transparent;
+			padding: 3px 10px;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 12px;
+			font-weight: 600;
+			color: var(--muted);
+			font-family: 'Inter', sans-serif;
+			letter-spacing: 0.05em;
+			transition: all 0.15s;
+		}
+		.lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+		.lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+		/* ── Header / Nav ────────────────────────────────────────── */
+		#site-header {
+			position: sticky;
+			top: 0;
+			z-index: 100;
+			background: var(--bg-card);
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			border-bottom: 1px solid var(--border);
+		}
+		#site-header .inner {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 14px 0;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+		.logo a {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			text-decoration: none;
+		}
+		.logo img { height: 34px; flex-shrink: 0; }
+		.logo-name {
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-size: 15px;
+			font-weight: 700;
+			color: var(--heading);
+			line-height: 1.2;
+			white-space: nowrap;
+		}
+		.logo-name span { color: var(--accent); }
+		nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2px;
+			align-items: center;
+		}
+		nav > ul > li { position: relative; }
+		nav a {
+			color: var(--muted);
+			padding: 7px 12px;
+			font-weight: 500;
+			font-size: 14px;
+			border-radius: 6px;
+			transition: all 0.15s;
+		}
+		nav a:hover { color: var(--heading); background: rgba(255,255,255,0.05); }
+		nav ul ul {
+			display: none;
+			position: absolute;
+			top: calc(100% + 8px);
+			left: 0;
+			background: var(--bg-card);
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			min-width: 210px;
+			padding: 6px;
+			z-index: 20;
+			box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+		}
+		nav ul li:hover > ul { display: block; }
+		nav ul ul li { display: block; }
+		nav ul ul a {
+			display: block;
+			padding: 9px 14px;
+			border-radius: 6px;
+			white-space: nowrap;
+		}
+		nav ul ul a:hover { background: rgba(255,255,255,0.06); }
+		.nav-cta {
+			background: var(--accent) !important;
+			color: #fff !important;
+			border-radius: 7px;
+			padding: 7px 16px !important;
+			font-weight: 600 !important;
+		}
+		.nav-cta:hover { background: var(--accent-hi) !important; color: #0f1a0f !important; }
+
+		/* ── Hero ────────────────────────────────────────────────── */
+		.hero {
+			position: relative;
+			min-height: 92vh;
+			display: flex;
+			align-items: center;
+			overflow: hidden;
+			background: #040a06;
+		}
+		.hero-video {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: brightness(0.45) saturate(0.8);
+		}
+		.hero-overlay {
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(
+				135deg,
+				rgba(4,10,6,0.88) 0%,
+				rgba(4,10,6,0.55) 50%,
+				rgba(4,10,6,0.25) 100%
+			);
+		}
+		.hero-glow {
+			position: absolute;
+			width: 700px;
+			height: 700px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 65%);
+			bottom: -200px;
+			right: -100px;
+			pointer-events: none;
+		}
+		.hero .container { position: relative; z-index: 2; padding-top: 40px; padding-bottom: 60px; }
+		.hero-eyebrow {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 12px;
+			font-weight: 600;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--accent);
+			margin-bottom: 24px;
+		}
+		.hero-eyebrow::before {
+			content: '';
+			display: block;
+			width: 24px;
+			height: 1px;
+			background: var(--accent);
+		}
+		.hero h1 {
+			font-size: clamp(38px, 7vw, 84px);
+			font-weight: 700;
+			letter-spacing: -0.04em;
+			margin: 0 0 24px;
+			max-width: 780px;
+			color: #fff;
+		}
+		.hero h1 span { color: var(--accent); text-shadow: 0 0 40px rgba(34,197,94,0.3); }
+		.hero p {
+			font-size: 18px;
+			color: rgba(226,232,240,0.75);
+			max-width: 560px;
+			margin: 0 0 40px;
+			line-height: 1.7;
+		}
+		.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+		.hero-stats {
+			display: flex;
+			gap: 40px;
+			margin-top: 64px;
+			padding-top: 40px;
+			border-top: 1px solid var(--border);
+			flex-wrap: wrap;
+		}
+		.hero-stat-num {
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-size: 36px;
+			font-weight: 700;
+			color: #fff;
+			letter-spacing: -0.03em;
+			line-height: 1;
+		}
+		.hero-stat-num span { color: var(--accent); }
+		.hero-stat-label {
+			font-size: 13px;
+			color: var(--muted);
+			margin-top: 4px;
+		}
+
+		/* ── Services ────────────────────────────────────────────── */
+		#services { background: var(--bg-card); }
+		.services-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2px;
+			background: var(--border);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			overflow: hidden;
+		}
+		.service-card {
+			background: var(--bg-card);
+			padding: 36px 32px;
+			transition: background 0.2s;
+		}
+		.service-card:hover { background: var(--bg-raised); }
+		.service-icon {
+			width: 48px;
+			height: 48px;
+			border-radius: 12px;
+			background: var(--accent-dim);
+			border: 1px solid var(--border-hi);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+			font-size: 22px;
+		}
+		.service-card h3 {
+			font-size: 20px;
+			margin: 0 0 12px;
+			color: var(--heading);
+		}
+		.service-card p {
+			font-size: 15px;
+			color: var(--muted);
+			margin: 0 0 24px;
+			line-height: 1.65;
+		}
+		.service-card img {
+			width: 100%;
+			border-radius: 10px;
+			margin-bottom: 20px;
+			object-fit: cover;
+			height: 200px;
+		}
+		.card-link {
+			font-size: 14px;
+			font-weight: 600;
+			color: var(--accent);
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+		}
+		.card-link:hover { color: var(--accent-hi); gap: 10px; }
+
+		/* ── Topographic pattern ─────────────────────────────────── */
+		.topo-pattern {
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M100 20 Q140 60 100 100 Q60 140 100 180' fill='none' stroke='rgba(34,197,94,0.06)' stroke-width='1.5'/%3E%3Cpath d='M80 20 Q120 60 80 100 Q40 140 80 180' fill='none' stroke='rgba(34,197,94,0.04)' stroke-width='1'/%3E%3Cpath d='M120 20 Q160 60 120 100 Q80 140 120 180' fill='none' stroke='rgba(34,197,94,0.04)' stroke-width='1'/%3E%3Cpath d='M60 20 Q100 60 60 100 Q20 140 60 180' fill='none' stroke='rgba(34,197,94,0.03)' stroke-width='1'/%3E%3Cpath d='M140 20 Q180 60 140 100 Q100 140 140 180' fill='none' stroke='rgba(34,197,94,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+			background-size: 200px 200px;
+		}
+
+		/* ── Stats bar ───────────────────────────────────────────── */
+		.stats-bar {
+			background: var(--bg-raised);
+			border-top: 1px solid var(--border);
+			border-bottom: 1px solid var(--border);
+			padding: 0;
+		}
+		.stats-bar-inner {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+		.stat-item {
+			padding: 44px 32px;
+			border-right: 1px solid var(--border);
+			text-align: center;
+		}
+		.stat-item:last-child { border-right: none; }
+		.stat-num {
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-size: 52px;
+			font-weight: 700;
+			color: var(--accent);
+			letter-spacing: -0.04em;
+			line-height: 1;
+		}
+		.stat-label {
+			font-size: 14px;
+			font-weight: 600;
+			color: var(--muted);
+			margin-top: 8px;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+		}
+
+		/* ── Portfolio CTA ───────────────────────────────────────── */
+		#portfolio-cta {
+			background: var(--bg);
+			text-align: center;
+		}
+		.portfolio-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 17px;
+			font-weight: 600;
+			color: var(--green);
+		}
+		.portfolio-link:hover { color: var(--green-hi); }
+
+		/* ── Workflow ────────────────────────────────────────────── */
+		#workflow { background: var(--bg-card); }
+		.workflow-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 24px;
+		}
+		.workflow-card {
+			background: var(--bg-raised);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			overflow: hidden;
+			transition: border-color 0.2s, transform 0.2s;
+		}
+		.workflow-card:hover {
+			border-color: var(--border-hi);
+			transform: translateY(-3px);
+		}
+		.workflow-card img {
+			width: 100%;
+			height: 180px;
+			object-fit: cover;
+		}
+		.workflow-card-body { padding: 24px; }
+		.workflow-step {
+			font-size: 11px;
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: var(--accent);
+			margin-bottom: 8px;
+		}
+		.workflow-card h3 {
+			font-size: 18px;
+			margin: 0 0 10px;
+		}
+		.workflow-card p { font-size: 14px; color: var(--muted); margin: 0; }
+
+		/* ── How it works ────────────────────────────────────────── */
+		#how-it-works { background: var(--bg); }
+		.steps-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 64px;
+			align-items: start;
+		}
+		@media (max-width: 800px) { .steps-grid { grid-template-columns: 1fr; gap: 40px; } }
+		.steps-intro h2 {
+			font-size: clamp(28px, 4vw, 44px);
+			letter-spacing: -0.03em;
+			margin: 8px 0 20px;
+		}
+		.steps-intro p { color: var(--muted); font-size: 16px; margin: 0 0 32px; }
+		.step-list { display: flex; flex-direction: column; gap: 0; }
+		.step {
+			display: flex;
+			gap: 20px;
+			padding: 28px 0;
+			border-bottom: 1px solid var(--border);
+		}
+		.step:last-child { border-bottom: none; }
+		.step-num {
+			flex-shrink: 0;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			background: var(--accent-dim);
+			border: 1px solid var(--border-hi);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 13px;
+			font-weight: 700;
+			color: var(--accent);
+			font-family: 'IBM Plex Sans', sans-serif;
+		}
+		.step-content h4 {
+			font-size: 17px;
+			margin: 0 0 6px;
+			color: var(--heading);
+		}
+		.step-content p { font-size: 14px; color: var(--muted); margin: 0; }
+
+		/* ── Tech spec ───────────────────────────────────────────── */
+		#tech { background: var(--bg-card); }
+		.tech-inner {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 64px;
+			align-items: center;
+		}
+		@media (max-width: 800px) { .tech-inner { grid-template-columns: 1fr; } }
+		.tech-img {
+			border-radius: 16px;
+			overflow: hidden;
+			border: 1px solid var(--border);
+		}
+		.tech-img img { width: 100%; object-fit: cover; }
+		.tech-content h2 {
+			font-size: clamp(26px, 3.5vw, 40px);
+			letter-spacing: -0.03em;
+			margin: 8px 0 16px;
+		}
+		.tech-content p { color: var(--muted); font-size: 16px; margin: 0 0 32px; }
+		.tech-specs {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 16px;
+		}
+		.spec-box {
+			background: var(--bg-raised);
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			padding: 20px;
+		}
+		.spec-val {
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-size: 26px;
+			font-weight: 700;
+			color: var(--heading);
+			letter-spacing: -0.02em;
+		}
+		.spec-key { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+		/* ── Testimonials ────────────────────────────────────────── */
+		#testimonials { background: var(--bg); }
+		.reviews-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 20px;
+		}
+		.review-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			padding: 28px;
+			transition: border-color 0.2s;
+		}
+		.review-card:hover { border-color: var(--border-hi); }
+		.stars { color: #fbbf24; font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+		.review-text {
+			font-size: 15px;
+			color: var(--muted);
+			font-style: italic;
+			line-height: 1.7;
+			margin: 0 0 20px;
+		}
+		.reviewer-name { font-weight: 600; color: var(--heading); font-size: 14px; }
+		.reviewer-role { font-size: 13px; color: var(--dimmed); margin-top: 2px; }
+		.reviews-cta { text-align: center; margin-top: 40px; }
+
+		/* ── CTA Band ────────────────────────────────────────────── */
+		#contact-cta {
+			background: var(--bg-raised);
+			border-top: 1px solid var(--border);
+			border-bottom: 1px solid var(--border);
+		}
+		.cta-band {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 40px;
+			align-items: center;
+			padding: 64px 0;
+		}
+		@media (max-width: 700px) { .cta-band { grid-template-columns: 1fr; text-align: center; } }
+		.cta-band h2 {
+			font-size: clamp(24px, 3.5vw, 38px);
+			letter-spacing: -0.03em;
+			margin: 0 0 12px;
+		}
+		.cta-band p { color: var(--muted); margin: 0; font-size: 16px; }
+		.cta-band-actions { display: flex; flex-direction: column; gap: 10px; min-width: 200px; }
+
+		/* ── FAQ ─────────────────────────────────────────────────── */
+		#faq { background: var(--bg); }
+		.faq-list { max-width: 800px; margin: 0 auto; }
+		details {
+			border-bottom: 1px solid var(--border);
+		}
+		details:first-child { border-top: 1px solid var(--border); }
+		summary {
+			font-size: 17px;
+			font-weight: 600;
+			color: var(--heading);
+			cursor: pointer;
+			padding: 22px 0;
+			font-family: 'IBM Plex Sans', sans-serif;
+			list-style: none;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 16px;
+		}
+		summary::-webkit-details-marker { display: none; }
+		summary::after {
+			content: '+';
+			font-size: 22px;
+			font-weight: 400;
+			color: var(--accent);
+			flex-shrink: 0;
+			transition: transform 0.2s;
+		}
+		details[open] summary::after { transform: rotate(45deg); }
+		details p {
+			color: var(--muted);
+			font-size: 15px;
+			padding: 0 0 22px;
+			margin: 0;
+			line-height: 1.7;
+		}
+		details p a { color: var(--accent); }
+
+		/* ── Feature boxes ───────────────────────────────────────── */
+		#features { background: var(--bg-card); padding: 60px 0; }
+		.features-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 16px;
+		}
+		@media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+		@media (max-width: 500px) { .features-grid { grid-template-columns: 1fr; } }
+		.feature-pill {
+			background: var(--bg-raised);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 28px 24px;
+			text-align: center;
+			transition: border-color 0.2s;
+		}
+		.feature-pill:hover { border-color: var(--border-hi); }
+		.feature-pill .icon { font-size: 28px; margin-bottom: 12px; }
+		.feature-pill h4 { font-size: 15px; margin: 0; color: var(--heading); }
+
+		/* ── Footer ──────────────────────────────────────────────── */
+		footer {
+			background: var(--bg-card);
+			border-top: 1px solid var(--border);
+			padding: 60px 0 24px;
+		}
+		.footer-grid {
+			display: grid;
+			grid-template-columns: 2fr 1fr 1fr 1fr;
+			gap: 40px;
+			margin-bottom: 48px;
+		}
+		@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+		@media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+		.footer-brand p { color: var(--muted); font-size: 14px; margin: 12px 0 0; line-height: 1.7; }
+		.footer-contact { margin-top: 16px; }
+		.footer-contact a {
+			display: block;
+			color: var(--muted);
+			font-size: 14px;
+			margin-bottom: 6px;
+		}
+		.footer-contact a:hover { color: var(--accent); }
+		.footer-col h5 {
+			font-size: 13px;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--dimmed);
+			margin: 0 0 16px;
+		}
+		.footer-col ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.footer-col li { margin-bottom: 10px; }
+		.footer-col a { color: var(--muted); font-size: 14px; }
+		.footer-col a:hover { color: var(--heading); }
+		.footer-bottom {
+			border-top: 1px solid var(--border);
+			padding-top: 24px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+		.footer-bottom p { font-size: 13px; color: var(--dimmed); margin: 0; }
+		.footer-bottom a { color: var(--dimmed); }
+		.footer-bottom a:hover { color: var(--muted); }
+
+		/* ── Video section ───────────────────────────────────────── */
+		#video-section { background: var(--bg-raised); }
+		.video-wrapper {
+			max-width: 960px;
+			margin: 0 auto;
+			border-radius: 16px;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			position: relative;
+		}
+		.video-wrapper video {
+			width: 100%;
+			display: block;
+			border-radius: 16px;
+		}
+		.video-overlay {
+			position: absolute;
+			inset: 0;
+			background: rgba(4,10,6,0.35);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background 0.2s;
+		}
+		.video-overlay:hover { background: rgba(4,10,6,0.15); }
+		.play-btn {
+			width: 72px;
+			height: 72px;
+			border-radius: 50%;
+			background: rgba(34,197,94,0.9);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 26px;
+			color: #fff;
+			transition: all 0.2s;
+			text-decoration: none;
+			box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
+			animation: pulse-green 2.5s infinite;
+		}
+		.play-btn:hover {
+			background: var(--accent);
+			transform: scale(1.1);
+			color: #fff;
+			animation: none;
+		}
+		@keyframes pulse-green {
+			0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+			70%  { box-shadow: 0 0 0 20px rgba(34,197,94,0); }
+			100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+		}
+
+		/* ── Responsive ──────────────────────────────────────────── */
+		@media (max-width: 768px) {
+			section { padding: 56px 0; }
+			.hero { min-height: 70vh; }
+			.hero-stats { gap: 24px; }
+			.stats-bar-inner { grid-template-columns: 1fr; }
+			.stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+			.stat-item:last-child { border-bottom: none; }
+		}
+		@media (max-width: 600px) {
+			nav ul { gap: 0; }
+			nav a { padding: 6px 8px; font-size: 13px; }
+		}
+	</style>
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-6L0PFQRYF6');
+	</script>
 </head>
 <body>
-<div id="top-bar"><div class="container"><div class="inner">
-	<div style="display:flex;gap:4px">
-		<button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-		<button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
-		<button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
-	</div>
-	<div style="display:flex;align-items:center;gap:16px">
-		<a href="https://wa.me/50672938970" target="_blank" style="color:var(--muted);font-size:13px;font-weight:500">&#128172; +506 7293-8970</a>
-		<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px" title="Toggle dark/light">&#127769;</button>
-	</div>
-</div></div></div>
 
-<header id="site-header"><div class="container"><div class="inner">
-	<div class="logo"><a href="index.html">
-		<img src="https://www.dronesurveycr.com/images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="34">
-		<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
-	</a></div>
-	<nav><ul>
-		<li><a href="index.html">Home</a></li>
-		<li><a href="#services">Services</a><ul>
-			<li><a href="services/lidar-mapping.html">Lidar Drone Surveying</a></li>
-			<li><a href="services/geopositioning.html">GPS Geopositioning</a></li>
-			<li><a href="#aerial-media">Aerial Video &amp; Photos</a></li>
-		</ul></li>
-		<li><a href="portfolio.html">Portfolio</a></li>
-		<li><a href="quote.html">Get a Quote</a></li>
-		<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank">Client Portal</a></li>
-		<li><a href="https://wa.me/50672938970" target="_blank" class="nav-cta">WhatsApp</a></li>
-	</ul></nav>
-</div></div></header>
+<!-- Top bar -->
+<div id="top-bar">
+	<div class="container">
+		<div class="inner">
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+			</div>
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Header -->
+<header id="site-header">
+	<div class="container">
+		<div class="inner">
+			<div class="logo">
+				<a href="index.html">
+					<img src="images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="#services" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="services/lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="services/geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="#aerial-media" data-i18n="nav.video">Aerial Video &amp; Photos</a></li>
+						</ul>
+					</li>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer" data-i18n="nav.portal">Client Portal</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
 
 <main>
-<section class="hero">
-	<div class="hero-bg"></div>
-	<div class="hero-overlay"></div>
-	<div class="container">
-		<div class="hero-eyebrow">DJI Matrice 350 RTK &middot; Costa Rica's Aerial Survey Specialists</div>
-		<h1>Lidar Drone Surveying<br><span>in Costa Rica</span></h1>
-		<p>Costa Rica's specialists in lidar drone surveys, topographic mapping, aerial video &amp; photography. Centimeter-accurate data for real estate, construction, and agriculture.</p>
-		<div class="hero-actions">
-			<a href="https://wa.me/50672938970" class="btn btn-green" target="_blank">&#128172; Talk to Us Now</a>
-			<a href="quote.html" class="btn btn-primary">Get a Quote Online</a>
+
+	<!-- Hero -->
+	<section class="hero">
+		<video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/dji-zenmuse-l1-lidar.jpg">
+			<source src="images/hero-drone-1.webm" type="video/webm">
+			<source src="images/hero-drone-1.mp4" type="video/mp4">
+		</video>
+		<div class="hero-overlay"></div>
+		<div class="hero-glow"></div>
+		<div class="container">
+			<div class="hero-eyebrow" data-i18n="hero.eyebrow">DJI Matrice 350 RTK · Costa Rica's Aerial Survey Specialists</div>
+			<h1 data-i18n="hero.h1">Lidar Drone Surveying<br><span>in Costa Rica</span></h1>
+			<p data-i18n="hero.p">Centimeter-accurate terrain data for real estate, construction, and agriculture. Lidar mapping, aerial photography &amp; GPS geopositioning across all of Costa Rica.</p>
+			<div class="hero-actions">
+				<a href="https://wa.me/50672938970" class="btn btn-green" target="_blank" rel="noopener noreferrer" data-i18n="cta.talk">💬 Talk to Us Now</a>
+				<a href="quote.html" class="btn btn-primary" data-i18n="cta.quote">Get a Quote Online</a>
+			</div>
+			<div class="hero-stats">
+				<div>
+					<div class="hero-stat-num">120<span>+</span></div>
+					<div class="hero-stat-label">Clients Served</div>
+				</div>
+				<div>
+					<div class="hero-stat-num">7<span>+</span></div>
+					<div class="hero-stat-label">Years of Experience</div>
+				</div>
+				<div>
+					<div class="hero-stat-num">5.0<span>★</span></div>
+					<div class="hero-stat-label">Google Rating · 25 Reviews</div>
+				</div>
+				<div>
+					<div class="hero-stat-num">1–3<span>cm</span></div>
+					<div class="hero-stat-label">Survey Accuracy</div>
+				</div>
+			</div>
 		</div>
-		<div class="hero-stats">
-			<div><div class="hero-stat-num">120<span>+</span></div><div class="hero-stat-label">Clients Served</div></div>
-			<div><div class="hero-stat-num">7<span>+</span></div><div class="hero-stat-label">Years of Experience</div></div>
-			<div><div class="hero-stat-num">5.0<span>&#9733;</span></div><div class="hero-stat-label">Google Rating &middot; 25 Reviews</div></div>
-			<div><div class="hero-stat-num">1&ndash;3<span>cm</span></div><div class="hero-stat-label">Survey Accuracy</div></div>
+	</section>
+
+	<!-- Services -->
+	<section id="services">
+		<div class="container">
+			<div class="section-label">
+				<div class="tag" data-i18n="label.services">Services</div>
+				<h2 data-i18n="services.title">Our Services</h2>
+				<p data-i18n="services.subtitle">Professional aerial surveying solutions using the latest drone technology.</p>
+			</div>
+			<div class="services-grid">
+				<div class="service-card">
+					<div class="service-icon">🛸</div>
+					<img src="images/new-project.jpg" alt="Lidar Drone Survey Costa Rica" loading="lazy">
+					<h3 data-i18n="services.lidar.title">Lidar Drone Surveying</h3>
+					<p data-i18n="services.lidar.desc">Laser scanning captures terrain data with centimeter accuracy — penetrating forest canopy to map the true ground surface beneath, even in dense Costa Rican jungle.</p>
+					<a href="services/lidar-mapping.html" class="card-link" data-i18n="services.learn.lidar">Learn about Lidar →</a>
+				</div>
+				<div class="service-card" id="aerial-media">
+					<div class="service-icon">🎬</div>
+					<img src="images/vlcsnap-2022-01-24-23h03m50s335.png" alt="Aerial drone video Costa Rica" loading="lazy">
+					<h3 data-i18n="services.video.title">Aerial Video &amp; Photography</h3>
+					<p data-i18n="services.video.desc">Professional 4K aerial video and high-resolution photography for real estate listings, construction progress, property marketing, and promotions across Costa Rica.</p>
+					<a href="quote.html" class="card-link" data-i18n="services.learn.video">Get a video quote →</a>
+				</div>
+				<div class="service-card">
+					<div class="service-icon">📡</div>
+					<img src="images/dji-d-rtk-2-base-station-tripod4.png" alt="GPS RTK geopositioning Costa Rica" loading="lazy">
+					<h3 data-i18n="services.gps.title">GPS Geopositioning</h3>
+					<p data-i18n="services.gps.desc">GPS RTK base station determines exact geographic coordinates for any location — essential for precise boundary demarcation and topographic surveys.</p>
+					<a href="services/geopositioning.html" class="card-link" data-i18n="services.learn.geo">Learn about GPS →</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Stats bar -->
+	<div class="stats-bar">
+		<div class="container">
+			<div class="stats-bar-inner">
+				<div class="stat-item">
+					<div class="stat-num">120+</div>
+					<div class="stat-label">Clients Served</div>
+				</div>
+				<div class="stat-item">
+					<div class="stat-num">7+</div>
+					<div class="stat-label">Years of Experience</div>
+				</div>
+				<div class="stat-item">
+					<div class="stat-num">All</div>
+					<div class="stat-label">Regions of Costa Rica</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</section>
 
-<section id="services">
-<div class="container">
-	<div class="section-label"><div class="tag">Services</div><h2>Our Services</h2><p>Professional aerial surveying solutions using the latest drone technology.</p></div>
-	<div class="services-grid">
-		<div class="service-card"><div class="service-icon">&#128760;</div><img src="https://www.dronesurveycr.com/images/new-project.jpg" alt="Lidar" loading="lazy"><h3>Lidar Drone Surveying</h3><p>Laser scanning captures terrain data with centimeter accuracy — penetrating forest canopy to map the true ground surface beneath.</p><a href="services/lidar-mapping.html" class="card-link">Learn about Lidar &rarr;</a></div>
-		<div class="service-card" id="aerial-media"><div class="service-icon">&#127916;</div><img src="https://www.dronesurveycr.com/images/vlcsnap-2022-01-24-23h03m50s335.png" alt="Aerial video" loading="lazy"><h3>Aerial Video &amp; Photography</h3><p>Professional 4K aerial video and high-resolution photography for real estate, construction, and promotions across Costa Rica.</p><a href="quote.html" class="card-link">Get a video quote &rarr;</a></div>
-		<div class="service-card"><div class="service-icon">&#128225;</div><img src="https://www.dronesurveycr.com/images/dji-d-rtk-2-base-station-tripod4.png" alt="GPS" loading="lazy"><h3>GPS Geopositioning</h3><p>GPS RTK base station determines exact geographic coordinates — essential for precise boundary demarcation and topographic surveys.</p><a href="services/geopositioning.html" class="card-link">Learn about GPS &rarr;</a></div>
-	</div>
-</div></section>
+	<!-- Portfolio CTA -->
+	<section id="portfolio-cta">
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">Portfolio</div>
+				<h2>Our Projects</h2>
+				<p>Over a decade of drone surveys across Costa Rica — from rainforest to coastline.</p>
+			</div>
+			<div style="text-align:center; margin-bottom:48px;">
+				<a href="portfolio.html" class="btn btn-green" style="font-size:16px; padding:15px 36px;">View All Our Projects →</a>
+			</div>
+			<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:20px;">
+				<div style="background:var(--bg-card); border:1px solid var(--border); border-radius:14px; overflow:hidden;">
+					<img src="images/new-project.jpg" alt="LiDAR topographic survey" loading="lazy" style="width:100%;height:180px;object-fit:cover;">
+					<div style="padding:24px;">
+						<h3 style="font-size:18px;margin:0 0 10px;">LiDAR Topographic Survey</h3>
+						<p style="color:var(--muted);font-size:14px;margin:0 0 16px;">Centimeter-accuracy terrain mapping with 3D point cloud, digital elevation model, and topographic contour maps — delivered in 3–7 days.</p>
+						<a href="portfolio.html" class="card-link">View projects →</a>
+					</div>
+				</div>
+				<div style="background:var(--bg-card); border:1px solid var(--border); border-radius:14px; overflow:hidden;">
+					<img src="images/pix4dmatic-drone-mapping-software.webp" alt="3D photogrammetry mapping" loading="lazy" style="width:100%;height:180px;object-fit:cover;">
+					<div style="padding:24px;">
+						<h3 style="font-size:18px;margin:0 0 10px;">3D Photogrammetry Mapping</h3>
+						<p style="color:var(--muted);font-size:14px;margin:0 0 16px;">High-resolution orthomosaics and 3D models for real estate, construction documentation, and engineering projects.</p>
+						<a href="portfolio.html" class="card-link">View projects →</a>
+					</div>
+				</div>
+				<div style="background:var(--bg-card); border:1px solid var(--border); border-radius:14px; overflow:hidden;">
+					<img src="images/dji-d-rtk-2-base-station-tripod4.png" alt="GPS boundary survey" loading="lazy" style="width:100%;height:180px;object-fit:cover;">
+					<div style="padding:24px;">
+						<h3 style="font-size:18px;margin:0 0 10px;">GPS Boundary Survey</h3>
+						<p style="color:var(--muted);font-size:14px;margin:0 0 16px;">Precise geographic coordinates for legal boundary demarcation, property registration, and engineering control points.</p>
+						<a href="portfolio.html" class="card-link">View projects →</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<div class="stats-bar"><div class="container"><div class="stats-bar-inner">
-	<div class="stat-item"><div class="stat-num">120+</div><div class="stat-label">Clients Served</div></div>
-	<div class="stat-item"><div class="stat-num">7+</div><div class="stat-label">Years Experience</div></div>
-	<div class="stat-item"><div class="stat-num">All</div><div class="stat-label">Regions of Costa Rica</div></div>
-</div></div></div>
+	<!-- Video section -->
+	<section id="video-section">
+		<div class="container">
+			<div class="section-label">
+				<div class="tag" data-i18n="label.future">Technology</div>
+				<h2 data-i18n="future.title">The Future of Aerial Surveying</h2>
+				<p data-i18n="future.intro">The latest drone technology makes capturing terrain at any scale fast, accurate, and repeatable. Centimeter-accurate 3D environments you can measure, map, and modify.</p>
+			</div>
+			<div class="video-wrapper">
+				<video autoplay muted loop playsinline preload="auto" style="max-height:540px;object-fit:cover;">
+					<source src="images/hero-drone-2.webm" type="video/webm">
+					<source src="images/hero-drone-2.mp4" type="video/mp4">
+				</video>
+				<div class="video-overlay">
+					<a href="https://www.youtube.com/watch?v=c0v-oCD8bX0" target="_blank" rel="noopener noreferrer" class="play-btn" title="Watch our work on YouTube">▶</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<section id="testimonials">
-<div class="container">
-	<div class="section-label"><div class="tag">Reviews</div><h2>What Our Clients Say</h2><p>&#11088;&#11088;&#11088;&#11088;&#11088; &nbsp;<strong style="color:var(--heading)">5.0 / 5</strong> &nbsp;&middot;&nbsp; 25 Google reviews</p></div>
-	<div class="reviews-grid">
-		<div class="review-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">"Drone Survey Costa Rica did an amazing job with drone LiDAR for one of my listings. Professional, reliable, and easy to work with. The quality of the survey was excellent."</p><div class="reviewer-name">Travis Comstock</div><div class="reviewer-role">Real Estate Agent &middot; Costa Rica</div></div>
-		<div class="review-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">"I've used Drone Survey Costa Rica for the past 2 years on 20+ occasions. Very professional and the data from Lidar for land planning and design is incredible."</p><div class="reviewer-name">Javier Mora Balma</div><div class="reviewer-role">Land Developer &middot; Costa Rica</div></div>
-		<div class="review-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">"Very easy to work with and very professional. We booked via their website, received a quote by email, and they came to fly the drone at our property. Great service."</p><div class="reviewer-name">Nick Iversen</div><div class="reviewer-role">Property Owner &middot; Local Guide</div></div>
-	</div>
-	<div style="text-align:center;margin-top:40px"><a href="https://g.co/kgs/VnbxFYr" target="_blank" style="color:var(--accent);font-weight:600;font-size:15px">Read all 25 reviews on Google &rarr;</a></div>
-</div></section>
+	<!-- Workflow -->
+	<section id="workflow">
+		<div class="container">
+			<div class="section-label">
+				<div class="tag" data-i18n="label.workflow">Process</div>
+				<h2 data-i18n="workflow.title">How We Work</h2>
+				<p>A streamlined three-step process — from mission planning to final data delivery.</p>
+			</div>
+			<div class="workflow-grid">
+				<div class="workflow-card">
+					<img src="images/plan.jpg" alt="Virtual Mission Planning" loading="lazy">
+					<div class="workflow-card-body">
+						<div class="workflow-step">Step 01</div>
+						<h3 data-i18n="workflow.plan.title">Virtual Mission Planning</h3>
+						<p data-i18n="workflow.plan.desc">Mission planning software lets us visualize the drone's flight path and run time before a single flight is made.</p>
+					</div>
+				</div>
+				<div class="workflow-card">
+					<img src="images/fly.jpg" alt="Flight Mission Execution" loading="lazy">
+					<div class="workflow-card-body">
+						<div class="workflow-step">Step 02</div>
+						<h3 data-i18n="workflow.fly.title">Flight Mission Execution</h3>
+						<p data-i18n="workflow.fly.desc">Our team executes the planned mission on-site to capture photo and lidar data for centimeter-accurate 3D mapping.</p>
+					</div>
+				</div>
+				<div class="workflow-card">
+					<img src="images/analize.jpg" alt="Data Processing" loading="lazy">
+					<div class="workflow-card-body">
+						<div class="workflow-step">Step 03</div>
+						<h3 data-i18n="workflow.analyze.title">Capture, Analyze, Visualize</h3>
+						<p data-i18n="workflow.analyze.desc">Data is processed through our software to produce high-quality 3D photogrammetry and topographic maps.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<section id="faq">
-<div class="container">
-	<div class="section-label"><div class="tag">FAQ</div><h2>Frequently Asked Questions</h2></div>
-	<div class="faq-list">
-		<details><summary>How much does a drone survey cost in Costa Rica?</summary><p>Our surveys start at <strong>$1,000 USD</strong> for up to 5 hectares — flight, GPS base station, full data processing, and all deliverables included. Each additional hectare is <strong>$80 USD</strong>. <a href="quote.html">Get a free quote</a> in minutes.</p></details>
-		<details><summary>What is the difference between Lidar and photogrammetry?</summary><p>Lidar uses laser pulses and can penetrate dense vegetation to map the ground below — ideal for Costa Rica's forested terrain. Photogrammetry uses overlapping aerial photos and is cost-effective for open land.</p></details>
-		<details><summary>How accurate is a drone survey?</summary><p>Our surveys with the DJI Zenmuse L1 achieve centimeter-level accuracy (typically 1–3 cm horizontal, 2–5 cm vertical) combined with GPS RTK.</p></details>
-		<details><summary>How long does a drone survey take?</summary><p>Field collection takes 2–8 hours. Data processing and delivery of 3D maps takes 3–7 business days after the flight.</p></details>
-		<details><summary>Do you survey all regions of Costa Rica?</summary><p>Yes — all regions including San José, Guanacaste, Central Valley, Caribbean coast, Southern Zone, and remote areas. We handle all DGAC permits.</p></details>
-	</div>
-</div></section>
+	<!-- How to get started -->
+	<section id="how-it-works" class="topo-pattern">
+		<div class="container">
+			<div class="steps-grid">
+				<div class="steps-intro">
+					<div class="tag" data-i18n="label.start">Getting Started</div>
+					<h2 data-i18n="start.title">Getting started is very easy with us</h2>
+					<p data-i18n="start.desc">Fill out our online service request with your location and project size — we'll email you a free quote.</p>
+					<a href="quote.html" class="btn btn-primary" data-i18n="start.cta">Get a Quote Now</a>
+				</div>
+				<div class="step-list">
+					<div class="step">
+						<div class="step-num">1</div>
+						<div class="step-content">
+							<h4 data-i18n="start.step1.title">Request a Quote</h4>
+							<p data-i18n="start.step1.desc">Takes 5 minutes. Fill out our online form and receive a free quote for your project.</p>
+						</div>
+					</div>
+					<div class="step">
+						<div class="step-num">2</div>
+						<div class="step-content">
+							<h4 data-i18n="start.step2.title">Select Date &amp; Sign Contract</h4>
+							<p data-i18n="start.step2.desc">Once the quote is agreed, pick a date. We send a contract and invoice — 50% deposit required on signature.</p>
+						</div>
+					</div>
+					<div class="step">
+						<div class="step-num">3</div>
+						<div class="step-content">
+							<h4 data-i18n="start.step3.title">Mission Execution &amp; Delivery</h4>
+							<p data-i18n="start.step3.desc">We fly, process the data, and deliver your maps and reports in 3–7 business days once the mission is complete.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<section style="background:var(--bg-raised);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-<div class="container"><div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding:64px 0">
-	<div><h2 style="font-size:clamp(24px,3.5vw,38px);letter-spacing:-.03em;margin:0 0 12px">Want to talk to a real human before you commit?</h2><p style="color:var(--muted);margin:0;font-size:16px">7+ years experience &middot; 25 five-star reviews &middot; Happy to answer any questions.</p></div>
-	<div style="display:flex;flex-direction:column;gap:10px;min-width:200px">
-		<a href="https://wa.me/50672938970" class="btn btn-primary" target="_blank">&#128172; Talk to Us Now</a>
-		<a href="quote.html" class="btn btn-outline">Get a Quote</a>
-	</div>
-</div></div></section>
+	<!-- Tech spec -->
+	<section id="tech">
+		<div class="container">
+			<div class="tech-inner">
+				<div class="tech-img">
+					<img src="images/a083f93b173459b7a95cb59530a89d3e.jpg" alt="DJI Zenmuse L1 Lidar" loading="lazy">
+				</div>
+				<div class="tech-content">
+					<div class="tag" data-i18n="label.accuracy">Technology</div>
+					<h2 data-i18n="accuracy.title">Centimeter Accuracy Mapping</h2>
+					<p data-i18n="accuracy.desc">The Zenmuse L1 integrates a Livox Lidar module, a high-accuracy IMU, and a 1-inch CMOS camera on a 3-axis stabilized gimbal — the professional standard for aerial surveying.</p>
+					<div class="tech-specs">
+						<div class="spec-box">
+							<div class="spec-val">1–3 cm</div>
+							<div class="spec-key">Horizontal accuracy</div>
+						</div>
+						<div class="spec-box">
+							<div class="spec-val">2–5 cm</div>
+							<div class="spec-key">Vertical accuracy</div>
+						</div>
+						<div class="spec-box">
+							<div class="spec-val">3</div>
+							<div class="spec-key" data-i18n="accuracy.stat1">Lidar return layers</div>
+						</div>
+						<div class="spec-box">
+							<div class="spec-val">240K</div>
+							<div class="spec-key" data-i18n="accuracy.stat2">Points per second</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials -->
+	<section id="testimonials">
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">Reviews</div>
+				<h2>What Our Clients Say</h2>
+				<p>⭐⭐⭐⭐⭐ &nbsp;<strong style="color:var(--heading);">5.0 / 5</strong> &nbsp;·&nbsp; 25 Google reviews</p>
+			</div>
+			<div class="reviews-grid">
+				<div class="review-card">
+					<div class="stars">★★★★★</div>
+					<p class="review-text">"Drone Survey Costa Rica did an amazing job with drone LiDAR for one of my listings. Professional, reliable, and easy to work with. The quality of the survey was excellent — precise data that was incredibly useful."</p>
+					<div class="reviewer-name">Travis Comstock</div>
+					<div class="reviewer-role">Real Estate Agent · Costa Rica</div>
+				</div>
+				<div class="review-card">
+					<div class="stars">★★★★★</div>
+					<p class="review-text">"I've used Drone Survey Costa Rica for the past 2 years on 20+ occasions. Very professional and the data you get from Lidar for land planning, engineering, and design is incredible. The best tool a developer or land owner could use."</p>
+					<div class="reviewer-name">Javier Mora Balma</div>
+					<div class="reviewer-role">Land Developer · Costa Rica</div>
+				</div>
+				<div class="review-card">
+					<div class="stars">★★★★★</div>
+					<p class="review-text">"Very easy to work with and very professional. We booked via their website, received a quote by email, and they came to fly the drone at our new property. All files were easy to download. Great service — highly recommended."</p>
+					<div class="reviewer-name">Nick Iversen</div>
+					<div class="reviewer-role">Property Owner · Local Guide</div>
+				</div>
+			</div>
+			<div class="reviews-cta">
+				<a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:600;font-size:15px;">Read all 25 reviews on Google →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Features -->
+	<section id="features">
+		<div class="container">
+			<div class="features-grid">
+				<div class="feature-pill">
+					<div class="icon">🎯</div>
+					<h4 data-i18n="feat.goal">Goal Driven</h4>
+				</div>
+				<div class="feature-pill">
+					<div class="icon">🤖</div>
+					<h4 data-i18n="feat.auto">Autonomous Workflow</h4>
+				</div>
+				<div class="feature-pill">
+					<div class="icon">🧑‍✈️</div>
+					<h4 data-i18n="feat.pilots">Expert Team of Pilots</h4>
+				</div>
+				<div class="feature-pill">
+					<div class="icon">📐</div>
+					<h4 data-i18n="feat.accurate">Accurate &amp; Precise</h4>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Band -->
+	<section id="contact-cta">
+		<div class="container">
+			<div class="cta-band">
+				<div>
+					<h2 data-i18n="talk.title">Want to talk to a real human before you commit?</h2>
+					<p data-i18n="talk.desc">Lidar technology is powerful — and most people are still learning what it can do. We have 7+ years of experience and 25 five-star reviews. Ask us anything.</p>
+				</div>
+				<div class="cta-band-actions">
+					<a href="https://wa.me/50672938970" class="btn btn-green" target="_blank" rel="noopener noreferrer" data-i18n="cta.talk">💬 Talk to Us Now</a>
+					<a href="quote.html" class="btn btn-outline" data-i18n="cta.getquote">Get a Quote</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section id="faq">
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">FAQ</div>
+				<h2>Frequently Asked Questions</h2>
+			</div>
+			<div class="faq-list">
+				<details>
+					<summary>How much does a drone survey cost in Costa Rica?</summary>
+					<p>Our surveys start at <strong>$1,000 USD</strong> for up to 5 hectares — this includes the flight, GPS base station, full data processing, and all deliverables. Each additional hectare beyond 5 is <strong>$80 USD</strong>. Travel fees from San José apply. Projects over 100 hectares qualify for special pricing. <a href="quote.html">Get a free quote</a> in minutes.</p>
+				</details>
+				<details>
+					<summary>What is the difference between Lidar and photogrammetry?</summary>
+					<p>Lidar uses laser pulses and can penetrate dense vegetation to map the ground below — ideal for Costa Rica's forested terrain. Photogrammetry uses overlapping aerial photos and is cost-effective for open land. We offer both and will recommend the best option for your project.</p>
+				</details>
+				<details>
+					<summary>How accurate is a drone survey in Costa Rica?</summary>
+					<p>Our surveys with the DJI Zenmuse L1 Lidar achieve centimeter-level accuracy (typically 1–3 cm horizontal, 2–5 cm vertical). Combined with GPS RTK, we deliver data that meets engineering and legal standards.</p>
+				</details>
+				<details>
+					<summary>How long does a drone survey take?</summary>
+					<p>Field data collection typically takes 2–8 hours depending on size and terrain. Data processing and delivery of your 3D maps and reports takes 3–7 business days after the flight.</p>
+				</details>
+				<details>
+					<summary>Do you survey all regions of Costa Rica?</summary>
+					<p>Yes — we cover all of Costa Rica including San José, Guanacaste, the Central Valley, Caribbean coast, Southern Zone, and remote areas. We handle all required DGAC drone flight permits.</p>
+				</details>
+			</div>
+		</div>
+	</section>
+
 </main>
 
-<footer><div class="container">
-	<div class="footer-grid">
-		<div><img src="https://www.dronesurveycr.com/images/dscrlogo.jpg" height="32" alt="logo"><p style="color:var(--muted);font-size:14px;margin:12px 0 0">Professional aerial surveying in Costa Rica since 2017.</p><div style="margin-top:16px"><a href="https://wa.me/50672938970" style="display:block;color:var(--muted);font-size:14px;margin-bottom:6px">&#128172; +506 7293-8970</a></div></div>
-		<div><h5 style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dimmed);margin:0 0 16px">Services</h5><ul style="list-style:none;padding:0;margin:0"><li style="margin-bottom:10px"><a href="services/lidar-mapping.html" style="color:var(--muted);font-size:14px">Lidar Mapping</a></li><li style="margin-bottom:10px"><a href="services/geopositioning.html" style="color:var(--muted);font-size:14px">GPS Geopositioning</a></li><li style="margin-bottom:10px"><a href="quote.html" style="color:var(--muted);font-size:14px">Get a Quote</a></li></ul></div>
-		<div><h5 style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dimmed);margin:0 0 16px">Company</h5><ul style="list-style:none;padding:0;margin:0"><li style="margin-bottom:10px"><a href="portfolio.html" style="color:var(--muted);font-size:14px">Portfolio</a></li><li style="margin-bottom:10px"><a href="https://g.co/kgs/VnbxFYr" style="color:var(--muted);font-size:14px">Google Reviews</a></li></ul></div>
-		<div><h5 style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dimmed);margin:0 0 16px">Connect</h5><ul style="list-style:none;padding:0;margin:0"><li style="margin-bottom:10px"><a href="https://wa.me/50672938970" style="color:var(--muted);font-size:14px">WhatsApp</a></li><li style="margin-bottom:10px"><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" style="color:var(--muted);font-size:14px">Client Portal</a></li></ul></div>
+<!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h5>Services</h5>
+				<ul>
+					<li><a href="services/lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="services/photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="services/geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="quote.html">Get a Free Quote</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Company</h5>
+				<ul>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="sitemap.xml">Sitemap</a></p>
+		</div>
 	</div>
-	<div class="footer-bottom"><p>&copy; 2026 Drone Survey Costa Rica</p><p><a href="sitemap.xml" style="color:var(--dimmed)">Sitemap</a></p></div>
-</div></footer>
+</footer>
 
 <script>
-function toggleTheme(){const l=document.documentElement.getAttribute('data-theme')==='light';const n=l?'dark':'light';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);document.getElementById('theme-toggle').textContent=n==='light'?'🌙':'☀️';}
-(function(){const s=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',s);const b=document.getElementById('theme-toggle');if(b)b.textContent=s==='light'?'🌙':'☀️';})();
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': "Costa Rica's Aerial Survey Specialists",
+		'hero.h1': 'Lidar Drone Surveying in Costa Rica',
+		'hero.p': "Costa Rica's specialists in lidar drone surveys, topographic mapping, aerial video & photography. Centimeter-accurate data for real estate, construction, and agriculture.",
+		'cta.talk': '💬 Talk to Us Now', 'cta.quote': 'Get a Quote Online', 'cta.getquote': 'Get a Quote',
+		'label.services': 'Services', 'label.future': 'Technology', 'label.workflow': 'Process', 'label.start': 'Getting Started', 'label.accuracy': 'Technology',
+		'services.title': 'Our Services', 'services.subtitle': 'Professional aerial surveying solutions using the latest drone technology.',
+		'services.lidar.title': 'Lidar Drone Surveying', 'services.lidar.desc': 'Laser scanning captures terrain data with centimeter accuracy — penetrating forest canopy to map the true ground surface beneath.',
+		'services.video.title': 'Aerial Video & Photography', 'services.video.desc': 'Professional 4K aerial video and high-resolution photography for real estate, construction progress, and promotions across Costa Rica.',
+		'services.gps.title': 'GPS Geopositioning', 'services.gps.desc': 'GPS RTK base station determines exact geographic coordinates — essential for precise boundary demarcation and topographic surveys.',
+		'services.learn.lidar': 'Learn about Lidar →', 'services.learn.video': 'Get a video quote →', 'services.learn.geo': 'Learn about GPS →',
+		'future.title': 'The Future of Aerial Surveying', 'future.intro': 'The latest drone technology makes capturing terrain at any scale fast, accurate, and repeatable — centimeter-accurate 3D data you can measure, map, and use.',
+		'workflow.title': 'How We Work', 'workflow.plan.title': 'Virtual Mission Planning', 'workflow.plan.desc': "Mission planning software lets us visualize the drone's flight path and run time before a single flight.",
+		'workflow.fly.title': 'Flight Mission Execution', 'workflow.fly.desc': 'Our team executes the planned mission on-site to capture photo and lidar data for centimeter-accurate 3D mapping.',
+		'workflow.analyze.title': 'Capture, Analyze, Visualize', 'workflow.analyze.desc': 'Data is processed through our software to produce high-quality 3D photogrammetry and topographic maps.',
+		'start.title': 'Getting started is very easy with us', 'start.desc': 'Fill out our online service request with your location and project size — we\'ll email you a free quote.', 'start.cta': 'Get a Quote Now',
+		'start.step1.title': 'Request a Quote', 'start.step1.desc': 'Takes 5 minutes. Fill out our online form and receive a free quote for your project.',
+		'start.step2.title': 'Select Date & Sign Contract', 'start.step2.desc': 'Once the quote is agreed, pick a date. We send a contract and invoice — 50% deposit on signature.',
+		'start.step3.title': 'Mission Execution & Delivery', 'start.step3.desc': 'We fly, process the data, and deliver your maps and reports in 3–7 business days.',
+		'accuracy.title': 'Centimeter Accuracy Mapping', 'accuracy.desc': 'The Zenmuse L1 integrates a Livox Lidar module, a high-accuracy IMU, and a 1-inch CMOS camera on a 3-axis stabilized gimbal.', 'accuracy.stat1': 'Lidar return layers', 'accuracy.stat2': 'Points per second',
+		'talk.title': 'Want to talk to a real human before you commit?', 'talk.desc': 'Lidar technology is powerful — and most people are still learning what it can do. We have 7+ years of experience and 25 five-star reviews. Ask us anything.',
+		'feat.goal': 'Goal Driven', 'feat.auto': 'Autonomous Workflow', 'feat.pilots': 'Expert Team of Pilots', 'feat.accurate': 'Accurate & Precise',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Especialistas en Levantamiento Aéreo en Costa Rica',
+		'hero.h1': 'Levantamiento con Dron Lidar en Costa Rica',
+		'hero.p': 'Ofrecemos levantamientos aéreos de alta precisión con Lidar y fotogrametría. Datos centimétricos para bienes raíces, construcción y agricultura.',
+		'cta.talk': '💬 ¡Hablemos Ahora!', 'cta.quote': 'Obtener Cotización Online', 'cta.getquote': 'Obtener Cotización',
+		'label.services': 'Servicios', 'label.future': 'Tecnología', 'label.workflow': 'Proceso', 'label.start': 'Cómo Empezar', 'label.accuracy': 'Tecnología',
+		'services.title': 'Nuestros Servicios', 'services.subtitle': 'Soluciones profesionales de levantamiento aéreo con la última tecnología de drones.',
+		'services.lidar.title': 'Levantamiento Lidar con Dron', 'services.lidar.desc': 'Escaneo láser que captura datos del terreno con precisión centimétrica, penetrando el dosel forestal.',
+		'services.video.title': 'Video Aéreo y Fotografía', 'services.video.desc': 'Video aéreo 4K y fotografía de alta resolución para bienes raíces, construcción y marketing.',
+		'services.gps.title': 'Geoposicionamiento GPS', 'services.gps.desc': 'Estación base GPS RTK para determinar coordenadas geográficas exactas en cualquier ubicación.',
+		'services.learn.lidar': 'Conocer más sobre Lidar →', 'services.learn.video': 'Cotizar video →', 'services.learn.geo': 'Conocer más sobre GPS →',
+		'future.title': 'El Futuro del Levantamiento Aéreo', 'future.intro': 'La última tecnología de drones permite capturar terrenos de cualquier tamaño de forma rápida, precisa y repetible.',
+		'workflow.title': 'Cómo Trabajamos', 'workflow.plan.title': 'Planificación Virtual de Misión', 'workflow.plan.desc': 'Nuestro software visualiza la ruta de vuelo del dron antes de despegar.',
+		'workflow.fly.title': 'Ejecución de la Misión', 'workflow.fly.desc': 'Nuestro equipo ejecuta la misión en campo para capturar datos foto y lidar con precisión centimétrica.',
+		'workflow.analyze.title': 'Capturar, Analizar, Visualizar', 'workflow.analyze.desc': 'Procesamos los datos con software especializado para crear fotogrametría 3D y mapas topográficos.',
+		'start.title': 'Comenzar es muy fácil con nosotros', 'start.desc': 'Llena nuestro formulario en línea con tu ubicación y el tamaño del proyecto — te enviaremos una cotización gratis.', 'start.cta': 'Obtener Cotización Ahora',
+		'start.step1.title': 'Solicitar una Cotización', 'start.step1.desc': 'Solo 5 minutos. Llena el formulario y recibe una cotización gratuita.',
+		'start.step2.title': 'Seleccionar Fecha y Firmar Contrato', 'start.step2.desc': 'Una vez acordada la cotización, elige la fecha. Enviamos contrato y factura — depósito del 50% al firmar.',
+		'start.step3.title': 'Ejecución y Entrega', 'start.step3.desc': 'Volamos, procesamos los datos y entregamos mapas e informes en 3–7 días hábiles.',
+		'accuracy.title': 'Mapeo de Precisión Centimétrica', 'accuracy.desc': 'El Zenmuse L1 integra módulo Lidar Livox, IMU de alta precisión y cámara CMOS de 1 pulgada en gimbal de 3 ejes.', 'accuracy.stat1': 'Capas de retorno Lidar', 'accuracy.stat2': 'Puntos por segundo',
+		'talk.title': '¿Quieres hablar con una persona real antes de decidir?', 'talk.desc': 'La tecnología Lidar es poderosa y la mayoría aún la está descubriendo. Contamos con 7+ años de experiencia y 25 reseñas de 5 estrellas.',
+		'feat.goal': 'Orientados a Resultados', 'feat.auto': 'Flujo Autónomo', 'feat.pilots': 'Equipo de Pilotos Expertos', 'feat.accurate': 'Preciso y Exacto',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Spécialistes du Relevé Aérien au Costa Rica',
+		'hero.h1': 'Relevé par Drone Lidar au Costa Rica',
+		'hero.p': 'Relevés aériens haute précision avec Lidar et photogrammétrie. Données centimétriques pour l\'immobilier, la construction et l\'agriculture.',
+		'cta.talk': '💬 Parlez-nous Maintenant', 'cta.quote': 'Obtenir un Devis', 'cta.getquote': 'Obtenir un Devis',
+		'label.services': 'Services', 'label.future': 'Technologie', 'label.workflow': 'Processus', 'label.start': 'Démarrer', 'label.accuracy': 'Technologie',
+		'services.title': 'Nos Services', 'services.subtitle': 'Solutions professionnelles de relevé aérien avec la dernière technologie drone.',
+		'services.lidar.title': 'Relevé Drone Lidar', 'services.lidar.desc': 'Scan laser capturant les données terrain avec précision centimétrique, même sous couvert forestier dense.',
+		'services.video.title': 'Vidéo et Photographie Aériennes', 'services.video.desc': 'Vidéo aérienne 4K et photos haute résolution pour immobilier, construction et marketing.',
+		'services.gps.title': 'Géopositionnement GPS', 'services.gps.desc': 'Station base GPS RTK pour déterminer les coordonnées géographiques exactes de tout emplacement.',
+		'services.learn.lidar': 'En savoir plus sur Lidar →', 'services.learn.video': 'Demander un devis vidéo →', 'services.learn.geo': 'En savoir plus sur GPS →',
+		'future.title': "L'Avenir du Relevé Aérien", 'future.intro': 'La dernière technologie drone permet de capturer tout terrain rapidement, avec précision et de façon répétable.',
+		'workflow.title': 'Notre Processus', 'workflow.plan.title': 'Planification Virtuelle', 'workflow.plan.desc': 'Notre logiciel visualise la trajectoire de vol avant le décollage.',
+		'workflow.fly.title': 'Exécution de la Mission', 'workflow.fly.desc': 'Notre équipe exécute la mission sur site pour capturer données photo et lidar.',
+		'workflow.analyze.title': 'Capturer, Analyser, Visualiser', 'workflow.analyze.desc': 'Traitement des données pour créer photogrammétrie 3D et cartes topographiques.',
+		'start.title': 'Commencer est très simple avec nous', 'start.desc': 'Remplissez notre formulaire en ligne avec votre lieu et la taille du projet — nous vous enverrons un devis gratuit.', 'start.cta': 'Obtenir un Devis',
+		'start.step1.title': 'Demander un Devis', 'start.step1.desc': '5 minutes suffisent. Remplissez le formulaire et recevez un devis gratuit.',
+		'start.step2.title': 'Choisir une Date et Signer', 'start.step2.desc': 'Une fois le devis accepté, choisissez la date. Contrat et facture envoyés — acompte 50% à la signature.',
+		'start.step3.title': 'Mission et Livraison', 'start.step3.desc': 'Nous volons, traitons les données et livrons cartes et rapports en 3–7 jours ouvrés.',
+		'accuracy.title': 'Cartographie de Précision Centimétrique', 'accuracy.desc': 'Le Zenmuse L1 intègre module Lidar Livox, IMU haute précision et caméra CMOS 1 pouce sur nacelle 3 axes.', 'accuracy.stat1': 'Couches de retour Lidar', 'accuracy.stat2': 'Points par seconde',
+		'talk.title': 'Vous souhaitez parler à une vraie personne avant de vous engager ?', 'talk.desc': 'La technologie Lidar est puissante. Nous avons 7+ ans d\'expérience et 25 avis 5 étoiles. Posez-nous vos questions.',
+		'feat.goal': 'Orientés Résultats', 'feat.auto': 'Flux Autonome', 'feat.pilots': 'Équipe de Pilotes Experts', 'feat.accurate': 'Précis et Exact',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'dark';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
 </script>
-</body></html>
+</body>
+</html>
