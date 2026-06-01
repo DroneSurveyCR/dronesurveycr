@@ -1,222 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drone Survey Services | Costa Rica | DroneSurveyCR</title>
-    <meta name="description" content="Professional drone surveying services in Costa Rica: LiDAR drone mapping, GPS geopositioning, aerial photography &amp; video, photogrammetry, and topographic surveys.">
-    <meta name="keywords" content="drone survey, LiDAR mapping, photogrammetry, GPS positioning, aerial photography, Costa Rica">
-    <link rel="canonical" href="https://www.dronesurveycr.com/services/">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Drone Survey Services | Costa Rica">
-    <meta property="og:description" content="LiDAR mapping, photogrammetry, GPS geopositioning, aerial video &amp; photography.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.dronesurveycr.com/services/">
-    <meta name="theme-color" content="#0080FE">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-6L0PFQRYF6');
-    </script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #5C5C69; background: #fff; }
-        h1, h2, h3, h4 { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; color: #302F40; margin-top: 1.5em; margin-bottom: 0.5em; }
-        h1 { font-size: 2.5em; line-height: 1.2; margin-top: 0; }
-        h2 { font-size: 1.8em; }
-        h3 { font-size: 1.3em; }
-        a { color: #0080FE; text-decoration: none; transition: color 0.3s; }
-        a:hover { color: #005BB3; text-decoration: underline; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        /* Navigation */
-        nav { background: #302F40; padding: 1em 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
-        nav .logo { display: flex; align-items: center; }
-        nav .logo img { height: 40px; margin-right: 1em; }
-        nav .logo a { color: #fff; font-weight: 600; font-size: 1.1em; }
-        nav ul { list-style: none; display: flex; gap: 2em; align-items: center; flex-wrap: wrap; }
-        nav a { color: #fff; font-size: 0.95em; }
-        nav a:hover { color: #0080FE; }
-
-        /* Hero Section */
-        .hero { background: linear-gradient(135deg, #302F40 0%, #1a1820 100%); color: #fff; padding: 6em 0; text-align: center; }
-        .hero h1 { color: #fff; margin-bottom: 0.5em; }
-        .hero .subtitle { font-size: 1.2em; margin-bottom: 2em; color: #ddd; }
-
-        /* Main Content */
-        .content { padding: 4em 0; }
-        .section { margin-bottom: 4em; }
-        .section p { margin-bottom: 1em; line-height: 1.8; }
-
-        /* Services Grid */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2em; margin: 3em 0; }
-        .service-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-        .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-        .service-card-header { background: linear-gradient(135deg, #0080FE 0%, #005BB3 100%); color: #fff; padding: 2em; text-align: center; }
-        .service-card-header h3 { color: #fff; margin-top: 0; }
-        .service-card-body { padding: 2em; }
-        .service-card-body p { margin-bottom: 1.5em; }
-        .service-card .btn { display: block; margin-top: 1.5em; }
-
-        /* CTA Buttons */
-        .btn { display: inline-block; padding: 0.8em 1.6em; border-radius: 4px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-align: center; border: none; font-size: 0.95em; }
-        .btn-primary { background: #0080FE; color: #fff; }
-        .btn-primary:hover { background: #005BB3; text-decoration: none; }
-        .btn-secondary { background: #302F40; color: #fff; }
-        .btn-secondary:hover { background: #1a1820; text-decoration: none; }
-
-        /* Why Section */
-        .why-section { background: #e8f4ff; padding: 3em; border-radius: 8px; margin: 3em 0; border-left: 5px solid #0080FE; }
-        .why-section h2 { margin-top: 0; color: #0080FE; }
-        .why-section ul { list-style: none; padding-left: 0; }
-        .why-section li { padding: 0.7em 0; padding-left: 2em; position: relative; }
-        .why-section li:before { content: "✓"; position: absolute; left: 0; color: #0080FE; font-weight: bold; }
-
-        /* Footer */
-        footer { background: #302F40; color: #fff; padding: 3em 0; margin-top: 4em; }
-        footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2em; }
-        footer a { color: #0080FE; }
-        footer a:hover { color: #fff; }
-        footer .footer-section h4 { color: #fff; font-size: 1em; margin-top: 0; margin-bottom: 1em; }
-        footer ul { list-style: none; }
-        footer li { margin-bottom: 0.5em; }
-        footer .copyright { grid-column: 1 / -1; border-top: 1px solid #5C5C69; padding-top: 2em; text-align: center; color: #999; margin-top: 1em; }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.4em; }
-            nav ul { gap: 1em; }
-            footer .container { grid-template-columns: 1fr; }
-            footer .copyright { grid-column: 1; }
-            .hero { padding: 3em 0; }
-            .services-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drone Survey Services | Costa Rica | DroneSurveyCR</title>
+  <meta name="description" content="Professional drone surveying services in Costa Rica: LiDAR drone mapping, GPS geopositioning, aerial photography &amp; video, photogrammetry, and topographic surveys.">
+  <meta name="keywords" content="drone survey, LiDAR mapping, photogrammetry, GPS positioning, aerial photography, Costa Rica">
+  <link rel="canonical" href="https://www.dronesurveycr.com/services/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Drone Survey Services | Costa Rica">
+  <meta property="og:description" content="LiDAR mapping, photogrammetry, GPS geopositioning, aerial video &amp; photography.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.dronesurveycr.com/services/">
+  <meta name="theme-color" content="#22c55e">
+  <link rel="icon" href="../images/favicon.ico">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6L0PFQRYF6');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">
-                <img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica Logo">
-                <a href="../index.html">DroneSurveyCR</a>
-            </div>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="index.html">Services</a></li>
-                <li><a href="../portfolio.html">Portfolio</a></li>
-                <li><a href="../quote.html">Get a Quote</a></li>
-                <li><a href="https://wa.me/50672938970" target="_blank">WhatsApp</a></li>
-            </ul>
+
+<!-- Top bar -->
+<div id="top-bar">
+	<div class="container">
+		<div class="inner">
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+			</div>
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Header -->
+<header id="site-header">
+	<div class="container">
+		<div class="inner">
+			<div class="logo">
+				<a href="../index.html">
+					<img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="index.html" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="photogrammetry.html">Photogrammetry</a></li>
+						</ul>
+					</li>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer" data-i18n="nav.portal">Client Portal</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Home</a> / Services</div>
+      <div class="tag">Professional Aerial Surveying</div>
+      <h1>Our Services</h1>
+      <p class="lead">Professional drone surveying, mapping, and aerial photography solutions across Costa Rica — centimeter-accurate data delivered in days.</p>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">What We Offer</div>
+        <h2>High-Precision Aerial Survey Solutions</h2>
+        <p>Drone Survey Costa Rica specializes in high-precision aerial surveying and mapping using the latest drone technology. Whether you need topographic mapping, 3D models, GPS positioning, or professional aerial media, we have the expertise and equipment to deliver survey-quality results.</p>
+      </div>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+          <img src="../images/dji-zenmuse-l1-lidar.jpg" alt="LiDAR Drone Mapping">
+          <h3>LiDAR Drone Mapping</h3>
+          <p>Precision topographic surveys with ±1–3 cm accuracy. Our LiDAR technology penetrates forest canopy to map ground terrain beneath dense vegetation.</p>
+          <p><strong>Perfect for:</strong> Land development, engineering projects, forestry, infrastructure planning.</p>
+          <a href="lidar-mapping.html" class="btn btn-primary" style="margin-top:auto;">Learn More →</a>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Our Services</h1>
-            <p class="subtitle">Professional drone surveying, mapping, and aerial photography solutions across Costa Rica</p>
+        <div class="info-card">
+          <img src="../images/pix4dmatic-drone-mapping-software.webp" alt="3D Photogrammetry">
+          <h3>3D Photogrammetry</h3>
+          <p>High-resolution orthomosaics and 3D models created from aerial photography. Capture detailed visual documentation and precise measurements from every angle.</p>
+          <p><strong>Perfect for:</strong> Real estate marketing, construction documentation, asset inspection, architectural visualization.</p>
+          <a href="photogrammetry.html" class="btn btn-primary" style="margin-top:auto;">Learn More →</a>
         </div>
-    </section>
 
-    <!-- Main Content -->
-    <main class="content">
-        <div class="container">
-            <!-- Services Overview -->
-            <section class="section">
-                <h2>What We Offer</h2>
-                <p>Drone Survey Costa Rica specializes in high-precision aerial surveying and mapping using the latest drone technology. Whether you need topographic mapping, 3D models, GPS positioning, or professional aerial media, we have the expertise and equipment to deliver survey-quality results.</p>
-            </section>
-
-            <!-- Services Grid -->
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <h3>LiDAR Drone Mapping</h3>
-                    </div>
-                    <div class="service-card-body">
-                        <p>Precision topographic surveys with ±1-3cm accuracy. Our LiDAR technology penetrates forest canopy to map ground terrain beneath dense vegetation.</p>
-                        <p><strong>Perfect for:</strong> Land development, engineering projects, forestry, infrastructure planning.</p>
-                        <a href="lidar-mapping.html" class="btn btn-primary">Learn More →</a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <h3>3D Photogrammetry</h3>
-                    </div>
-                    <div class="service-card-body">
-                        <p>High-resolution orthomosaics and 3D models created from aerial photography. Capture detailed visual documentation and precise measurements from every angle.</p>
-                        <p><strong>Perfect for:</strong> Real estate marketing, construction documentation, asset inspection, architectural visualization.</p>
-                        <a href="photogrammetry.html" class="btn btn-primary">Learn More →</a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <h3>GPS Geopositioning</h3>
-                    </div>
-                    <div class="service-card-body">
-                        <p>Precise geographic coordinates using RTK GPS positioning with ±2cm horizontal accuracy. Essential for boundary surveys and legal demarcation.</p>
-                        <p><strong>Perfect for:</strong> Boundary surveys, property registration, engineering control points, legal documentation.</p>
-                        <a href="geopositioning.html" class="btn btn-primary">Learn More →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Why Choose Us -->
-            <section class="why-section">
-                <h2>Why Choose Drone Survey Costa Rica?</h2>
-                <ul>
-                    <li>Professional-grade DJI Matrice 300 RTK with latest LiDAR technology</li>
-                    <li>DGAC licensed operators with 7+ years of experience</li>
-                    <li>Survey-quality accuracy across all terrain types</li>
-                    <li>Fast turnaround: results delivered in 3-7 days</li>
-                    <li>All data georeferenced to Costa Rica's official coordinate system</li>
-                    <li>Compatible with AutoCAD, GIS, and engineering platforms</li>
-                    <li>Competitive pricing with free quote</li>
-                </ul>
-            </section>
-
-            <!-- CTA Section -->
-            <section class="section" style="text-align: center;">
-                <h2>Ready to Get Started?</h2>
-                <p>Get a free quote for your project in minutes. Our team will assess your needs and provide an accurate estimate.</p>
-                <a href="../quote.html" class="btn btn-primary" style="font-size: 1.1em; padding: 1em 2.5em; margin-top: 1em;">Get a Free Quote</a>
-            </section>
+        <div class="info-card">
+          <img src="../images/dji-d-rtk-2-base-station-tripod4.png" alt="GPS Geopositioning">
+          <h3>GPS Geopositioning</h3>
+          <p>Precise geographic coordinates using RTK GPS positioning with ±2 cm horizontal accuracy. Essential for boundary surveys and legal demarcation.</p>
+          <p><strong>Perfect for:</strong> Boundary surveys, property registration, engineering control points, legal documentation.</p>
+          <a href="geopositioning.html" class="btn btn-primary" style="margin-top:auto;">Learn More →</a>
         </div>
-    </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-section">
-                <h4>Drone Survey Costa Rica</h4>
-                <p>Professional LiDAR drone surveying, topographic mapping, and aerial photography across Costa Rica.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="lidar-mapping.html">LiDAR Mapping</a></li>
-                    <li><a href="photogrammetry.html">Photogrammetry</a></li>
-                    <li><a href="geopositioning.html">GPS Geopositioning</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="https://wa.me/50672938970" target="_blank">WhatsApp</a></li>
-                    <li><a href="../quote.html">Get a Quote</a></li>
-                    <li><a href="https://g.co/kgs/VnbxFYr" target="_blank">Google Reviews</a></li>
-                </ul>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 Drone Survey Costa Rica. All rights reserved.</p>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Why Choose Us -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Why Us</div>
+        <h2>Why Choose Drone Survey Costa Rica?</h2>
+      </div>
+      <ul class="check-list">
+        <li>Professional-grade DJI Matrice 300 RTK with latest LiDAR technology</li>
+        <li>DGAC licensed operators with 7+ years of experience</li>
+        <li>Survey-quality accuracy across all terrain types</li>
+        <li>Fast turnaround: results delivered in 3–7 days</li>
+        <li>All data georeferenced to Costa Rica's official coordinate system</li>
+        <li>Compatible with AutoCAD, GIS, and engineering platforms</li>
+        <li>Competitive pricing with free quote</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- How We Work -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Our Process</div>
+        <h2>How We Work</h2>
+        <p>Getting started is easy. Three simple steps from request to delivery.</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <img src="../images/plan.jpg" alt="Mission Planning">
+          <div class="num">01</div>
+          <h3>Virtual Mission Planning</h3>
+          <p>Mission planning software lets us visualize the drone's flight path and run time before a single flight. We scope your project remotely and quote within 24 hours.</p>
         </div>
-    </footer>
+        <div class="info-card">
+          <img src="../images/fly.jpg" alt="Flight Execution">
+          <div class="num">02</div>
+          <h3>Flight Mission Execution</h3>
+          <p>Our team executes the planned mission on-site to capture photo and lidar data for centimeter-accurate 3D mapping. Safety-first with DGAC authorization.</p>
+        </div>
+        <div class="info-card">
+          <img src="../images/analize.jpg" alt="Data Analysis">
+          <div class="num">03</div>
+          <h3>Capture, Analyze, Visualize</h3>
+          <p>Data is processed through our software to produce high-quality 3D photogrammetry and topographic maps — delivered in 3–7 business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Bottom CTA -->
+  <section>
+    <div class="container">
+      <div class="inner-cta">
+        <h2>Ready to Get Started?</h2>
+        <p>Get a free quote for your project in minutes. Our team will assess your needs and provide an accurate estimate.</p>
+        <div class="inner-cta-actions">
+          <a href="../quote.html" class="btn btn-primary">Get a Free Quote</a>
+          <a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h5>Services</h5>
+				<ul>
+					<li><a href="lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="../quote.html">Get a Free Quote</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Company</h5>
+				<ul>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="index.html">All Services</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
+					<li><a href="../quote.html">Get a Quote</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="../sitemap.xml">Sitemap</a></p>
+		</div>
+	</div>
+</footer>
+
+<script>
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': "Costa Rica's Aerial Survey Specialists",
+		'hero.h1': 'Lidar Drone Surveying in Costa Rica',
+		'hero.p': "Costa Rica's specialists in lidar drone surveys, topographic mapping, aerial video & photography. Centimeter-accurate data for real estate, construction, and agriculture.",
+		'cta.talk': '💬 Talk to Us Now', 'cta.quote': 'Get a Quote Online', 'cta.getquote': 'Get a Quote',
+		'label.services': 'Services', 'label.future': 'Technology', 'label.workflow': 'Process', 'label.start': 'Getting Started', 'label.accuracy': 'Technology',
+		'services.title': 'Our Services', 'services.subtitle': 'Professional aerial surveying solutions using the latest drone technology.',
+		'services.lidar.title': 'Lidar Drone Surveying', 'services.lidar.desc': 'Laser scanning captures terrain data with centimeter accuracy — penetrating forest canopy to map the true ground surface beneath.',
+		'services.video.title': 'Aerial Video & Photography', 'services.video.desc': 'Professional 4K aerial video and high-resolution photography for real estate, construction progress, and promotions across Costa Rica.',
+		'services.gps.title': 'GPS Geopositioning', 'services.gps.desc': 'GPS RTK base station determines exact geographic coordinates — essential for precise boundary demarcation and topographic surveys.',
+		'services.learn.lidar': 'Learn about Lidar →', 'services.learn.video': 'Get a video quote →', 'services.learn.geo': 'Learn about GPS →',
+		'future.title': 'The Future of Aerial Surveying', 'future.intro': 'The latest drone technology makes capturing terrain at any scale fast, accurate, and repeatable — centimeter-accurate 3D data you can measure, map, and use.',
+		'workflow.title': 'How We Work', 'workflow.plan.title': 'Virtual Mission Planning', 'workflow.plan.desc': "Mission planning software lets us visualize the drone's flight path and run time before a single flight.",
+		'workflow.fly.title': 'Flight Mission Execution', 'workflow.fly.desc': 'Our team executes the planned mission on-site to capture photo and lidar data for centimeter-accurate 3D mapping.',
+		'workflow.analyze.title': 'Capture, Analyze, Visualize', 'workflow.analyze.desc': 'Data is processed through our software to produce high-quality 3D photogrammetry and topographic maps.',
+		'start.title': 'Getting started is very easy with us', 'start.desc': 'Fill out our online service request with your location and project size — we\'ll email you a free quote.', 'start.cta': 'Get a Quote Now',
+		'start.step1.title': 'Request a Quote', 'start.step1.desc': 'Takes 5 minutes. Fill out our online form and receive a free quote for your project.',
+		'start.step2.title': 'Select Date & Sign Contract', 'start.step2.desc': 'Once the quote is agreed, pick a date. We send a contract and invoice — 50% deposit on signature.',
+		'start.step3.title': 'Mission Execution & Delivery', 'start.step3.desc': 'We fly, process the data, and deliver your maps and reports in 3–7 business days.',
+		'accuracy.title': 'Centimeter Accuracy Mapping', 'accuracy.desc': 'The Zenmuse L1 integrates a Livox Lidar module, a high-accuracy IMU, and a 1-inch CMOS camera on a 3-axis stabilized gimbal.', 'accuracy.stat1': 'Lidar return layers', 'accuracy.stat2': 'Points per second',
+		'talk.title': 'Want to talk to a real human before you commit?', 'talk.desc': 'Lidar technology is powerful — and most people are still learning what it can do. We have 7+ years of experience and 25 five-star reviews. Ask us anything.',
+		'feat.goal': 'Goal Driven', 'feat.auto': 'Autonomous Workflow', 'feat.pilots': 'Expert Team of Pilots', 'feat.accurate': 'Accurate & Precise',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Especialistas en Levantamiento Aéreo en Costa Rica',
+		'hero.h1': 'Levantamiento con Dron Lidar en Costa Rica',
+		'hero.p': 'Ofrecemos levantamientos aéreos de alta precisión con Lidar y fotogrametría. Datos centimétricos para bienes raíces, construcción y agricultura.',
+		'cta.talk': '💬 ¡Hablemos Ahora!', 'cta.quote': 'Obtener Cotización Online', 'cta.getquote': 'Obtener Cotización',
+		'label.services': 'Servicios', 'label.future': 'Tecnología', 'label.workflow': 'Proceso', 'label.start': 'Cómo Empezar', 'label.accuracy': 'Tecnología',
+		'services.title': 'Nuestros Servicios', 'services.subtitle': 'Soluciones profesionales de levantamiento aéreo con la última tecnología de drones.',
+		'services.lidar.title': 'Levantamiento Lidar con Dron', 'services.lidar.desc': 'Escaneo láser que captura datos del terreno con precisión centimétrica, penetrando el dosel forestal.',
+		'services.video.title': 'Video Aéreo y Fotografía', 'services.video.desc': 'Video aéreo 4K y fotografía de alta resolución para bienes raíces, construcción y marketing.',
+		'services.gps.title': 'Geoposicionamiento GPS', 'services.gps.desc': 'Estación base GPS RTK para determinar coordenadas geográficas exactas en cualquier ubicación.',
+		'services.learn.lidar': 'Conocer más sobre Lidar →', 'services.learn.video': 'Cotizar video →', 'services.learn.geo': 'Conocer más sobre GPS →',
+		'future.title': 'El Futuro del Levantamiento Aéreo', 'future.intro': 'La última tecnología de drones permite capturar terrenos de cualquier tamaño de forma rápida, precisa y repetible.',
+		'workflow.title': 'Cómo Trabajamos', 'workflow.plan.title': 'Planificación Virtual de Misión', 'workflow.plan.desc': 'Nuestro software visualiza la ruta de vuelo del dron antes de despegar.',
+		'workflow.fly.title': 'Ejecución de la Misión', 'workflow.fly.desc': 'Nuestro equipo ejecuta la misión en campo para capturar datos foto y lidar con precisión centimétrica.',
+		'workflow.analyze.title': 'Capturar, Analizar, Visualizar', 'workflow.analyze.desc': 'Procesamos los datos con software especializado para crear fotogrametría 3D y mapas topográficos.',
+		'start.title': 'Comenzar es muy fácil con nosotros', 'start.desc': 'Llena nuestro formulario en línea con tu ubicación y el tamaño del proyecto — te enviaremos una cotización gratis.', 'start.cta': 'Obtener Cotización Ahora',
+		'start.step1.title': 'Solicitar una Cotización', 'start.step1.desc': 'Solo 5 minutos. Llena el formulario y recibe una cotización gratuita.',
+		'start.step2.title': 'Seleccionar Fecha y Firmar Contrato', 'start.step2.desc': 'Una vez acordada la cotización, elige la fecha. Enviamos contrato y factura — depósito del 50% al firmar.',
+		'start.step3.title': 'Ejecución y Entrega', 'start.step3.desc': 'Volamos, procesamos los datos y entregamos mapas e informes en 3–7 días hábiles.',
+		'accuracy.title': 'Mapeo de Precisión Centimétrica', 'accuracy.desc': 'El Zenmuse L1 integra módulo Lidar Livox, IMU de alta precisión y cámara CMOS de 1 pulgada en gimbal de 3 ejes.', 'accuracy.stat1': 'Capas de retorno Lidar', 'accuracy.stat2': 'Puntos por segundo',
+		'talk.title': '¿Quieres hablar con una persona real antes de decidir?', 'talk.desc': 'La tecnología Lidar es poderosa y la mayoría aún la está descubriendo. Contamos con 7+ años de experiencia y 25 reseñas de 5 estrellas.',
+		'feat.goal': 'Orientados a Resultados', 'feat.auto': 'Flujo Autónomo', 'feat.pilots': 'Equipo de Pilotos Expertos', 'feat.accurate': 'Preciso y Exacto',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Spécialistes du Relevé Aérien au Costa Rica',
+		'hero.h1': 'Relevé par Drone Lidar au Costa Rica',
+		'hero.p': 'Relevés aériens haute précision avec Lidar et photogrammétrie. Données centimétriques pour l\'immobilier, la construction et l\'agriculture.',
+		'cta.talk': '💬 Parlez-nous Maintenant', 'cta.quote': 'Obtenir un Devis', 'cta.getquote': 'Obtenir un Devis',
+		'label.services': 'Services', 'label.future': 'Technologie', 'label.workflow': 'Processus', 'label.start': 'Démarrer', 'label.accuracy': 'Technologie',
+		'services.title': 'Nos Services', 'services.subtitle': 'Solutions professionnelles de relevé aérien avec la dernière technologie drone.',
+		'services.lidar.title': 'Relevé Drone Lidar', 'services.lidar.desc': 'Scan laser capturant les données terrain avec précision centimétrique, même sous couvert forestier dense.',
+		'services.video.title': 'Vidéo et Photographie Aériennes', 'services.video.desc': 'Vidéo aérienne 4K et photos haute résolution pour immobilier, construction et marketing.',
+		'services.gps.title': 'Géopositionnement GPS', 'services.gps.desc': 'Station base GPS RTK pour déterminer les coordonnées géographiques exactes de tout emplacement.',
+		'services.learn.lidar': 'En savoir plus sur Lidar →', 'services.learn.video': 'Demander un devis vidéo →', 'services.learn.geo': 'En savoir plus sur GPS →',
+		'future.title': "L'Avenir du Relevé Aérien", 'future.intro': 'La dernière technologie drone permet de capturer tout terrain rapidement, avec précision et de façon répétable.',
+		'workflow.title': 'Notre Processus', 'workflow.plan.title': 'Planification Virtuelle', 'workflow.plan.desc': 'Notre logiciel visualise la trajectoire de vol avant le décollage.',
+		'workflow.fly.title': 'Exécution de la Mission', 'workflow.fly.desc': 'Notre équipe exécute la mission sur site pour capturer données photo et lidar.',
+		'workflow.analyze.title': 'Capturer, Analyser, Visualiser', 'workflow.analyze.desc': 'Traitement des données pour créer photogrammétrie 3D et cartes topographiques.',
+		'start.title': 'Commencer est très simple avec nous', 'start.desc': 'Remplissez notre formulaire en ligne avec votre lieu et la taille du projet — nous vous enverrons un devis gratuit.', 'start.cta': 'Obtenir un Devis',
+		'start.step1.title': 'Demander un Devis', 'start.step1.desc': '5 minutes suffisent. Remplissez le formulaire et recevez un devis gratuit.',
+		'start.step2.title': 'Choisir une Date et Signer', 'start.step2.desc': 'Une fois le devis accepté, choisissez la date. Contrat et facture envoyés — acompte 50% à la signature.',
+		'start.step3.title': 'Mission et Livraison', 'start.step3.desc': 'Nous volons, traitons les données et livrons cartes et rapports en 3–7 jours ouvrés.',
+		'accuracy.title': 'Cartographie de Précision Centimétrique', 'accuracy.desc': 'Le Zenmuse L1 intègre module Lidar Livox, IMU haute précision et caméra CMOS 1 pouce sur nacelle 3 axes.', 'accuracy.stat1': 'Couches de retour Lidar', 'accuracy.stat2': 'Points par seconde',
+		'talk.title': 'Vous souhaitez parler à une vraie personne avant de vous engager ?', 'talk.desc': 'La technologie Lidar est puissante. Nous avons 7+ ans d\'expérience et 25 avis 5 étoiles. Posez-nous vos questions.',
+		'feat.goal': 'Orientés Résultats', 'feat.auto': 'Flux Autonome', 'feat.pilots': 'Équipe de Pilotes Experts', 'feat.accurate': 'Précis et Exact',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'dark';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
+</script>
 </body>
 </html>
