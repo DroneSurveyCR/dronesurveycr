@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Solicitar Cotización — Drone Survey Costa Rica</title>
+	<meta name="description" content="Obtén una cotización instantánea para mapeo LiDAR por dron, fotogrametría y encuestas aéreas en Costa Rica.">
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+	<meta property="og:locale" content="es_CR">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Solicitar Cotización — Drone Survey Costa Rica">
+	<meta property="og:description" content="Obtén una cotización instantánea para mapeo LiDAR por dron, fotogrametría y encuestas aéreas en Costa Rica.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/es/quote.html">
+	<meta property="og:site_name" content="Drone Survey Costa Rica">
+	<link rel="alternate" hreflang="en" href="https://www.dronesurveycr.com/quote.html">
+	<link rel="alternate" hreflang="es" href="https://www.dronesurveycr.com/es/quote.html">
+	<link rel="canonical" href="https://www.dronesurveycr.com/es/quote.html">
+	<style>
+		*{box-sizing:border-box;margin:0;padding:0}
+		body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;color:#444;background:#f4f6fb}
+		h1,h2,h3,h4,h5{font-family:'IBM Plex Sans',sans-serif}
+		#sp-header{background:#fff;border-bottom:1px solid #eee;padding:15px 0}
+		.container{max-width:1100px;margin:0 auto;padding:0 20px}
+		.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+		.logo img{height:36px;display:block}
+		nav{display:flex;flex-wrap:wrap;gap:4px}
+		nav a{text-decoration:none;color:#302F40;padding:8px 12px;font-weight:500;font-size:15px}
+		nav a:hover{color:#0080FE}
+		.page-wrap{padding:40px 0 80px}
+		.page-title{text-align:center;margin-bottom:40px}
+		.page-title h1{font-size:clamp(28px,4vw,44px);color:#302F40;margin-bottom:10px}
+		.page-title p{color:#5c5c69;font-size:17px;max-width:560px;margin:0 auto}
+		.quote-layout{display:grid;grid-template-columns:1fr 400px;gap:30px;align-items:start}
+		@media(max-width:900px){.quote-layout{grid-template-columns:1fr}}
+		.form-card{background:#fff;border-radius:16px;padding:36px;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+		.form-section{margin-bottom:28px}
+		.form-section h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#0080FE;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #eef0f5}
+		.field{margin-bottom:16px}
+		.field label{display:block;font-size:14px;font-weight:600;color:#302F40;margin-bottom:5px}
+		.field label span{color:#dc2626}
+		.field input,.field select,.field textarea{width:100%;padding:11px 14px;border:1.5px solid #dde1e8;border-radius:8px;font-size:15px;font-family:'Inter',sans-serif;color:#302F40;background:#fff;outline:none;transition:border 0.2s}
+		.field input:focus,.field select:focus,.field textarea:focus{border-color:#0080FE;box-shadow:0 0 0 3px rgba(0,128,254,0.08)}
+		.field textarea{height:80px;resize:vertical}
+		.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+		@media(max-width:600px){.field-row{grid-template-columns:1fr}}
+		.field-hint{font-size:12px;color:#888;margin-top:4px}
+		.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+		@media(max-width:500px){.services-grid{grid-template-columns:1fr}}
+		.service-check{display:flex;align-items:center;gap:10px;padding:11px 13px;border:1.5px solid #dde1e8;border-radius:8px;cursor:pointer;transition:all 0.15s;user-select:none}
+		.service-check:hover{border-color:#0080FE;background:#f0f7ff}
+		.service-check.checked{border-color:#0080FE;background:#f0f7ff}
+		.service-check input{width:15px;height:15px;accent-color:#0080FE;flex-shrink:0;cursor:pointer}
+		.service-check .svc-name{font-size:14px;font-weight:500;color:#302F40}
+		.service-check .svc-price{font-size:11px;color:#888;margin-top:1px}
+		.service-check-inner{display:flex;flex-direction:column}
+		/* Video duration toggle */
+		.video-options{display:none;margin-top:8px;padding:12px;background:#f8f9fc;border-radius:8px;border:1px solid #e0e4ee}
+		.video-options label{font-size:13px;font-weight:600;color:#302F40;margin-bottom:6px;display:block}
+		.radio-row{display:flex;gap:12px}
+		.radio-opt{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:#444}
+		.radio-opt input{accent-color:#0080FE}
+		/* Quote panel */
+		.quote-panel{position:sticky;top:20px}
+		.quote-card{background:#302F40;border-radius:16px;padding:28px;color:#fff}
+		.quote-card h3{font-size:17px;margin-bottom:18px}
+		.quote-empty{text-align:center;padding:20px 0;color:#9ca3b0;font-size:14px}
+		.quote-empty .icon{font-size:36px;margin-bottom:8px}
+		.quote-lines{display:flex;flex-direction:column}
+		.quote-line{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.08);gap:10px}
+		.quote-line:last-child{border-bottom:none}
+		.quote-line .ql{font-size:13px;color:#9ca3b0;flex:1}
+		.quote-line .qa{font-size:13px;font-weight:600;color:#fff;white-space:nowrap}
+		.quote-total{display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;margin-top:6px;border-top:2px solid rgba(255,255,255,0.15)}
+		.quote-total .ql{font-size:15px;font-weight:700;color:#fff}
+		.quote-total .qa{font-size:30px;font-weight:700;color:#0080FE;font-family:'IBM Plex Sans',sans-serif}
+		.deposit-box{background:rgba(0,128,254,0.12);border:1px solid rgba(0,128,254,0.25);border-radius:8px;padding:12px;margin-top:14px;font-size:13px;color:#93c5fd}
+		.deposit-row{display:flex;justify-content:space-between;margin-top:5px}
+		.deposit-row span{font-weight:700;color:#fff}
+		.deliverables-card{background:#fff;border-radius:12px;padding:18px;margin-top:14px}
+		.deliverables-card h4{font-size:12px;font-weight:700;color:#302F40;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px}
+		.dlv{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;font-size:13px;color:#5c5c69;line-height:1.4}
+		.dlv::before{content:'✓';color:#0080FE;font-weight:700;flex-shrink:0}
+		.info-card{background:#fff;border-radius:12px;padding:16px;margin-top:14px;font-size:13px;color:#5c5c69;line-height:1.65}
+		.info-card strong{color:#302F40;display:block;margin-bottom:4px}
+		/* Submit */
+		.btn-submit{width:100%;background:#0080FE;color:#fff;padding:15px;border:none;border-radius:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:background 0.2s;margin-top:6px}
+		.btn-submit:hover{background:#006ce0}
+		.btn-submit:disabled{background:#9ca3b0;cursor:not-allowed}
+		.btn-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:13px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;margin-top:10px;font-family:'IBM Plex Sans',sans-serif}
+		.btn-wa:hover{background:#1fb956}
+		.form-foot{text-align:center;font-size:12px;color:#888;margin-top:10px;line-height:1.6}
+		.success-card{background:#fff;border-radius:16px;padding:48px;text-align:center;box-shadow:0 2px 20px rgba(0,0,0,0.06);display:none}
+		.success-card .check-icon{width:64px;height:64px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
+		.success-card h2{color:#302F40;font-size:26px;margin-bottom:10px}
+		.success-card p{color:#5c5c69;margin-bottom:5px}
+		footer{background:#302F40;color:#9ca3b0;text-align:center;padding:24px;font-size:14px}
+		footer a{color:#60a5fa;text-decoration:none}
+	</style>
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-6L0PFQRYF6');
+	</script>
+</head>
+<body>
+
+<header id="sp-header">
+	<div class="container">
+		<div class="header-inner">
+			<a href="index.html"><img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="36"></a>
+			<nav>
+				<a href="index.html">Inicio</a>
+				<a href="../services/lidar-mapping.html">Servicios</a>
+				<a href="quote.html">Cotización</a>
+				<a href="../about.html">Acerca de</a>
+				<a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener">Portal de Clientes</a>
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener">WhatsApp</a>
+				<a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener">Reseñas</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<div class="page-wrap">
+	<div class="container">
+		<div class="page-title">
+			<h1>Solicitar Cotización Instantánea</h1>
+			<p>Completa los detalles de tu proyecto y ve el precio estimado actualizar en tiempo real.</p>
+		</div>
+
+		<div class="quote-layout">
+
+			<!-- ── FORM ── -->
+			<div>
+			<div class="form-card" id="quoteForm">
+
+				<div class="form-section">
+					<h3>Tus Datos</h3>
+					<div class="field-row">
+						<div class="field"><label>Nombre <span>*</span></label><input type="text" id="firstName" placeholder="Juan" required></div>
+						<div class="field"><label>Apellido <span>*</span></label><input type="text" id="lastName" placeholder="Pérez" required></div>
+					</div>
+					<div class="field"><label>Nombre de la Empresa</label><input type="text" id="company" placeholder="Opcional"></div>
+					<div class="field-row">
+						<div class="field"><label>Correo <span>*</span></label><input type="email" id="email" placeholder="juan@email.com" required></div>
+						<div class="field"><label>WhatsApp / Teléfono <span>*</span></label><input type="tel" id="phone" placeholder="+506 XXXX XXXX" required></div>
+					</div>
+				</div>
+
+				<div class="form-section">
+					<h3>Seleccionar Servicios</h3>
+					<div class="services-grid" id="servicesGrid">
+						<label class="service-check">
+							<input type="checkbox" value="LiDAR Mapping" onchange="toggleService(this.closest('label'),'ha')">
+							<div class="service-check-inner"><span class="svc-name">🛰️ Mapeo LiDAR</span><span class="svc-price">$80/ha + $1,000 base</span></div>
+						</label>
+						<label class="service-check">
+							<input type="checkbox" value="Photogrammetry" onchange="toggleService(this.closest('label'),'ha')">
+							<div class="service-check-inner"><span class="svc-name">📸 Fotogrametría</span><span class="svc-price">$80/ha + $1,000 base</span></div>
+						</label>
+						<label class="service-check">
+							<input type="checkbox" value="GPS / Plano Cadastro" onchange="toggleService(this.closest('label'),'ha')">
+							<div class="service-check-inner"><span class="svc-name">📍 GPS / Plano Catastral</span><span class="svc-price">$100/ha (levantamiento)</span></div>
+						</label>
+						<label class="service-check">
+							<input type="checkbox" value="Drone Videos" id="videoCheck" onchange="toggleService(this.closest('label'),'video')">
+							<div class="service-check-inner"><span class="svc-name">🎬 Vídeos por Dron</span><span class="svc-price">$400 medio día / $800 día completo</span></div>
+						</label>
+						<label class="service-check">
+							<input type="checkbox" value="Topographic Maps" onchange="toggleService(this.closest('label'),'ha')">
+							<div class="service-check-inner"><span class="svc-name">🗺️ Mapas Topográficos</span><span class="svc-price">Incluido con LiDAR/Fotogrametría</span></div>
+						</label>
+						<label class="service-check">
+							<input type="checkbox" value="Drainage Management" onchange="toggleService(this.closest('label'),'ha')">
+							<div class="service-check-inner"><span class="svc-name">💧 Gestión de Drenaje</span><span class="svc-price">$20/ha (reporte)</span></div>
+						</label>
+						<label class="service-check">
+							<input type="checkbox" value="Forestry Management" onchange="toggleService(this.closest('label'),'ha')">
+							<div class="service-check-inner"><span class="svc-name">🌿 Gestión Forestal</span><span class="svc-price">$20/ha (reporte)</span></div>
+						</label>
+					</div>
+
+					<!-- Video duration picker -->
+					<div class="video-options" id="videoOptions">
+						<label>Duración del rodaje de video:</label>
+						<div class="radio-row">
+							<label class="radio-opt"><input type="radio" name="videoDuration" value="half" checked onchange="calculateQuote()"> Medio día — $400 <small>(10 clips + edición de 2 min)</small></label>
+							<label class="radio-opt"><input type="radio" name="videoDuration" value="full" onchange="calculateQuote()"> Día completo — $800 <small>(10 clips + edición de 2 min)</small></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-section">
+					<h3>Detalles del Proyecto</h3>
+					<div class="field" id="hectaresField">
+						<label>Tamaño del Terreno (Hectáreas) <span>*</span></label>
+						<input type="number" id="hectares" placeholder="ej. 10" min="0.1" step="0.1" oninput="calculateQuote()">
+						<div class="field-hint">1 hectárea = 10,000 m² ≈ 2.47 acres</div>
+					</div>
+					<div class="field">
+						<label>Ubicación del Proyecto</label>
+						<select id="province" onchange="onProvinceChange()">
+							<option value="">Seleccionar provincia...</option>
+							<option value="0">San José (sin viaje)</option>
+							<option value="60">Alajuela (~60 km)</option>
+							<option value="80">Cartago (~80 km)</option>
+							<option value="100">Heredia (~100 km)</option>
+							<option value="150">Guanacaste (~150 km)</option>
+							<option value="180">Puntarenas (~180 km)</option>
+							<option value="220">Limón (~220 km)</option>
+							<option value="custom">Otro / Distancia personalizada</option>
+						</select>
+					</div>
+					<div class="field" id="customKmField" style="display:none">
+						<label>Distancia desde San José (km)</label>
+						<input type="number" id="customKm" placeholder="ej. 300" min="0" oninput="calculateQuote()">
+					</div>
+
+					<div class="field">
+						<label>Fecha Límite del Proyecto</label>
+						<input type="date" id="deadline" onchange="calculateQuote()">
+					</div>
+				</div>
+
+				<div class="form-section">
+					<h3>Información Adicional</h3>
+					<div class="field">
+						<label>Dirección del Proyecto / Coordenadas GPS</label>
+						<input type="text" id="address" placeholder="ej. Cerca de Liberia, Guanacaste / 9.9281° N, 84.0907° W">
+					</div>
+					<div class="field">
+						<label>¿Cómo nos conociste?</label>
+						<input type="text" id="referral" placeholder="Google, Instagram, referencia...">
+					</div>
+					<div class="field">
+						<label>Notas / Requisitos Especiales</label>
+						<textarea id="notes" placeholder="Restricciones de acceso, notas del terreno, entregables específicos, preguntas..."></textarea>
+					</div>
+				</div>
+
+				<button class="btn-submit" id="submitBtn" onclick="submitQuote()">📋 Enviar Solicitud de Cotización</button>
+				<a href="https://wa.me/50672938970" class="btn-wa" target="_blank" rel="noopener">💬 ¿Prefieres WhatsApp? Chat Directo</a>
+				<p class="form-foot">Confirmaremos tu cotización en pocas horas.<br>50% de depósito para iniciar · 50% a la entrega · Criptomonedas · PayPal · Transferencia · Efectivo</p>
+			</div>
+
+			<!-- Success -->
+			<div class="success-card" id="successCard">
+				<div class="check-icon">✅</div>
+				<h2>¡Cotización Enviada!</h2>
+				<p>Hemos recibido los detalles de tu proyecto.</p>
+				<p>Revisa tu correo para una copia de esta cotización.</p>
+				<p>Te contactaremos por WhatsApp y correo pronto.</p>
+				<br>
+				<a href="https://wa.me/50672938970" class="btn-wa" style="max-width:300px;margin:0 auto" target="_blank" rel="noopener">💬 Chat en WhatsApp</a>
+			</div>
+			</div>
+
+			<!-- ── QUOTE PANEL ── -->
+			<div class="quote-panel">
+				<div class="quote-card">
+					<h3>📊 Tu Estimado Instantáneo</h3>
+					<div id="quoteEmpty" class="quote-empty">
+						<div class="icon">🛰️</div>
+						<p>Selecciona servicios e ingresa el tamaño de tu proyecto para ver tu precio estimado al instante.</p>
+					</div>
+					<div id="quoteBreakdown" style="display:none">
+						<div class="quote-lines" id="quoteLines"></div>
+						<div class="quote-total">
+							<span class="ql">Total Estimado</span>
+							<span class="qa" id="quoteTotal">$0</span>
+						</div>
+						<div class="deposit-box">
+							Pago: 50% para iniciar · 50% a la entrega
+							<div class="deposit-row">
+								<span style="color:#93c5fd">Depósito para iniciar:</span>
+								<span id="depositAmt">$0</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="deliverables-card" id="deliverablesCard" style="display:none">
+					<h4>Qué Está Incluido</h4>
+					<div id="deliverablesList"></div>
+				</div>
+
+				<div class="info-card">
+					<strong>⏱️ Entrega</strong>72 horas después de la ejecución del vuelo
+					<br><br>
+					<strong>💳 Métodos de Pago</strong>Criptomonedas · PayPal · Transferencia Bancaria · Efectivo
+					<br><br>
+					<strong>📍 Ubicado en</strong>San José, Costa Rica — sirviendo todas las regiones
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<footer>
+	<p>© 2026 DroneSurveyCR.com · <a href="index.html">Inicio</a> · <a href="https://wa.me/50672938970">WhatsApp</a> · dronesurveycr@gmail.com</p>
+</footer>
+
+<script>
+// ── PRICING ─────────────────────────────────────────────────────
+const P = {
+	baseFlight:   1000,   // fixed per project (Matrice 300)
+	lidar:        80,     // $/ha
+	photogrammetry: 80,   // $/ha
+	gps:          100,    // $/ha
+	drainage:     20,     // $/ha
+	forestry:     20,     // $/ha
+	videoHalf:    400,    // flat
+	videoFull:    800,    // flat
+	perKm:        1,      // $/km travel
+	rushDays:     0,
+	rushPct:      0
+};
+
+const DELIVERABLES = {
+	'LiDAR Mapping': ['Vuelo LiDAR — Matrice 300 + sensor L1','Procesamiento de ingeniero GIS','Modelo Digital de Elevación (DEM)','Nube de puntos LiDAR','Mapas de contorno','Ortofoto 2D','Visualizador 3D en la nube por 6 meses','Entrega por Google Drive','Exportación: .dwg, .dxf, .shp, AutoCAD, RINEX'],
+	'Photogrammetry': ['Vuelo de fotogrametría por dron','Ortomoaico de alta resolución (GeoTIFF)','Nube de puntos 3D','Modelo Digital de Superficie (DSM)','Procesamiento de ingeniero GIS','Entrega por Google Drive'],
+	'GPS / Plano Cadastro': ['Levantamiento GPS en terreno','Mapeo de límites catastrales','Datos oficiales de plano catastral','Límites georeferenciados'],
+	'Drone Videos': ['Vídeo aéreo cinematográfico 4K','10 clips para redes sociales','Reel de edición de 2 minutos','Material en bruto en Google Drive'],
+	'Topographic Maps': ['Incluido con escaneo LiDAR / Fotogrametría'],
+	'Drainage Management': ['Análisis de flujo de drenaje','Mapeo de pendientes y terreno','Zonas de acumulación de agua','Reporte de gestión de drenaje'],
+	'Forestry Management': ['Mapeo de cobertura de dosel','Altura de árboles (LiDAR)','Clasificación de zonas de vegetación','Reporte de gestión forestal']
+};
+
+// ── UI HELPERS ───────────────────────────────────────────────────
+function toggleService(label, type) {
+	const cb = label.querySelector('input');
+	label.classList.toggle('checked', cb.checked);
+	if (type === 'video') {
+		document.getElementById('videoOptions').style.display = cb.checked ? 'block' : 'none';
+	}
+	calculateQuote();
+}
+
+function onProvinceChange() {
+	const v = document.getElementById('province').value;
+	document.getElementById('customKmField').style.display = v === 'custom' ? 'block' : 'none';
+	calculateQuote();
+}
+
+function getServices() {
+	return [...document.querySelectorAll('#servicesGrid input:checked')].map(c => c.value);
+}
+
+function fmt(n) {
+	return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+// ── CALCULATE ────────────────────────────────────────────────────
+function calculateQuote() {
+	const services  = getServices();
+	const hectares  = parseFloat(document.getElementById('hectares').value) || 0;
+	const provVal   = document.getElementById('province').value;
+	const nights    = 0;
+	const deadline  = document.getElementById('deadline').value;
+	const videoDur  = document.querySelector('input[name="videoDuration"]:checked')?.value || 'half';
+
+	const km = provVal === 'custom'
+		? (parseFloat(document.getElementById('customKm').value) || 0)
+		: (parseFloat(provVal) || 0);
+
+	const needsHa = services.some(s => ['LiDAR Mapping','Photogrammetry','GPS / Plano Cadastro','Drainage Management','Forestry Management'].includes(s));
+
+	if (services.length === 0) {
+		document.getElementById('quoteEmpty').style.display = 'block';
+		document.getElementById('quoteBreakdown').style.display = 'none';
+		document.getElementById('deliverablesCard').style.display = 'none';
+		return;
+	}
+
+	// Rush?
+	let rush = false;
+	if (deadline) {
+		const days = Math.ceil((new Date(deadline) - new Date()) / 86400000);
+		rush = days > 0 && days <= P.rushDays;
+	}
+
+	const lines = [];
+	let total = 0;
+
+	// Base flight (once, if any ha-based service selected)
+	const haServices = services.filter(s => ['LiDAR Mapping','Photogrammetry','GPS / Plano Cadastro','Drainage Management','Forestry Management'].includes(s));
+	if (haServices.length > 0) {
+		lines.push({ l: 'Tarifa base de vuelo Matrice 300', a: P.baseFlight });
+		total += P.baseFlight;
+	}
+
+	// Per-hectare services
+	if (hectares > 0) {
+		if (services.includes('LiDAR Mapping')) {
+			const a = hectares * P.lidar;
+			lines.push({ l: `LiDAR: ${hectares} ha × $${P.lidar}`, a });
+			total += a;
+		}
+		if (services.includes('Photogrammetry')) {
+			const a = hectares * P.photogrammetry;
+			lines.push({ l: `Fotogrametría: ${hectares} ha × $${P.photogrammetry}`, a });
+			total += a;
+		}
+		if (services.includes('GPS / Plano Cadastro')) {
+			const a = hectares * P.gps;
+			lines.push({ l: `Levantamiento GPS: ${hectares} ha × $${P.gps}`, a });
+			total += a;
+		}
+		if (services.includes('Drainage Management')) {
+			const a = hectares * P.drainage;
+			lines.push({ l: `Reporte de drenaje: ${hectares} ha × $${P.drainage}`, a });
+			total += a;
+		}
+		if (services.includes('Forestry Management')) {
+			const a = hectares * P.forestry;
+			lines.push({ l: `Reporte forestal: ${hectares} ha × $${P.forestry}`, a });
+			total += a;
+		}
+	} else if (needsHa) {
+		lines.push({ l: 'Ingresa el tamaño del terreno arriba para estimado completo', a: null });
+	}
+
+	// Topo maps — included
+	if (services.includes('Topographic Maps')) {
+		lines.push({ l: 'Mapas topográficos — incluido ✓', a: 0 });
+	}
+
+	// Video
+	if (services.includes('Drone Videos')) {
+		const a = videoDur === 'full' ? P.videoFull : P.videoHalf;
+		lines.push({ l: `Vídeo por dron — ${videoDur === 'full' ? 'día completo' : 'medio día'}`, a });
+		total += a;
+	}
+
+	// Travel
+	if (km > 0) {
+		const a = km * P.perKm;
+		lines.push({ l: `Viaje: ${km} km × $${P.perKm}/km`, a });
+		total += a;
+	}
+
+	// Rush
+	if (rush) {
+		const a = Math.round(total * P.rushPct);
+		lines.push({ l: `⚡ Recargo por prisa (< ${P.rushDays} días)`, a });
+		total += a;
+	}
+
+	// Render
+	document.getElementById('quoteLines').innerHTML = lines.map(l =>
+		`<div class="quote-line"><span class="ql">${l.l}</span><span class="qa">${l.a === null ? '—' : l.a === 0 ? 'Gratis' : fmt(l.a)}</span></div>`
+	).join('');
+
+	document.getElementById('quoteTotal').textContent = fmt(total);
+	document.getElementById('depositAmt').textContent = fmt(total / 2);
+	document.getElementById('quoteEmpty').style.display = 'none';
+	document.getElementById('quoteBreakdown').style.display = 'block';
+
+	// Deliverables
+	const allDlv = [...new Set(services.flatMap(s => DELIVERABLES[s] || []))];
+	document.getElementById('deliverablesList').innerHTML = allDlv.map(d => `<div class="dlv">${d}</div>`).join('');
+	document.getElementById('deliverablesCard').style.display = 'block';
+}
+
+// ── SUPABASE CONFIG ─────────────────────────────────────────────
+const SUPABASE_URL = 'https://bqszvlrzmeszeewufgio.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
+
+// ── SUBMIT ───────────────────────────────────────────────────────
+async function submitQuote() {
+	const firstName = document.getElementById('firstName').value.trim();
+	const lastName  = document.getElementById('lastName').value.trim();
+	const email     = document.getElementById('email').value.trim();
+	const phone     = document.getElementById('phone').value.trim();
+	const services  = getServices();
+
+	if (!firstName || !email || !phone) { alert('Por favor completa nombre, correo y teléfono.'); return; }
+	if (services.length === 0) { alert('Por favor selecciona al menos un servicio.'); return; }
+
+	const btn = document.getElementById('submitBtn');
+	btn.disabled = true;
+	btn.textContent = '⏳ Enviando...';
+
+	// Build breakdown text
+	const lines = [...document.getElementById('quoteLines').querySelectorAll('.quote-line')];
+	const breakdown = lines.map(l => `${l.querySelector('.ql').textContent}: ${l.querySelector('.qa').textContent}`).join('\n');
+
+	const hectaresVal = parseFloat(document.getElementById('hectares').value) || null;
+	const provSelect  = document.getElementById('province');
+	const provText    = provSelect.options[provSelect.selectedIndex]?.text || '';
+	const deadlineVal = document.getElementById('deadline').value || null;
+	const totalText   = document.getElementById('quoteTotal').textContent;
+	const totalNum    = parseFloat(totalText.replace(/[$,]/g, '')) || null;
+
+	// Determine survey type from selected services
+	const surveyType = services.includes('LiDAR Mapping') ? 'LiDAR' :
+	                   services.includes('Photogrammetry') ? 'Photogrammetry' :
+	                   services.includes('GPS / Plano Cadastro') ? 'GPS/Cadastro' :
+	                   services[0] || 'Other';
+
+	// Supabase payload — matches quote_submissions table
+	const supabasePayload = {
+		first_name:          firstName,
+		last_name:           lastName,
+		email:               email,
+		phone:               phone,
+		company_name:        document.getElementById('company').value || null,
+		services_requested:  services.join(', '),
+		area_hectares:       hectaresVal,
+		latitude_longitude:  document.getElementById('address').value || null,
+		state_province:      provText || null,
+		deadline:            deadlineVal,
+		referral_source:     document.getElementById('referral').value || null,
+		survey_type:         surveyType,
+		terrain_type:        null,
+		urgency:             deadlineVal ? 'specified' : 'flexible',
+		calculated_price:    totalNum,
+		notes:               [
+			document.getElementById('notes').value,
+			'--- Desglose de Cotización ---',
+			breakdown,
+			'--- Depósito: ' + document.getElementById('depositAmt').textContent + ' ---'
+		].filter(Boolean).join('\n'),
+		country:             'Costa Rica'
+	};
+
+	try {
+		// 1. Save to Supabase
+		const r = await fetch(SUPABASE_URL + '/rest/v1/quote_submissions', {
+			method: 'POST',
+			headers: {
+				'Content-Type':  'application/json',
+				'apikey':        SUPABASE_ANON_KEY,
+				'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+				'Prefer':        'return=minimal'
+			},
+			body: JSON.stringify(supabasePayload)
+		});
+		if (!r.ok) {
+			const errText = await r.text();
+			console.error('Supabase error:', r.status, errText);
+		}
+
+		// 2. Notify Slack + Notion via edge function (fire-and-forget)
+		fetch(SUPABASE_URL + '/functions/v1/on-new-quote', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ record: supabasePayload })
+		}).catch(() => {});
+	} catch(e) {
+		console.error('Submit error:', e);
+	}
+
+	document.getElementById('quoteForm').style.display = 'none';
+	document.getElementById('successCard').style.display = 'block';
+	window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

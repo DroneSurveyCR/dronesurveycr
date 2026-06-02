@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>LiDAR vs Photogrammetry: Which Drone Survey Method is Right for Your Costa Rica Project?</title>
+	<meta name="description" content="Expert comparison of LiDAR and photogrammetry for drone surveys in Costa Rica. Learn accuracy, costs, when to use each, and how Costa Rica's terrain affects technology choice.">
+	<meta name="robots" content="index, follow">
+	<link rel="canonical" href="https://www.dronesurveycr.com/blog/lidar-vs-photogrammetry-costa-rica.html">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="LiDAR vs Photogrammetry: Which Drone Survey Method for Costa Rica?">
+	<meta property="og:description" content="Compare LiDAR and photogrammetry for drone surveys in Costa Rica. Accuracy, cost, when to use each, terrain considerations.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/blog/lidar-vs-photogrammetry.html">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<meta property="article:published_time" content="2026-04-03">
+	<meta property="article:author" content="Drone Survey Costa Rica">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": "LiDAR vs Photogrammetry: Which Drone Survey Method is Right for Your Costa Rica Project?",
+		"description": "Expert comparison of LiDAR and photogrammetry for drone surveys in Costa Rica with accuracy details and terrain considerations.",
+		"image": "https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg",
+		"datePublished": "2026-04-03",
+		"dateModified": "2026-04-16",
+		"author": {
+			"@type": "Organization",
+			"name": "Drone Survey Costa Rica",
+			"url": "https://www.dronesurveycr.com/"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Drone Survey Costa Rica",
+			"url": "https://www.dronesurveycr.com/"
+		}
+	}
+	</script>
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+	<style>
+		* { box-sizing: border-box; }
+		body { margin: 0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: #5C5C69; background: #fff; }
+		h1, h2, h3, h4, h5, h6 { font-family: 'IBM Plex Sans', sans-serif; color: #302F40; }
+		.container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+		#sp-header { padding: 15px 0; border-bottom: 1px solid #eee; }
+		#sp-header .row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+		.logo img { height: 36px; display: block; }
+		nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 5px; }
+		nav a { text-decoration: none; color: #302F40; padding: 8px 12px; font-weight: 500; }
+		nav a:hover { color: #0080FE; }
+		.article-hero { background: linear-gradient(135deg, #302F40 0%, #0080FE 100%); padding: 60px 0; color: #fff; }
+		.article-hero h1 { font-size: clamp(28px, 5vw, 48px); margin: 0 0 15px; }
+		.article-hero .meta { font-size: 15px; opacity: 0.9; }
+		.article-content { padding: 60px 0; }
+		.article-content h2 { font-size: 32px; margin: 50px 0 25px; line-height: 1.2; }
+		.article-content h3 { font-size: 24px; margin: 35px 0 15px; line-height: 1.3; }
+		.article-content p { margin: 0 0 18px; line-height: 1.7; }
+		.article-content ul, .article-content ol { margin: 20px 0; padding-left: 25px; }
+		.article-content li { margin: 10px 0; }
+		.comparison-table { width: 100%; border-collapse: collapse; margin: 30px 0; }
+		.comparison-table th, .comparison-table td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+		.comparison-table th { background: #f8f9fa; font-weight: 600; color: #302F40; }
+		.comparison-table tr:hover { background: #f4f6fb; }
+		.comparison-table td:first-child { font-weight: 600; color: #302F40; }
+		.highlight-box { background: #e8f0fe; border-left: 4px solid #0080FE; padding: 20px; border-radius: 6px; margin: 25px 0; }
+		.highlight-box strong { color: #0080FE; }
+		.pros { background: #f0fce8; border-left: 4px solid #28a745; padding: 20px; border-radius: 6px; margin: 20px 0; }
+		.cons { background: #fce8e8; border-left: 4px solid #dc3545; padding: 20px; border-radius: 6px; margin: 20px 0; }
+		.btn { display: inline-block; padding: 12px 24px; border-radius: 6px; font-weight: 600; text-decoration: none; font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; margin-top: 15px; }
+		.btn-cta { background: #0080FE; color: #fff; }
+		.btn-cta:hover { background: #0066cc; }
+		.cta-section { background: #f4f6fb; border-radius: 12px; padding: 40px; margin: 60px 0; text-align: center; }
+		.cta-section h2 { margin-top: 0; }
+		.cta-section .btn { margin: 20px 10px 0 0; }
+		footer { background: #302F40; color: #ccc; padding: 30px 0; text-align: center; font-size: 14px; margin-top: 60px; }
+		footer a { color: #ccc; text-decoration: none; }
+		footer a:hover { color: #fff; }
+		.article-meta { font-size: 14px; color: #999; margin-bottom: 30px; }
+		@media (max-width: 768px) {
+			.article-hero h1 { font-size: 28px; }
+			.article-content h2 { font-size: 24px; }
+			.comparison-table { font-size: 14px; }
+			.comparison-table th, .comparison-table td { padding: 10px; }
+		}
+	</style>
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-6L0PFQRYF6');
+	</script>
+</head>
+<body>
+	<header id="sp-header">
+		<div class="container">
+			<div class="row">
+				<div class="logo">
+					<a href="../index.html">
+						<img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="36">
+					</a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="../services/lidar-mapping.html">Lidar Mapping</a></li>
+						<li><a href="../services/photogrammetry.html">Photogrammetry</a></li>
+						<li><a href="../quote.html">Get a Quote</a></li>
+						<li><a href="../blog/" style="color:#0080FE;">Blog</a></li>
+						<li><a href="../about.html">About</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<div class="article-hero">
+		<div class="container">
+			<h1>LiDAR vs Photogrammetry: Which Drone Survey Method is Right for Your Costa Rica Project?</h1>
+			<div class="meta">April 3, 2026 · 12 min read</div>
+		</div>
+	</div>
+
+	<main>
+		<article class="article-content">
+			<div class="container">
+				<div class="article-meta">By Drone Survey Costa Rica | Updated April 16, 2026</div>
+
+				<h2>Understanding Your Drone Survey Options</h2>
+				<p>When you're planning a drone survey in Costa Rica, you'll quickly encounter two acronyms: <strong>LiDAR</strong> and <strong>photogrammetry</strong>. Both use drones to gather spatial data, but they work in completely different ways. Understanding the difference—and when to use each—is critical for getting the best results for your project.</p>
+				<p>This guide breaks down how each technology works, their strengths and weaknesses, how they perform in Costa Rica's unique terrain, and how to choose the right one for your needs.</p>
+
+				<h2>How Photogrammetry Works</h2>
+				<p>Photogrammetry is the older, more intuitive technology. It works by analyzing overlapping photographs—much like how your brain builds 3D vision from two eyes.</p>
+				<p><strong>The process:</strong></p>
+				<ol>
+					<li>The drone flies in a grid pattern, taking hundreds (or thousands) of high-resolution RGB (color) photos</li>
+					<li>Ground control points are established on the property (either via GPS or existing landmarks)</li>
+					<li>Processing software analyzes overlap between photos, identifying matching points</li>
+					<li>These matched points are triangulated to create a 3D point cloud</li>
+					<li>The point cloud is processed into an orthomosaic (overhead map), DEM (elevation model), and optional 3D mesh</li>
+				</ol>
+				<p>The key insight: photogrammetry builds 3D data from the <em>surfaces</em> the camera can see.</p>
+
+				<h3>Photogrammetry Strengths</h3>
+				<div class="pros">
+					<strong>Advantages:</strong>
+					<ul>
+						<li><strong>Rich color information</strong> — Every point in your data has RGB values, making it easy to visually analyze</li>
+						<li><strong>Lower cost</strong> — 20–40% cheaper than LiDAR for the same area</li>
+						<li><strong>Excellent for 3D models</strong> — Textured point clouds and mesh models look photorealistic</li>
+						<li><strong>Great orthomosaics</strong> — Creates high-resolution aerial maps (5–10cm/pixel)</li>
+						<li><strong>Fewer data processing requirements</strong> — File sizes are smaller and processing is faster</li>
+						<li><strong>Proven technology</strong> — Mature software ecosystem, easy to find specialized contractors</li>
+					</ul>
+				</div>
+
+				<h3>Photogrammetry Weaknesses</h3>
+				<div class="cons">
+					<strong>Limitations:</strong>
+					<ul>
+						<li><strong>Can't see through vegetation</strong> — Dense forest or crop cover hides the ground beneath</li>
+						<li><strong>Poor under-canopy data</strong> — Won't capture terrain under trees or dense jungle</li>
+						<li><strong>Shadow problems</strong> — Deep shadows in canyons or under cliffs reduce accuracy</li>
+						<li><strong>Water reflection issues</strong> — Lakes, rivers, and wet areas can confuse the algorithm</li>
+						<li><strong>Weather dependent</strong> — Clouds and rain directly affect flight quality</li>
+						<li><strong>Requires good lighting</strong> — Early morning and late evening flights are challenging</li>
+					</ul>
+				</div>
+
+				<h2>How LiDAR Works</h2>
+				<p>LiDAR (Light Detection and Ranging) is fundamentally different. Instead of cameras, it uses a laser to actively scan the ground, working like a sophisticated radar system.</p>
+				<p><strong>The process:</strong></p>
+				<ol>
+					<li>The drone carries a LiDAR scanner (like the Zenmuse L1 on our Matrice 300 RTK) that fires thousands of laser pulses per second</li>
+					<li>Each pulse bounces off the first surface it hits and returns to the scanner, which records the distance and intensity</li>
+					<li>The scanner captures multiple returns per pulse—first hit (treetop), intermediate hits (trunk/branches), last hit (ground)</li>
+					<li>Processing software analyzes all returns to create a dense point cloud</li>
+					<li>Multiple return data allows automatic classification of terrain, vegetation, and structures</li>
+				</ol>
+				<p>The key insight: LiDAR actively measures distance to every surface, including ground beneath vegetation.</p>
+
+				<h3>LiDAR Strengths</h3>
+				<div class="pros">
+					<strong>Advantages:</strong>
+					<ul>
+						<li><strong>Penetrates vegetation</strong> — Can measure ground even under dense jungle, forests, or crops</li>
+						<li><strong>Accurate terrain modeling</strong> — True ground elevation under canopy enables accurate DTM (Digital Terrain Model)</li>
+						<li><strong>Works in low light</strong> — Active laser means clouds and time of day don't matter</li>
+						<li><strong>Very high accuracy</strong> — Absolute vertical accuracy of 2–3cm; horizontal accuracy of 5–10cm</li>
+						<li><strong>Handles water well</strong> — Lasers work predictably on water surfaces</li>
+						<li><strong>Automatic classification</strong> — Software easily separates terrain, vegetation, and structures</li>
+						<li><strong>Perfect for volume calculations</strong> — Earthwork estimates, stockpile measurements, drainage analysis</li>
+					</ul>
+				</div>
+
+				<h3>LiDAR Weaknesses</h3>
+				<div class="cons">
+					<strong>Limitations:</strong>
+					<ul>
+						<li><strong>No color information</strong> — All data is grayscale based on intensity/distance</li>
+						<li><strong>Higher cost</strong> — 20–40% more expensive than photogrammetry</li>
+						<li><strong>Larger data files</strong> — Dense point clouds (10–50 million points) require more storage and processing power</li>
+						<li><strong>Less visually intuitive</strong> — Raw point clouds aren't as easy to interpret as color orthomosaics</li>
+						<li><strong>Steeper learning curve</strong> — Requires specialized tools (ArcGIS, QGIS, CloudCompare) to fully analyze</li>
+						<li><strong>Overkill for simple orthomosaics</strong> — If you only need a color map, photogrammetry is more efficient</li>
+					</ul>
+				</div>
+
+				<h2>Direct Technology Comparison</h2>
+				<table class="comparison-table">
+					<thead>
+						<tr>
+							<th>Attribute</th>
+							<th>Photogrammetry</th>
+							<th>LiDAR</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>How it works</td>
+							<td>Photographs + triangulation</td>
+							<td>Laser pulses + distance measurement</td>
+						</tr>
+						<tr>
+							<td>Vertical accuracy</td>
+							<td>5–15cm (depends on terrain)</td>
+							<td>2–5cm (very consistent)</td>
+						</tr>
+						<tr>
+							<td>Horizontal accuracy</td>
+							<td>3–10cm (with RTK)</td>
+							<td>5–15cm (with RTK)</td>
+						</tr>
+						<tr>
+							<td>Penetrates vegetation</td>
+							<td>No — stops at canopy</td>
+							<td>Yes — sees ground beneath</td>
+						</tr>
+						<tr>
+							<td>Weather dependent</td>
+							<td>Yes (needs clear skies)</td>
+							<td>No (works in clouds/rain)</td>
+						</tr>
+						<tr>
+							<td>Color data</td>
+							<td>Full RGB color</td>
+							<td>Intensity values only</td>
+						</tr>
+						<tr>
+							<td>Cost for 10 hectares</td>
+							<td>$850–900</td>
+							<td>$1,000–1,200</td>
+						</tr>
+						<tr>
+							<td>Processing time</td>
+							<td>24–48 hours</td>
+							<td>48–72 hours</td>
+						</tr>
+						<tr>
+							<td>File size</td>
+							<td>2–5 GB</td>
+							<td>5–15 GB</td>
+						</tr>
+						<tr>
+							<td>Best for</td>
+							<td>Orthomosaics, 3D models, open terrain</td>
+							<td>Terrain under vegetation, accuracy, earthwork</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h2>Costa Rica's Terrain: Why It Matters</h2>
+				<p>Costa Rica's geography makes this choice particularly important. Our country has everything from flat agricultural plains to rainforest to mountain slopes above 2,000 meters. The terrain type often determines which technology will work best.</p>
+
+				<h3>Photogrammetry is better for:</h3>
+				<ul>
+					<li><strong>Flat agricultural land</strong> (northwestern plains, Central Valley pastures) — No vegetation concerns, cost savings matter</li>
+					<li><strong>Urban and developed areas</strong> (San José suburbs, coastal towns) — Clear sightlines, good for property mapping</li>
+					<li><strong>Quarries, mining sites, construction projects</strong> — Need high-resolution color orthomosaics for site planning</li>
+					<li><strong>Real estate properties</strong> (under 20 hectares) — Cost-effective, visual appeal of color imagery</li>
+					<li><strong>Coastal areas</strong> (beach properties, seaside developments) — Minimal vegetation interference</li>
+				</ul>
+
+				<h3>LiDAR is better for:</h3>
+				<ul>
+					<li><strong>Forested terrain</strong> (Caribbean coast, Pacific rainforest, mountain zones) — Dense canopy requires ground-penetration</li>
+					<li><strong>Coffee and chocolate plantations</strong> (Central and Southern zones) — Needs accurate DTM under shade trees</li>
+					<li><strong>Mountain properties</strong> (Tarrazú, San Isidro, volcanic slopes) — Steep terrain, need precise elevation, LiDAR's accuracy matters</li>
+					<li><strong>Drainage and watershed analysis</strong> (any region) — Only LiDAR provides true bare-earth terrain</li>
+					<li><strong>Reforestation or conservation projects</strong> — Vegetation classification and ground elevation critical</li>
+					<li><strong>Large properties</strong> (100+ hectares) — Cost per hectare better, processing power available for large datasets</li>
+					<li><strong>Flood-prone areas</strong> — Accurate underlying terrain is essential for hydrology modeling</li>
+				</ul>
+
+				<h2>Decision Framework: Which Technology to Choose</h2>
+
+				<h3>Choose Photogrammetry if:</h3>
+				<ul>
+					<li>Your project is in relatively open terrain with minimal tree cover</li>
+					<li>You need rich, colorful visual data (orthomosaic, textured 3D model)</li>
+					<li>Budget is the primary constraint</li>
+					<li>You need results in 24–48 hours</li>
+					<li>The property is under 30 hectares</li>
+					<li>Ground elevation accuracy isn't critical (5–10cm is acceptable)</li>
+				</ul>
+
+				<h3>Choose LiDAR if:</h3>
+				<ul>
+					<li>Your property has significant vegetation (forest, plantation, jungle)</li>
+					<li>You need accurate ground elevation under the canopy</li>
+					<li>The project involves earthwork, drainage, or volumetric calculations</li>
+					<li>Weather delays are a concern (LiDAR works in clouds/light rain)</li>
+					<li>You need 2–5cm vertical accuracy</li>
+					<li>The property is 30+ hectares (cost per hectare favors LiDAR at scale)</li>
+					<li>Vegetation classification or change detection is important</li>
+				</ul>
+
+				<h3>Choose Both if:</h3>
+				<p>For complex projects, a hybrid approach often makes sense. Many of our larger clients use LiDAR for terrain analysis and photogrammetry for visual documentation. The combined dataset gives you:</p>
+				<ul>
+					<li>Accurate bare-earth DTM (from LiDAR)</li>
+					<li>High-resolution color orthomosaic (from photogrammetry)</li>
+					<li>Detailed surface model with vegetation intact (from LiDAR's multiple returns)</li>
+					<li>Professional 3D models for presentations (from both)</li>
+				</ul>
+
+				<div class="highlight-box">
+					<strong>Our recommendation:</strong> For most Costa Rica projects combining forest and agricultural land, we recommend starting with LiDAR. The ability to measure ground elevation under the canopy is invaluable when your property has mixed terrain. You can always add photogrammetry later for visualization if needed.
+				</div>
+
+				<h2>Real-World Project Examples</h2>
+
+				<h3>Example 1: 15-hectare coastal real estate development (Guanacaste)</h3>
+				<p><strong>Terrain:</strong> Flat land with scattered trees, some pasture. <strong>Recommendation:</strong> Photogrammetry</p>
+				<p><strong>Why:</strong> Open terrain, no dense vegetation, need colorful maps for marketing. LiDAR would be wasted expense. Photogrammetry gives clear property boundaries, house footprints, and beautiful aerial imagery.</p>
+
+				<h3>Example 2: 80-hectare coffee plantation (Tarrazú region)</h3>
+				<p><strong>Terrain:</strong> Mountain slopes with dense shade tree canopy (40% forest coverage). <strong>Recommendation:</strong> LiDAR + Photogrammetry</p>
+				<p><strong>Why:</strong> LiDAR penetrates the shade canopy to map true terrain for irrigation and drainage design. Photogrammetry provides visual reference for reporting to stakeholders. Together, they give complete picture.</p>
+
+				<h3>Example 3: 200-hectare conservation area (Limón region)</h3>
+				<p><strong>Terrain:</strong> Primary and secondary rainforest, extremely dense canopy. <strong>Recommendation:</strong> LiDAR only</p>
+				<p><strong>Why:</strong> Photogrammetry will see nothing but treetops. LiDAR reveals the ground underneath and allows you to classify vegetation, measure slope stability, and plan restoration work. Forest height is also useful for carbon accounting.</p>
+
+				<h2>Equipment Matters: Our Approach</h2>
+				<p>We fly a DJI Matrice 300 RTK with:</p>
+				<ul>
+					<li><strong>Zenmuse L1 (LiDAR):</strong> Enterprise-grade laser scanning with 2–3cm vertical accuracy, multiple return capability, and integration with RTK GPS for absolute positioning</li>
+					<li><strong>Zenmuse H30T (Photogrammetry):</strong> 20MP camera with optical and zoom capabilities, plus thermal imaging as a bonus</li>
+				</ul>
+				<p>Both sensors use RTK GPS for absolute accuracy (not relying solely on ground control points), which is essential for the terrain complexity we encounter in Costa Rica.</p>
+
+				<h2>Getting Professional Guidance</h2>
+				<p>The choice between LiDAR and photogrammetry depends on your specific project. If you're unsure, we recommend discussing your needs with our team before committing to a survey type. In many cases, what starts as a simple orthomosaic request becomes more valuable when LiDAR data is also collected—and vice versa.</p>
+
+				<p>When you request a quote from us, we ask questions about your terrain, project goals, and timeline. Based on your answers, we'll recommend the best technology (or combination) for maximum ROI on your survey investment.</p>
+
+				<div class="cta-section">
+					<h2>Not Sure Which Technology You Need?</h2>
+					<p>Get a free consultation. Describe your project and terrain, and we'll recommend the right drone survey method for your Costa Rica property.</p>
+					<a href="../quote.html" class="btn btn-cta">Request a Free Consultation</a>
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-left:10px;" class="btn" style="background:#25D366;color:#fff;text-decoration:none;">Chat on WhatsApp</a>
+				</div>
+
+				<h2>Learn More About Our Services</h2>
+				<p>Want to dive deeper? Check out our detailed guides:</p>
+				<ul>
+					<li><a href="../services/lidar-mapping.html">Complete LiDAR Mapping Guide</a></li>
+					<li><a href="../services/photogrammetry.html">Photogrammetry for Surveying</a></li>
+					<li><a href="drone-survey-cost-costa-rica.html">Drone Survey Pricing in Costa Rica</a></li>
+				</ul>
+
+			</div>
+		</article>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p style="margin:0;">&copy; 2026 Drone Survey Costa Rica | <a href="../index.html">Home</a> | <a href="../blog/">Blog</a> | <a href="../sitemap.xml">Sitemap</a></p>
+		</div>
+	</footer>
+
+	<script src="../components.js"></script>
+</body>
+</html>

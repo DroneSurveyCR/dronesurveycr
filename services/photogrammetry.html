@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,8 +123,8 @@
 						</ul>
 					</li>
 					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
 					<li><a href="../quote.html" data-i18n="nav.quote">Get a Quote</a></li>
-					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer" data-i18n="nav.portal">Client Portal</a></li>
 					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
 				</ul>
 			</nav>
@@ -518,6 +518,7 @@
 				<h5>Company</h5>
 				<ul>
 					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
 					<li><a href="index.html">All Services</a></li>
 					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
 				</ul>
@@ -526,7 +527,6 @@
 				<h5>Connect</h5>
 				<ul>
 					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
 					<li><a href="../quote.html">Get a Quote</a></li>
 				</ul>
 			</div>
@@ -641,7 +641,7 @@ function toggleTheme() {
 }
 
 (function() {
-	const saved = localStorage.getItem('theme') || 'dark';
+	const saved = localStorage.getItem('theme') || 'light';
 	document.documentElement.setAttribute('data-theme', saved);
 	const btn = document.getElementById('theme-toggle');
 	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
