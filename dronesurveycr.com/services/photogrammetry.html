@@ -1,774 +1,651 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional photogrammetry drone surveys in Costa Rica. High-resolution orthomosaics, 3D models, and DSMs for construction, real estate, and land development projects.">
-    <meta name="keywords" content="photogrammetry drone, aerial photography Costa Rica, 3D models, orthomosaics, construction survey, DroneSurveyCR">
-    <title>Photogrammetry Drone Surveys in Costa Rica | DroneSurveyCR</title>
-    <link rel="canonical" href="https://dronesurveycr.com/services/photogrammetry.html">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-6L0PFQRYF6');
-    </script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photogrammetry Drone Surveys in Costa Rica | DroneSurveyCR</title>
+  <meta name="description" content="Professional photogrammetry drone surveys in Costa Rica. High-resolution orthomosaics, 3D models, and DSMs for construction, real estate, and land development projects.">
+  <meta name="keywords" content="photogrammetry drone, aerial photography Costa Rica, 3D models, orthomosaics, construction survey, DroneSurveyCR">
+  <link rel="canonical" href="https://dronesurveycr.com/services/photogrammetry.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Photogrammetry Drone Surveys in Costa Rica | DroneSurveyCR">
+  <meta property="og:description" content="High-resolution orthomosaics, 3D models, and DSMs for construction, real estate, and land development projects in Costa Rica.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dronesurveycr.com/services/photogrammetry.html">
+  <meta name="theme-color" content="#22c55e">
+  <link rel="icon" href="../images/favicon.ico">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6L0PFQRYF6');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the accuracy of photogrammetry surveys?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Photogrammetry with RTK positioning achieves horizontal accuracy of ±2cm and vertical accuracy of ±3cm across Costa Rica."
         }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: #5C5C69;
-            background-color: #FAFAFA;
-            line-height: 1.6;
+      },
+      {
+        "@type": "Question",
+        "name": "How does vegetation affect photogrammetry results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Photogrammetry creates models of visible surfaces, including vegetation canopy. Unlike LiDAR, photogrammetry cannot see beneath tree cover."
         }
-        
-        /* Navigation */
-        nav {
-            background-color: #FFFFFF;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+      },
+      {
+        "@type": "Question",
+        "name": "What are the typical processing timelines?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard surveys are processed and delivered within 72 hours of flight completion."
         }
-        
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
+      },
+      {
+        "@type": "Question",
+        "name": "What file formats are included in deliverables?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Orthomosaics as GeoTIFF, point clouds in LAS format, and 3D models in OBJ and FBX formats."
         }
-        
-        nav .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #302F40;
-            text-decoration: none;
-            letter-spacing: -0.5px;
+      },
+      {
+        "@type": "Question",
+        "name": "What weather conditions affect photogrammetry flights?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Photogrammetry requires good visibility and clear conditions. Heavy rain or thick cloud cover reduces image quality."
         }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            align-items: center;
+      },
+      {
+        "@type": "Question",
+        "name": "Can photogrammetry be used for volumetric calculations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, photogrammetry is excellent for volumetric analysis with accuracy typically within 2-3%."
         }
-        
-        nav a {
-            text-decoration: none;
-            color: #5C5C69;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        nav a:hover {
-            color: #0080FE;
-        }
-        
-        nav .whatsapp {
-            background-color: #25D366;
-            color: #FFFFFF !important;
-            padding: 8px 16px;
-            border-radius: 6px;
-            display: inline-block;
-        }
-        
-        nav .whatsapp:hover {
-            background-color: #20BA5A;
-            color: #FFFFFF;
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 15px;
-            }
-            
-            nav a {
-                font-size: 12px;
-            }
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #302F40 0%, #1a1820 100%);
-            color: #FFFFFF;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        
-        .hero .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 48px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #E0E0E0;
-        }
-        
-        .hero .cta-button {
-            background-color: #0080FE;
-            color: #FFFFFF;
-            padding: 14px 32px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-        
-        .hero .cta-button:hover {
-            background-color: #0066CC;
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 20px;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-        }
-        
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 20px;
-            background-color: #FFFFFF;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-        
-        h2 {
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 36px;
-            font-weight: 600;
-            color: #302F40;
-            margin-bottom: 25px;
-            letter-spacing: -0.5px;
-        }
-        
-        h3 {
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: #302F40;
-            margin: 20px 0 15px 0;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            font-size: 15px;
-            line-height: 1.8;
-        }
-        
-        strong {
-            color: #302F40;
-            font-weight: 600;
-        }
-        
-        /* Grid Layouts */
-        .specifications-grid,
-        .use-cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .spec-card,
-        .use-case-card {
-            background-color: #F8F8FA;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #0080FE;
-            transition: transform 0.3s ease;
-        }
-        
-        .spec-card:hover,
-        .use-case-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .spec-card h3,
-        .use-case-card h3 {
-            margin-top: 0;
-        }
-        
-        .spec-card p,
-        .use-case-card p {
-            margin-bottom: 0;
-        }
-        
-        /* Deliverables List */
-        .deliverables-list {
-            list-style: none;
-            margin-top: 25px;
-        }
-        
-        .deliverables-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #F0F0F0;
-            display: flex;
-            gap: 12px;
-        }
-        
-        .deliverables-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .deliverables-list li:before {
-            content: "✓";
-            color: #0080FE;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        
-        /* Pricing Section */
-        .pricing-section {
-            background: linear-gradient(135deg, #F8F8FA 0%, #F0F0F5 100%);
-        }
-        
-        .pricing-box {
-            background-color: #FFFFFF;
-            padding: 35px;
-            border-radius: 8px;
-            border: 2px solid #0080FE;
-            text-align: center;
-            margin-top: 25px;
-        }
-        
-        .pricing-box h3 {
-            margin-top: 0;
-            color: #0080FE;
-        }
-        
-        .price {
-            font-size: 28px;
-            font-weight: 700;
-            color: #302F40;
-            margin: 15px 0;
-        }
-        
-        /* FAQ Section */
-        .faq-section {
-            background-color: #F8F8FA;
-        }
-        
-        .faq-item {
-            background-color: #FFFFFF;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #FFFFFF;
-            border: 1px solid #E5E5E5;
-            font-weight: 600;
-            color: #302F40;
-        }
-        
-        .faq-question:hover {
-            background-color: #F8F8FA;
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            display: none;
-            color: #5C5C69;
-            background-color: #FAFAFA;
-        }
-        
-        .faq-item.active .faq-answer {
-            display: block;
-            padding: 20px;
-        }
-        
-        .faq-toggle {
-            font-size: 20px;
-            color: #0080FE;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #302F40;
-            color: #E0E0E0;
-            padding: 50px 20px;
-            text-align: center;
-        }
-        
-        footer .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        footer p {
-            margin-bottom: 10px;
-            color: #E0E0E0;
-        }
-        
-        footer a {
-            color: #0080FE;
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 28px;
-            }
-            
-            h3 {
-                font-size: 18px;
-            }
-            
-            section {
-                padding: 40px 20px;
-            }
-            
-            .specifications-grid,
-            .use-cases-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="/" class="logo">DroneSurveyCR</a>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/index.html#services">Services</a></li>
-                <li><a href="/services/lidar-mapping.html">LiDAR</a></li>
-                <li><a href="/services/photogrammetry.html">Photogrammetry</a></li>
-                <li><a href="/services/geopositioning.html">GPS</a></li>
-                <li><a href="/quote.html">Get Quote</a></li>
-                <li><a href="/blog/">Blog</a></li>
-                <li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Portal</a></li>
-                <li><a href="https://wa.me/50672938970" class="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-                <li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Reviews</a></li>
-            </ul>
+
+<!-- Top bar -->
+<div id="top-bar">
+	<div class="container">
+		<div class="inner">
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+			</div>
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Header -->
+<header id="site-header">
+	<div class="container">
+		<div class="inner">
+			<div class="logo">
+				<a href="../index.html">
+					<img src="../images/logo-round.png" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="index.html" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="photogrammetry.html">Photogrammetry</a></li>
+						</ul>
+					</li>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
+					<li><a href="../quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Services</a> / Photogrammetry</div>
+      <div class="tag">3D Aerial Mapping</div>
+      <h1>Professional Photogrammetry Drone Surveys</h1>
+      <p class="lead">High-resolution 3D models and orthomosaics for construction, real estate, and land development in Costa Rica — ±2 cm horizontal accuracy with RTK positioning.</p>
+    </div>
+  </section>
+
+  <!-- Cinematic Banner -->
+  <section>
+    <div class="container">
+      <img src="../images/droneservicesprocessing.webp" alt="Survey drone capturing overlapping aerial photographs above a fog-covered Costa Rican forest" loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border);">
+    </div>
+  </section>
+
+  <!-- What is Photogrammetry -->
+  <section>
+    <div class="container">
+      <div class="prose wide">
+        <h2>What is Photogrammetry?</h2>
+        <p>Photogrammetry is a sophisticated surveying technique that uses <strong>overlapping aerial photographs</strong> to create precise 3D models and accurate orthomosaics of surveyed areas. By capturing hundreds of images from slightly different angles using a drone, we can reconstruct the complete geometry of your site with exceptional visual detail and accuracy.</p>
+        <p>Our photogrammetry surveys in Costa Rica use the latest DJI Phantom 4 RTK drone equipped with high-resolution cameras and RTK positioning technology. This combination delivers orthomosaics with ground resolution of 1.5 cm per pixel or better, along with detailed 3D point clouds and Digital Surface Models.</p>
+
+        <h2>How Photogrammetry Works</h2>
+        <p>The photogrammetry process involves several key steps:</p>
+        <ol>
+          <li><strong>Flight Planning:</strong> We create automated flight paths ensuring 75–85% overlap between consecutive images</li>
+          <li><strong>Image Capture:</strong> The drone captures hundreds of high-resolution photographs from multiple angles and altitudes</li>
+          <li><strong>Ground Control Points:</strong> We establish RTK-corrected ground control points for absolute accuracy</li>
+          <li><strong>Image Alignment:</strong> Specialized software identifies matching features across overlapping photos</li>
+          <li><strong>3D Reconstruction:</strong> The aligned photos are converted into dense point clouds and mesh models</li>
+          <li><strong>Georeferencing:</strong> RTK data ensures all data is precisely positioned in Costa Rican coordinate systems (CRTM05)</li>
+          <li><strong>Orthomosaic Generation:</strong> Individual photos are blended to create seamless orthomosaics</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flight Video -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">In Flight</div>
+        <h2>See a Survey Mission in Action</h2>
+        <p>Watch our drone follow an automated flight path, capturing the overlapping imagery that powers each photogrammetry reconstruction.</p>
+      </div>
+      <video controls preload="none" muted playsinline poster="../images/matrice-valley.png" style="width:100%;border-radius:12px;border:1px solid var(--border);">
+        <source src="../images/matrice-flight-3.webm" type="video/webm">
+        <source src="../images/matrice-flight-3.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Equipment & Specs -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Equipment</div>
+        <h2>Our Photogrammetry Equipment</h2>
+        <p>DroneSurveyCR uses professional-grade equipment specifically designed for precision photogrammetry surveys across Costa Rica.</p>
+      </div>
+      <table class="spec-table">
+        <tbody>
+          <tr>
+            <th>Drone Platform</th>
+            <td>DJI Phantom 4 RTK with integrated RTK positioning and 20MP Hasselblad camera with gimbal stabilization</td>
+          </tr>
+          <tr>
+            <th>Ground Resolution</th>
+            <td>1.5 cm/pixel at 120 m altitude — extremely detailed orthomosaics suitable for construction quality control</td>
+          </tr>
+          <tr>
+            <th>Horizontal Accuracy</th>
+            <td>±2 cm horizontal, ±3 cm vertical without manual ground control points, using Costa Rica's DGPS network</td>
+          </tr>
+          <tr>
+            <th>Processing Software</th>
+            <td>Pix4D and Metashape professional photogrammetry software for precise point cloud generation and orthomosaic creation</td>
+          </tr>
+          <tr>
+            <th>Coordinate System</th>
+            <td>All data georeferenced to Costa Rica's official coordinate system (CRTM05)</td>
+          </tr>
+          <tr>
+            <th>Image Overlap</th>
+            <td>75–85% forward and side overlap for complete, gap-free coverage and reliable reconstruction</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Use Cases -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Applications</div>
+        <h2>Photogrammetry Applications in Costa Rica</h2>
+        <p>Photogrammetry is the ideal solution for projects requiring visual documentation, precise measurements, and high-quality imagery.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <img src="../images/pix4dmatic-drone-mapping-software.webp" alt="Construction Monitoring">
+          <h3>Construction Monitoring</h3>
+          <p>Track construction progress with orthomosaics captured at regular intervals. Compare site conditions across phases and identify deviations from design plans with pixel-level precision.</p>
         </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Professional Photogrammetry Drone Surveys</h1>
-            <p>High-resolution 3D models and orthomosaics for construction, real estate, and land development in Costa Rica</p>
-            <button class="cta-button" onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})">Request a Quote</button>
+        <div class="info-card">
+          <img src="../images/fly.jpg" alt="Real Estate Marketing">
+          <h3>Real Estate Marketing</h3>
+          <p>Create stunning aerial views of properties with professional orthomosaics and 3D models. Visual marketing materials capture buyer attention and demonstrate property features clearly.</p>
         </div>
-    </section>
-    
-    <!-- Introduction Section -->
-    <section>
-        <div class="container">
-            <h2>What is Photogrammetry?</h2>
-            <p>Photogrammetry is a sophisticated surveying technique that uses <strong>overlapping aerial photographs</strong> to create precise 3D models and accurate orthomosaics of surveyed areas. By capturing hundreds of images from slightly different angles using a drone, we can reconstruct the complete geometry of your site with exceptional visual detail and accuracy.</p>
-            
-            <p>Our photogrammetry surveys in Costa Rica use the latest DJI Phantom 4 RTK drone equipped with high-resolution cameras and RTK positioning technology. This combination delivers orthomosaics with ground resolution of 1.5 cm per pixel or better, along with detailed 3D point clouds and Digital Surface Models.</p>
-            
-            <h3>How Photogrammetry Works</h3>
-            <p>The photogrammetry process involves several key steps:</p>
-            <ol style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Flight Planning:</strong> We create automated flight paths ensuring 75-85% overlap between consecutive images</li>
-                <li><strong>Image Capture:</strong> The drone captures hundreds of high-resolution photographs from multiple angles and altitudes</li>
-                <li><strong>Ground Control Points:</strong> We establish RTK-corrected ground control points for absolute accuracy</li>
-                <li><strong>Image Alignment:</strong> Specialized software identifies matching features across overlapping photos</li>
-                <li><strong>3D Reconstruction:</strong> The aligned photos are converted into dense point clouds and mesh models</li>
-                <li><strong>Georeferencing:</strong> RTK data ensures all data is precisely positioned in Costa Rican coordinate systems (CRTM05)</li>
-                <li><strong>Orthomosaic Generation:</strong> Individual photos are blended to create seamless orthomosaics</li>
-            </ol>
+        <div class="info-card">
+          <img src="../images/new-project.jpg" alt="Land Development">
+          <h3>Land Development</h3>
+          <p>Generate detailed orthomosaics and DSMs for subdivision planning, site layout, and environmental impact assessments. Accurate measurements support feasibility studies.</p>
         </div>
-    </section>
-    
-    <!-- Equipment & Technology Section -->
-    <section>
-        <div class="container">
-            <h2>Our Photogrammetry Equipment</h2>
-            <p>DroneSurveyCR uses professional-grade equipment specifically designed for precision photogrammetry surveys across Costa Rica:</p>
-            
-            <div class="specifications-grid">
-                <div class="spec-card">
-                    <h3>DJI Phantom 4 RTK</h3>
-                    <p>Professional drone with integrated RTK positioning, 20MP Hasselblad camera, and gimbal stabilization for perfectly perpendicular imagery</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Resolution: 1.5 cm/pixel</h3>
-                    <p>At 120m altitude, each pixel represents 1.5cm of ground distance, delivering extremely detailed orthomosaics suitable for construction quality control</p>
-                </div>
-                <div class="spec-card">
-                    <h3>RTK Accuracy</h3>
-                    <p>Horizontal accuracy of ±2cm and vertical accuracy of ±3cm without manual ground control points, thanks to Costa Rica's DGPS network coverage</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Processing Software</h3>
-                    <p>Pix4D and Metashape professional photogrammetry software for precise point cloud generation and orthomosaic creation</p>
-                </div>
-            </div>
+        <div class="info-card">
+          <img src="../images/analize.jpg" alt="Volumetric Analysis">
+          <h3>Volumetric Analysis</h3>
+          <p>Calculate stockpile volumes, excavation quantities, and material measurements from 3D point clouds. Accuracy supports cost estimation and project billing.</p>
         </div>
-    </section>
-    
-    <!-- Use Cases Section -->
-    <section>
-        <div class="container">
-            <h2>Photogrammetry Applications in Costa Rica</h2>
-            <p>Photogrammetry is the ideal solution for projects requiring visual documentation, precise measurements, and high-quality imagery. Common applications include:</p>
-            
-            <div class="use-cases-grid">
-                <div class="use-case-card">
-                    <h3>Construction Monitoring</h3>
-                    <p>Track construction progress with orthomosaics captured at regular intervals. Compare site conditions across phases and identify deviations from design plans with pixel-level precision.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>Real Estate Marketing</h3>
-                    <p>Create stunning aerial views of properties with professional orthomosaics and 3D models. Visual marketing materials capture buyer attention and demonstrate property features clearly.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>Land Development</h3>
-                    <p>Generate detailed orthomosaics and DSMs for subdivision planning, site layout, and environmental impact assessments. Accurate measurements support feasibility studies.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>Infrastructure Mapping</h3>
-                    <p>Document roads, utilities, and infrastructure with high-resolution imagery. Orthorectified data provides precise mapping for maintenance and upgrade planning.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>Volumetric Analysis</h3>
-                    <p>Calculate stockpile volumes, excavation quantities, and material measurements from 3D point clouds. Accuracy supports cost estimation and project billing.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>Environmental Surveys</h3>
-                    <p>Document vegetation patterns, land cover changes, and habitat conditions with visual detail. High-resolution orthomosaics support conservation planning in Costa Rica's protected areas.</p>
-                </div>
-            </div>
+        <div class="info-card">
+          <img src="../images/plan.jpg" alt="Infrastructure Mapping">
+          <h3>Infrastructure Mapping</h3>
+          <p>Document roads, utilities, and infrastructure with high-resolution imagery. Orthorectified data provides precise mapping for maintenance and upgrade planning.</p>
         </div>
-    </section>
-    
-    <!-- Deliverables Section -->
-    <section>
-        <div class="container">
-            <h2>Photogrammetry Survey Deliverables</h2>
-            <p>Our photogrammetry surveys produce comprehensive datasets with multiple output formats for various applications:</p>
-            
-            <ul class="deliverables-list">
-                <li><strong>Orthomosaic (GeoTIFF)</strong> - Seamless, georeferenced aerial image mosaic at 1.5cm resolution</li>
-                <li><strong>3D Point Cloud</strong> - Dense point cloud containing millions of 3D coordinates with RGB color values</li>
-                <li><strong>Digital Surface Model (DSM)</strong> - Elevation model including trees, buildings, and infrastructure</li>
-                <li><strong>3D Mesh Model</strong> - Textured 3D surface model for visualization and measurement</li>
-                <li><strong>Volume Calculations</strong> - Stockpile, excavation, and material volume measurements with accuracy analysis</li>
-                <li><strong>Contour Maps</strong> - Automatically generated contour lines at specified intervals from DSM data</li>
-                <li><strong>Classified Point Cloud</strong> - Point clouds classified by type (ground, vegetation, buildings, etc.)</li>
-                <li><strong>Camera Position Report</strong> - Flight path and camera position documentation for quality assurance</li>
-                <li><strong>Accuracy Assessment</strong> - Ground control point analysis and accuracy certification</li>
-                <li><strong>Web Portal Access</strong> - Cloud-based viewer for interactive 3D model exploration and measurements</li>
-            </ul>
+        <div class="info-card">
+          <img src="../images/dji-zenmuse-l1-lidar.jpg" alt="Environmental Surveys">
+          <h3>Environmental Surveys</h3>
+          <p>Document vegetation patterns, land cover changes, and habitat conditions with visual detail. High-resolution orthomosaics support conservation planning in Costa Rica's protected areas.</p>
         </div>
-    </section>
-    
-    <!-- Photogrammetry vs LiDAR Section -->
-    <section>
-        <div class="container">
-            <h2>Photogrammetry vs LiDAR: Choosing the Right Technology</h2>
-            <p>Both photogrammetry and LiDAR are powerful surveying technologies, but each has distinct advantages depending on your project requirements:</p>
-            
-            <h3>Choose Photogrammetry When:</h3>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Visual documentation is critical</strong> - You need high-resolution orthomosaics with true color imagery</li>
-                <li><strong>Measuring surface features</strong> - Infrastructure, buildings, and visible structures require detailed surface modeling</li>
-                <li><strong>Cost efficiency matters</strong> - Photogrammetry is typically more economical than LiDAR for open areas</li>
-                <li><strong>Good visibility exists</strong> - Clear sky conditions enable reliable image capture and processing</li>
-                <li><strong>Real estate marketing</strong> - Professional aerial imagery drives buyer engagement</li>
-                <li><strong>Construction monitoring</strong> - Regular orthomosaics track progress and compare phases</li>
-            </ul>
-            
-            <h3>Choose LiDAR When:</h3>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Dense vegetation exists</strong> - LiDAR penetrates tree canopy to map ground beneath</li>
-                <li><strong>Extreme accuracy needed</strong> - LiDAR provides sub-5cm vertical accuracy and reveals micro-topography</li>
-                <li><strong>Weather conditions challenging</strong> - LiDAR operates effectively in cloudy or hazy conditions</li>
-                <li><strong>Rapid surveys required</strong> - Single LiDAR flight covers areas that would need many photogrammetry flights</li>
-                <li><strong>Terrain modeling priority</strong> - Accurate bare-earth DEMs essential for hydrology and infrastructure planning</li>
-            </ul>
-            
-            <p><strong>Expert Recommendation:</strong> Many projects benefit from combining both technologies. Use LiDAR for terrain mapping under vegetation and photogrammetry for visual documentation and infrastructure detail. Our team can advise on the optimal approach for your specific survey goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Terrain Gallery -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">In the Field</div>
+        <h2>Varied Terrain, Captured in Detail</h2>
+        <p>From misty river valleys to coastal wind farms, our drones capture every environment Costa Rica offers with consistent centimeter accuracy.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <img src="../images/matrice-river-forest.png" alt="Survey drone flying above a lush misty Costa Rican forest with a river winding through it" loading="lazy" style="display:block;width:100%;height:200px;object-fit:cover;border-radius:12px;border:1px solid var(--border);">
+          <h3>Rivers &amp; Rainforest</h3>
+          <p>Dense canopy and waterways mapped in true color, ideal for environmental documentation and riparian boundary work.</p>
         </div>
-    </section>
-    
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-        <div class="container">
-            <h2>Photogrammetry Survey Pricing</h2>
-            <p>Transparent, competitive pricing for professional photogrammetry surveys across Costa Rica:</p>
-            
-            <div class="pricing-box">
-                <h3>Standard Photogrammetry Survey</h3>
-                <p><strong>Base Fee:</strong> $1,000 (project setup, flight planning, permits)</p>
-                <p><strong>Area Charge:</strong> $80 per hectare</p>
-                <p><strong>Processing:</strong> Included in base fee</p>
-                <p style="margin-top: 20px; color: #5C5C69;"><em>Example: 50-hectare property = $1,000 + (50 × $80) = $5,000</em></p>
-            </div>
-            
-            <p style="margin-top: 30px;"><strong>What's Included:</strong></p>
-            <ul style="margin-left: 20px;">
-                <li>Professional flight planning and execution</li>
-                <li>Full orthomosaic generation at 1.5cm resolution</li>
-                <li>Dense point cloud processing</li>
-                <li>Digital Surface Model creation</li>
-                <li>GeoTIFF and standard format deliverables</li>
-                <li>Quality assurance and accuracy report</li>
-                <li>Web portal access for 60 days</li>
-                <li>Extended storage options available</li>
-            </ul>
+        <div class="info-card">
+          <img src="../images/matrice-valley.png" alt="Aerial view of a wide terraced valley landscape in Costa Rica captured by survey drone" loading="lazy" style="display:block;width:100%;height:200px;object-fit:cover;border-radius:12px;border:1px solid var(--border);">
+          <h3>Valleys &amp; Farmland</h3>
+          <p>Wide terraced terrain reconstructed into accurate DSMs for agriculture, subdivision planning, and volumetrics.</p>
         </div>
-    </section>
-    
-    <!-- Why Choose Us Section -->
-    <section>
-        <div class="container">
-            <h2>Why Choose DroneSurveyCR for Photogrammetry</h2>
-            
-            <div class="use-cases-grid">
-                <div class="use-case-card">
-                    <h3>Professional Equipment</h3>
-                    <p>DJI Phantom 4 RTK with integrated RTK positioning and 20MP Hasselblad camera. No compromises on hardware quality.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>DGAC Licensed</h3>
-                    <p>Full authorization from Costa Rica's Civil Aviation Authority. Authorized to operate unmanned aircraft throughout the country legally and safely.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>National Coverage</h3>
-                    <p>Available for surveys anywhere in Costa Rica - from remote Caribbean jungles to Pacific coastal properties. We operate in all regions and climate conditions.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>Rapid Turnaround</h3>
-                    <p>Most surveys processed and delivered within 72 hours. For urgent projects, express processing is available for time-sensitive applications.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>Certified Accuracy</h3>
-                    <p>Every survey includes formal accuracy assessment and certification. RTK positioning ensures absolute accuracy without manual ground control points.</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>Experienced Team</h3>
-                    <p>Certified drone operators with advanced photogrammetry expertise. We deliver professional-grade results that meet international standards.</p>
-                </div>
-            </div>
+        <div class="info-card">
+          <img src="../images/matrice-windfarm-dawn.png" alt="Survey drone flying over a wind farm at golden dawn in Costa Rica" loading="lazy" style="display:block;width:100%;height:200px;object-fit:cover;border-radius:12px;border:1px solid var(--border);">
+          <h3>Infrastructure &amp; Energy</h3>
+          <p>Wind farms and infrastructure documented at dawn — proof we operate reliably across every region and condition.</p>
         </div>
-    </section>
-    
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2>Photogrammetry FAQ</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What is the accuracy of photogrammetry surveys?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Photogrammetry with RTK positioning achieves horizontal accuracy of ±2cm and vertical accuracy of ±3cm across Costa Rica. This accuracy is suitable for construction monitoring, volumetric calculations, and land surveys. Accuracy can be further verified through comparison with ground control points if ultra-high precision is required for specific applications.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How does vegetation affect photogrammetry results?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Photogrammetry creates models of visible surfaces, including vegetation canopy. Trees, bushes, and dense forest appear as part of the 3D model. Unlike LiDAR, photogrammetry cannot see beneath tree cover. For terrain mapping in heavily forested areas like many parts of Costa Rica, LiDAR is the better choice. For areas with moderate vegetation or when you need the highest visual detail, photogrammetry excels.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What are the typical processing timelines?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Standard photogrammetry surveys are typically processed and delivered within 72 hours of flight completion. Processing time depends on survey area size and complexity. For small urban surveys (under 5 hectares), turnaround is often 24-48 hours. Large area surveys may require additional processing time. Express processing (24-hour turnaround) is available for premium fees.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What file formats are included in deliverables?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We deliver orthomosaics as GeoTIFF files with full georeferencing in Costa Rican coordinate systems (CRTM05). Point clouds are provided in LAS format compatible with standard GIS software. DSMs are delivered as GeoTIFF. 3D models are available in OBJ and FBX formats for visualization and CAD integration. All formats include proper geospatial metadata for seamless integration with existing project data.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What weather conditions affect photogrammetry flights?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Photogrammetry requires good visibility and relatively clear conditions. Heavy rain or thick cloud cover reduces image quality and can prevent flight. Wind speeds above 12 m/s create flight instability. Costa Rica's wet season (May-November) requires careful scheduling around afternoon rains. We monitor weather continuously and schedule flights during optimal conditions. In cloudy conditions where photogrammetry is challenging, LiDAR remains effective.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Can photogrammetry be used for volumetric calculations?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, photogrammetry is excellent for volumetric analysis. We calculate stockpile volumes, material measurements, and excavation quantities from the dense point clouds with accuracy typically within 2-3%. These calculations are widely used for billing, cost estimation, and project management in quarries, construction sites, and agricultural operations across Costa Rica.</p>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Deliverables -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Deliverables</div>
+        <h2>Photogrammetry Survey Deliverables</h2>
+        <p>Our photogrammetry surveys produce comprehensive datasets with multiple output formats for various applications.</p>
+      </div>
+      <ul class="check-list">
+        <li><strong>Orthomosaic (GeoTIFF)</strong> — Seamless, georeferenced aerial image mosaic at 1.5 cm resolution</li>
+        <li><strong>3D Point Cloud</strong> — Dense point cloud containing millions of 3D coordinates with RGB color values</li>
+        <li><strong>Digital Surface Model (DSM)</strong> — Elevation model including trees, buildings, and infrastructure</li>
+        <li><strong>3D Mesh Model</strong> — Textured 3D surface model for visualization and measurement</li>
+        <li><strong>Volume Calculations</strong> — Stockpile, excavation, and material volume measurements with accuracy analysis</li>
+        <li><strong>Contour Maps</strong> — Automatically generated contour lines at specified intervals from DSM data</li>
+        <li><strong>Classified Point Cloud</strong> — Point clouds classified by type (ground, vegetation, buildings, etc.)</li>
+        <li><strong>Camera Position Report</strong> — Flight path and camera position documentation for quality assurance</li>
+        <li><strong>Accuracy Assessment</strong> — Ground control point analysis and accuracy certification</li>
+        <li><strong>Web Portal Access</strong> — Cloud-based viewer for interactive 3D model exploration and measurements</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Photogrammetry vs LiDAR -->
+  <section>
+    <div class="container">
+      <div class="prose wide">
+        <h2>Photogrammetry vs LiDAR: Choosing the Right Technology</h2>
+        <p>Both photogrammetry and LiDAR are powerful surveying technologies, but each has distinct advantages depending on your project requirements.</p>
+
+        <h3>Choose Photogrammetry When:</h3>
+        <ul class="check-list">
+          <li><strong>Visual documentation is critical</strong> — You need high-resolution orthomosaics with true color imagery</li>
+          <li><strong>Measuring surface features</strong> — Infrastructure, buildings, and visible structures require detailed surface modeling</li>
+          <li><strong>Cost efficiency matters</strong> — Photogrammetry is typically more economical than LiDAR for open areas</li>
+          <li><strong>Good visibility exists</strong> — Clear sky conditions enable reliable image capture and processing</li>
+          <li><strong>Real estate marketing</strong> — Professional aerial imagery drives buyer engagement</li>
+          <li><strong>Construction monitoring</strong> — Regular orthomosaics track progress and compare phases</li>
+        </ul>
+
+        <h3>Choose LiDAR When:</h3>
+        <ul class="check-list">
+          <li><strong>Dense vegetation exists</strong> — LiDAR penetrates tree canopy to map ground beneath</li>
+          <li><strong>Extreme accuracy needed</strong> — LiDAR provides sub-5 cm vertical accuracy and reveals micro-topography</li>
+          <li><strong>Weather conditions challenging</strong> — LiDAR operates effectively in cloudy or hazy conditions</li>
+          <li><strong>Rapid surveys required</strong> — Single LiDAR flight covers areas that would need many photogrammetry flights</li>
+          <li><strong>Terrain modeling priority</strong> — Accurate bare-earth DEMs essential for hydrology and infrastructure planning</li>
+        </ul>
+
+        <p><strong>Expert Recommendation:</strong> Many projects benefit from combining both technologies. Use LiDAR for terrain mapping under vegetation and photogrammetry for visual documentation and infrastructure detail. Our team can advise on the optimal approach for your specific survey goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Pricing -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Pricing</div>
+        <h2>Photogrammetry Survey Pricing</h2>
+        <p>Transparent, competitive pricing for professional photogrammetry surveys across Costa Rica.</p>
+      </div>
+      <div class="highlight-box">
+        <h3>Standard Photogrammetry Survey</h3>
+        <div class="price-tag">$1,000 <span>base fee / project</span></div>
+        <p>Plus <strong>$80 USD per hectare</strong> of survey area.</p>
+        <p><em>Example: 50-hectare property = $1,000 + (50 × $80) = $5,000</em></p>
+        <p><strong>What's Included:</strong></p>
+        <ul class="check-list">
+          <li>Professional flight planning and execution</li>
+          <li>Full orthomosaic generation at 1.5 cm resolution</li>
+          <li>Dense point cloud processing</li>
+          <li>Digital Surface Model creation</li>
+          <li>GeoTIFF and standard format deliverables</li>
+          <li>Quality assurance and accuracy report</li>
+          <li>Web portal access for 60 days</li>
+          <li>Extended storage options available</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Why Choose Us -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">Why Us</div>
+        <h2>Why Choose DroneSurveyCR for Photogrammetry</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <img src="../images/dji-d-rtk-2-base-station-tripod4.png" alt="Professional Equipment">
+          <h3>Professional Equipment</h3>
+          <p>DJI Phantom 4 RTK with integrated RTK positioning and 20MP Hasselblad camera. No compromises on hardware quality.</p>
         </div>
-    </section>
-    
-    <!-- Contact CTA Section -->
-    <section id="contact-form">
-        <div class="container">
-            <h2>Get a Photogrammetry Survey Quote Today</h2>
-            <p>Ready to capture your property or project with professional photogrammetry? Contact DroneSurveyCR for a free quote. We'll assess your specific needs and recommend the best approach for your surveying goals.</p>
-            
-            <div style="margin-top: 30px; text-align: center;">
-                <a href="https://wa.me/50672938970" class="cta-button" style="background-color: #25D366;" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
-                <p style="margin-top: 15px;">Or reach out through our <a href="/quote.html">quote request form</a></p>
-            </div>
+        <div class="info-card">
+          <img src="../images/plan.jpg" alt="DGAC Licensed">
+          <h3>DGAC Licensed</h3>
+          <p>Full authorization from Costa Rica's Civil Aviation Authority. Authorized to operate unmanned aircraft throughout the country legally and safely.</p>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 DroneSurveyCR. All rights reserved. DGAC Licensed Professional Drone Services.</p>
-            <p>
-                <a href="/">Home</a> |
-                <a href="/index.html#services">Services</a> |
-                <a href="/blog/">Blog</a> |
-                <a href="/quote.html">Contact</a>
-            </p>
-            <p>Professional drone surveying and mapping services throughout Costa Rica</p>
+        <div class="info-card">
+          <img src="../images/analize.jpg" alt="National Coverage">
+          <h3>National Coverage</h3>
+          <p>Available for surveys anywhere in Costa Rica — from remote Caribbean jungles to Pacific coastal properties. We operate in all regions and climate conditions.</p>
         </div>
-    </footer>
-    
-    <script>
-        // FAQ Toggle Functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                const item = this.parentElement;
-                item.classList.toggle('active');
-                
-                // Update toggle text
-                const toggle = this.querySelector('.faq-toggle');
-                toggle.textContent = item.classList.contains('active') ? '−' : '+';
-            });
-        });
-        
-        // Schema.org FAQ Structured Data
-        const faqSchema = {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "What is the accuracy of photogrammetry surveys?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Photogrammetry with RTK positioning achieves horizontal accuracy of ±2cm and vertical accuracy of ±3cm across Costa Rica."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "How does vegetation affect photogrammetry results?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Photogrammetry creates models of visible surfaces, including vegetation canopy. Unlike LiDAR, photogrammetry cannot see beneath tree cover."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What are the typical processing timelines?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Standard surveys are processed and delivered within 72 hours of flight completion."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What file formats are included in deliverables?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Orthomosaics as GeoTIFF, point clouds in LAS format, and 3D models in OBJ and FBX formats."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What weather conditions affect photogrammetry flights?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Photogrammetry requires good visibility and clear conditions. Heavy rain or thick cloud cover reduces image quality."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Can photogrammetry be used for volumetric calculations?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes, photogrammetry is excellent for volumetric analysis with accuracy typically within 2-3%."
-                    }
-                }
-            ]
-        };
-        
-        // Inject schema markup
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.textContent = JSON.stringify(faqSchema);
-        document.head.appendChild(script);
-    </script>
+        <div class="info-card">
+          <img src="../images/fly.jpg" alt="Rapid Turnaround">
+          <h3>Rapid Turnaround</h3>
+          <p>Most surveys processed and delivered within 72 hours. For urgent projects, express processing is available for time-sensitive applications.</p>
+        </div>
+        <div class="info-card">
+          <img src="../images/new-project.jpg" alt="Certified Accuracy">
+          <h3>Certified Accuracy</h3>
+          <p>Every survey includes formal accuracy assessment and certification. RTK positioning ensures absolute accuracy without manual ground control points.</p>
+        </div>
+        <div class="info-card">
+          <img src="../images/pix4dmatic-drone-mapping-software.webp" alt="Experienced Team">
+          <h3>Experienced Team</h3>
+          <p>Certified drone operators with advanced photogrammetry expertise. We deliver professional-grade results that meet international standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <div class="section-label">
+        <div class="tag">FAQ</div>
+        <h2>Photogrammetry FAQ</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>What is the accuracy of photogrammetry surveys?</summary>
+          <p>Photogrammetry with RTK positioning achieves horizontal accuracy of ±2 cm and vertical accuracy of ±3 cm across Costa Rica. This accuracy is suitable for construction monitoring, volumetric calculations, and land surveys. Accuracy can be further verified through comparison with ground control points if ultra-high precision is required for specific applications.</p>
+        </details>
+        <details>
+          <summary>How does vegetation affect photogrammetry results?</summary>
+          <p>Photogrammetry creates models of visible surfaces, including vegetation canopy. Trees, bushes, and dense forest appear as part of the 3D model. Unlike LiDAR, photogrammetry cannot see beneath tree cover. For terrain mapping in heavily forested areas like many parts of Costa Rica, LiDAR is the better choice. For areas with moderate vegetation or when you need the highest visual detail, photogrammetry excels.</p>
+        </details>
+        <details>
+          <summary>What are the typical processing timelines?</summary>
+          <p>Standard photogrammetry surveys are typically processed and delivered within 72 hours of flight completion. Processing time depends on survey area size and complexity. For small urban surveys (under 5 hectares), turnaround is often 24–48 hours. Large area surveys may require additional processing time. Express processing (24-hour turnaround) is available for premium fees.</p>
+        </details>
+        <details>
+          <summary>What file formats are included in deliverables?</summary>
+          <p>We deliver orthomosaics as GeoTIFF files with full georeferencing in Costa Rican coordinate systems (CRTM05). Point clouds are provided in LAS format compatible with standard GIS software. DSMs are delivered as GeoTIFF. 3D models are available in OBJ and FBX formats for visualization and CAD integration. All formats include proper geospatial metadata for seamless integration with existing project data.</p>
+        </details>
+        <details>
+          <summary>What weather conditions affect photogrammetry flights?</summary>
+          <p>Photogrammetry requires good visibility and relatively clear conditions. Heavy rain or thick cloud cover reduces image quality and can prevent flight. Wind speeds above 12 m/s create flight instability. Costa Rica's wet season (May–November) requires careful scheduling around afternoon rains. We monitor weather continuously and schedule flights during optimal conditions. In cloudy conditions where photogrammetry is challenging, LiDAR remains effective.</p>
+        </details>
+        <details>
+          <summary>Can photogrammetry be used for volumetric calculations?</summary>
+          <p>Yes, photogrammetry is excellent for volumetric analysis. We calculate stockpile volumes, material measurements, and excavation quantities from the dense point clouds with accuracy typically within 2–3%. These calculations are widely used for billing, cost estimation, and project management in quarries, construction sites, and agricultural operations across Costa Rica.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Bottom CTA -->
+  <section>
+    <div class="container">
+      <div class="inner-cta">
+        <h2>Get a Photogrammetry Survey Quote Today</h2>
+        <p>Ready to capture your property or project with professional photogrammetry? Contact DroneSurveyCR for a free quote. We'll assess your specific needs and recommend the best approach for your surveying goals.</p>
+        <div class="inner-cta-actions">
+          <a href="../quote.html" class="btn btn-primary">Get a Free Quote</a>
+          <a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Message us on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="../images/logo-round.png" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h5>Services</h5>
+				<ul>
+					<li><a href="lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="../quote.html">Get a Free Quote</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Company</h5>
+				<ul>
+					<li><a href="../portfolio.html">Portfolio</a></li>
+					<li><a href="../blog/index.html">Blog</a></li>
+					<li><a href="index.html">All Services</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="../quote.html">Get a Quote</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="../sitemap.xml">Sitemap</a></p>
+		</div>
+	</div>
+</footer>
+
+<script>
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': "Costa Rica's Aerial Survey Specialists",
+		'hero.h1': 'Lidar Drone Surveying in Costa Rica',
+		'hero.p': "Costa Rica's specialists in lidar drone surveys, topographic mapping, aerial video & photography. Centimeter-accurate data for real estate, construction, and agriculture.",
+		'cta.talk': '💬 Talk to Us Now', 'cta.quote': 'Get a Quote Online', 'cta.getquote': 'Get a Quote',
+		'label.services': 'Services', 'label.future': 'Technology', 'label.workflow': 'Process', 'label.start': 'Getting Started', 'label.accuracy': 'Technology',
+		'services.title': 'Our Services', 'services.subtitle': 'Professional aerial surveying solutions using the latest drone technology.',
+		'services.lidar.title': 'Lidar Drone Surveying', 'services.lidar.desc': 'Laser scanning captures terrain data with centimeter accuracy — penetrating forest canopy to map the true ground surface beneath.',
+		'services.video.title': 'Aerial Video & Photography', 'services.video.desc': 'Professional 4K aerial video and high-resolution photography for real estate, construction progress, and promotions across Costa Rica.',
+		'services.gps.title': 'GPS Geopositioning', 'services.gps.desc': 'GPS RTK base station determines exact geographic coordinates — essential for precise boundary demarcation and topographic surveys.',
+		'services.learn.lidar': 'Learn about Lidar →', 'services.learn.video': 'Get a video quote →', 'services.learn.geo': 'Learn about GPS →',
+		'future.title': 'The Future of Aerial Surveying', 'future.intro': 'The latest drone technology makes capturing terrain at any scale fast, accurate, and repeatable — centimeter-accurate 3D data you can measure, map, and use.',
+		'workflow.title': 'How We Work', 'workflow.plan.title': 'Virtual Mission Planning', 'workflow.plan.desc': "Mission planning software lets us visualize the drone's flight path and run time before a single flight.",
+		'workflow.fly.title': 'Flight Mission Execution', 'workflow.fly.desc': 'Our team executes the planned mission on-site to capture photo and lidar data for centimeter-accurate 3D mapping.',
+		'workflow.analyze.title': 'Capture, Analyze, Visualize', 'workflow.analyze.desc': 'Data is processed through our software to produce high-quality 3D photogrammetry and topographic maps.',
+		'start.title': 'Getting started is very easy with us', 'start.desc': 'Fill out our online service request with your location and project size — we\'ll email you a free quote.', 'start.cta': 'Get a Quote Now',
+		'start.step1.title': 'Request a Quote', 'start.step1.desc': 'Takes 5 minutes. Fill out our online form and receive a free quote for your project.',
+		'start.step2.title': 'Select Date & Sign Contract', 'start.step2.desc': 'Once the quote is agreed, pick a date. We send a contract and invoice — 50% deposit on signature.',
+		'start.step3.title': 'Mission Execution & Delivery', 'start.step3.desc': 'We fly, process the data, and deliver your maps and reports in 3–7 business days.',
+		'accuracy.title': 'Centimeter Accuracy Mapping', 'accuracy.desc': 'The Zenmuse L1 integrates a Livox Lidar module, a high-accuracy IMU, and a 1-inch CMOS camera on a 3-axis stabilized gimbal.', 'accuracy.stat1': 'Lidar return layers', 'accuracy.stat2': 'Points per second',
+		'talk.title': 'Want to talk to a real human before you commit?', 'talk.desc': 'Lidar technology is powerful — and most people are still learning what it can do. We have 7+ years of experience and 25 five-star reviews. Ask us anything.',
+		'feat.goal': 'Goal Driven', 'feat.auto': 'Autonomous Workflow', 'feat.pilots': 'Expert Team of Pilots', 'feat.accurate': 'Accurate & Precise',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Especialistas en Levantamiento Aéreo en Costa Rica',
+		'hero.h1': 'Levantamiento con Dron Lidar en Costa Rica',
+		'hero.p': 'Ofrecemos levantamientos aéreos de alta precisión con Lidar y fotogrametría. Datos centimétricos para bienes raíces, construcción y agricultura.',
+		'cta.talk': '💬 ¡Hablemos Ahora!', 'cta.quote': 'Obtener Cotización Online', 'cta.getquote': 'Obtener Cotización',
+		'label.services': 'Servicios', 'label.future': 'Tecnología', 'label.workflow': 'Proceso', 'label.start': 'Cómo Empezar', 'label.accuracy': 'Tecnología',
+		'services.title': 'Nuestros Servicios', 'services.subtitle': 'Soluciones profesionales de levantamiento aéreo con la última tecnología de drones.',
+		'services.lidar.title': 'Levantamiento Lidar con Dron', 'services.lidar.desc': 'Escaneo láser que captura datos del terreno con precisión centimétrica, penetrando el dosel forestal.',
+		'services.video.title': 'Video Aéreo y Fotografía', 'services.video.desc': 'Video aéreo 4K y fotografía de alta resolución para bienes raíces, construcción y marketing.',
+		'services.gps.title': 'Geoposicionamiento GPS', 'services.gps.desc': 'Estación base GPS RTK para determinar coordenadas geográficas exactas en cualquier ubicación.',
+		'services.learn.lidar': 'Conocer más sobre Lidar →', 'services.learn.video': 'Cotizar video →', 'services.learn.geo': 'Conocer más sobre GPS →',
+		'future.title': 'El Futuro del Levantamiento Aéreo', 'future.intro': 'La última tecnología de drones permite capturar terrenos de cualquier tamaño de forma rápida, precisa y repetible.',
+		'workflow.title': 'Cómo Trabajamos', 'workflow.plan.title': 'Planificación Virtual de Misión', 'workflow.plan.desc': 'Nuestro software visualiza la ruta de vuelo del dron antes de despegar.',
+		'workflow.fly.title': 'Ejecución de la Misión', 'workflow.fly.desc': 'Nuestro equipo ejecuta la misión en campo para capturar datos foto y lidar con precisión centimétrica.',
+		'workflow.analyze.title': 'Capturar, Analizar, Visualizar', 'workflow.analyze.desc': 'Procesamos los datos con software especializado para crear fotogrametría 3D y mapas topográficos.',
+		'start.title': 'Comenzar es muy fácil con nosotros', 'start.desc': 'Llena nuestro formulario en línea con tu ubicación y el tamaño del proyecto — te enviaremos una cotización gratis.', 'start.cta': 'Obtener Cotización Ahora',
+		'start.step1.title': 'Solicitar una Cotización', 'start.step1.desc': 'Solo 5 minutos. Llena el formulario y recibe una cotización gratuita.',
+		'start.step2.title': 'Seleccionar Fecha y Firmar Contrato', 'start.step2.desc': 'Una vez acordada la cotización, elige la fecha. Enviamos contrato y factura — depósito del 50% al firmar.',
+		'start.step3.title': 'Ejecución y Entrega', 'start.step3.desc': 'Volamos, procesamos los datos y entregamos mapas e informes en 3–7 días hábiles.',
+		'accuracy.title': 'Mapeo de Precisión Centimétrica', 'accuracy.desc': 'El Zenmuse L1 integra módulo Lidar Livox, IMU de alta precisión y cámara CMOS de 1 pulgada en gimbal de 3 ejes.', 'accuracy.stat1': 'Capas de retorno Lidar', 'accuracy.stat2': 'Puntos por segundo',
+		'talk.title': '¿Quieres hablar con una persona real antes de decidir?', 'talk.desc': 'La tecnología Lidar es poderosa y la mayoría aún la está descubriendo. Contamos con 7+ años de experiencia y 25 reseñas de 5 estrellas.',
+		'feat.goal': 'Orientados a Resultados', 'feat.auto': 'Flujo Autónomo', 'feat.pilots': 'Equipo de Pilotos Expertos', 'feat.accurate': 'Preciso y Exacto',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Spécialistes du Relevé Aérien au Costa Rica',
+		'hero.h1': 'Relevé par Drone Lidar au Costa Rica',
+		'hero.p': 'Relevés aériens haute précision avec Lidar et photogrammétrie. Données centimétriques pour l\'immobilier, la construction et l\'agriculture.',
+		'cta.talk': '💬 Parlez-nous Maintenant', 'cta.quote': 'Obtenir un Devis', 'cta.getquote': 'Obtenir un Devis',
+		'label.services': 'Services', 'label.future': 'Technologie', 'label.workflow': 'Processus', 'label.start': 'Démarrer', 'label.accuracy': 'Technologie',
+		'services.title': 'Nos Services', 'services.subtitle': 'Solutions professionnelles de relevé aérien avec la dernière technologie drone.',
+		'services.lidar.title': 'Relevé Drone Lidar', 'services.lidar.desc': 'Scan laser capturant les données terrain avec précision centimétrique, même sous couvert forestier dense.',
+		'services.video.title': 'Vidéo et Photographie Aériennes', 'services.video.desc': 'Vidéo aérienne 4K et photos haute résolution pour immobilier, construction et marketing.',
+		'services.gps.title': 'Géopositionnement GPS', 'services.gps.desc': 'Station base GPS RTK pour déterminer les coordonnées géographiques exactes de tout emplacement.',
+		'services.learn.lidar': 'En savoir plus sur Lidar →', 'services.learn.video': 'Demander un devis vidéo →', 'services.learn.geo': 'En savoir plus sur GPS →',
+		'future.title': "L'Avenir du Relevé Aérien", 'future.intro': 'La dernière technologie drone permet de capturer tout terrain rapidement, avec précision et de façon répétable.',
+		'workflow.title': 'Notre Processus', 'workflow.plan.title': 'Planification Virtuelle', 'workflow.plan.desc': 'Notre logiciel visualise la trajectoire de vol avant le décollage.',
+		'workflow.fly.title': 'Exécution de la Mission', 'workflow.fly.desc': 'Notre équipe exécute la mission sur site pour capturer données photo et lidar.',
+		'workflow.analyze.title': 'Capturer, Analyser, Visualiser', 'workflow.analyze.desc': 'Traitement des données pour créer photogrammétrie 3D et cartes topographiques.',
+		'start.title': 'Commencer est très simple avec nous', 'start.desc': 'Remplissez notre formulaire en ligne avec votre lieu et la taille du projet — nous vous enverrons un devis gratuit.', 'start.cta': 'Obtenir un Devis',
+		'start.step1.title': 'Demander un Devis', 'start.step1.desc': '5 minutes suffisent. Remplissez le formulaire et recevez un devis gratuit.',
+		'start.step2.title': 'Choisir une Date et Signer', 'start.step2.desc': 'Une fois le devis accepté, choisissez la date. Contrat et facture envoyés — acompte 50% à la signature.',
+		'start.step3.title': 'Mission et Livraison', 'start.step3.desc': 'Nous volons, traitons les données et livrons cartes et rapports en 3–7 jours ouvrés.',
+		'accuracy.title': 'Cartographie de Précision Centimétrique', 'accuracy.desc': 'Le Zenmuse L1 intègre module Lidar Livox, IMU haute précision et caméra CMOS 1 pouce sur nacelle 3 axes.', 'accuracy.stat1': 'Couches de retour Lidar', 'accuracy.stat2': 'Points par seconde',
+		'talk.title': 'Vous souhaitez parler à une vraie personne avant de vous engager ?', 'talk.desc': 'La technologie Lidar est puissante. Nous avons 7+ ans d\'expérience et 25 avis 5 étoiles. Posez-nous vos questions.',
+		'feat.goal': 'Orientés Résultats', 'feat.auto': 'Flux Autonome', 'feat.pilots': 'Équipe de Pilotes Experts', 'feat.accurate': 'Précis et Exact',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'light';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
+</script>
 </body>
 </html>

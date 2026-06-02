@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://www.googletagmanager.com">
+	<link rel="dns-prefetch" href="https://www.google-analytics.com">
+	<title>Drone Survey Cost Calculator Costa Rica | Instant Pricing Estimate</title>
+	<meta name="description" content="Estimate your drone survey cost in Costa Rica instantly. Interactive pricing calculator for photogrammetry and LiDAR surveys. Transparent per-hectare rates, deliverable options, and location-based pricing.">
+	<meta name="keywords" content="drone survey cost Costa Rica, drone survey pricing, LiDAR survey price, photogrammetry cost, aerial survey estimate, DroneSurveyCR pricing calculator">
+	<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/images/dscrlogo.jpg">
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<meta name="theme-color" content="#302F40">
+	<link rel="canonical" href="https://www.dronesurveycr.com/services/pricing-calculator.html">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Drone Survey Cost Calculator Costa Rica | Instant Pricing Estimate">
+	<meta property="og:description" content="Estimate your drone survey cost in Costa Rica instantly. Interactive pricing calculator for photogrammetry and LiDAR surveys with transparent per-hectare rates.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/services/pricing-calculator.html">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<meta property="og:site_name" content="DroneSurveyCR">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Drone Survey Cost Calculator Costa Rica | Instant Pricing Estimate">
+	<meta name="twitter:description" content="Estimate your drone survey cost in Costa Rica instantly. Interactive pricing calculator for photogrammetry and LiDAR surveys.">
+
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+	<script>
+		window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-6L0PFQRYF6');
+	</script>
+
+	<link rel="stylesheet" href="../styles/main.css">
+	<style>
+		/* Calculator Layout */
+		.calc-wrap { padding: 50px 0 80px; }
+
+		.calc-layout {
+			display: grid;
+			grid-template-columns: 1fr 400px;
+			gap: 30px;
+			align-items: start;
+		}
+		@media (max-width: 900px) { .calc-layout { grid-template-columns: 1fr; } }
+
+		/* Calculator Card */
+		.calc-card {
+			background: #fff;
+			border-radius: 16px;
+			padding: 36px;
+			box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+		}
+
+		.calc-section {
+			margin-bottom: 28px;
+		}
+
+		.calc-section h3 {
+			font-size: 13px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 1.2px;
+			color: #0080FE;
+			margin-bottom: 16px;
+			padding-bottom: 8px;
+			border-bottom: 1px solid #eef0f5;
+		}
+
+		/* Slider */
+		.slider-field { margin-bottom: 20px; }
+		.slider-field label {
+			display: block;
+			font-size: 14px;
+			font-weight: 600;
+			color: #302F40;
+			margin-bottom: 8px;
+		}
+		.slider-row {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+		}
+		.slider-row input[type="range"] {
+			flex: 1;
+			-webkit-appearance: none;
+			appearance: none;
+			height: 6px;
+			background: #dde1e8;
+			border-radius: 3px;
+			outline: none;
+		}
+		.slider-row input[type="range"]::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			width: 22px;
+			height: 22px;
+			border-radius: 50%;
+			background: #0080FE;
+			cursor: pointer;
+			border: 3px solid #fff;
+			box-shadow: 0 2px 6px rgba(0,128,254,0.3);
+		}
+		.slider-row input[type="range"]::-moz-range-thumb {
+			width: 22px;
+			height: 22px;
+			border-radius: 50%;
+			background: #0080FE;
+			cursor: pointer;
+			border: 3px solid #fff;
+			box-shadow: 0 2px 6px rgba(0,128,254,0.3);
+		}
+		.slider-value {
+			min-width: 70px;
+			text-align: center;
+			font-size: 18px;
+			font-weight: 700;
+			color: #302F40;
+			background: #f8f9fc;
+			padding: 8px 12px;
+			border-radius: 8px;
+			font-family: 'IBM Plex Sans', sans-serif;
+		}
+		.slider-labels {
+			display: flex;
+			justify-content: space-between;
+			font-size: 11px;
+			color: #888;
+			margin-top: 4px;
+			padding: 0 2px;
+		}
+
+		/* Option Cards (radio-style) */
+		.option-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 10px;
+		}
+		@media (max-width: 500px) { .option-grid { grid-template-columns: 1fr; } }
+
+		.option-card {
+			display: flex;
+			align-items: flex-start;
+			gap: 12px;
+			padding: 14px 16px;
+			border: 1.5px solid #dde1e8;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.15s;
+			user-select: none;
+		}
+		.option-card:hover { border-color: #0080FE; background: #f0f7ff; }
+		.option-card.selected { border-color: #0080FE; background: #f0f7ff; box-shadow: 0 0 0 3px rgba(0,128,254,0.1); }
+		.option-card input { margin-top: 2px; accent-color: #0080FE; flex-shrink: 0; cursor: pointer; }
+		.option-card .opt-label { font-size: 14px; font-weight: 600; color: #302F40; }
+		.option-card .opt-detail { font-size: 12px; color: #888; margin-top: 2px; line-height: 1.4; }
+		.option-card .opt-price { font-size: 13px; font-weight: 700; color: #0080FE; margin-top: 4px; }
+
+		/* Location - 3 columns */
+		.option-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+		@media (max-width: 600px) { .option-grid-3 { grid-template-columns: 1fr; } }
+
+		/* Result Panel */
+		.result-panel { position: sticky; top: 80px; }
+
+		.result-card {
+			background: #302F40;
+			border-radius: 16px;
+			padding: 28px;
+			color: #fff;
+		}
+		.result-card h3 {
+			font-size: 17px;
+			margin-bottom: 18px;
+			color: #fff;
+		}
+
+		.result-lines { display: flex; flex-direction: column; }
+		.result-line {
+			display: flex;
+			justify-content: space-between;
+			padding: 9px 0;
+			border-bottom: 1px solid rgba(255,255,255,0.08);
+			gap: 10px;
+		}
+		.result-line:last-child { border-bottom: none; }
+		.result-line .rl { font-size: 13px; color: #9ca3b0; flex: 1; }
+		.result-line .ra { font-size: 13px; font-weight: 600; color: #fff; white-space: nowrap; }
+
+		.result-total {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 14px 0 0;
+			margin-top: 6px;
+			border-top: 2px solid rgba(255,255,255,0.15);
+		}
+		.result-total .rl { font-size: 15px; font-weight: 700; color: #fff; }
+		.result-total .ra {
+			font-size: 32px;
+			font-weight: 700;
+			color: #0080FE;
+			font-family: 'IBM Plex Sans', sans-serif;
+		}
+
+		.result-note {
+			margin-top: 14px;
+			padding: 12px;
+			background: rgba(0,128,254,0.12);
+			border: 1px solid rgba(0,128,254,0.25);
+			border-radius: 8px;
+			font-size: 12px;
+			color: #93c5fd;
+			line-height: 1.5;
+		}
+
+		/* CTA Button */
+		.btn-get-quote {
+			display: block;
+			width: 100%;
+			background: #0080FE;
+			color: #fff;
+			padding: 15px;
+			border: none;
+			border-radius: 8px;
+			font-size: 17px;
+			font-weight: 700;
+			cursor: pointer;
+			font-family: 'IBM Plex Sans', sans-serif;
+			transition: background 0.2s;
+			margin-top: 16px;
+			text-align: center;
+			text-decoration: none;
+		}
+		.btn-get-quote:hover { background: #006ce0; color: #fff; }
+
+		.btn-wa-calc {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+			background: #25D366;
+			color: #fff;
+			padding: 13px;
+			border-radius: 8px;
+			font-size: 15px;
+			font-weight: 700;
+			text-decoration: none;
+			margin-top: 10px;
+			font-family: 'IBM Plex Sans', sans-serif;
+		}
+		.btn-wa-calc:hover { background: #1fb956; color: #fff; }
+
+		.info-card {
+			background: #fff;
+			border-radius: 12px;
+			padding: 16px;
+			margin-top: 14px;
+			font-size: 13px;
+			color: #5c5c69;
+			line-height: 1.65;
+		}
+		.info-card strong { color: #302F40; display: block; margin-bottom: 4px; }
+
+		/* Content Section */
+		.content-section {
+			padding: 60px 0;
+		}
+		.content-section h2 {
+			margin-bottom: 20px;
+		}
+		.content-section p {
+			font-size: 15px;
+			line-height: 1.8;
+			color: #5c5c69;
+			margin-bottom: 16px;
+		}
+		.content-columns {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 30px;
+			margin-top: 30px;
+		}
+		@media (max-width: 768px) { .content-columns { grid-template-columns: 1fr; } }
+
+		.content-card {
+			background: #f8f9fc;
+			padding: 24px;
+			border-radius: 8px;
+			border-left: 4px solid #0080FE;
+		}
+		.content-card h4 {
+			color: #302F40;
+			font-size: 16px;
+			margin-bottom: 8px;
+		}
+		.content-card p {
+			font-size: 14px;
+			margin-bottom: 0;
+			color: #5c5c69;
+		}
+
+		/* Disclaimer */
+		.disclaimer {
+			text-align: center;
+			font-size: 12px;
+			color: #888;
+			margin-top: 16px;
+			line-height: 1.6;
+		}
+	</style>
+
+	<!-- Schema.org Structured Data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		"@id": "https://www.dronesurveycr.com/services/pricing-calculator.html#webpage",
+		"name": "Drone Survey Cost Calculator Costa Rica | Instant Pricing Estimate",
+		"description": "Estimate your drone survey cost in Costa Rica instantly. Interactive pricing calculator for photogrammetry and LiDAR surveys with transparent per-hectare rates.",
+		"url": "https://www.dronesurveycr.com/services/pricing-calculator.html",
+		"isPartOf": {
+			"@type": "WebSite",
+			"@id": "https://www.dronesurveycr.com/#website",
+			"name": "Drone Survey Costa Rica",
+			"url": "https://www.dronesurveycr.com/"
+		},
+		"about": {
+			"@type": "Service",
+			"name": "Drone Survey Pricing Calculator",
+			"provider": {
+				"@type": ["LocalBusiness", "ProfessionalService"],
+				"@id": "https://www.dronesurveycr.com/#business",
+				"name": "Drone Survey Costa Rica",
+				"url": "https://www.dronesurveycr.com/",
+				"telephone": "+50672938970",
+				"areaServed": {
+					"@type": "Country",
+					"name": "Costa Rica"
+				},
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "CR",
+					"addressRegion": "Costa Rica"
+				}
+			},
+			"serviceType": ["LiDAR Mapping", "Photogrammetry", "Aerial Surveys", "Topographic Surveys"],
+			"areaServed": {
+				"@type": "Country",
+				"name": "Costa Rica"
+			},
+			"offers": [
+				{
+					"@type": "Offer",
+					"name": "Photogrammetry Drone Survey",
+					"priceCurrency": "USD",
+					"price": "800",
+					"description": "Base price for photogrammetry drone survey, plus $80 per hectare after the first 5 hectares"
+				},
+				{
+					"@type": "Offer",
+					"name": "LiDAR Drone Survey",
+					"priceCurrency": "USD",
+					"price": "1000",
+					"description": "Base price for LiDAR drone survey with 25% premium, plus $100 per hectare after the first 5 hectares"
+				}
+			]
+		}
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.dronesurveycr.com/" },
+			{ "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.dronesurveycr.com/services/lidar-mapping.html" },
+			{ "@type": "ListItem", "position": 3, "name": "Pricing Calculator", "item": "https://www.dronesurveycr.com/services/pricing-calculator.html" }
+		]
+	}
+	</script>
+</head>
+<body>
+
+<!-- Navigation -->
+<header id="sp-header">
+	<div class="container">
+		<div class="header-inner">
+			<a href="../index.html"><img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" width="120" height="36" loading="eager"></a>
+			<nav aria-label="Main navigation">
+				<a href="../index.html">Home</a>
+				<span class="dropdown">
+					<a href="lidar-mapping.html">Services</a>
+					<ul>
+						<li><a href="lidar-mapping.html">LiDAR Mapping</a></li>
+						<li><a href="photogrammetry.html">Photogrammetry</a></li>
+						<li><a href="geopositioning.html">GPS Positioning</a></li>
+						<li><a href="../index.html#services">Aerial Video</a></li>
+					</ul>
+				</span>
+				<a href="../blog/">Blog</a>
+				<a href="../about.html">About</a>
+				<a href="../quote.html">Get a Quote</a>
+				<a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a>
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-wa">WhatsApp</a>
+				<a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Reviews</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+	<div class="container">
+		<h1>Drone Survey Cost Calculator</h1>
+		<p class="subtitle">Get an instant pricing estimate for your drone survey project in Costa Rica. Adjust the parameters below and see your cost update in real time.</p>
+	</div>
+</section>
+
+<!-- Calculator -->
+<div class="calc-wrap">
+	<div class="container">
+		<div class="calc-layout">
+
+			<!-- Left: Controls -->
+			<div>
+				<div class="calc-card">
+
+					<!-- Property Size -->
+					<div class="calc-section">
+						<h3>1. Property Size</h3>
+						<div class="slider-field">
+							<label>How large is the survey area?</label>
+							<div class="slider-row">
+								<input type="range" id="sizeSlider" min="1" max="100" value="5" step="1" oninput="onSizeChange()">
+								<div class="slider-value" id="sizeDisplay">5 ha</div>
+							</div>
+							<div class="slider-labels">
+								<span>1 ha</span>
+								<span>25 ha</span>
+								<span>50 ha</span>
+								<span>75 ha</span>
+								<span>100 ha</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Survey Type -->
+					<div class="calc-section">
+						<h3>2. Survey Type</h3>
+						<div class="option-grid">
+							<label class="option-card selected" onclick="selectSurveyType('photogrammetry')">
+								<input type="radio" name="surveyType" value="photogrammetry" checked>
+								<div>
+									<div class="opt-label">Photogrammetry</div>
+									<div class="opt-detail">High-res orthomosaics, 3D models, and DSMs from aerial photography</div>
+									<div class="opt-price">From $800 base</div>
+								</div>
+							</label>
+							<label class="option-card" onclick="selectSurveyType('lidar')">
+								<input type="radio" name="surveyType" value="lidar">
+								<div>
+									<div class="opt-label">LiDAR Mapping</div>
+									<div class="opt-detail">Penetrates vegetation canopy. Sub-5cm accuracy terrain models</div>
+									<div class="opt-price">From $1,000 base</div>
+								</div>
+							</label>
+						</div>
+					</div>
+
+					<!-- Location -->
+					<div class="calc-section">
+						<h3>3. Location</h3>
+						<div class="option-grid option-grid-3">
+							<label class="option-card selected" onclick="selectLocation('local')">
+								<input type="radio" name="location" value="local" checked>
+								<div>
+									<div class="opt-label">Local</div>
+									<div class="opt-detail">&lt; 30 km from San Jose</div>
+									<div class="opt-price">No travel fee</div>
+								</div>
+							</label>
+							<label class="option-card" onclick="selectLocation('regional')">
+								<input type="radio" name="location" value="regional">
+								<div>
+									<div class="opt-label">Regional</div>
+									<div class="opt-detail">30 - 100 km from San Jose</div>
+									<div class="opt-price">+ $150</div>
+								</div>
+							</label>
+							<label class="option-card" onclick="selectLocation('remote')">
+								<input type="radio" name="location" value="remote">
+								<div>
+									<div class="opt-label">Remote</div>
+									<div class="opt-detail">100 km+ from San Jose</div>
+									<div class="opt-price">+ $300</div>
+								</div>
+							</label>
+						</div>
+					</div>
+
+					<!-- Deliverables -->
+					<div class="calc-section" style="margin-bottom: 0;">
+						<h3>4. Deliverables</h3>
+						<div class="option-grid option-grid-3">
+							<label class="option-card selected" onclick="selectDeliverables('standard')">
+								<input type="radio" name="deliverables" value="standard" checked>
+								<div>
+									<div class="opt-label">Standard</div>
+									<div class="opt-detail">Orthophoto + Digital Terrain Model</div>
+									<div class="opt-price">Included</div>
+								</div>
+							</label>
+							<label class="option-card" onclick="selectDeliverables('premium')">
+								<input type="radio" name="deliverables" value="premium">
+								<div>
+									<div class="opt-label">Premium</div>
+									<div class="opt-detail">+ 3D point cloud + contour maps</div>
+									<div class="opt-price">+ $200</div>
+								</div>
+							</label>
+							<label class="option-card" onclick="selectDeliverables('full')">
+								<input type="radio" name="deliverables" value="full">
+								<div>
+									<div class="opt-label">Full Package</div>
+									<div class="opt-detail">+ Volume report + CAD export</div>
+									<div class="opt-price">+ $400</div>
+								</div>
+							</label>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Right: Result -->
+			<div class="result-panel">
+				<div class="result-card">
+					<h3>Your Estimated Cost</h3>
+					<div class="result-lines" id="resultLines">
+						<!-- Populated by JS -->
+					</div>
+					<div class="result-total">
+						<span class="rl">Estimated Total</span>
+						<span class="ra" id="resultTotal">$800</span>
+					</div>
+					<div class="result-note">
+						This is an estimate based on typical project parameters. Final pricing may vary based on terrain complexity, access conditions, and specific requirements. All prices in USD.
+					</div>
+				</div>
+
+				<a href="#" class="btn-get-quote" id="ctaQuoteBtn">Get Your Exact Quote</a>
+				<a href="https://wa.me/50672938970" class="btn-wa-calc" target="_blank" rel="noopener noreferrer">WhatsApp Us for Details</a>
+
+				<div class="info-card">
+					<strong>What happens next?</strong>
+					Fill out our quote form with your project details and we will confirm exact pricing within a few hours. 50% deposit to start, 50% on delivery.
+				</div>
+
+				<div class="info-card">
+					<strong>Delivery</strong>72 hours after flight completion
+					<br><br>
+					<strong>Payment Methods</strong>Crypto, PayPal, Bank Wire, Cash
+					<br><br>
+					<strong>Coverage</strong>All 7 provinces of Costa Rica
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- Supporting Content -->
+<div class="content-section bg-light">
+	<div class="container">
+		<h2>Transparent Drone Survey Pricing in Costa Rica</h2>
+
+		<p>Understanding the cost of a drone survey before you commit is essential for project planning and budgeting. At DroneSurveyCR, we believe in complete pricing transparency. Our interactive calculator above gives you an immediate estimate based on the same factors we use to quote every project: survey area, technology selection, travel distance, and deliverable requirements.</p>
+
+		<p>Drone survey costs in Costa Rica depend on several key variables. Property size is the primary driver, with per-hectare rates applying after an initial base coverage area. The choice between photogrammetry and LiDAR technology affects pricing because LiDAR requires specialized sensor equipment (Zenmuse L1 on a Matrice 300 RTK platform) that delivers superior accuracy and vegetation penetration. Location matters because projects outside the Greater Metropolitan Area require travel time and logistics planning that factor into the overall cost.</p>
+
+		<p>Our deliverable tiers let you pay only for what you need. Every survey includes georeferenced orthophotos and digital terrain models as standard output. Premium deliverables add 3D point clouds and contour maps for clients who need detailed elevation data for engineering or architectural applications. The full package includes volumetric analysis reports and CAD-ready exports suitable for direct integration with AutoCAD, Civil 3D, and other design software used across Costa Rica's construction and development industry.</p>
+
+		<p>Compared to traditional ground-based topographic surveys, drone surveys typically cost 40-60% less while covering larger areas in a fraction of the time. A project that would take a ground crew two weeks can often be flown and processed within 72 hours. This combination of speed, accuracy, and value makes drone surveying the preferred choice for developers, engineers, and landowners across all seven provinces of Costa Rica.</p>
+
+		<div class="content-columns">
+			<div class="content-card">
+				<h4>What Affects Your Price</h4>
+				<p>Survey area (hectares), technology choice (photogrammetry vs LiDAR), distance from San Jose, terrain complexity, and the level of data processing and deliverables required for your project.</p>
+			</div>
+			<div class="content-card">
+				<h4>Why Our Estimates Are Accurate</h4>
+				<p>We use the same pricing model for calculator estimates and final quotes. Most projects come in within 5-10% of the calculator estimate, with adjustments only for unusual terrain or access conditions.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- CTA Section -->
+<section class="cta-section">
+	<div class="container">
+		<h2>Ready to Get Started?</h2>
+		<p>Use the calculator above to estimate your cost, then request a detailed quote with exact pricing for your specific project.</p>
+		<div class="cta-buttons">
+			<a href="../quote.html" class="btn btn-white">Request a Detailed Quote</a>
+			<a href="https://wa.me/50672938970" class="btn btn-wa" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+		</div>
+	</div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+	<div class="container">
+		<div class="footer-grid">
+			<div>
+				<h4>Drone Survey Costa Rica</h4>
+				<p>Professional aerial surveying with LiDAR, GPS, and drone technology across Costa Rica. Centimeter-accurate mapping for real estate, construction, agriculture, and environmental projects.</p>
+			</div>
+			<div>
+				<h4>Services</h4>
+				<ul>
+					<li><a href="lidar-mapping.html">LiDAR Mapping</a></li>
+					<li><a href="photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="geopositioning.html">GPS Surveys</a></li>
+					<li><a href="../quote.html">Get a Quote</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="../blog/">Blog</a></li>
+					<li><a href="../about.html">About Us</a></li>
+					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>Contact</h4>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp: +506 7293 8970</a></li>
+					<li><a href="mailto:dronesurveycr@gmail.com">dronesurveycr@gmail.com</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica. All rights reserved. | <a href="../sitemap.xml">Sitemap</a></p>
+		</div>
+	</div>
+</footer>
+
+<script>
+// ── PRICING CONSTANTS ──────────────────────────────────────────
+var PRICING = {
+	photogrammetry: { base: 800,  perHa: 80,  freeHa: 5, label: 'Photogrammetry' },
+	lidar:          { base: 1000, perHa: 100, freeHa: 5, label: 'LiDAR Mapping'  }
+};
+
+var LOCATION_FEE = { local: 0, regional: 150, remote: 300 };
+var LOCATION_LABEL = { local: 'Local (< 30 km)', regional: 'Regional (30-100 km)', remote: 'Remote (100+ km)' };
+
+var DELIVERABLE_FEE = { standard: 0, premium: 200, full: 400 };
+var DELIVERABLE_LABEL = {
+	standard: 'Standard (orthophoto + DTM)',
+	premium:  'Premium (+ 3D point cloud + contours)',
+	full:     'Full (+ volume report + CAD export)'
+};
+
+// ── STATE ──────────────────────────────────────────────────────
+var state = {
+	size: 5,
+	surveyType: 'photogrammetry',
+	location: 'local',
+	deliverables: 'standard'
+};
+
+// ── SLIDER ─────────────────────────────────────────────────────
+function onSizeChange() {
+	var val = parseInt(document.getElementById('sizeSlider').value, 10);
+	state.size = val;
+	document.getElementById('sizeDisplay').textContent = val + ' ha';
+	calculate();
+}
+
+// ── SELECTORS ──────────────────────────────────────────────────
+function selectSurveyType(val) {
+	state.surveyType = val;
+	updateRadioCards('surveyType');
+	calculate();
+}
+
+function selectLocation(val) {
+	state.location = val;
+	updateRadioCards('location');
+	calculate();
+}
+
+function selectDeliverables(val) {
+	state.deliverables = val;
+	updateRadioCards('deliverables');
+	calculate();
+}
+
+function updateRadioCards(name) {
+	var cards = document.querySelectorAll('input[name="' + name + '"]');
+	for (var i = 0; i < cards.length; i++) {
+		var card = cards[i].closest('.option-card');
+		if (cards[i].value === state[name === 'surveyType' ? 'surveyType' : name]) {
+			cards[i].checked = true;
+			card.classList.add('selected');
+		} else {
+			cards[i].checked = false;
+			card.classList.remove('selected');
+		}
+	}
+}
+
+// ── CALCULATE ──────────────────────────────────────────────────
+function calculate() {
+	var survey = PRICING[state.surveyType];
+	var lines = [];
+	var total = 0;
+
+	// Base fee
+	lines.push({ label: survey.label + ' base fee', amount: survey.base });
+	total += survey.base;
+
+	// Per-hectare (after first 5 ha)
+	var extraHa = Math.max(0, state.size - survey.freeHa);
+	if (extraHa > 0) {
+		var haFee = extraHa * survey.perHa;
+		lines.push({ label: extraHa + ' ha x $' + survey.perHa + '/ha (after first ' + survey.freeHa + ' ha)', amount: haFee });
+		total += haFee;
+	} else {
+		lines.push({ label: state.size + ' ha included in base fee', amount: 0 });
+	}
+
+	// Location
+	var locFee = LOCATION_FEE[state.location];
+	if (locFee > 0) {
+		lines.push({ label: 'Travel: ' + LOCATION_LABEL[state.location], amount: locFee });
+		total += locFee;
+	} else {
+		lines.push({ label: 'Travel: ' + LOCATION_LABEL[state.location], amount: 0 });
+	}
+
+	// Deliverables
+	var dlvFee = DELIVERABLE_FEE[state.deliverables];
+	if (dlvFee > 0) {
+		lines.push({ label: DELIVERABLE_LABEL[state.deliverables], amount: dlvFee });
+		total += dlvFee;
+	} else {
+		lines.push({ label: DELIVERABLE_LABEL[state.deliverables], amount: 0 });
+	}
+
+	// LiDAR premium note (already baked into base/perHa, but show label)
+	if (state.surveyType === 'lidar') {
+		lines.push({ label: 'LiDAR 25% premium', amount: null, note: 'Included in rates above' });
+	}
+
+	// Render
+	var html = '';
+	for (var i = 0; i < lines.length; i++) {
+		var l = lines[i];
+		var amtStr = l.note ? '<span style="font-size:11px;color:#9ca3b0">' + l.note + '</span>' :
+		             l.amount === 0 ? 'Included' :
+		             '$' + l.amount.toLocaleString('en-US');
+		html += '<div class="result-line"><span class="rl">' + l.label + '</span><span class="ra">' + amtStr + '</span></div>';
+	}
+	document.getElementById('resultLines').innerHTML = html;
+	document.getElementById('resultTotal').textContent = '$' + total.toLocaleString('en-US');
+
+	// Update CTA link with pre-filled params
+	var quoteUrl = '../quote.html?calc=1'
+		+ '&size=' + state.size
+		+ '&type=' + encodeURIComponent(state.surveyType)
+		+ '&location=' + encodeURIComponent(state.location)
+		+ '&deliverables=' + encodeURIComponent(state.deliverables)
+		+ '&est=' + total;
+	document.getElementById('ctaQuoteBtn').href = quoteUrl;
+}
+
+// Initial calculation
+calculate();
+
+// GA event when user clicks CTA
+document.getElementById('ctaQuoteBtn').addEventListener('click', function() {
+	try {
+		window.gtag && window.gtag('event', 'calculator_cta_click', {
+			survey_type: state.surveyType,
+			size_ha: state.size,
+			location: state.location,
+			deliverables: state.deliverables,
+			estimated_total: document.getElementById('resultTotal').textContent
+		});
+	} catch(e) {}
+});
+</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,27 @@
 	<meta name="description" content="Browse 20+ completed LiDAR drone survey projects across Costa Rica — interactive map, 3D point clouds, and full project details.">
 	<meta name="robots" content="index, follow">
 	<link rel="canonical" href="https://www.dronesurveycr.com/portfolio.html">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Project Portfolio | Drone Survey Costa Rica">
+	<meta property="og:description" content="Browse 20+ completed LiDAR drone survey projects across Costa Rica — interactive map, 3D point clouds, and full project details.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/portfolio.html">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:site_name" content="DroneSurveyCR">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Project Portfolio | Drone Survey Costa Rica">
+	<meta name="twitter:description" content="Browse 20+ completed LiDAR drone survey projects across Costa Rica — interactive map, 3D point clouds, and full project details.">
+	<meta name="twitter:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Shared stylesheet -->
+	<link rel="stylesheet" href="css/site.css">
 
 	<!-- Leaflet CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -29,366 +44,451 @@
 	</script>
 
 	<style>
-		* { box-sizing: border-box; margin: 0; padding: 0; }
-		body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #5C5C69; line-height: 1.6; }
-		h1, h2, h3, h4, h5, h6 { font-family: 'IBM Plex Sans', sans-serif; color: #302F40; font-weight: 600; }
-		.container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+		/* Map section */
+		.map-wrap { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+		#map { width: 100%; height: 500px; display: block; }
 
-		/* Top bar */
-		#sp-top-bar { background: #f8f9fa; padding: 8px 0; font-size: 14px; }
-		.lang-switcher { display: flex; gap: 4px; align-items: center; }
-		.lang-btn { background: none; border: 1px solid transparent; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 500; color: #5C5C69; font-family: 'Inter', sans-serif; transition: all 0.15s; }
-		.lang-btn:hover { border-color: #0080FE; color: #0080FE; }
-		.lang-btn.active { background: #0080FE; color: #fff; border-color: #0080FE; }
-
-		/* Header */
-		#sp-header { padding: 15px 0; border-bottom: 1px solid #eee; background: #fff; }
-		#sp-header .row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-		.logo a { display: inline-block; }
-		.logo img { height: 36px; display: block; }
-		nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end; }
-		nav > ul > li { position: relative; }
-		nav a { text-decoration: none; color: #302F40; padding: 8px 12px; font-weight: 500; }
-		nav a:hover { color: #0080FE; }
-		nav a.active { color: #0080FE; }
-		nav ul ul { display: none; position: absolute; top: 100%; left: 0; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 6px; min-width: 180px; padding: 8px 0; z-index: 10; }
-		nav ul li:hover > ul { display: block; }
-		nav ul ul li { display: block; }
-		nav ul ul a { display: block; padding: 10px 16px; white-space: nowrap; }
-		nav ul ul a:hover { background: #f0f0f0; }
-
-		/* Hero */
-		.hero {
-			background: linear-gradient(135deg, #302F40 0%, #1a1a2e 100%);
-			color: white;
-			padding: 80px 20px;
-			text-align: center;
-		}
-		.hero h1 { font-size: 48px; margin-bottom: 16px; color: white; font-weight: 700; }
-		.hero p { font-size: 18px; color: #e0e0e0; max-width: 600px; margin: 0 auto; }
-
-		/* Stats Bar */
-		.stats-bar {
-			background-color: white;
-			border-bottom: 1px solid #e0e0e0;
-			padding: 24px 20px;
-			display: flex;
-			justify-content: center;
-			gap: 40px;
-			flex-wrap: wrap;
-			text-align: center;
-		}
-		.stat {
-			font-size: 14px;
-			color: #5C5C69;
-			font-weight: 500;
-			display: flex;
-			align-items: center;
-			gap: 8px;
-		}
-		.stat::before {
-			content: '';
-			width: 4px;
-			height: 4px;
-			background-color: #0080FE;
-			border-radius: 50%;
-		}
-		.stat:first-child::before { display: none; }
-
-		/* Map Section */
-		.map-section { padding: 60px 20px; background-color: white; }
-		.map-container { max-width: 1200px; margin: 0 auto; }
-		.map-title { font-size: 28px; margin-bottom: 12px; color: #302F40; }
-		.map-subtitle { font-size: 14px; color: #5C5C69; margin-bottom: 32px; }
-		#map {
+		/* Projects grid — use site .info-grid / .info-card but with card images */
+		.info-card img.card-thumb {
 			width: 100%;
-			height: 500px;
-			border-radius: 8px;
-			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			height: 180px;
+			object-fit: cover;
+			border-radius: 6px;
+			margin-bottom: 16px;
+			display: block;
 		}
-
-		/* Projects Grid */
-		.projects-section { padding: 60px 20px; background-color: #f8f9fa; }
-		.projects-container { max-width: 1200px; margin: 0 auto; }
-		.projects-title { font-size: 28px; margin-bottom: 12px; color: #302F40; }
-		.projects-subtitle { font-size: 14px; color: #5C5C69; margin-bottom: 40px; }
-		.projects-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-			gap: 24px;
-		}
-		.project-card {
-			background: white;
-			border-radius: 8px;
-			padding: 24px;
-			box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-			transition: all 0.3s ease;
-			display: flex;
-			flex-direction: column;
-		}
-		.project-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.12); }
-		.card-icon { width: 52px; height: 52px; background: #e6f2ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; flex-shrink: 0; }
-		.card-icon svg { width: 28px; height: 28px; }
-		.card-name { font-size: 18px; font-weight: 600; color: #302F40; margin-bottom: 16px; font-family: 'IBM Plex Sans', sans-serif; }
-		.card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; flex-grow: 1; }
-		.tag {
+		.card-tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+		.card-tag-chip {
 			display: inline-block;
-			padding: 6px 12px;
-			border-radius: 16px;
-			font-size: 12px;
-			font-weight: 500;
-			border: 1px solid #e0e0e0;
+			padding: 3px 10px;
+			border-radius: 100px;
+			font-size: 11px;
+			font-weight: 600;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			background: var(--accent-dim);
+			color: var(--accent);
+			border: 1px solid var(--border-hi);
 		}
-		.tag.location { background-color: #e6f2ff; color: #0080FE; border-color: #0080FE; }
-		.tag.service { background-color: #f0f2f5; color: #302F40; }
+		.card-tag-chip.zone {
+			background: var(--bg-raised);
+			color: var(--muted);
+			border-color: var(--border);
+		}
 		.card-link {
 			display: inline-flex;
 			align-items: center;
-			gap: 8px;
-			color: #0080FE;
-			text-decoration: none;
+			gap: 6px;
+			color: var(--accent);
 			font-weight: 500;
 			font-size: 14px;
-			margin-top: auto;
-			transition: gap 0.2s ease;
+			text-decoration: none;
+			margin-top: 8px;
+			transition: gap 0.2s;
 		}
-		.card-link:hover { gap: 12px; }
-		.arrow { transition: transform 0.2s ease; display: inline-block; }
-		.card-link:hover .arrow { transform: translateX(2px); }
+		.card-link:hover { gap: 10px; color: var(--accent-hi); }
 
-		/* Popup styles */
-		.leaflet-popup-content-wrapper { border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); padding: 0; }
+		/* Leaflet popup override for dark */
+		.leaflet-popup-content-wrapper {
+			background: var(--bg-card);
+			color: var(--text);
+			border: 1px solid var(--border-hi);
+			border-radius: 10px;
+			box-shadow: 0 4px 24px var(--shadow);
+		}
+		.leaflet-popup-tip { background: var(--bg-card); }
 		.leaflet-popup-content { margin: 16px 18px; font-family: 'Inter', sans-serif; min-width: 220px; }
-		.popup-title { font-family: 'IBM Plex Sans', sans-serif; font-weight: 700; color: #302F40; margin-bottom: 4px; font-size: 17px; }
-		.popup-location { color: #5C5C69; font-size: 13px; margin-bottom: 14px; }
+		.popup-title { font-family: 'IBM Plex Sans', sans-serif; font-weight: 700; color: var(--heading); margin-bottom: 4px; font-size: 17px; }
+		.popup-location { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
 		.popup-btn {
 			display: block;
 			width: 100%;
-			background: #0080FE;
+			background: var(--accent);
 			color: #fff;
 			text-decoration: none;
 			font-size: 14px;
 			font-weight: 600;
-			padding: 12px 20px;
+			padding: 10px 18px;
 			border-radius: 8px;
 			text-align: center;
 			transition: background 0.2s;
 		}
-		.popup-btn:hover { background: #0066cc; color: #fff; }
+		.popup-btn:hover { background: var(--accent-hi); color: #fff; }
 
-		/* Responsive */
 		@media (max-width: 768px) {
-			.hero h1 { font-size: 32px; }
-			.hero p { font-size: 16px; }
-			.stats-bar { gap: 20px; }
-			.projects-grid { grid-template-columns: 1fr; }
-			#map { height: 350px; }
-			.map-title, .projects-title { font-size: 24px; }
-			nav ul { justify-content: center; }
+			#map { height: 320px; }
 		}
 	</style>
 </head>
 <body>
-	<div class="body-wrapper">
-		<!-- Top bar -->
-		<div id="sp-top-bar">
-			<div class="container">
-				<div style="display:flex;justify-content:space-between;align-items:center;">
-					<div class="lang-switcher">
-						<button class="lang-btn active">EN</button>
-						<button class="lang-btn">ES</button>
-						<button class="lang-btn">FR</button>
-					</div>
-					<div></div>
+
+<!-- Top bar -->
+<div id="top-bar">
+	<div class="container">
+		<div class="inner">
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+			</div>
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Header -->
+<header id="site-header">
+	<div class="container">
+		<div class="inner">
+			<div class="logo">
+				<a href="index.html">
+					<img src="images/logo-round.png" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="services/index.html" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="services/lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="services/geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="services/photogrammetry.html">Photogrammetry</a></li>
+						</ul>
+					</li>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="blog/index.html">Blog</a></li>
+					<li><a href="quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main>
+
+	<!-- Page Hero -->
+	<section class="page-hero">
+		<div class="container">
+			<div class="breadcrumb"><a href="index.html">Home</a> / Portfolio</div>
+			<div class="tag">Our Work</div>
+			<h1>Our Project Portfolio</h1>
+			<p class="lead">120+ surveys completed across Costa Rica — browse our shared project portfolio, explore 3D point clouds, and see the precision we deliver.</p>
+		</div>
+	</section>
+
+	<!-- Stats Bar -->
+	<div class="stats-bar">
+		<div class="container">
+			<div class="stats-bar-inner">
+				<div class="stat-item">
+					<span class="stat-num">23</span>
+					<span class="stat-label">Shared Projects</span>
+				</div>
+				<div class="stat-item">
+					<span class="stat-num">120+</span>
+					<span class="stat-label">Completed Surveys</span>
+				</div>
+				<div class="stat-item">
+					<span class="stat-num">7+</span>
+					<span class="stat-label">Years Experience</span>
+				</div>
+				<div class="stat-item">
+					<span class="stat-num">All</span>
+					<span class="stat-label">Regions of Costa Rica</span>
 				</div>
 			</div>
 		</div>
-
-		<header id="sp-header">
-			<div class="container">
-				<div class="row">
-					<div class="logo">
-						<a href="index.html">
-							<img src="images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="36">
-						</a>
-					</div>
-					<nav>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<a href="index.html#services">Services</a>
-								<ul>
-									<li><a href="services/lidar-mapping.html">Lidar Drone Surveying</a></li>
-									<li><a href="services/geopositioning.html">GPS Geopositioning</a></li>
-									<li><a href="index.html#aerial-media">Aerial Video &amp; Photos</a></li>
-								</ul>
-							</li>
-							<li><a href="portfolio.html" class="active">Portfolio</a></li>
-							<li><a href="quote.html">Get a Quote</a></li>
-							<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
-							<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-							<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Reviews</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-
-		<main>
-			<!-- Hero -->
-			<section class="hero">
-				<h1>Our Project Portfolio</h1>
-				<p>120+ surveys completed across Costa Rica — browse our shared project portfolio below</p>
-			</section>
-
-			<!-- Stats Bar -->
-			<div class="stats-bar">
-				<div class="stat">23 Shared Projects</div>
-				<div class="stat">120+ Completed</div>
-				<div class="stat">7+ Years</div>
-				<div class="stat">All Regions of Costa Rica</div>
-			</div>
-
-			<!-- Interactive Map -->
-			<section class="map-section">
-				<div class="map-container">
-					<h2 class="map-title">Project Locations</h2>
-					<p class="map-subtitle">Click on markers to view project details</p>
-					<div id="map"></div>
-				</div>
-			</section>
-
-			<!-- Projects Grid -->
-			<section class="projects-section">
-				<div class="projects-container">
-					<h2 class="projects-title">All Projects</h2>
-					<p class="projects-subtitle">Access detailed 3D point cloud data and topographic information</p>
-					<div class="projects-grid" id="projectsGrid"></div>
-				</div>
-			</section>
-		</main>
-
-		<footer id="sp-footer" style="background:#302F40; color:#ccc; padding: 50px 0 20px;">
-			<div class="container">
-				<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:40px; margin-bottom:40px;">
-					<div>
-						<h4 style="color:#fff; margin:0 0 15px; font-family:'IBM Plex Sans',sans-serif;">Drone Survey Costa Rica</h4>
-						<p style="margin:0 0 8px; font-size:14px;">Professional aerial surveying services in Costa Rica using Lidar &amp; photogrammetry.</p>
-						<p style="margin:0 0 4px; font-size:14px;">📞 <a href="https://wa.me/50672938970" style="color:#ccc;">+506 7293-8970</a></p>
-						<p style="margin:0; font-size:14px;">📍 Costa Rica</p>
-					</div>
-					<div>
-						<h4 style="color:#fff; margin:0 0 15px; font-family:'IBM Plex Sans',sans-serif;">Services</h4>
-						<ul style="list-style:none; padding:0; margin:0; font-size:14px;">
-							<li style="margin-bottom:8px;"><a href="services/lidar-mapping.html" style="color:#ccc; text-decoration:none;">Aerial Lidar Mapping</a></li>
-							<li style="margin-bottom:8px;"><a href="services/photogrammetry.html" style="color:#ccc; text-decoration:none;">Aerial Photogrammetry</a></li>
-							<li style="margin-bottom:8px;"><a href="services/geopositioning.html" style="color:#ccc; text-decoration:none;">GPS Geopositioning</a></li>
-							<li style="margin-bottom:8px;"><a href="quote.html" style="color:#ccc; text-decoration:none;">Get a Free Quote</a></li>
-						</ul>
-					</div>
-					<div>
-						<h4 style="color:#fff; margin:0 0 15px; font-family:'IBM Plex Sans',sans-serif;">Industries</h4>
-						<ul style="list-style:none; padding:0; margin:0; font-size:14px;">
-						</ul>
-					</div>
-					<div>
-						<h4 style="color:#fff; margin:0 0 15px; font-family:'IBM Plex Sans',sans-serif;">Connect</h4>
-						<ul style="list-style:none; padding:0; margin:0; font-size:14px;">
-							<li style="margin-bottom:8px;"><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:#ccc; text-decoration:none;">💬 WhatsApp</a></li>
-							<li style="margin-bottom:8px;"><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer" style="color:#ccc; text-decoration:none;">⭐ Google Reviews</a></li>
-							<li style="margin-bottom:8px;"><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer" style="color:#ccc; text-decoration:none;">👤 Client Portal</a></li>
-						</ul>
-					</div>
-				</div>
-				<div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; text-align:center; font-size:13px; color:#999;">
-					<p style="margin:0;">&copy; 2026 Drone Survey Costa Rica — All rights reserved | <a href="sitemap.xml" style="color:#999;">Sitemap</a></p>
-				</div>
-			</div>
-		</footer>
 	</div>
 
-	<!-- Leaflet -->
-	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-	<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+	<!-- Interactive Map -->
+	<section>
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">Locations</div>
+				<h2>Project Locations</h2>
+				<p>Every marker is placed at its true GPS location. Click a marker to see the project and open its 3D LiDAR point cloud.</p>
+			</div>
+			<div class="map-wrap">
+				<div id="map"></div>
+			</div>
+		</div>
+	</section>
 
-	<script>
-		const projects = [
-			{ name: 'ALEGRIA_1', location: 'Alegría, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.25, -83.85], potraeId: 'ALEGRIA_1_WEB' },
-			{ name: 'Ainsley', location: 'Ainsley, Southern Zone', zone: 'Southern Zone', service: 'Topographic Map', coords: [9.22, -83.88], potraeId: 'Ainsley_WEB' },
-			{ name: 'Brett Barú River', location: 'Barú River, Dominical', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.28, -83.82], potraeId: 'Brett_Baru_River_1_WEB' },
-			{ name: 'Bryce Ojochal', location: 'Ojochal, Southern Zone', zone: 'Southern Zone', service: 'Land Assessment', coords: [9.22, -83.75], potraeId: 'Bryce_Ojochal_WEB' },
-			{ name: 'Bryce Portálón', location: 'Portálón, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.26, -83.78], potraeId: 'Bryce_Portalon_3_WEB' },
-			{ name: 'Cañavida', location: 'Cañavida, Guanacaste', zone: 'Guanacaste', service: 'LiDAR Survey', coords: [10.4, -85.45], potraeId: 'CANA_VIDA_WEB' },
-			{ name: 'Cedrela', location: 'Cedrela, Central Valley', zone: 'Central Valley', service: 'Topographic Map', coords: [9.93, -84.08], potraeId: 'CEDRELA_WEB' },
-			{ name: 'Dominicalito', location: 'Dominicalito, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.30, -83.85], potraeId: 'DOMINICALITO_WEB' },
-			{ name: 'Envision', location: 'Envision, Southern Zone', zone: 'Southern Zone', service: 'Environmental Assessment', coords: [9.27, -83.88], potraeId: 'ENVISION_WEB' },
-			{ name: 'Marco', location: 'Marco, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.24, -83.84], potraeId: 'MARCO_WEB' },
-			{ name: 'Mata de Plátano', location: 'Mata de Plátano, Central Valley', zone: 'Central Valley', service: 'Land Analysis', coords: [9.95, -84.06], potraeId: 'Mata_Platano_WEB' },
-			{ name: 'Ocaso', location: 'Ocaso, Central Valley', zone: 'Central Valley', service: 'LiDAR Survey', coords: [9.90, -84.10], potraeId: 'OCASO_WEB' },
-			{ name: 'Santa Teresa', location: 'Santa Teresa, Nicoya', zone: 'Nicoya Peninsula', service: 'LiDAR Survey', coords: [9.64, -85.17], potraeId: 'SANTA_TERESA_WEB' },
-			{ name: 'Santa Teresa 2', location: 'Santa Teresa, Nicoya', zone: 'Nicoya Peninsula', service: 'Topographic Map', coords: [9.65, -85.16], potraeId: 'SANTA_TERESA_2_WEB' },
-			{ name: 'Santa Teresa 6H', location: 'Santa Teresa, Nicoya', zone: 'Nicoya Peninsula', service: 'LiDAR Survey', coords: [9.63, -85.18], potraeId: 'SANTA_TERESA_6H_WEB' },
-			{ name: 'Selva 3', location: 'Selva, Southern Zone', zone: 'Southern Zone', service: 'Forest Survey', coords: [9.25, -83.80], potraeId: 'SELVA3_WEB' },
-			{ name: 'Selva 4', location: 'Selva, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.26, -83.81], potraeId: 'SELVA_4_WEB' },
-			{ name: 'San Josecito Uvita', location: 'San Josecito, Uvita', zone: 'Southern Zone', service: 'Land Assessment', coords: [9.28, -83.83], potraeId: 'San_Josesito_Uvita_WEB' },
-			{ name: 'Tomer Selva', location: 'Tomer Selva, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.29, -83.86], potraeId: 'TOMER_SELVA_WEB' },
-			{ name: 'Vista Architects', location: 'Vista Architects, Southern Zone', zone: 'Southern Zone', service: 'Architectural Survey', coords: [9.23, -83.87], potraeId: 'Vista_Architects_WEB' },
-			{ name: 'Portalon Brian', location: 'Portálón, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.27, -83.77], potraeId: 'Portalon_Brian_WEB' },
-			{ name: 'Santa Teresa Boundary', location: 'Santa Teresa, Nicoya', zone: 'Nicoya Peninsula', service: 'GPS Boundary Survey', coords: [9.62, -85.19], potraeId: 'SANTA_TERESA_BOUNDARY_WEB' },
-			{ name: 'Vista Architects 2026', location: 'Vista Architects, Southern Zone', zone: 'Southern Zone', service: 'Architectural Survey', coords: [9.22, -83.86], potraeId: 'Vista_Architects_2026_WEB' }
-		];
+	<hr class="divider">
 
-		const map = L.map('map').setView([9.75, -84.50], 8);
+	<!-- Projects Grid -->
+	<section>
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">All Projects</div>
+				<h2>Completed Survey Projects</h2>
+				<p>Each project opens an interactive 3D LiDAR point cloud you can explore from any angle.</p>
+			</div>
 
-		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			attribution: '&copy; OpenStreetMap contributors',
-			maxZoom: 19
-		}).addTo(map);
+			<!-- Full projects list -->
+			<div class="info-grid" id="projectsGrid"></div>
+		</div>
+	</section>
 
-		const markerClusters = L.markerClusterGroup({
-			disableClusteringAtZoom: 12,
-			iconCreateFunction: function(cluster) {
-				const count = cluster.getChildCount();
-				return new L.DivIcon({
-					html: '<div style="background:#0080FE;color:white;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:14px;box-shadow:0 2px 4px rgba(0,0,0,0.3);">' + count + '</div>',
-					iconSize: [40, 40],
-					className: 'custom-marker'
-				});
-			}
-		});
+	<!-- Bottom CTA -->
+	<section class="inner-cta">
+		<h2>Ready to Start Your Survey Project?</h2>
+		<p>We work across all regions of Costa Rica. Get a free quote online in minutes, or contact us directly on WhatsApp to discuss your project.</p>
+		<div class="inner-cta-actions">
+			<a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
+			<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Us</a>
+		</div>
+	</section>
 
-		projects.forEach(function(project) {
-			var marker = L.marker(project.coords);
-			marker.bindPopup(
-				'<div class="popup-title">' + project.name + '</div>' +
-				'<div class="popup-location">' + project.location + '</div>' +
-				'<a href="portfolio-viewer.html?project=' + project.potraeId + '" class="popup-btn">View 3D Point Cloud &rarr;</a>'
-			);
-			markerClusters.addLayer(marker);
-		});
+</main>
 
-		map.addLayer(markerClusters);
+<!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="images/logo-round.png" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h5>Services</h5>
+				<ul>
+					<li><a href="services/lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="services/photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="services/geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="quote.html">Get a Free Quote</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Company</h5>
+				<ul>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="blog/index.html">Blog</a></li>
+					<li><a href="services/index.html">All Services</a></li>
+						<li><a href="about.html">About</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="quote.html">Get a Quote</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="sitemap.xml">Sitemap</a></p>
+		</div>
+	</div>
+</footer>
 
-		var ICON_TOPO = '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 22 Q9 14 14 17 Q19 20 25 11" stroke="#0080FE" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16 Q9 8 14 11 Q19 14 25 5" stroke="#0080FE" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M5 26 Q10 21 14 23 Q18 25 25 19" stroke="#0080FE" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/></svg>';
-		var ICON_GPS = '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="11" r="4" stroke="#0080FE" stroke-width="2"/><path d="M14 15 L14 24" stroke="#0080FE" stroke-width="2" stroke-linecap="round"/><path d="M9 21 L19 21" stroke="#0080FE" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><circle cx="14" cy="11" r="1.5" fill="#0080FE"/></svg>';
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 
-		var grid = document.getElementById('projectsGrid');
-		projects.forEach(function(project) {
-			var icon = project.service === 'GPS Boundary Survey' ? ICON_GPS : ICON_TOPO;
-			var card = document.createElement('div');
-			card.className = 'project-card';
-			card.innerHTML =
-				'<div class="card-icon">' + icon + '</div>' +
-				'<div class="card-name">' + project.name + '</div>' +
-				'<div class="card-tags">' +
-					'<span class="tag location">' + project.zone + '</span>' +
-					'<span class="tag service">' + project.service + '</span>' +
-				'</div>' +
-				'<a href="portfolio-viewer.html?project=' + project.potraeId + '" class="card-link">' +
-					'View 3D Point Cloud <span class="arrow">&rarr;</span>' +
-				'</a>';
-			grid.appendChild(card);
-		});
-	</script>
+<script>
+	const projects = [
+	{ name: "ALEGRIA 1", location: "San Mateo", service: "LiDAR Survey", coords: [9.96565, -84.499637], view: "https://serviciosdronescostarica.com/LidarCloud/ALEGRIA_1_WEB/" },
+	{ name: "Ainsley", location: "Barú, Pérez Zeledón", service: "Topographic Map", coords: [9.281405, -83.806929], view: "https://serviciosdronescostarica.com/LidarCloud/Ainsley_WEB/" },
+	{ name: "Brett Barú River", location: "Savegre, Quepos", service: "LiDAR Survey", coords: [9.270146, -83.85997], view: "https://serviciosdronescostarica.com/LidarCloud/Brett_Baru_River_1_WEB/" },
+	{ name: "Bryce Ojochal", location: "Puerto Cortés, Osa", service: "Land Assessment", coords: [9.089404, -83.602948], view: "https://serviciosdronescostarica.com/LidarCloud/Bryce_Ojochal_WEB/" },
+	{ name: "Bryce Portalón", location: "Savegre, Quepos", service: "LiDAR Survey", coords: [9.352885, -83.970217], view: "https://serviciosdronescostarica.com/LidarCloud/Bryce_Portalon_3_WEB/" },
+	{ name: "Cañavida", location: "Bahía Ballena, Osa", service: "LiDAR Survey", coords: [9.144079, -83.70257], view: "https://serviciosdronescostarica.com/LidarCloud/CANA_VIDA_WEB/" },
+	{ name: "Cedrela", location: "Santa María, Dota", service: "Topographic Map", coords: [9.640722, -83.935533], view: "https://serviciosdronescostarica.com/LidarCloud/CEDRELA_WEB/" },
+	{ name: "Dominicalito", location: "Bahía Ballena, Osa", service: "LiDAR Survey", coords: [9.243643, -83.843199], view: "https://serviciosdronescostarica.com/LidarCloud/DOMINICALITO_WEB/" },
+	{ name: "Envision", location: "Bahía Ballena, Osa", service: "Environmental Survey", coords: [9.184533, -83.767852], view: "https://serviciosdronescostarica.com/LidarCloud/ENVISION_WEB/" },
+	{ name: "Marco", location: "Garabito", service: "LiDAR Survey", coords: [9.659924, -84.63036], view: "https://serviciosdronescostarica.com/LidarCloud/MARCO_WEB/" },
+	{ name: "Mata de Plátano", location: "Carara, Turrubares", service: "Land Analysis", coords: [9.609476, -84.534177], view: "https://serviciosdronescostarica.com/LidarCloud/Mata_Platano_WEB/" },
+	{ name: "Ocaso", location: "Garabito", service: "LiDAR Survey", coords: [9.642628, -84.605865], view: "https://serviciosdronescostarica.com/LidarCloud/OCASO_WEB/" },
+	{ name: "Portalón Brian", location: "Savegre, Quepos", service: "LiDAR Survey", coords: [9.394628, -83.966977], view: "https://serviciosdronescostarica.com/LidarCloud/Portalon_Brian_WEB/" },
+	{ name: "Santa Teresa 2", location: "Cóbano, Puntarenas", service: "Topographic Map", coords: [9.663734, -85.183923], view: "https://serviciosdronescostarica.com/LidarCloud/SANTA_TERESA_2_WEB/" },
+	{ name: "Santa Teresa 6H", location: "Cóbano, Puntarenas", service: "LiDAR Survey", coords: [9.663751, -85.18307], view: "https://serviciosdronescostarica.com/LidarCloud/SANTA_TERESA_6H_WEB/" },
+	{ name: "Santa Teresa Boundary", location: "Cóbano, Puntarenas", service: "GPS Boundary Survey", coords: [9.664181, -85.184189], view: "https://serviciosdronescostarica.com/LidarCloud/SANTA_TERESA_BOUNDARY_WEB/" },
+	{ name: "Santa Teresa", location: "Cóbano, Puntarenas", service: "LiDAR Survey", coords: [9.664181, -85.184189], view: "https://serviciosdronescostarica.com/LidarCloud/SANTA_TERESA_WEB/" },
+	{ name: "Selva 3", location: "Bahía Ballena, Osa", service: "Forest Survey", coords: [9.141122, -83.700029], view: "https://serviciosdronescostarica.com/LidarCloud/SELVA3_WEB/" },
+	{ name: "Selva 4", location: "Bahía Ballena, Osa", service: "LiDAR Survey", coords: [9.152735, -83.702845], view: "https://serviciosdronescostarica.com/LidarCloud/SELVA_4_WEB/" },
+	{ name: "San Josecito Uvita", location: "Bahía Ballena, Osa", service: "Land Assessment", coords: [9.211758, -83.751646], view: "https://serviciosdronescostarica.com/LidarCloud/San%20Josesito_Uvita_WEB/" },
+	{ name: "Tomer Selva", location: "Bahía Ballena, Osa", service: "LiDAR Survey", coords: [9.148582, -83.701606], view: "https://serviciosdronescostarica.com/LidarCloud/TOMER_SELVA_WEB/" },
+	{ name: "Vista Architects 2026", location: "Bahía Ballena, Osa", service: "Architectural Survey", coords: [9.211655, -83.809925], view: "https://serviciosdronescostarica.com/LidarCloud/Vista_Architects_2026_WEB/" },
+	{ name: "Vista Architects", location: "Bahía Ballena, Osa", service: "Architectural Survey", coords: [9.23201, -83.813308], view: "https://serviciosdronescostarica.com/LidarCloud/Vista_Architects_WEB/" },
+	];
+
+	/* Map */
+	const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+	const tileUrl = isDark
+		? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+		: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+	const map = L.map('map').setView([9.75, -84.50], 8);
+	L.tileLayer(tileUrl, {
+		attribution: isDark ? '&copy; CartoDB &copy; OpenStreetMap contributors' : '&copy; OpenStreetMap contributors',
+		maxZoom: 19
+	}).addTo(map);
+
+	const markerClusters = L.markerClusterGroup({
+		disableClusteringAtZoom: 12,
+		iconCreateFunction: function(cluster) {
+			const count = cluster.getChildCount();
+			return new L.DivIcon({
+				html: '<div style="background:var(--accent,#22c55e);color:#fff;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:14px;box-shadow:0 2px 6px rgba(0,0,0,0.4);">' + count + '</div>',
+				iconSize: [40, 40],
+				className: 'custom-marker'
+			});
+		}
+	});
+
+	projects.forEach(function(project) {
+		var marker = L.marker(project.coords);
+		marker.bindPopup(
+			'<div class="popup-title">' + project.name + '</div>' +
+			'<div class="popup-location">📍 ' + project.location + '</div>' +
+			'<a href="' + project.view + '" target="_blank" rel="noopener noreferrer" class="popup-btn">View 3D Point Cloud &rarr;</a>'
+		);
+		markerClusters.addLayer(marker);
+	});
+	map.addLayer(markerClusters);
+	if (markerClusters.getBounds().isValid()) {
+		map.fitBounds(markerClusters.getBounds(), { padding: [40, 40], maxZoom: 11 });
+	}
+
+	/* Projects card list */
+	var grid = document.getElementById('projectsGrid');
+	projects.forEach(function(project) {
+		var card = document.createElement('div');
+		card.className = 'info-card';
+		card.innerHTML =
+			'<h3>' + project.name + '</h3>' +
+			'<div class="card-tags-row">' +
+				'<span class="card-tag-chip zone">📍 ' + project.location + '</span>' +
+				'<span class="card-tag-chip">' + project.service + '</span>' +
+			'</div>' +
+			'<a href="' + project.view + '" target="_blank" rel="noopener noreferrer" class="card-link">' +
+				'View 3D Point Cloud &rarr;' +
+			'</a>';
+		grid.appendChild(card);
+	});
+</script>
+
+<script>
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': "Costa Rica's Aerial Survey Specialists",
+		'hero.h1': 'Lidar Drone Surveying in Costa Rica',
+		'hero.p': "Costa Rica's specialists in lidar drone surveys, topographic mapping, aerial video & photography. Centimeter-accurate data for real estate, construction, and agriculture.",
+		'cta.talk': '💬 Talk to Us Now', 'cta.quote': 'Get a Quote Online', 'cta.getquote': 'Get a Quote',
+		'label.services': 'Services', 'label.future': 'Technology', 'label.workflow': 'Process', 'label.start': 'Getting Started', 'label.accuracy': 'Technology',
+		'services.title': 'Our Services', 'services.subtitle': 'Professional aerial surveying solutions using the latest drone technology.',
+		'services.lidar.title': 'Lidar Drone Surveying', 'services.lidar.desc': 'Laser scanning captures terrain data with centimeter accuracy — penetrating forest canopy to map the true ground surface beneath.',
+		'services.video.title': 'Aerial Video & Photography', 'services.video.desc': 'Professional 4K aerial video and high-resolution photography for real estate, construction progress, and promotions across Costa Rica.',
+		'services.gps.title': 'GPS Geopositioning', 'services.gps.desc': 'GPS RTK base station determines exact geographic coordinates — essential for precise boundary demarcation and topographic surveys.',
+		'services.learn.lidar': 'Learn about Lidar →', 'services.learn.video': 'Get a video quote →', 'services.learn.geo': 'Learn about GPS →',
+		'future.title': 'The Future of Aerial Surveying', 'future.intro': 'The latest drone technology makes capturing terrain at any scale fast, accurate, and repeatable — centimeter-accurate 3D data you can measure, map, and use.',
+		'workflow.title': 'How We Work', 'workflow.plan.title': 'Virtual Mission Planning', 'workflow.plan.desc': "Mission planning software lets us visualize the drone's flight path and run time before a single flight.",
+		'workflow.fly.title': 'Flight Mission Execution', 'workflow.fly.desc': 'Our team executes the planned mission on-site to capture photo and lidar data for centimeter-accurate 3D mapping.',
+		'workflow.analyze.title': 'Capture, Analyze, Visualize', 'workflow.analyze.desc': 'Data is processed through our software to produce high-quality 3D photogrammetry and topographic maps.',
+		'start.title': 'Getting started is very easy with us', 'start.desc': 'Fill out our online service request with your location and project size — we\'ll email you a free quote.', 'start.cta': 'Get a Quote Now',
+		'start.step1.title': 'Request a Quote', 'start.step1.desc': 'Takes 5 minutes. Fill out our online form and receive a free quote for your project.',
+		'start.step2.title': 'Select Date & Sign Contract', 'start.step2.desc': 'Once the quote is agreed, pick a date. We send a contract and invoice — 50% deposit on signature.',
+		'start.step3.title': 'Mission Execution & Delivery', 'start.step3.desc': 'We fly, process the data, and deliver your maps and reports in 3–7 business days.',
+		'accuracy.title': 'Centimeter Accuracy Mapping', 'accuracy.desc': 'The Zenmuse L1 integrates a Livox Lidar module, a high-accuracy IMU, and a 1-inch CMOS camera on a 3-axis stabilized gimbal.', 'accuracy.stat1': 'Lidar return layers', 'accuracy.stat2': 'Points per second',
+		'talk.title': 'Want to talk to a real human before you commit?', 'talk.desc': 'Lidar technology is powerful — and most people are still learning what it can do. We have 7+ years of experience and 25 five-star reviews. Ask us anything.',
+		'feat.goal': 'Goal Driven', 'feat.auto': 'Autonomous Workflow', 'feat.pilots': 'Expert Team of Pilots', 'feat.accurate': 'Accurate & Precise',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Especialistas en Levantamiento Aéreo en Costa Rica',
+		'hero.h1': 'Levantamiento con Dron Lidar en Costa Rica',
+		'hero.p': 'Ofrecemos levantamientos aéreos de alta precisión con Lidar y fotogrametría. Datos centimétricos para bienes raíces, construcción y agricultura.',
+		'cta.talk': '💬 ¡Hablemos Ahora!', 'cta.quote': 'Obtener Cotización Online', 'cta.getquote': 'Obtener Cotización',
+		'label.services': 'Servicios', 'label.future': 'Tecnología', 'label.workflow': 'Proceso', 'label.start': 'Cómo Empezar', 'label.accuracy': 'Tecnología',
+		'services.title': 'Nuestros Servicios', 'services.subtitle': 'Soluciones profesionales de levantamiento aéreo con la última tecnología de drones.',
+		'services.lidar.title': 'Levantamiento Lidar con Dron', 'services.lidar.desc': 'Escaneo láser que captura datos del terreno con precisión centimétrica, penetrando el dosel forestal.',
+		'services.video.title': 'Video Aéreo y Fotografía', 'services.video.desc': 'Video aéreo 4K y fotografía de alta resolución para bienes raíces, construcción y marketing.',
+		'services.gps.title': 'Geoposicionamiento GPS', 'services.gps.desc': 'Estación base GPS RTK para determinar coordenadas geográficas exactas en cualquier ubicación.',
+		'services.learn.lidar': 'Conocer más sobre Lidar →', 'services.learn.video': 'Cotizar video →', 'services.learn.geo': 'Conocer más sobre GPS →',
+		'future.title': 'El Futuro del Levantamiento Aéreo', 'future.intro': 'La última tecnología de drones permite capturar terrenos de cualquier tamaño de forma rápida, precisa y repetible.',
+		'workflow.title': 'Cómo Trabajamos', 'workflow.plan.title': 'Planificación Virtual de Misión', 'workflow.plan.desc': 'Nuestro software visualiza la ruta de vuelo del dron antes de despegar.',
+		'workflow.fly.title': 'Ejecución de la Misión', 'workflow.fly.desc': 'Nuestro equipo ejecuta la misión en campo para capturar datos foto y lidar con precisión centimétrica.',
+		'workflow.analyze.title': 'Capturar, Analizar, Visualizar', 'workflow.analyze.desc': 'Procesamos los datos con software especializado para crear fotogrametría 3D y mapas topográficos.',
+		'start.title': 'Comenzar es muy fácil con nosotros', 'start.desc': 'Llena nuestro formulario en línea con tu ubicación y el tamaño del proyecto — te enviaremos una cotización gratis.', 'start.cta': 'Obtener Cotización Ahora',
+		'start.step1.title': 'Solicitar una Cotización', 'start.step1.desc': 'Solo 5 minutos. Llena el formulario y recibe una cotización gratuita.',
+		'start.step2.title': 'Seleccionar Fecha y Firmar Contrato', 'start.step2.desc': 'Una vez acordada la cotización, elige la fecha. Enviamos contrato y factura — depósito del 50% al firmar.',
+		'start.step3.title': 'Ejecución y Entrega', 'start.step3.desc': 'Volamos, procesamos los datos y entregamos mapas e informes en 3–7 días hábiles.',
+		'accuracy.title': 'Mapeo de Precisión Centimétrica', 'accuracy.desc': 'El Zenmuse L1 integra módulo Lidar Livox, IMU de alta precisión y cámara CMOS de 1 pulgada en gimbal de 3 ejes.', 'accuracy.stat1': 'Capas de retorno Lidar', 'accuracy.stat2': 'Puntos por segundo',
+		'talk.title': '¿Quieres hablar con una persona real antes de decidir?', 'talk.desc': 'La tecnología Lidar es poderosa y la mayoría aún la está descubriendo. Contamos con 7+ años de experiencia y 25 reseñas de 5 estrellas.',
+		'feat.goal': 'Orientados a Resultados', 'feat.auto': 'Flujo Autónomo', 'feat.pilots': 'Equipo de Pilotos Expertos', 'feat.accurate': 'Preciso y Exacto',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+		'hero.eyebrow': 'Spécialistes du Relevé Aérien au Costa Rica',
+		'hero.h1': 'Relevé par Drone Lidar au Costa Rica',
+		'hero.p': 'Relevés aériens haute précision avec Lidar et photogrammétrie. Données centimétriques pour l\'immobilier, la construction et l\'agriculture.',
+		'cta.talk': '💬 Parlez-nous Maintenant', 'cta.quote': 'Obtenir un Devis', 'cta.getquote': 'Obtenir un Devis',
+		'label.services': 'Services', 'label.future': 'Technologie', 'label.workflow': 'Processus', 'label.start': 'Démarrer', 'label.accuracy': 'Technologie',
+		'services.title': 'Nos Services', 'services.subtitle': 'Solutions professionnelles de relevé aérien avec la dernière technologie drone.',
+		'services.lidar.title': 'Relevé Drone Lidar', 'services.lidar.desc': 'Scan laser capturant les données terrain avec précision centimétrique, même sous couvert forestier dense.',
+		'services.video.title': 'Vidéo et Photographie Aériennes', 'services.video.desc': 'Vidéo aérienne 4K et photos haute résolution pour immobilier, construction et marketing.',
+		'services.gps.title': 'Géopositionnement GPS', 'services.gps.desc': 'Station base GPS RTK pour déterminer les coordonnées géographiques exactes de tout emplacement.',
+		'services.learn.lidar': 'En savoir plus sur Lidar →', 'services.learn.video': 'Demander un devis vidéo →', 'services.learn.geo': 'En savoir plus sur GPS →',
+		'future.title': "L'Avenir du Relevé Aérien", 'future.intro': 'La dernière technologie drone permet de capturer tout terrain rapidement, avec précision et de façon répétable.',
+		'workflow.title': 'Notre Processus', 'workflow.plan.title': 'Planification Virtuelle', 'workflow.plan.desc': 'Notre logiciel visualise la trajectoire de vol avant le décollage.',
+		'workflow.fly.title': 'Exécution de la Mission', 'workflow.fly.desc': 'Notre équipe exécute la mission sur site pour capturer données photo et lidar.',
+		'workflow.analyze.title': 'Capturer, Analyser, Visualiser', 'workflow.analyze.desc': 'Traitement des données pour créer photogrammétrie 3D et cartes topographiques.',
+		'start.title': 'Commencer est très simple avec nous', 'start.desc': 'Remplissez notre formulaire en ligne avec votre lieu et la taille du projet — nous vous enverrons un devis gratuit.', 'start.cta': 'Obtenir un Devis',
+		'start.step1.title': 'Demander un Devis', 'start.step1.desc': '5 minutes suffisent. Remplissez le formulaire et recevez un devis gratuit.',
+		'start.step2.title': 'Choisir une Date et Signer', 'start.step2.desc': 'Une fois le devis accepté, choisissez la date. Contrat et facture envoyés — acompte 50% à la signature.',
+		'start.step3.title': 'Mission et Livraison', 'start.step3.desc': 'Nous volons, traitons les données et livrons cartes et rapports en 3–7 jours ouvrés.',
+		'accuracy.title': 'Cartographie de Précision Centimétrique', 'accuracy.desc': 'Le Zenmuse L1 intègre module Lidar Livox, IMU haute précision et caméra CMOS 1 pouce sur nacelle 3 axes.', 'accuracy.stat1': 'Couches de retour Lidar', 'accuracy.stat2': 'Points par seconde',
+		'talk.title': 'Vous souhaitez parler à une vraie personne avant de vous engager ?', 'talk.desc': 'La technologie Lidar est puissante. Nous avons 7+ ans d\'expérience et 25 avis 5 étoiles. Posez-nous vos questions.',
+		'feat.goal': 'Orientés Résultats', 'feat.auto': 'Flux Autonome', 'feat.pilots': 'Équipe de Pilotes Experts', 'feat.accurate': 'Précis et Exact',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'light';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
+</script>
 </body>
 </html>

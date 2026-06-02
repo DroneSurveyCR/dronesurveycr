@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /ads/
+Disallow: /.claude/
+
+Sitemap: https://www.dronesurveycr.com/sitemap.xml

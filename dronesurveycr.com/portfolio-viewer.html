@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Project Viewer | Drone Survey Costa Rica</title>
+	<meta name="description" content="Interactive 3D LiDAR point cloud viewer for drone survey projects across Costa Rica. Explore DTM, LiDAR, orthophoto, and vector outputs.">
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Shared stylesheet -->
+	<link rel="stylesheet" href="css/site.css">
 
 	<!-- GA4 -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
@@ -21,55 +25,37 @@
 	</script>
 
 	<style>
-		* { margin: 0; padding: 0; box-sizing: border-box; }
-		html, body { height: 100%; overflow: hidden; }
-		body {
-			font-family: 'Inter', sans-serif;
-			background-color: #1a1a2e;
-			color: #5C5C69;
-			display: flex;
-			flex-direction: column;
-		}
+		/* Viewer layout — full viewport minus header/top-bar/toolbar */
+		html, body { height: 100%; }
+		body { display: flex; flex-direction: column; overflow: hidden; }
+		#top-bar { flex-shrink: 0; }
+		#site-header { flex-shrink: 0; }
 
-		/* Header */
-		#sp-header {
-			background: #fff;
-			padding: 15px 0;
-			border-bottom: 1px solid #eee;
-			position: relative;
-			z-index: 100;
-			flex-shrink: 0;
-		}
-		#sp-header .container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
-		#sp-header .row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-		.logo a { display: inline-block; }
-		.logo img { height: 36px; display: block; }
-		#sp-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end; }
-		#sp-header nav > ul > li { position: relative; }
-		#sp-header nav a { text-decoration: none; color: #302F40; padding: 8px 12px; font-weight: 500; font-size: 15px; }
-		#sp-header nav a:hover { color: #0080FE; }
-		#sp-header nav a.active { color: #0080FE; }
-		#sp-header nav ul ul { display: none; position: absolute; top: 100%; left: 0; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 6px; min-width: 180px; padding: 8px 0; z-index: 200; }
-		#sp-header nav ul li:hover > ul { display: block; }
-		#sp-header nav ul ul li { display: block; }
-		#sp-header nav ul ul a { display: block; padding: 10px 16px; white-space: nowrap; }
-		#sp-header nav ul ul a:hover { background: #f0f0f0; }
+		/* Page hero — compact for viewer */
+		.page-hero { padding: 24px 0; flex-shrink: 0; }
+		.page-hero h1 { font-size: clamp(18px, 3vw, 26px); margin: 6px 0 4px; }
+		.page-hero .lead { font-size: 14px; margin: 0; }
+		.page-hero .breadcrumb { margin-bottom: 6px; }
 
 		/* Viewer toolbar */
 		.viewer-toolbar {
-			background: #232336;
-			border-bottom: 1px solid rgba(255,255,255,0.08);
-			padding: 12px 20px;
+			background: var(--bg-card);
+			border-bottom: 1px solid var(--border);
+			padding: 10px 20px;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			flex-wrap: wrap;
-			gap: 12px;
+			gap: 10px;
 			flex-shrink: 0;
 		}
-		.viewer-toolbar .project-info { display: flex; align-items: center; gap: 16px; }
+		.viewer-toolbar .project-info {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+		}
 		.viewer-toolbar .back-link {
-			color: #0080FE;
+			color: var(--accent);
 			text-decoration: none;
 			font-size: 14px;
 			font-weight: 500;
@@ -78,46 +64,76 @@
 			gap: 6px;
 			transition: opacity 0.2s;
 		}
-		.viewer-toolbar .back-link:hover { opacity: 0.8; }
-		.viewer-toolbar .project-name { font-family: 'IBM Plex Sans', sans-serif; color: white; font-size: 20px; font-weight: 600; }
-		.viewer-toolbar .divider { width: 1px; height: 24px; background: rgba(255,255,255,0.15); }
+		.viewer-toolbar .back-link:hover { opacity: 0.75; color: var(--accent-hi); }
+		.viewer-toolbar .toolbar-divider {
+			width: 1px;
+			height: 20px;
+			background: var(--border);
+		}
+		.viewer-toolbar .project-name {
+			font-family: 'IBM Plex Sans', sans-serif;
+			color: var(--heading);
+			font-size: 18px;
+			font-weight: 600;
+		}
 
 		/* View tabs */
-		.view-tabs { display: flex; gap: 4px; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 4px; }
+		.view-tabs {
+			display: flex;
+			gap: 4px;
+			background: var(--bg-raised);
+			border-radius: 8px;
+			padding: 4px;
+			border: 1px solid var(--border);
+		}
 		.view-tab {
-			padding: 8px 18px;
+			padding: 7px 16px;
 			border: none;
 			background: transparent;
-			color: #a0a0b0;
+			color: var(--muted);
 			font-family: 'IBM Plex Sans', sans-serif;
-			font-size: 13px;
+			font-size: 12px;
 			font-weight: 600;
-			letter-spacing: 0.5px;
+			letter-spacing: 0.06em;
 			cursor: pointer;
 			border-radius: 6px;
 			transition: all 0.2s;
 			text-transform: uppercase;
 		}
-		.view-tab:hover { color: white; background: rgba(255,255,255,0.08); }
-		.view-tab.active { background: #0080FE; color: white; }
+		.view-tab:hover { color: var(--heading); background: var(--bg-card); }
+		.view-tab.active {
+			background: var(--accent);
+			color: #fff;
+		}
 
 		/* Iframe container */
-		.viewer-frame { flex: 1; position: relative; background: #111; }
-		.viewer-frame iframe { width: 100%; height: 100%; border: none; display: block; transition: opacity 0.3s; }
+		.viewer-frame {
+			flex: 1;
+			position: relative;
+			background: var(--bg);
+			min-height: 0;
+		}
+		.viewer-frame iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
+			display: block;
+			transition: opacity 0.3s;
+		}
 		.viewer-frame .loading {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			color: #a0a0b0;
-			font-size: 16px;
+			color: var(--muted);
+			font-size: 15px;
 			text-align: center;
 		}
 		.viewer-frame .loading .spinner {
 			width: 40px;
 			height: 40px;
-			border: 3px solid rgba(255,255,255,0.1);
-			border-top-color: #0080FE;
+			border: 3px solid var(--border);
+			border-top-color: var(--accent);
 			border-radius: 50%;
 			animation: spin 0.8s linear infinite;
 			margin: 0 auto 16px;
@@ -134,161 +150,289 @@
 			padding: 40px;
 		}
 		.error-state.visible { display: flex; }
-		.error-state h2 { color: white; font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; margin-bottom: 12px; }
-		.error-state p { color: #a0a0b0; font-size: 16px; margin-bottom: 24px; }
-		.error-state a { color: #0080FE; text-decoration: none; font-weight: 600; font-size: 16px; }
+		.error-state h2 { color: var(--heading); font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; margin-bottom: 12px; }
+		.error-state p { color: var(--muted); font-size: 16px; margin-bottom: 24px; }
+		.error-state a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 16px; }
+		.error-state a:hover { color: var(--accent-hi); }
 
-		/* Responsive */
+		/* Viewer footer — hidden (full-screen viewer; no footer space) */
+		body > footer { display: none; }
+
 		@media (max-width: 768px) {
-			#sp-header nav { display: none; }
-			.viewer-toolbar { padding: 10px 16px; }
-			.viewer-toolbar .project-name { font-size: 16px; }
-			.view-tab { padding: 6px 12px; font-size: 11px; }
+			.viewer-toolbar { padding: 8px 14px; }
+			.viewer-toolbar .project-name { font-size: 15px; }
+			.view-tab { padding: 5px 10px; font-size: 10px; }
+			.page-hero { padding: 16px 0; }
 		}
 	</style>
 </head>
 <body>
 
-	<header id="sp-header">
-		<div class="container">
-			<div class="row">
-				<div class="logo">
-					<a href="index.html">
-						<img src="images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="36">
-					</a>
-				</div>
-				<nav>
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li>
-							<a href="index.html#services">Services</a>
-							<ul>
-								<li><a href="services/lidar-mapping.html">Lidar Drone Surveying</a></li>
-								<li><a href="services/geopositioning.html">GPS Geopositioning</a></li>
-								<li><a href="index.html#aerial-media">Aerial Video &amp; Photos</a></li>
-							</ul>
-						</li>
-						<li><a href="portfolio.html" class="active">Portfolio</a></li>
-						<li><a href="quote.html">Get a Quote</a></li>
-						<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
-						<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-						<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Reviews</a></li>
-					</ul>
-				</nav>
+<!-- Top bar -->
+<div id="top-bar">
+	<div class="container">
+		<div class="inner">
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+			</div>
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
 			</div>
 		</div>
-	</header>
+	</div>
+</div>
 
-	<div class="viewer-toolbar" id="viewerToolbar">
-		<div class="project-info">
-			<a href="portfolio.html" class="back-link">
-				<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-				Portfolio
-			</a>
-			<div class="divider"></div>
-			<div class="project-name" id="projectName">Loading...</div>
-		</div>
-		<div class="view-tabs" id="viewTabs">
-			<button class="view-tab" data-view="DTM">DTM</button>
-			<button class="view-tab active" data-view="LIDAR">LiDAR</button>
-			<button class="view-tab" data-view="ORTHOPHOTO">Orthophoto</button>
-			<button class="view-tab" data-view="VECTOR">Vector</button>
+<!-- Header -->
+<header id="site-header">
+	<div class="container">
+		<div class="inner">
+			<div class="logo">
+				<a href="index.html">
+					<img src="images/logo-round.png" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="services/index.html" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="services/lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="services/geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="services/photogrammetry.html">Photogrammetry</a></li>
+						</ul>
+					</li>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="blog/index.html">Blog</a></li>
+					<li><a href="quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
 		</div>
 	</div>
+</header>
 
-	<div class="viewer-frame" id="viewerFrame">
-		<div class="loading" id="loadingIndicator">
-			<div class="spinner"></div>
-			Loading 3D point cloud...
-		</div>
-		<iframe id="potreeIframe" title="Potree 3D Viewer" allowfullscreen></iframe>
+<!-- Compact page hero -->
+<section class="page-hero">
+	<div class="container">
+		<div class="breadcrumb"><a href="index.html">Home</a> / <a href="portfolio.html">Portfolio</a> / 3D Viewer</div>
+		<div class="tag">Point Cloud Viewer</div>
+		<h1 id="heroProjectTitle">3D Point Cloud Viewer</h1>
+		<p class="lead">Interactive LiDAR point cloud — explore DTM, LiDAR, orthophoto, and vector outputs.</p>
 	</div>
+</section>
 
-	<div class="error-state" id="errorState">
-		<div>
-			<h2>Project Not Found</h2>
-			<p>No project was specified or the project could not be found.</p>
-			<a href="portfolio.html">Browse All Projects &rarr;</a>
+<!-- Viewer toolbar -->
+<div class="viewer-toolbar" id="viewerToolbar">
+	<div class="project-info">
+		<a href="portfolio.html" class="back-link">
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+			Portfolio
+		</a>
+		<div class="toolbar-divider"></div>
+		<div class="project-name" id="projectName">Loading...</div>
+	</div>
+	<div class="view-tabs" id="viewTabs">
+		<button class="view-tab" data-view="DTM">DTM</button>
+		<button class="view-tab active" data-view="LIDAR">LiDAR</button>
+		<button class="view-tab" data-view="ORTHOPHOTO">Orthophoto</button>
+		<button class="view-tab" data-view="VECTOR">Vector</button>
+	</div>
+</div>
+
+<!-- Viewer frame -->
+<div class="viewer-frame" id="viewerFrame">
+	<div class="loading" id="loadingIndicator">
+		<div class="spinner"></div>
+		Loading 3D point cloud...
+	</div>
+	<iframe id="potreeIframe" title="Potree 3D Viewer" allowfullscreen></iframe>
+</div>
+
+<!-- Error state -->
+<div class="error-state" id="errorState">
+	<div>
+		<h2>Project Not Found</h2>
+		<p>No project was specified or the project could not be found.</p>
+		<a href="portfolio.html">Browse All Projects &rarr;</a>
+	</div>
+</div>
+
+<!-- Footer (hidden in viewer via CSS; included for completeness) -->
+<footer>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="images/logo-round.png" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h5>Services</h5>
+				<ul>
+					<li><a href="services/lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="services/photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="services/geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="quote.html">Get a Free Quote</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Company</h5>
+				<ul>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="blog/index.html">Blog</a></li>
+					<li><a href="services/index.html">All Services</a></li>
+						<li><a href="about.html">About</a></li>
+					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="quote.html">Get a Quote</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="sitemap.xml">Sitemap</a></p>
 		</div>
 	</div>
+</footer>
 
-	<script>
-		var projects = [
-			{ displayName: 'Alegria 1', potraeId: 'ALEGRIA_1_WEB' },
-			{ displayName: 'Ainsley', potraeId: 'Ainsley_WEB' },
-			{ displayName: 'Brett Baru River', potraeId: 'Brett_Baru_River_1_WEB' },
-			{ displayName: 'Bryce Ojochal', potraeId: 'Bryce_Ojochal_WEB' },
-			{ displayName: 'Bryce Portalon', potraeId: 'Bryce_Portalon_3_WEB' },
-			{ displayName: 'Canavida', potraeId: 'CANA_VIDA_WEB' },
-			{ displayName: 'Cedrela', potraeId: 'CEDRELA_WEB' },
-			{ displayName: 'Dominicalito', potraeId: 'DOMINICALITO_WEB' },
-			{ displayName: 'Envision', potraeId: 'ENVISION_WEB' },
-			{ displayName: 'Marco', potraeId: 'MARCO_WEB' },
-			{ displayName: 'Mata de Platano', potraeId: 'Mata_Platano_WEB' },
-			{ displayName: 'Ocaso', potraeId: 'OCASO_WEB' },
-			{ displayName: 'Santa Teresa', potraeId: 'SANTA_TERESA_WEB' },
-			{ displayName: 'Santa Teresa 2', potraeId: 'SANTA_TERESA_2_WEB' },
-			{ displayName: 'Santa Teresa 6H', potraeId: 'SANTA_TERESA_6H_WEB' },
-			{ displayName: 'Selva 3', potraeId: 'SELVA3_WEB' },
-			{ displayName: 'Selva 4', potraeId: 'SELVA_4_WEB' },
-			{ displayName: 'San Josecito Uvita', potraeId: 'San_Josesito_Uvita_WEB' },
-			{ displayName: 'Tomer Selva', potraeId: 'TOMER_SELVA_WEB' },
-			{ displayName: 'Vista Architects', potraeId: 'Vista_Architects_WEB' },
-			{ displayName: 'Portalon Brian', potraeId: 'Portalon_Brian_WEB' },
-			{ displayName: 'Santa Teresa Boundary', potraeId: 'SANTA_TERESA_BOUNDARY_WEB' },
-			{ displayName: 'Vista Architects 2026', potraeId: 'Vista_Architects_2026_WEB' }
-		];
+<script>
+	var projects = [
+		{ displayName: 'Alegria 1', potraeId: 'ALEGRIA_1_WEB' },
+		{ displayName: 'Ainsley', potraeId: 'Ainsley_WEB' },
+		{ displayName: 'Brett Baru River', potraeId: 'Brett_Baru_River_1_WEB' },
+		{ displayName: 'Bryce Ojochal', potraeId: 'Bryce_Ojochal_WEB' },
+		{ displayName: 'Bryce Portalon', potraeId: 'Bryce_Portalon_3_WEB' },
+		{ displayName: 'Canavida', potraeId: 'CANA_VIDA_WEB' },
+		{ displayName: 'Cedrela', potraeId: 'CEDRELA_WEB' },
+		{ displayName: 'Dominicalito', potraeId: 'DOMINICALITO_WEB' },
+		{ displayName: 'Envision', potraeId: 'ENVISION_WEB' },
+		{ displayName: 'Marco', potraeId: 'MARCO_WEB' },
+		{ displayName: 'Mata de Platano', potraeId: 'Mata_Platano_WEB' },
+		{ displayName: 'Ocaso', potraeId: 'OCASO_WEB' },
+		{ displayName: 'Santa Teresa', potraeId: 'SANTA_TERESA_WEB' },
+		{ displayName: 'Santa Teresa 2', potraeId: 'SANTA_TERESA_2_WEB' },
+		{ displayName: 'Santa Teresa 6H', potraeId: 'SANTA_TERESA_6H_WEB' },
+		{ displayName: 'Selva 3', potraeId: 'SELVA3_WEB' },
+		{ displayName: 'Selva 4', potraeId: 'SELVA_4_WEB' },
+		{ displayName: 'San Josecito Uvita', potraeId: 'San_Josesito_Uvita_WEB' },
+		{ displayName: 'Tomer Selva', potraeId: 'TOMER_SELVA_WEB' },
+		{ displayName: 'Vista Architects', potraeId: 'Vista_Architects_WEB' },
+		{ displayName: 'Portalon Brian', potraeId: 'Portalon_Brian_WEB' },
+		{ displayName: 'Santa Teresa Boundary', potraeId: 'SANTA_TERESA_BOUNDARY_WEB' },
+		{ displayName: 'Vista Architects 2026', potraeId: 'Vista_Architects_2026_WEB' }
+	];
 
-		var BASE_URL = 'https://serviciosdronescostarica.com/LidarCloud/';
-		var VIEWS = ['DTM', 'LIDAR', 'ORTHOPHOTO', 'VECTOR'];
+	var BASE_URL = 'https://serviciosdronescostarica.com/LidarCloud/';
+	var VIEWS = ['DTM', 'LIDAR', 'ORTHOPHOTO', 'VECTOR'];
 
-		var params = new URLSearchParams(window.location.search);
-		var projectId = params.get('project');
-		var project = null;
-		for (var i = 0; i < projects.length; i++) {
-			if (projects[i].potraeId === projectId) { project = projects[i]; break; }
+	var params = new URLSearchParams(window.location.search);
+	var projectId = params.get('project');
+	var project = null;
+	for (var i = 0; i < projects.length; i++) {
+		if (projects[i].potraeId === projectId) { project = projects[i]; break; }
+	}
+
+	if (!project) {
+		document.getElementById('viewerToolbar').style.display = 'none';
+		document.getElementById('viewerFrame').style.display = 'none';
+		document.getElementById('errorState').classList.add('visible');
+	} else {
+		document.title = project.displayName + ' | Drone Survey Costa Rica';
+		document.getElementById('projectName').textContent = project.displayName;
+		document.getElementById('heroProjectTitle').textContent = project.displayName;
+
+		var namePart = project.potraeId.replace(/_WEB$/, '');
+		var iframe = document.getElementById('potreeIframe');
+		var loading = document.getElementById('loadingIndicator');
+
+		function getPotreeUrl(view) {
+			return BASE_URL + project.potraeId + '/' + namePart + '_' + view + '/';
 		}
 
-		if (!project) {
-			document.getElementById('viewerToolbar').style.display = 'none';
-			document.getElementById('viewerFrame').style.display = 'none';
-			document.getElementById('errorState').classList.add('visible');
-		} else {
-			document.title = project.displayName + ' | Drone Survey Costa Rica';
-			document.getElementById('projectName').textContent = project.displayName;
-
-			var namePart = project.potraeId.replace(/_WEB$/, '');
-			var iframe = document.getElementById('potreeIframe');
-			var loading = document.getElementById('loadingIndicator');
-
-			function getPotreeUrl(view) {
-				return BASE_URL + project.potraeId + '/' + namePart + '_' + view + '/';
-			}
-
-			function loadView(view) {
-				loading.style.display = 'block';
-				iframe.style.opacity = '0';
-				iframe.src = getPotreeUrl(view);
-				document.querySelectorAll('.view-tab').forEach(function(tab) {
-					tab.classList.toggle('active', tab.dataset.view === view);
-				});
-				var newUrl = new URL(window.location);
-				newUrl.searchParams.set('view', view);
-				history.replaceState(null, '', newUrl);
-			}
-
-			iframe.addEventListener('load', function() {
-				loading.style.display = 'none';
-				iframe.style.opacity = '1';
-			});
-
+		function loadView(view) {
+			loading.style.display = 'block';
+			iframe.style.opacity = '0';
+			iframe.src = getPotreeUrl(view);
 			document.querySelectorAll('.view-tab').forEach(function(tab) {
-				tab.addEventListener('click', function() { loadView(this.dataset.view); });
+				tab.classList.toggle('active', tab.dataset.view === view);
 			});
-
-			var initialView = params.get('view') && VIEWS.indexOf(params.get('view')) !== -1 ? params.get('view') : 'LIDAR';
-			loadView(initialView);
+			var newUrl = new URL(window.location);
+			newUrl.searchParams.set('view', view);
+			history.replaceState(null, '', newUrl);
 		}
-	</script>
+
+		iframe.addEventListener('load', function() {
+			loading.style.display = 'none';
+			iframe.style.opacity = '1';
+		});
+
+		document.querySelectorAll('.view-tab').forEach(function(tab) {
+			tab.addEventListener('click', function() { loadView(this.dataset.view); });
+		});
+
+		var initialView = params.get('view') && VIEWS.indexOf(params.get('view')) !== -1 ? params.get('view') : 'LIDAR';
+		loadView(initialView);
+	}
+</script>
+
+<script>
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'light';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
+</script>
 </body>
 </html>

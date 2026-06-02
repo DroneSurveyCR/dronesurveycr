@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Levantamiento con Dron para Agricultura en Costa Rica | DroneSurveyCR.com</title>
+	<meta name="description" content="Levantamientos aéreos con dron para fincas y plantaciones en Costa Rica. Mapeo de cultivos, datos topográficos, planificación de riego y análisis de drenaje. Resultados rápidos.">
+	<link rel="alternate" hreflang="en" href="https://www.dronesurveycr.com/lp-agriculture.html">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+	<style>
+		*{box-sizing:border-box;margin:0;padding:0}
+		body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;color:#444}
+		h1,h2,h3,h4,h5{font-family:'IBM Plex Sans',sans-serif}
+		.container{max-width:1100px;margin:0 auto;padding:0 20px}
+		nav{background:#302F40;padding:14px 0}
+		nav .inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+		nav .logo{color:#fff;font-family:'IBM Plex Sans',sans-serif;font-weight:700;font-size:18px;text-decoration:none}
+		nav .nav-cta{background:#28a745;color:#fff;padding:9px 20px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px}
+		.hero{background:linear-gradient(135deg,#0d2010 0%,#1a3d14 60%,#0d2a10 100%);padding:70px 0 80px;position:relative;overflow:hidden}
+		.hero::before{content:'';position:absolute;top:-40px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(40,167,69,0.15) 0%,transparent 70%);pointer-events:none}
+		.hero-badge{display:inline-block;background:rgba(40,167,69,0.2);border:1px solid rgba(40,167,69,0.4);color:#86efac;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:20px;letter-spacing:0.5px}
+		.hero h1{color:#fff;font-size:clamp(32px,5vw,58px);line-height:1.15;font-weight:700;margin-bottom:20px;max-width:750px}
+		.hero h1 span{color:#86efac}
+		.hero .sub{color:#9ca3b0;font-size:18px;max-width:600px;margin-bottom:36px;line-height:1.65}
+		.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:50px}
+		.btn-green{background:#28a745;color:#fff;padding:15px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;font-family:'IBM Plex Sans',sans-serif;display:inline-flex;align-items:center;gap:8px}
+		.btn-green:hover{background:#218838}
+		.btn-whatsapp{background:#25D366;color:#fff;padding:15px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;font-family:'IBM Plex Sans',sans-serif;display:inline-flex;align-items:center;gap:8px}
+		.hero-stats{display:flex;flex-wrap:wrap;gap:32px}
+		.stat strong{display:block;font-size:32px;font-weight:700;font-family:'IBM Plex Sans',sans-serif;color:#86efac}
+		.stat span{font-size:13px;color:#9ca3b0}
+		.trust-bar{background:#f8f9fc;border-bottom:1px solid #e8eaf0;padding:18px 0}
+		.trust-inner{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;align-items:center}
+		.trust-item{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#302F40}
+		.section{padding:70px 0}
+		.section-label{text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:1.5px;color:#28a745;margin-bottom:10px}
+		.section h2{font-size:clamp(26px,4vw,42px);color:#302F40;line-height:1.25;margin-bottom:16px}
+		.section p{color:#5c5c69;font-size:17px;line-height:1.7}
+		.problems{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
+		.problem-card{background:#fff;border:1px solid #e8eaf0;border-left:4px solid #dc2626;border-radius:10px;padding:26px}
+		.problem-card h4{color:#302F40;font-size:17px;margin-bottom:8px}
+		.problem-card p{color:#5c5c69;font-size:14px}
+		.solutions{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
+		.solution-card{background:#fff;border:1px solid #e8eaf0;border-left:4px solid #28a745;border-radius:10px;padding:28px}
+		.solution-card .icon{font-size:28px;margin-bottom:12px}
+		.solution-card h4{color:#302F40;font-size:17px;margin-bottom:8px}
+		.solution-card p{color:#5c5c69;font-size:15px;line-height:1.6}
+		.data-section{background:#f4f6fb;padding:70px 0}
+		.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:40px}
+		@media(max-width:768px){.data-grid{grid-template-columns:1fr}}
+		.deliverables{display:flex;flex-direction:column;gap:18px}
+		.deliverable{display:flex;gap:14px;align-items:flex-start}
+		.deliverable .check{width:24px;height:24px;background:#28a745;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;color:#fff;font-size:13px}
+		.deliverable h5{color:#302F40;font-size:16px;margin-bottom:3px}
+		.deliverable p{color:#5c5c69;font-size:14px}
+		.stats-block{background:linear-gradient(160deg,#f0fdf4,#ecfdf5);border-radius:16px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+		.stat-box{text-align:center}
+		.stat-box strong{display:block;font-size:42px;font-weight:700;font-family:'IBM Plex Sans',sans-serif;color:#28a745}
+		.stat-box p{color:#5c5c69;font-size:14px}
+		.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:36px}
+		.step{background:#fff;border:1px solid #e8eaf0;border-radius:12px;padding:28px}
+		.step-num{width:36px;height:36px;background:#28a745;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;margin-bottom:14px;font-family:'IBM Plex Sans',sans-serif}
+		.step h4{color:#302F40;font-size:17px;margin-bottom:8px}
+		.step p{color:#5c5c69;font-size:14px}
+		.cta-section{background:linear-gradient(135deg,#1a3d14 0%,#302F40 100%);padding:80px 0;text-align:center}
+		.cta-section h2{color:#fff;font-size:clamp(28px,4vw,44px);margin-bottom:16px}
+		.cta-section p{color:#9ca3b0;font-size:18px;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto}
+		.cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+		.form-section{padding:70px 0;background:#fff}
+		.form-wrap{max-width:600px;margin:0 auto}
+		.form-wrap h2{color:#302F40;font-size:32px;margin-bottom:8px;text-align:center}
+		.form-wrap .sub{text-align:center;color:#5c5c69;margin-bottom:32px}
+		form label{display:block;font-size:14px;font-weight:600;color:#302F40;margin-bottom:6px}
+		form input,form select,form textarea{width:100%;padding:12px 14px;border:1.5px solid #dde1e8;border-radius:8px;font-size:15px;font-family:'Inter',sans-serif;color:#302F40;margin-bottom:18px;outline:none}
+		form input:focus,form select:focus,form textarea:focus{border-color:#28a745}
+		form textarea{height:100px;resize:vertical}
+		form button{width:100%;background:#28a745;color:#fff;padding:15px;border:none;border-radius:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+		form button:hover{background:#218838}
+		.form-note{text-align:center;font-size:13px;color:#888;margin-top:12px}
+		.testimonials-section{padding:70px 0;background:#fff}
+		.testimonials-header{text-align:center;margin-bottom:50px}
+		.testimonials-header h2{font-size:clamp(26px,4vw,42px);color:#302F40;margin-bottom:8px}
+		.testimonials-header .rating{font-size:14px;color:#5c5c69;margin-top:8px}
+		.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+		.testimonial-card{background:#f8f9fa;border-radius:12px;padding:28px;border:1px solid #e8eaf0}
+		.testimonial-card .stars{color:#f4b400;font-size:16px;margin-bottom:12px;letter-spacing:2px}
+		.testimonial-card .review{font-style:italic;color:#302F40;font-size:15px;line-height:1.6;margin-bottom:16px}
+		.testimonial-card .author{font-weight:600;color:#302F40;font-size:14px;margin-bottom:2px}
+		.testimonial-card .role{font-size:13px;color:#5c5c69}
+		.testimonials-link{text-align:center;margin-top:36px}
+		.testimonials-link a{color:#28a745;text-decoration:none;font-weight:600;font-size:15px}
+		.testimonials-link a:hover{text-decoration:underline}
+		footer{background:#302F40;color:#9ca3b0;text-align:center;padding:24px;font-size:14px}
+		footer a{color:#60a5fa;text-decoration:none}
+		@media(max-width:600px){.hero-btns,.cta-btns{flex-direction:column}.btn-green,.btn-whatsapp{justify-content:center}.stats-block{grid-template-columns:1fr}}
+	</style>
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-6L0PFQRYF6');
+	</script>
+</head>
+<body>
+
+<nav>
+	<div class="container">
+		<div class="inner">
+			<a href="../index.html" class="logo">DroneSurveyCR.com</a>
+			<a href="https://wa.me/50672938970" class="nav-cta" target="_blank" rel="noopener">💬 Contáctanos por WhatsApp</a>
+		</div>
+	</div>
+</nav>
+
+<section class="hero">
+	<div class="container">
+		<div class="hero-badge">🌿 PARA GRANJAS Y PLANTACIONES EN COSTA RICA</div>
+		<h1>Ve Cada Hectárea.<br><span>Corrige Problemas Temprano.</span></h1>
+		<p class="sub">Levantamientos aéreos con dron para las fincas, plantaciones y tierras agrícolas de Costa Rica. Mapeo de cultivos, análisis de drenaje y datos topográficos de precisión — entregados en horas, no días.</p>
+		<div class="hero-btns">
+			<a href="#quote" class="btn-green">📋 Obtén una Cotización Gratis</a>
+			<a href="https://wa.me/50672938970" class="btn-whatsapp" target="_blank" rel="noopener">💬 Escríbenos por WhatsApp</a>
+		</div>
+		<div class="hero-stats">
+			<div class="stat"><strong>20ha</strong><span>Mapeadas en ~20 min</span></div>
+			<div class="stat"><strong>±1–3cm</strong><span>Precisión LiDAR</span></div>
+			<div class="stat"><strong>72hrs</strong><span>Datos entregados</span></div>
+			<div class="stat"><strong>CR-wide</strong><span>Volamos a tu finca</span></div>
+		</div>
+	</div>
+</section>
+
+<div class="trust-bar">
+	<div class="container">
+		<div class="trust-inner">
+			<div class="trust-item">✅ Mapas Completos de Cultivos</div>
+			<div class="trust-item">✅ Análisis de Drenaje e Irrigación</div>
+			<div class="trust-item">✅ Datos Topográficos del Terreno</div>
+			<div class="trust-item">✅ Seguimiento Multi-Estacional</div>
+			<div class="trust-item">✅ Cobertura en Todo Costa Rica</div>
+		</div>
+	</div>
+</div>
+
+<section class="section" style="background:#fff">
+	<div class="container">
+		<p class="section-label">El Problema</p>
+		<h2>No Puedes Gestionar Lo Que No Puedes Ver</h2>
+		<p>Desde el suelo, los problemas de cultivos, fallos de drenaje y problemas de terreno son invisibles hasta que se vuelven costosos. Para entonces, ya es demasiado tarde.</p>
+		<div class="problems">
+			<div class="problem-card">
+				<h4>Zonas muertas ocultas</h4>
+				<p>Secciones de tu cultivo que no producen — visibles desde el aire pero invisibles a pie hasta que la cosecha ya está perdida.</p>
+			</div>
+			<div class="problem-card">
+				<h4>Fallos de drenaje</h4>
+				<p>Patrones de encharcamiento y escurrimiento que dañan raíces y suelo — solo detectables con datos completos de elevación del terreno.</p>
+			</div>
+			<div class="problem-card">
+				<h4>Ineficiencia de irrigación</h4>
+				<p>Distribución desigual de agua en terreno desigual desperdicia recursos e inhibe cultivos de formas que la observación terrestre no detecta.</p>
+			</div>
+			<div class="problem-card">
+				<h4>Levantamientos terrestres lentos</h4>
+				<p>Caminar 50 hectáreas para un levantamiento topográfico toma días. Un dron cubre la misma área en menos de una hora.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section" style="background:#f4f6fb">
+	<div class="container">
+		<p class="section-label">Lo Que Ofrecemos</p>
+		<h2>Datos Aéreos Diseñados para Agricultura</h2>
+		<div class="solutions">
+			<div class="solution-card">
+				<div class="icon">🗺️</div>
+				<h4>Mapas Ortomosaicos Completos de Finca</h4>
+				<p>Imágenes aéreas georeferenciadas de toda tu propiedad — cosidas en un mapa preciso y desplazable a resolución centimétrica.</p>
+			</div>
+			<div class="solution-card">
+				<div class="icon">📐</div>
+				<h4>Levantamiento Topográfico y MDE</h4>
+				<p>Modelos Digitales de Elevación que muestran cada pendiente, depresión y punto alto en tu tierra — crítico para diseño de drenaje e irrigación.</p>
+			</div>
+			<div class="solution-card">
+				<div class="icon">💧</div>
+				<h4>Análisis de Patrones de Drenaje</h4>
+				<p>Identifica cómo se mueve el agua en tu finca. Ve dónde se estanca, dónde corre y dónde falta.</p>
+			</div>
+			<div class="solution-card">
+				<div class="icon">📊</div>
+				<h4>Seguimiento de Cambios Estacionales</h4>
+				<p>Compara levantamientos aéreos entre estaciones. Rastrea salud de cultivos, cambios terrestres y progreso del proyecto en el tiempo.</p>
+			</div>
+			<div class="solution-card">
+				<div class="icon">🌿</div>
+				<h4>Mapeo de Vegetación y Zonas de Cultivo</h4>
+				<p>Identifica zonas distintas en tu finca — tipos de cultivos, tierra desnuda, cuerpos de agua y brechas de cobertura — desde un solo vuelo.</p>
+			</div>
+			<div class="solution-card">
+				<div class="icon">📏</div>
+				<h4>Levantamientos de Área y Linderos</h4>
+				<p>Mediciones precisas del área de tu finca, divisiones internas de campos y límites de linderos — documentadas y georeferenciadas.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="data-section">
+	<div class="container">
+		<p class="section-label">Lo Que Recibes</p>
+		<h2>Datos Que Tu Agrónomo e Ingeniero Pueden Usar Realmente</h2>
+		<div class="data-grid">
+			<div class="deliverables">
+				<div class="deliverable">
+					<div class="check">✓</div>
+					<div><h5>Ortomosaico (GeoTIFF)</h5><p>Imagen aérea georeferenciada de alta resolución. Importa en cualquier software GIS, Google Earth o herramienta de planificación.</p></div>
+				</div>
+				<div class="deliverable">
+					<div class="check">✓</div>
+					<div><h5>Modelo Digital de Elevación (MDE)</h5><p>Datos de superficie de elevación en formatos estándar de la industria — para modelado de drenaje y diseño de irrigación.</p></div>
+				</div>
+				<div class="deliverable">
+					<div class="check">✓</div>
+					<div><h5>Nube de Puntos 3D</h5><p>Nube de puntos LiDAR completa para análisis de terreno preciso, cálculos de volumen y visualización 3D.</p></div>
+				</div>
+				<div class="deliverable">
+					<div class="check">✓</div>
+					<div><h5>Mapas de Contorno</h5><p>Líneas de contorno topográfico en tu intervalo especificado — listas para flujos de trabajo de ingeniería y agronomía.</p></div>
+				</div>
+				<div class="deliverable">
+					<div class="check">✓</div>
+					<div><h5>Fotografía Aérea</h5><p>Fotos de alta resolución de toda tu propiedad para documentación, marketing o registros de seguros.</p></div>
+				</div>
+			</div>
+			<div class="stats-block">
+				<div class="stat-box"><strong>20ha</strong><p>Mapeadas por vuelo de 20 min</p></div>
+				<div class="stat-box"><strong>±1cm</strong><p>Precisión vertical LiDAR</p></div>
+				<div class="stat-box"><strong>72hrs</strong><p>De vuelo a entrega</p></div>
+				<div class="stat-box"><strong>100%</strong><p>Cobertura Costa Rica</p></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section" style="background:#fff">
+	<div class="container">
+		<p class="section-label">Cómo Funciona</p>
+		<h2>Proceso Simple, Resultados Rápidos</h2>
+		<div class="steps">
+			<div class="step"><div class="step-num">1</div><h4>Cuéntanos sobre tu finca</h4><p>Envía tu ubicación y área aproximada. Por WhatsApp o formulario en línea — responderemos el mismo día.</p></div>
+			<div class="step"><div class="step-num">2</div><h4>Recibe una cotización personalizada</h4><p>Precios basados en el tamaño de tu finca y requisitos de datos. Sin sorpresas.</p></div>
+			<div class="step"><div class="step-num">3</div><h4>Volamos tu tierra</h4><p>Nuestro equipo va a ti con drones LiDAR y completa el levantamiento — usualmente en una mañana.</p></div>
+			<div class="step"><div class="step-num">4</div><h4>Recibe tus datos</h4><p>Todos los entregables — ortomosaicos, MDE, nubes de puntos, mapas de contorno — dentro de 72 horas del vuelo.</p></div>
+		</div>
+	</div>
+</section>
+
+<section class="testimonials-section">
+	<div class="container">
+		<div class="testimonials-header">
+			<h2>Confiado por Propietarios y Profesionales en Costa Rica</h2>
+			<div class="rating">⭐⭐⭐⭐⭐ 5.0 de 5 · 25 reseñas de Google</div>
+		</div>
+		<div class="testimonials-grid">
+			<div class="testimonial-card">
+				<div class="stars">★★★★★</div>
+				<div class="review">"Los mapas ortomosaicos que recibimos eran increíblemente detallados. Pudimos identificar áreas problemáticas en nuestro sistema de drenaje que nunca habíamos notado desde el suelo. Los datos estaban listos en 48 horas, y ahora estamos rediseñando nuestro layout de irrigación basados en el modelo topográfico que proporcionaron."</div>
+				<div class="author">Travis Comstock</div>
+				<div class="role">Agente Inmobiliario, La Fortuna</div>
+			</div>
+			<div class="testimonial-card">
+				<div class="stars">★★★★★</div>
+				<div class="review">"He hecho levantamientos con equipos terrestres y agrimensores tradicionales antes. Esto fue más rápido, más barato y más preciso. Los datos de nube de puntos permitieron a mi equipo de ingeniería modelar características de terreno que nunca habríamos capturado manualmente. Definitivamente recomendado para cualquier proyecto de propiedad grande."</div>
+				<div class="author">Javier Mora Balma</div>
+				<div class="role">Desarrollador Inmobiliario, Guanacaste</div>
+			</div>
+			<div class="testimonial-card">
+				<div class="stars">★★★★★</div>
+				<div class="review">"Desde la primera llamada hasta recibir los datos finales, todo el proceso fue perfecto. El equipo explicó exactamente qué obtendría, el vuelo del dron tomó solo un par de horas, y los entregables fueron profesionales e inmediatamente usables. Equipo muy profesional."</div>
+				<div class="author">Marco Corvetto</div>
+				<div class="role">Propietario de Finca, Cartago</div>
+			</div>
+		</div>
+		<div class="testimonials-link">
+			<a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener">Lee todas las 25 reseñas en Google →</a>
+		</div>
+	</div>
+</section>
+
+<section class="form-section" id="quote">
+	<div class="container">
+		<div class="form-wrap">
+			<h2>Obtén una Cotización Gratis para Tu Finca</h2>
+			<p class="sub">Cuéntanos sobre tu finca y te enviaremos una cotización personalizada — usualmente el mismo día.</p>
+			<form id="agriForm" onsubmit="return submitAgriForm(event)">
+				<label for="agri-name">Tu Nombre *</label>
+				<input type="text" id="agri-name" placeholder="Carlos Rodríguez" required>
+
+				<label for="agri-email">Email *</label>
+				<input type="email" id="agri-email" placeholder="carlos@finca.com" required>
+
+				<label for="agri-phone">WhatsApp / Teléfono</label>
+				<input type="tel" id="agri-phone" placeholder="+506 XXXX XXXX">
+
+				<label for="agri-crop">Tipo de Cultivo / Finca</label>
+				<input type="text" id="agri-crop" placeholder="p.ej. Piña, Café, Banano, Ganadería, Mixta...">
+
+				<label for="agri-service">¿Qué necesitas? *</label>
+				<select id="agri-service" required>
+					<option value="">Selecciona un servicio...</option>
+					<option>Mapa Ortomosaico de Finca Completa</option>
+					<option>Levantamiento Topográfico y MDE</option>
+					<option>Análisis de Drenaje e Irrigación</option>
+					<option>Mapeo de Zonas de Cultivo</option>
+					<option>Levantamiento de Linderos</option>
+					<option>Seguimiento de Cambios Estacionales</option>
+					<option>Paquete Completo</option>
+					<option>No estoy seguro — quiero asesoramiento</option>
+				</select>
+
+				<label for="agri-location">Ubicación de la Finca *</label>
+				<input type="text" id="agri-location" placeholder="p.ej. Guanacaste / Limón / Cartago..." required>
+
+				<label for="agri-size">Tamaño de la Finca (aprox.) *</label>
+				<input type="text" id="agri-size" placeholder="p.ej. 50 hectáreas / 200 acres..." required>
+
+				<label for="agri-message">Otros Detalles</label>
+				<textarea id="agri-message" placeholder="Cuéntanos sobre tus objetivos del proyecto, desafíos o preguntas específicas..."></textarea>
+
+				<button type="submit" id="agri-submit-btn">🌿 Enviar Mi Solicitud de Cotización</button>
+			</form>
+			<script>
+			const SB_URL = 'https://bqszvlrzmeszeewufgio.supabase.co';
+			const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
+			async function submitAgriForm(e) {
+				e.preventDefault();
+				const btn = document.getElementById('agri-submit-btn');
+				btn.disabled = true;
+				btn.textContent = '⏳ Enviando...';
+				const nameParts = document.getElementById('agri-name').value.trim().split(/\s+/);
+				const payload = {
+					first_name:         nameParts[0] || '',
+					last_name:          nameParts.slice(1).join(' ') || '',
+					email:              document.getElementById('agri-email').value.trim(),
+					phone:              document.getElementById('agri-phone').value.trim() || null,
+					services_requested: document.getElementById('agri-service').value,
+					state_province:     document.getElementById('agri-location').value.trim(),
+					land_size_sq_km:    document.getElementById('agri-size').value.trim(),
+					survey_type:        'Agriculture',
+					notes:              [
+						'Tipo de Cultivo/Finca: ' + (document.getElementById('agri-crop').value || '—'),
+						document.getElementById('agri-message').value
+					].filter(Boolean).join('\n'),
+					country:            'Costa Rica'
+				};
+				try {
+					await fetch(SB_URL + '/rest/v1/quote_submissions', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'apikey': SB_KEY,
+							'Authorization': 'Bearer ' + SB_KEY,
+							'Prefer': 'return=minimal'
+						},
+						body: JSON.stringify(payload)
+					});
+					// Notify Slack + Notion via edge function
+					fetch(SB_URL + '/functions/v1/on-new-quote', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ record: payload })
+					}).catch(() => {});
+				} catch(err) { console.error(err); }
+				document.getElementById('agriForm').innerHTML = '<div style="text-align:center;padding:30px"><h3 style="color:#28a745">✅ ¡Solicitud de Cotización Enviada!</h3><p>Te responderemos dentro de unas pocas horas.</p><a href="https://wa.me/50672938970" style="color:#28a745;font-weight:bold">💬 O chatea ahora por WhatsApp</a></div>';
+			}
+			</script>
+			<p class="form-note">¿Prefieres WhatsApp? Escríbenos directamente: <a href="https://wa.me/50672938970" target="_blank" rel="noopener" style="color:#28a745">+506 7293 8970</a></p>
+		</div>
+	</div>
+</section>
+
+<section class="cta-section">
+	<div class="container">
+		<h2>¿Listo para Ver Tu Finca Desde el Aire?</h2>
+		<p>20 hectáreas mapeadas en 20 minutos. Datos entregados en 72 horas. Todo Costa Rica.</p>
+		<div class="cta-btns">
+			<a href="#quote" class="btn-green">📋 Obtén una Cotización Gratis</a>
+			<a href="https://wa.me/50672938970" class="btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp +506 7293 8970</a>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<p>© 2026 DroneSurveyCR.com — Levantamientos Aéreos en Costa Rica | <a href="../index.html">Inicio</a> | <a href="../quote.html">Obtén una Cotización</a></p>
+</footer>
+
+</body>
+</html>

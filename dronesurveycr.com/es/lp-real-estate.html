@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fotografía Aérea Profesional y Levantamientos de Terrenos para Bienes Raíces | DroneSurveyCR.com</title>
+	<meta name="description" content="Fotografía aérea con drones, mapeo de terrenos y levantamientos LiDAR para bienes raíces en Costa Rica. Vende más rápido, conoce tu propiedad antes de comprar. Servimos todas las regiones.">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="alternate" hreflang="en" href="https://www.dronesurveycr.com/lp-real-estate.html">
+	<style>
+		*{box-sizing:border-box;margin:0;padding:0}
+		body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;color:#444}
+		h1,h2,h3,h4,h5{font-family:'IBM Plex Sans',sans-serif}
+		.container{max-width:1100px;margin:0 auto;padding:0 20px}
+		nav{background:#302F40;padding:14px 0}
+		nav .inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+		nav .logo{color:#fff;font-family:'IBM Plex Sans',sans-serif;font-weight:700;font-size:18px;text-decoration:none}
+		nav .nav-cta{background:#0080FE;color:#fff;padding:9px 20px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px}
+		.hero{background:linear-gradient(135deg,#0d2a1a 0%,#1a3a2a 60%,#0d2a4a 100%);padding:70px 0 80px;position:relative;overflow:hidden}
+		.hero::before{content:'';position:absolute;top:-40px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,200,100,0.12) 0%,transparent 70%);pointer-events:none}
+		.hero-badge{display:inline-block;background:rgba(0,180,80,0.2);border:1px solid rgba(0,180,80,0.4);color:#4ade80;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:20px;letter-spacing:0.5px}
+		.hero h1{color:#fff;font-size:clamp(32px,5vw,58px);line-height:1.15;font-weight:700;margin-bottom:20px;max-width:750px}
+		.hero h1 span{color:#4ade80}
+		.hero .sub{color:#9ca3b0;font-size:18px;max-width:600px;margin-bottom:36px;line-height:1.65}
+		.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:50px}
+		.btn-primary{background:#0080FE;color:#fff;padding:15px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;font-family:'IBM Plex Sans',sans-serif;display:inline-flex;align-items:center;gap:8px}
+		.btn-primary:hover{background:#006ce0}
+		.btn-whatsapp{background:#25D366;color:#fff;padding:15px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;font-family:'IBM Plex Sans',sans-serif;display:inline-flex;align-items:center;gap:8px}
+		.hero-stats{display:flex;flex-wrap:wrap;gap:32px}
+		.stat strong{display:block;font-size:32px;font-weight:700;font-family:'IBM Plex Sans',sans-serif;color:#4ade80}
+		.stat span{font-size:13px;color:#9ca3b0}
+		.trust-bar{background:#f8f9fc;border-bottom:1px solid #e8eaf0;padding:18px 0}
+		.trust-inner{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;align-items:center}
+		.trust-item{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#302F40}
+		.section{padding:70px 0}
+		.section-label{text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:1.5px;color:#0080FE;margin-bottom:10px}
+		.section h2{font-size:clamp(26px,4vw,42px);color:#302F40;line-height:1.25;margin-bottom:16px}
+		.section p{color:#5c5c69;font-size:17px;line-height:1.7}
+		.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
+		.service-card{background:#fff;border:1px solid #e8eaf0;border-radius:14px;padding:32px;transition:box-shadow 0.2s}
+		.service-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+		.service-card .icon{font-size:32px;margin-bottom:14px}
+		.service-card h4{color:#302F40;font-size:19px;margin-bottom:10px}
+		.service-card p{color:#5c5c69;font-size:15px;line-height:1.6}
+		.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:40px}
+		@media(max-width:768px){.benefits-grid{grid-template-columns:1fr}}
+		.benefit-list{display:flex;flex-direction:column;gap:20px}
+		.benefit-item{display:flex;gap:14px;align-items:flex-start}
+		.benefit-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+		.benefit-item h5{color:#302F40;font-size:16px;margin-bottom:4px}
+		.benefit-item p{color:#5c5c69;font-size:14px}
+		.visual-block{background:linear-gradient(160deg,#f0f7ff,#e8f5e9);border-radius:16px;padding:40px;text-align:center}
+		.visual-block .big-stat{font-size:72px;font-weight:700;font-family:'IBM Plex Sans',sans-serif;color:#0080FE;line-height:1}
+		.visual-block p{color:#5c5c69;font-size:16px;margin-top:8px}
+		.audience-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:36px}
+		.audience-card{background:#fff;border:1px solid #e8eaf0;border-radius:12px;padding:26px}
+		.audience-card h5{color:#302F40;font-size:17px;margin-bottom:8px}
+		.audience-card p{color:#5c5c69;font-size:14px}
+		.cta-section{background:linear-gradient(135deg,#1a3a2a 0%,#302F40 100%);padding:80px 0;text-align:center}
+		.cta-section h2{color:#fff;font-size:clamp(28px,4vw,44px);margin-bottom:16px}
+		.cta-section p{color:#9ca3b0;font-size:18px;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto}
+		.cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+		.form-section{padding:70px 0;background:#f4f6fb}
+		.form-wrap{max-width:600px;margin:0 auto}
+		.form-wrap h2{color:#302F40;font-size:32px;margin-bottom:8px;text-align:center}
+		.form-wrap .sub{text-align:center;color:#5c5c69;margin-bottom:32px}
+		form label{display:block;font-size:14px;font-weight:600;color:#302F40;margin-bottom:6px}
+		form input,form select,form textarea{width:100%;padding:12px 14px;border:1.5px solid #dde1e8;border-radius:8px;font-size:15px;font-family:'Inter',sans-serif;color:#302F40;margin-bottom:18px;outline:none;background:#fff}
+		form input:focus,form select:focus,form textarea:focus{border-color:#0080FE}
+		form textarea{height:100px;resize:vertical}
+		form button{width:100%;background:#0080FE;color:#fff;padding:15px;border:none;border-radius:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+		.form-note{text-align:center;font-size:13px;color:#888;margin-top:12px}
+		footer{background:#302F40;color:#9ca3b0;text-align:center;padding:24px;font-size:14px}
+		footer a{color:#60a5fa;text-decoration:none}
+		.testimonials-section{padding:70px 0;background:#fff}
+		.testimonials-header{text-align:center;margin-bottom:50px}
+		.testimonials-header h2{color:#302F40;font-size:clamp(26px,4vw,42px);margin-bottom:16px}
+		.testimonials-rating{color:#5c5c69;font-size:18px;font-weight:600;margin-top:8px}
+		.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:32px}
+		.testimonial-card{background:#f8f9fa;border-radius:12px;padding:28px;border:1px solid #e8eaf0}
+		.testimonial-text{color:#444;font-size:15px;line-height:1.7;margin-bottom:16px;font-style:italic}
+		.testimonial-author{color:#5c5c69;font-size:14px;font-weight:600}
+		.testimonials-link{text-align:center;margin-top:32px}
+		.testimonials-link a{color:#0080FE;font-weight:700;text-decoration:none;font-size:15px}
+		.testimonials-link a:hover{text-decoration:underline}
+		@media(max-width:600px){.hero-btns,.cta-btns{flex-direction:column}.btn-primary,.btn-whatsapp{justify-content:center}}
+	</style>
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-6L0PFQRYF6');
+	</script>
+</head>
+<body>
+
+<nav>
+	<div class="container">
+		<div class="inner">
+			<a href="../index.html" class="logo">DroneSurveyCR.com</a>
+			<a href="https://wa.me/50672938970" class="nav-cta" target="_blank" rel="noopener">💬 Contáctanos por WhatsApp</a>
+		</div>
+	</div>
+</nav>
+
+<section class="hero">
+	<div class="container">
+		<div class="hero-badge">🏡 PARA BIENES RAÍCES EN COSTA RICA</div>
+		<h1>Muéstralo Desde Arriba.<br><span>Véndelo Más Rápido.</span></h1>
+		<p class="sub">Fotografía aérea con drones profesionales, video cinematográfico y levantamientos LiDAR de terrenos para compradores, vendedores y desarrolladores en Costa Rica.</p>
+		<div class="hero-btns">
+			<a href="#quote" class="btn-primary">📋 Obtén una Cotización Gratis</a>
+			<a href="https://wa.me/50672938970" class="btn-whatsapp" target="_blank" rel="noopener">💬 Contáctanos por WhatsApp</a>
+		</div>
+		<div class="hero-stats">
+			<div class="stat"><strong>4K</strong><span>Calidad de video aéreo</span></div>
+			<div class="stat"><strong>±1–3cm</strong><span>Precisión LiDAR</span></div>
+			<div class="stat"><strong>50+</strong><span>Proyectos completados</span></div>
+			<div class="stat"><strong>7 años</strong><span>En Costa Rica</span></div>
+		</div>
+	</div>
+</section>
+
+<div class="trust-bar">
+	<div class="container">
+		<div class="trust-inner">
+			<div class="trust-item">✅ Fotos Aéreas y Video 4K</div>
+			<div class="trust-item">✅ Mapeo de Terrenos LiDAR</div>
+			<div class="trust-item">✅ Levantamientos de Linderos</div>
+			<div class="trust-item">✅ Evaluaciones Previas a la Compra</div>
+			<div class="trust-item">✅ Todas las Regiones de Costa Rica</div>
+		</div>
+	</div>
+</div>
+
+<section class="section" style="background:#fff">
+	<div class="container">
+		<p class="section-label">Nuestros Servicios</p>
+		<h2>Todo lo Que Necesitas para Comprar, Vender o Desarrollar una Propiedad</h2>
+		<div class="services-grid">
+			<div class="service-card">
+				<div class="icon">📸</div>
+				<h4>Fotografía Aérea Profesional</h4>
+				<p>Fotos aéreas de alta resolución que capturan la escala completa y belleza de cualquier propiedad, desde lotes pequeños hasta fincas grandes. Perfectas para anuncios y materiales de marketing.</p>
+			</div>
+			<div class="service-card">
+				<div class="icon">🎬</div>
+				<h4>Video Cinematográfico con Drones</h4>
+				<p>Sobrevuelos cinematográficos en 4K de tu propiedad, vecindario y alrededores. Dale a los compradores la experiencia inmersiva que vende.</p>
+			</div>
+			<div class="service-card">
+				<div class="icon">🗺️</div>
+				<h4>Mapeo de Terrenos LiDAR</h4>
+				<p>Modelos de terreno 3D con precisión de centímetros de cualquier propiedad. Entiende verdaderos linderos, topografía, pendientes y drenaje antes de construir o comprar.</p>
+			</div>
+			<div class="service-card">
+				<div class="icon">📐</div>
+				<h4>Levantamientos de Linderos</h4>
+				<p>Mapeo aéreo de linderos con precisión superpuesto en imágenes georeferenciadas. Sabe exactamente qué se incluye en la propiedad, sin sorpresas.</p>
+			</div>
+			<div class="service-card">
+				<div class="icon">🏗️</div>
+				<h4>Evaluación de Sitios de Desarrollo</h4>
+				<p>Datos topográficos completos para desarrolladores de terrenos: pendientes, área construible, drenaje, acceso y planificación de infraestructura.</p>
+			</div>
+			<div class="service-card">
+				<div class="icon">📊</div>
+				<h4>Paquetes para Inversionistas</h4>
+				<p>Metraje aéreo, mapas y datos formateados para presentaciones de inversionistas y presentaciones de desarrollo.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section" style="background:#f4f6fb">
+	<div class="container">
+		<p class="section-label">Por Qué Lo Aéreo</p>
+		<h2>La Vista Que Lo Cambia Todo</h2>
+		<div class="benefits-grid">
+			<div class="benefit-list">
+				<div class="benefit-item">
+					<div class="benefit-icon">🚀</div>
+					<div><h5>Los anuncios se venden más rápido</h5><p>Las propiedades con fotografía aérea y video con drones generan significativamente más consultas y se venden más rápido que los anuncios de solo terreno.</p></div>
+				</div>
+				<div class="benefit-item">
+					<div class="benefit-icon">🔍</div>
+					<div><h5>Sabe antes de comprar</h5><p>Un levantamiento aéreo LiDAR revela pendientes, zonas de inundación, problemas de drenaje y linderos verdaderos, antes de comprometerte a una compra.</p></div>
+				</div>
+				<div class="benefit-item">
+					<div class="benefit-icon">💰</div>
+					<div><h5>Exige un precio más alto</h5><p>Las imágenes aéreas elevan el valor percibido de cualquier propiedad. Los compradores pagan más por lo que pueden ver y entender completamente.</p></div>
+				</div>
+				<div class="benefit-item">
+					<div class="benefit-icon">📍</div>
+					<div><h5>Muestra contexto y ubicación</h5><p>Las fotos de tierra no pueden mostrar proximidad a la playa, vistas a la montaña o desarrollos vecinos. Las tomas aéreas sí.</p></div>
+				</div>
+			</div>
+			<div class="visual-block">
+				<div class="big-stat">3×</div>
+				<p>Más consultas de compradores en anuncios con fotografía aérea profesional vs. solo fotos de tierra</p>
+				<div style="margin-top:30px;padding-top:30px;border-top:1px solid #dde1e8">
+					<div class="big-stat" style="font-size:48px">72hrs</div>
+					<p>Desde el vuelo hasta fotos, video y mapas entregados</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section" style="background:#fff">
+	<div class="container">
+		<p class="section-label">A Quiénes Servimos</p>
+		<h2>Diseñado para Cada Etapa de Bienes Raíces en Costa Rica</h2>
+		<div class="audience-cards">
+			<div class="audience-card">
+				<h5>🏡 Vendedores de Propiedades</h5>
+				<p>Destaca tu anuncio en línea con fotos aéreas impresionantes y video cinematográfico que los compradores no pueden ignorar.</p>
+			</div>
+			<div class="audience-card">
+				<h5>🔎 Compradores de Terrenos</h5>
+				<p>Antes de firmar, obtén una evaluación aérea LiDAR completa del terreno: linderos, topografía, drenaje y área construible.</p>
+			</div>
+			<div class="audience-card">
+				<h5>🏗️ Desarrolladores</h5>
+				<p>Planifica tu desarrollo con datos topográficos precisos. Sabe tu corte y relleno, drenaje y requisitos de infraestructura antes de que comience la obra.</p>
+			</div>
+			<div class="audience-card">
+				<h5>🏘️ Agentes de Bienes Raíces</h5>
+				<p>Ofrece fotografía aérea como servicio premium a tus anuncios. Ventas más rápidas significan clientes más felices y más referencias.</p>
+			</div>
+			<div class="audience-card">
+				<h5>💼 Inversionistas</h5>
+				<p>Obtén paquetes de documentación aérea completa para diligencia debida y presentaciones de inversionistas. Sabe exactamente en qué estás invirtiendo.</p>
+			</div>
+			<div class="audience-card">
+				<h5>🏦 Bancos y Peritos</h5>
+				<p>Mediciones de terrenos precisas y mapeo de linderos para apoyar valuaciones de propiedades y decisiones de financiamiento.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="form-section" id="quote">
+	<div class="container">
+		<div class="form-wrap">
+			<h2>Obtén una Cotización Gratis</h2>
+			<p class="sub">Fotografía aérea, mapeo LiDAR o levantamiento de terreno, cuéntanos qué necesitas y te responderemos el mismo día.</p>
+			<form id="realEstateForm" onsubmit="return submitRealEstateForm(event)">
+				<label for="re-name">Tu Nombre *</label>
+				<input type="text" id="re-name" placeholder="María González" required>
+
+				<label for="re-email">Correo Electrónico *</label>
+				<input type="email" id="re-email" placeholder="maria@email.com" required>
+
+				<label for="re-phone">WhatsApp / Teléfono</label>
+				<input type="tel" id="re-phone" placeholder="+506 XXXX XXXX">
+
+				<label for="re-service">¿Qué necesitas? *</label>
+				<select id="re-service" required>
+					<option value="">Selecciona un servicio...</option>
+					<option>Fotografía Aérea (anuncio/marketing)</option>
+					<option>Video Cinematográfico con Drones</option>
+					<option>Mapeo de Terrenos LiDAR</option>
+					<option>Levantamiento de Linderos de Propiedad</option>
+					<option>Evaluación Previa a la Compra</option>
+					<option>Levantamiento de Sitio de Desarrollo</option>
+					<option>Paquete Completo (foto + video + mapa)</option>
+				</select>
+
+				<label for="re-location">Ubicación de la Propiedad *</label>
+				<input type="text" id="re-location" placeholder="p.e. Nosara, Guanacaste / San José / Limón..." required>
+
+				<label for="re-size">Tamaño de la Propiedad (aprox.)</label>
+				<input type="text" id="re-size" placeholder="p.e. 2,000 m² / 5 hectáreas / 1 acre">
+
+				<label for="re-message">Detalles Adicionales</label>
+				<textarea id="re-message" placeholder="¿Algo más que debamos saber sobre la propiedad o tu proyecto?"></textarea>
+
+				<button type="submit" id="re-submit-btn">📋 Enviar Mi Solicitud de Cotización Gratis</button>
+			</form>
+			<script>
+			const SB_URL = 'https://bqszvlrzmeszeewufgio.supabase.co';
+			const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
+			async function submitRealEstateForm(e) {
+				e.preventDefault();
+				const btn = document.getElementById('re-submit-btn');
+				btn.disabled = true;
+				btn.textContent = '⏳ Enviando...';
+				const nameParts = document.getElementById('re-name').value.trim().split(/\s+/);
+				const payload = {
+					first_name:         nameParts[0] || '',
+					last_name:          nameParts.slice(1).join(' ') || '',
+					email:              document.getElementById('re-email').value.trim(),
+					phone:              document.getElementById('re-phone').value.trim() || null,
+					services_requested: document.getElementById('re-service').value,
+					state_province:     document.getElementById('re-location').value.trim(),
+					land_size_sq_km:    document.getElementById('re-size').value.trim() || null,
+					survey_type:        'Real Estate',
+					notes:              document.getElementById('re-message').value || null,
+					country:            'Costa Rica'
+				};
+				try {
+					await fetch(SB_URL + '/rest/v1/quote_submissions', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'apikey': SB_KEY,
+							'Authorization': 'Bearer ' + SB_KEY,
+							'Prefer': 'return=minimal'
+						},
+						body: JSON.stringify(payload)
+					});
+					fetch(SB_URL + '/functions/v1/on-new-quote', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ record: payload })
+					}).catch(() => {});
+				} catch(err) { console.error(err); }
+				document.getElementById('realEstateForm').innerHTML = '<div style="text-align:center;padding:30px"><h3 style="color:#0080FE">✅ ¡Solicitud de Cotización Enviada!</h3><p>Te responderemos dentro de unas pocas horas.</p><a href="https://wa.me/50672938970" style="color:#0080FE;font-weight:bold">💬 O contáctanos por WhatsApp ahora</a></div>';
+			}
+			</script>
+			<p class="form-note">O contáctanos directamente por WhatsApp: <a href="https://wa.me/50672938970" target="_blank" rel="noopener" style="color:#0080FE">+506 7293 8970</a></p>
+		</div>
+	</div>
+</section>
+
+<section class="cta-section">
+	<div class="container">
+		<h2>¿Listo para Ver Tu Propiedad Desde Arriba?</h2>
+		<p>Fotografía aérea, video cinematográfico y mapeo de terrenos LiDAR, todo en Costa Rica.</p>
+		<div class="cta-btns">
+			<a href="#quote" class="btn-primary">📋 Obtén una Cotización Gratis</a>
+			<a href="https://wa.me/50672938970" class="btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp +506 7293 8970</a>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<p>© 2026 DroneSurveyCR.com — Levantamientos Aéreos en Costa Rica | <a href="../index.html">Inicio</a> | <a href="../quote.html">Obtén una Cotización</a></p>
+</footer>
+
+</body>
+</html>
