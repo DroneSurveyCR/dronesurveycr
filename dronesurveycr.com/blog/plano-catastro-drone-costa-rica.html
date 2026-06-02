@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Plano Catastro con Dron en Costa Rica | Levantamiento Aéreo Catastral</title>
+	<meta name="description" content="Guía completa sobre plano catastro con dron en Costa Rica. Aprende cómo los drones ayudan a crear planos catastrales, requisitos legales DGAC y cómo registrar propiedades.">
+	<meta name="robots" content="index, follow">
+	<link rel="canonical" href="https://www.dronesurveycr.com/blog/plano-catastro-drone-costa-rica.html">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Plano Catastro con Dron en Costa Rica | Levantamiento Aéreo Catastral">
+	<meta property="og:description" content="Guía completa sobre cómo los drones crean planos catastrales en Costa Rica con precisión legal DGAC.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/blog/plano-catastro-drone-costa-rica.html">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": "Plano Catastro con Dron en Costa Rica: Todo lo que Necesitas Saber",
+		"description": "Guía completa sobre plano catastro con dron en Costa Rica, requisitos legales DGAC y cómo registrar propiedades con levantamientos aéreos.",
+		"image": "https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg",
+		"datePublished": "2026-04-11",
+		"dateModified": "2026-04-16",
+		"author": {
+			"@type": "Organization",
+			"name": "Drone Survey Costa Rica",
+			"url": "https://www.dronesurveycr.com/"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Drone Survey Costa Rica",
+			"url": "https://www.dronesurveycr.com/"
+		}
+	}
+	</script>
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+	<style>
+		* { box-sizing: border-box; }
+		body { margin: 0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: #5C5C69; }
+		h1, h2, h3, h4, h5, h6 { font-family: 'IBM Plex Sans', sans-serif; color: #302F40; }
+		.container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+		#sp-header { padding: 15px 0; border-bottom: 1px solid #eee; }
+		#sp-header .row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+		.logo img { height: 36px; display: block; }
+		nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 5px; }
+		nav a { text-decoration: none; color: #302F40; padding: 8px 12px; font-weight: 500; }
+		nav a:hover { color: #0080FE; }
+		.btn { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: 500; text-decoration: none; font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; margin-right: 12px; }
+		.btn-custom { background: #0080FE; color: #fff; }
+		.btn-success { background: #28a745; color: #fff; }
+		.article-hero { background: linear-gradient(135deg, #302F40 0%, #0080FE 100%); padding: 40px 0; color: #fff; }
+		.article-hero h1 { font-size: clamp(28px, 5vw, 42px); margin: 0 0 10px; }
+		.article-meta { font-size: 14px; opacity: 0.85; margin: 0; }
+		.article-content { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 40px 0; }
+		.article-body { grid-column: 1; }
+		.article-body h2 { font-size: 28px; margin: 30px 0 15px; }
+		.article-body h3 { font-size: 22px; margin: 25px 0 12px; }
+		.article-body p { margin: 0 0 16px; line-height: 1.7; }
+		.article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 20px; }
+		.article-body li { margin-bottom: 10px; line-height: 1.6; }
+		.highlight-box { background: #f4f6fb; border-left: 4px solid #0080FE; padding: 20px; margin: 25px 0; border-radius: 6px; }
+		.highlight-box.warning { border-left-color: #ff9800; background: #fff3e0; }
+		.highlight-box.success { border-left-color: #28a745; background: #e8f5e9; }
+		.comparison-table { width: 100%; border-collapse: collapse; margin: 25px 0; border: 1px solid #ddd; }
+		.comparison-table th { background: #302F40; color: #fff; padding: 12px; text-align: left; font-weight: 600; }
+		.comparison-table td { padding: 12px; border-bottom: 1px solid #eee; }
+		.comparison-table tr:nth-child(even) { background: #f9f9f9; }
+		.sidebar { grid-column: 2; position: sticky; top: 20px; height: fit-content; }
+		.sidebar-box { background: #f4f6fb; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+		.sidebar-box h3 { margin: 0 0 15px; font-size: 16px; }
+		.sidebar-box p { margin: 0 0 12px; font-size: 14px; }
+		.sidebar-box a { color: #0080FE; text-decoration: none; font-weight: 500; }
+		.sidebar-box a:hover { text-decoration: underline; }
+		.cta-section { background: #e8f0fe; border-radius: 12px; padding: 30px; margin: 40px 0; text-align: center; }
+		.cta-section h3 { margin: 0 0 12px; }
+		.cta-section p { margin: 0 0 20px; }
+		footer { background: #302F40; color: #ccc; padding: 30px 0; text-align: center; font-size: 14px; margin-top: 40px; }
+		footer a { color: #ccc; text-decoration: none; }
+		footer a:hover { color: #fff; }
+		.breadcrumb { font-size: 13px; color: #999; margin-bottom: 20px; }
+		.breadcrumb a { color: #0080FE; text-decoration: none; }
+		.breadcrumb a:hover { text-decoration: underline; }
+		@media (max-width: 900px) {
+			.article-content { grid-template-columns: 1fr; }
+			.article-body { grid-column: 1; }
+			.sidebar { grid-column: 1; position: static; }
+		}
+	</style>
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-6L0PFQRYF6');
+	</script>
+</head>
+<body>
+	<header id="sp-header">
+		<div class="container">
+			<div class="row">
+				<div class="logo">
+					<a href="../index.html">
+						<img src="../images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="36">
+					</a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="../index.html">Inicio</a></li>
+						<li><a href="../services/lidar-mapping.html">Mapeo Lidar</a></li>
+						<li><a href="../services/photogrammetry.html">Fotogrametría</a></li>
+						<li><a href="../quote.html">Cotizar</a></li>
+						<li><a href="../blog/" style="color:#0080FE;">Blog</a></li>
+						<li><a href="../about.html">Nosotros</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<div class="article-hero">
+		<div class="container">
+			<h1>Plano Catastro con Dron en Costa Rica: Todo lo que Necesitas Saber</h1>
+			<div class="article-meta">11 de abril, 2026 · 12 min de lectura</div>
+		</div>
+	</div>
+
+	<main>
+		<div class="container">
+			<div class="breadcrumb">
+				<a href="../index.html">Inicio</a> / <a href="./">Blog</a> / Plano Catastro con Dron
+			</div>
+
+			<div class="article-content">
+				<article class="article-body">
+					<p>En Costa Rica, la tecnología de drones ha revolucionado la forma en que se crean los planos catastrales. Los levantamientos aéreos ofrecen precisión, velocidad y costo-efectividad superiores a los métodos tradicionales terrestres. Si necesitas un plano catastro de tu propiedad para fines legales, registro o desarrollo, esta guía te explica todo lo que debes saber sobre el proceso con drones en Costa Rica.</p>
+
+					<div class="highlight-box">
+						<strong>¿Qué es un Plano Catastro?</strong>
+						<p style="margin-top: 10px; margin-bottom: 0;">Un plano catastro es un documento técnico y legal que muestra los límites exactos de una propiedad, sus dimensiones, área total, y ubicación geográfica. Es requerido por el Registro Nacional de Costa Rica para registro de propiedad, compraventa, división de terrenos, y trámites legales.</p>
+					</div>
+
+					<h2>Ventajas de los Drones para Planos Catastrales</h2>
+
+					<p>La tecnología de drones ha transformado los levantamientos catastrales en Costa Rica. Nuestro equipo con DJI Matrice 300 RTK y Zenmuse L1 realiza levantamientos con precisión RTK centimétrica, cumpliendo con los estándares de exactitud requeridos por el Registro Nacional.</p>
+
+					<h3>Precisión Centimétrica RTK</h3>
+					<p>El sistema RTK (Real Time Kinematic) de nuestra aeronave proporciona precisión horizontal de 2-3 cm y vertical de 5 cm, superior a los 10-15 cm de los levantamientos tradicionales con teodolito o GPS convencional. Esta precisión es certificable y aceptada legalmente para registros catastrales.</p>
+
+					<h3>Velocidad de Ejecución</h3>
+					<p>Un levantamiento catastral con dron que toma 2-4 horas de vuelo y procesamiento hubiera requerido 1-2 semanas con métodos terrestres tradicionales. Para propiedades de 5-50 hectáreas, los drones reducen significativamente el tiempo en campo.</p>
+
+					<h3>Cobertura Completa de Terreno Difícil</h3>
+					<p>En Costa Rica, muchas propiedades incluyen terreno montañoso, denso en vegetación, o con acceso limitado. Los drones pueden sobrevolar estos obstáculos y capturar datos completos sin necesidad de acceso terrestre a cada rincón de la propiedad. Esto reduce costos y riesgos de seguridad.</p>
+
+					<h3>Documentación Visual</h3>
+					<p>Además del plano técnico, los drones producen ortomosaicos de alta resolución (2-5 cm por píxel) que sirven como documentación visual del estado de la propiedad. Esto es especialmente útil para detectar construcciones, accesos, y características del terreno.</p>
+
+					<h2>Proceso de Creación de Plano Catastro con Dron</h2>
+
+					<p>Nuestro proceso garantiza planos catastrales que cumplen con los requisitos del Registro Nacional de Costa Rica:</p>
+
+					<h3>1. Planificación y Reconocimiento</h3>
+					<p>Visitamos la propiedad para identificar puntos de control terrestre, obstáculos, zonas de vuelo seguras, y características especiales del terreno. Esto asegura un plan de vuelo óptimo y recopilación de datos completa.</p>
+
+					<h3>2. Establecimiento de Puntos de Control</h3>
+					<p>Colocamos puntos de control de precisión (GCPs) usando equipos GPS RTK de alta precisión. Estos puntos georreferenciados sirven para procesar los datos del dron con máxima exactitud y validación legal.</p>
+
+					<h3>3. Vuelo y Captura de Datos</h3>
+					<p>El Matrice 300 RTK vuela en patrón de líneas paralelas a altitud optimizada (generalmente 50-100 metros) capturando imágenes RGB de alta resolución con solapamiento estéreo para fotogrametría. Los datos LiDAR complementarios proporcionan información de elevación precisa que penetra la vegetación.</p>
+
+					<h3>4. Procesamiento y Generación del Plano</h3>
+					<p>Los datos se procesan usando software especializado (Pix4D, Agisoft, o similar) para crear: nube de puntos 3D, modelo digital del terreno (MDT), ortomosaico georeferenciado, y finalmente el plano catastro técnico con acotaciones, medidas y áreas certificadas.</p>
+
+					<h3>5. Validación y Entrega</h3>
+					<p>El plano final se valida contra los requisitos del Registro Nacional, se genera en formato técnico compatible (DXF, PDF), y se proporciona con certificación de precisión RTK. Incluimos documentación de puntos de control y informe de incertidumbre.</p>
+
+					<h2>Requisitos Legales DGAC para Levantamientos Catastrales</h2>
+
+					<p>En Costa Rica, cualquier operación de dron comercial requiere aprobación de la Dirección General de Aviación Civil (DGAC). Para levantamientos catastrales, cumplimos con todos los requisitos vigentes:</p>
+
+					<div class="highlight-box warning">
+						<strong>Regulaciones DGAC 2026</strong>
+						<ul style="margin: 10px 0 0; padding-left: 20px;">
+							<li>Licencia de operador comercial (LOC-001 o equivalente)</li>
+							<li>Certificación de aeronave (aeronavegabilidad)</li>
+							<li>Aprobación de áreas de vuelo específicas</li>
+							<li>Seguros de responsabilidad civil mínimo 100,000 USD</li>
+							<li>Documentación de personal certificado</li>
+							<li>Plan de operaciones para cada misión</li>
+							<li>Coordinación con autoridades locales en zonas restringidas</li>
+						</ul>
+					</div>
+
+					<h3>Zonas Restringidas en Costa Rica</h3>
+					<p>Algunas áreas requieren permisos adicionales o tienen restricciones:</p>
+					<ul>
+						<li><strong>Aeropuertos:</strong> San José (SJO), Liberia (LIR), Quepos (XQP) tienen zonas de exclusión de 10 km</li>
+						<li><strong>Zonas de Seguridad Pública:</strong> Instalaciones militares, cárceles, y puertos requieren autorización especial</li>
+						<li><strong>Áreas Protegidas:</strong> Parques nacionales, reservas biológicas requieren permisos MINAE</li>
+						<li><strong>Frontera:</strong> Zona fronteriza (2 km del límite) requiere autorización de Defensa</li>
+					</ul>
+
+					<p>Nosotros gestionamos todos los permisos DGAC necesarios para tu levantamiento catastral. No tienes que preocuparte por cumplimientos regulatorios.</p>
+
+					<h2>Comparación: Drones vs. Métodos Tradicionales</h2>
+
+					<table class="comparison-table">
+						<thead>
+							<tr>
+								<th>Aspecto</th>
+								<th>Drones (LiDAR/Fotogrametría)</th>
+								<th>Teodolito/GPS Terrestre</th>
+								<th>Satélite/Ortofoto Antigua</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Precisión Horizontal</strong></td>
+								<td>2-3 cm (RTK)</td>
+								<td>10-15 cm</td>
+								<td>1-5 metros</td>
+							</tr>
+							<tr>
+								<td><strong>Precisión Vertical</strong></td>
+								<td>5 cm (LiDAR)</td>
+								<td>10-20 cm</td>
+								<td>2-10 metros</td>
+							</tr>
+							<tr>
+								<td><strong>Tiempo de Campo</strong></td>
+								<td>2-4 horas (vuelo)</td>
+								<td>3-5 días</td>
+								<td>0 (datos históricos)</td>
+							</tr>
+							<tr>
+								<td><strong>Procesamiento</strong></td>
+								<td>1-2 días</td>
+								<td>3-7 días</td>
+								<td>N/A</td>
+							</tr>
+							<tr>
+								<td><strong>Costo (10 hectáreas)</strong></td>
+								<td>$1,000-1,500</td>
+								<td>$2,500-4,000</td>
+								<td>$300-500 (limitado)</td>
+							</tr>
+							<tr>
+								<td><strong>Documentación Visual</strong></td>
+								<td>Ortomosaico HD + modelo 3D</td>
+								<td>Solo puntos, sin visualización</td>
+								<td>Limitada a resolución histórica</td>
+							</tr>
+							<tr>
+								<td><strong>Terreno Difícil</strong></td>
+								<td>Excelente (sobrevuelo)</td>
+								<td>Pobre (requiere acceso)</td>
+								<td>Variable según cobertura nube</td>
+							</tr>
+							<tr>
+								<td><strong>Aceptación Legal</strong></td>
+								<td>Sí (con RTK certificado)</td>
+								<td>Sí (método estándar)</td>
+								<td>No para catastra (muy impreciso)</td>
+							</tr>
+							<tr>
+								<td><strong>Vegetación Densa</strong></td>
+								<td>LiDAR penetra; fotogrametría limitada</td>
+								<td>Limitado a acceso en tierra</td>
+								<td>Completamente bloqueado</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h2>Aplicaciones de Planos Catastrales en Costa Rica</h2>
+
+					<h3>Registro de Propiedad</h3>
+					<p>El caso más común: necesitas registrar una propiedad en el Registro Nacional. Un plano catastro de dron cumple con los requisitos técnicos y de precisión para acelerar el trámite de inscripción.</p>
+
+					<h3>División de Terrenos</h3>
+					<p>Si planeas subdividir una propiedad, el dron produce levantamientos precisos de toda la extensión, permitiendo planificar lotes, accesos, y servicios con exactitud. Esto reduce conflictos legales después.</p>
+
+					<h3>Construcción y Desarrollo</h3>
+					<p>Para proyectos inmobiliarios o construcción, un plano catastro aéreo proporciona base topográfica precisa para diseño arquitectónico, cálculo de volúmenes, y planificación de accesos. Incluye información de elevación que los drones terrestres no pueden captar fácilmente.</p>
+
+					<h3>Cambio de Linderos</h3>
+					<p>Cuando hay conflicto sobre límites de propiedad, un levantamiento catastral aéreo proporciona documentación independiente de los límites actuales, útil para procesos legales o amistosos de delimitación.</p>
+
+					<h3>Evaluación Inmobiliaria</h3>
+					<p>Compradores y tasadores utilizan planos catastrales aéreos con ortomosaicos para evaluar propiedades, detectar construcciones no registradas, y validar el estado real versus documentos anteriores.</p>
+
+					<h3>Proyectos Agrícolas</h3>
+					<p>Para fincas, plantaciones o proyectos de agricultura, un plano catastro aéreo incluye datos topográficos de precisión útiles para diseño de drenaje, riego, y planificación de accesos internos.</p>
+
+					<h2>Costos y Proceso en Costa Rica</h2>
+
+					<p>El costo de un plano catastro con dron depende del tamaño de la propiedad, accesibilidad, y complejidad del terreno:</p>
+
+					<div class="highlight-box success">
+						<strong>Tarificación Típica 2026</strong>
+						<ul style="margin: 10px 0 0; padding-left: 20px;">
+							<li><strong>Hasta 5 hectáreas:</strong> $1,000 - $1,200</li>
+							<li><strong>5-20 hectáreas:</strong> $80/hectárea adicional</li>
+							<li><strong>20-100 hectáreas:</strong> $65/hectárea adicional</li>
+							<li><strong>100+ hectáreas:</strong> $50/hectárea adicional</li>
+							<li><strong>Tarifa de viaje (fuera San José):</strong> $150-400 según distancia</li>
+							<li><strong>Terreno muy montañoso/denso:</strong> +20-30% adicional</li>
+							<li><strong>Puntos de control adicionales:</strong> +$50-100 por punto</li>
+						</ul>
+					</div>
+
+					<h3>Ejemplo: Propiedad de 15 Hectáreas en Cartago</h3>
+					<ul>
+						<li>Base (5 ha): $1,100</li>
+						<li>Hectáreas adicionales (10 ha × $80): $800</li>
+						<li>Tarifa de viaje a Cartago: $200</li>
+						<li><strong>Total: $2,100</strong></li>
+					</ul>
+
+					<h2>Tiempo de Entrega</h2>
+
+					<p>El plano catastro completo generalmente está listo en 3-5 días hábiles desde el levantamiento:</p>
+					<ul>
+						<li>Día 1: Reconocimiento de campo (½ día) y vuelo (2-3 horas)</li>
+						<li>Días 2-3: Procesamiento de datos y generación del plano</li>
+						<li>Día 4-5: Validación, ajustes finales y entrega en formato final</li>
+					</ul>
+
+					<p>Para casos urgentes, podemos entregar plano preliminar en 24 horas con plano final en 2-3 días.</p>
+
+					<h2>¿Por Qué Elegirnos?</h2>
+
+					<p>Contamos con 7+ años de experiencia en levantamientos aéreos en Costa Rica usando equipo de precisión profesional:</p>
+					<ul>
+						<li><strong>Certificación DGAC:</strong> Operadores comerciales licenciados y aeronave certificada</li>
+						<li><strong>Equipo RTK:</strong> DJI Matrice 300 RTK con precisión centimétrica garantizada</li>
+						<li><strong>Experiencia:</strong> Cientos de levantamientos catastrales en todo Costa Rica</li>
+						<li><strong>Gestión de Permisos:</strong> Manejamos todos los trámites DGAC y coordinación regulatoria</li>
+						<li><strong>Certificación de Precisión:</strong> Cada plano incluye informe técnico validable por Registro Nacional</li>
+						<li><strong>Cobertura Nacional:</strong> Operamos en todas las regiones de Costa Rica</li>
+					</ul>
+
+					<h2>Próximos Pasos</h2>
+
+					<p>Si necesitas un plano catastro para tu propiedad en Costa Rica, contáctanos hoy. Te proporcionaremos una cotización gratuita basada en el tamaño y características de tu terreno, y podemos programar el levantamiento en los próximos días.</p>
+
+					<p>Nuestro equipo gestionará todo: coordinación con DGAC, establecimientos de puntos de control, vuelo aéreo, procesamiento de datos, y entrega del plano final. Tu único trabajo es estar presente durante el reconocimiento inicial (30 minutos).</p>
+
+				</article>
+
+				<aside class="sidebar">
+					<div class="sidebar-box">
+						<h3>¿Necesitas un Plano Catastro?</h3>
+						<p>Contáctanos para una cotización gratuita. Cubrimos todas las regiones de Costa Rica.</p>
+						<a href="../quote.html" style="display: block; margin-top: 12px;">Solicitar Cotización</a>
+					</div>
+
+					<div class="sidebar-box">
+						<h3>Chat Directo</h3>
+						<p>¿Preguntas rápidas? Chatea con nosotros en WhatsApp.</p>
+						<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">Enviar Mensaje</a>
+					</div>
+
+					<div class="sidebar-box">
+						<h3>Artículos Relacionados</h3>
+						<ul style="list-style: none; padding: 0; margin: 0;">
+							<li style="margin-bottom: 10px;"><a href="lidar-vs-photogrammetry-costa-rica.html">Lidar vs Fotogrametría: ¿Cuál Elegir?</a></li>
+							<li style="margin-bottom: 10px;"><a href="drone-survey-cost-costa-rica.html">Costos de Levantamiento con Dron</a></li>
+							<li><a href="costa-rica-drone-laws-2026.html">Regulaciones DGAC 2026</a></li>
+						</ul>
+					</div>
+				</aside>
+			</div>
+
+			<div class="cta-section">
+				<h3>¿Listo para tu Plano Catastro Aéreo?</h3>
+				<p>Nuestros levantamientos catastrales con dron son más rápidos, precisos y económicos que los métodos tradicionales.</p>
+				<a href="../quote.html" class="btn btn-success">Cotizar Ahora</a>
+				<a href="https://wa.me/50672938970" class="btn btn-custom" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p style="margin:0;">&copy; 2026 Drone Survey Costa Rica | <a href="../index.html">Inicio</a> | <a href="./">Blog</a> | <a href="../sitemap.xml">Mapa del Sitio</a></p>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,23 +1,5 @@
-		/* ── Design tokens — dark (default) ─────────────────────── */
+		/* ── Design tokens — light (default) ────────────────────── */
 		:root {
-			--bg:        #080e10;
-			--bg-card:   #0c1410;
-			--bg-raised: #101e14;
-			--border:    rgba(134,183,120,0.12);
-			--border-hi: rgba(16,185,129,0.3);
-			--accent:    #10b981;
-			--accent-hi: #34d399;
-			--accent-dim:rgba(16,185,129,0.1);
-			--blue:      #0ea5e9;
-			--blue-hi:   #38bdf8;
-			--text:      #e2e8f0;
-			--muted:     #94a3b8;
-			--dimmed:    #64748b;
-			--heading:   #f8fafc;
-			--shadow:    rgba(0,0,0,0.5);
-		}
-		/* ── Light theme ─────────────────────────────────────────── */
-		[data-theme="light"] {
 			--bg:        #f7faf7;
 			--bg-card:   #ffffff;
 			--bg-raised: #eef5ee;
@@ -33,6 +15,24 @@
 			--dimmed:    #9ca3af;
 			--heading:   #0f1a0f;
 			--shadow:    rgba(0,0,0,0.08);
+		}
+		/* ── Dark theme (opt-in via toggle) ──────────────────────── */
+		[data-theme="dark"] {
+			--bg:        #080e10;
+			--bg-card:   #0c1410;
+			--bg-raised: #101e14;
+			--border:    rgba(134,183,120,0.12);
+			--border-hi: rgba(16,185,129,0.3);
+			--accent:    #10b981;
+			--accent-hi: #34d399;
+			--accent-dim:rgba(16,185,129,0.1);
+			--blue:      #0ea5e9;
+			--blue-hi:   #38bdf8;
+			--text:      #e2e8f0;
+			--muted:     #94a3b8;
+			--dimmed:    #64748b;
+			--heading:   #f8fafc;
+			--shadow:    rgba(0,0,0,0.5);
 		}
 
 		/* ── Reset & base ────────────────────────────────────────── */
