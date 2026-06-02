@@ -1,145 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preconnect" href="https://www.googletagmanager.com">
-	<link rel="dns-prefetch" href="https://www.google-analytics.com">
 	<title>Construction Drone Surveys Costa Rica | DroneSurveyCR</title>
-	<link rel="canonical" href="https://www.dronesurveycr.com/lp-construction.html">
-	<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="/images/dscrlogo.jpg">
+	<meta name="description" content="LiDAR-grade topographic drone surveys for construction teams in Costa Rica. Results in 72 hours. Centimeter accuracy. Serving all of Costa Rica.">
 	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 	<meta name="theme-color" content="#302F40">
-	<meta name="description" content="LiDAR-grade topographic drone surveys for construction teams in Costa Rica. Results in 72 hours. Centimeter accuracy. Serving all of Costa Rica.">
-	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="styles/main.css">
-	<style>
-		*{box-sizing:border-box;margin:0;padding:0}
-		body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;color:#444}
-		h1,h2,h3,h4,h5{font-family:'IBM Plex Sans',sans-serif}
-		.container{max-width:1100px;margin:0 auto;padding:0 20px}
-
-		/* Nav */
-		nav{background:#302F40;padding:14px 0}
-		nav .inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-		nav .logo{color:#fff;font-family:'IBM Plex Sans',sans-serif;font-weight:700;font-size:18px;text-decoration:none}
-		nav .nav-cta{background:#0080FE;color:#fff;padding:9px 20px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px}
-
-		/* Hero */
-		.hero{background:linear-gradient(135deg,#1a1930 0%,#302F40 60%,#0d2a4a 100%);padding:70px 0 80px;position:relative;overflow:hidden}
-		.hero::before{content:'';position:absolute;top:-40px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,128,254,0.15) 0%,transparent 70%);pointer-events:none}
-		.hero-badge{display:inline-block;background:rgba(0,128,254,0.2);border:1px solid rgba(0,128,254,0.4);color:#60a5fa;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:20px;letter-spacing:0.5px}
-		.hero h1{color:#fff;font-size:clamp(32px,5vw,60px);line-height:1.15;font-weight:700;margin-bottom:20px;max-width:750px}
-		.hero h1 span{color:#0080FE}
-		.hero .sub{color:#9ca3b0;font-size:18px;max-width:600px;margin-bottom:36px;line-height:1.65}
-		.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:50px}
-		.btn-primary{background:#0080FE;color:#fff;padding:15px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;font-family:'IBM Plex Sans',sans-serif;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s}
-		.btn-primary:hover{background:#006ce0}
-		.btn-whatsapp{background:#25D366;color:#fff;padding:15px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;font-family:'IBM Plex Sans',sans-serif;display:inline-flex;align-items:center;gap:8px}
-		.btn-whatsapp:hover{background:#1fb956}
-		.hero-stats{display:flex;flex-wrap:wrap;gap:32px}
-		.stat{color:#fff}
-		.stat strong{display:block;font-size:32px;font-weight:700;font-family:'IBM Plex Sans',sans-serif;color:#0080FE}
-		.stat span{font-size:13px;color:#9ca3b0}
-
-		/* Trust bar */
-		.trust-bar{background:#f8f9fc;border-bottom:1px solid #e8eaf0;padding:18px 0}
-		.trust-inner{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;align-items:center}
-		.trust-item{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#302F40}
-		.trust-item svg{color:#0080FE;flex-shrink:0}
-
-		/* Problem section */
-		.section{padding:70px 0}
-		.section-label{text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:1.5px;color:#0080FE;margin-bottom:10px}
-		.section h2{font-size:clamp(26px,4vw,42px);color:#302F40;line-height:1.25;margin-bottom:16px}
-		.section p{color:#5c5c69;font-size:17px;line-height:1.7}
-		.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
-		.problem-card{background:#fff5f5;border:1px solid #fecaca;border-radius:12px;padding:28px}
-		.problem-card .icon{font-size:28px;margin-bottom:12px}
-		.problem-card h4{color:#991b1b;font-size:17px;margin-bottom:8px}
-		.problem-card p{color:#7f1d1d;font-size:15px;line-height:1.55}
-
-		/* Solution */
-		.solution-section{background:#f4f6fb;padding:70px 0}
-		.solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:40px}
-		@media(max-width:768px){.solution-grid{grid-template-columns:1fr}}
-		.solution-visual{background:linear-gradient(135deg,#302F40,#1a1930);border-radius:16px;padding:40px;aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:flex-end}
-		.solution-visual .tag{background:#0080FE;color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:12px;width:fit-content}
-		.solution-visual h3{color:#fff;font-size:22px;margin-bottom:6px}
-		.solution-visual p{color:#9ca3b0;font-size:14px}
-		.deliverables{display:flex;flex-direction:column;gap:18px}
-		.deliverable{display:flex;gap:14px;align-items:flex-start}
-		.deliverable .check{width:24px;height:24px;background:#0080FE;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-		.deliverable .check svg{width:13px;height:13px;color:#fff}
-		.deliverable h5{color:#302F40;font-size:16px;margin-bottom:3px}
-		.deliverable p{color:#5c5c69;font-size:14px}
-
-		/* How it works */
-		.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-top:40px;counter-reset:steps}
-		.step{position:relative;padding:28px;background:#fff;border-radius:12px;border:1px solid #e8eaf0}
-		.step-num{width:36px;height:36px;background:#302F40;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;margin-bottom:14px;font-family:'IBM Plex Sans',sans-serif}
-		.step h4{color:#302F40;font-size:17px;margin-bottom:8px}
-		.step p{color:#5c5c69;font-size:14px;line-height:1.6}
-
-		/* Use cases */
-		.use-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:36px}
-		.use-case{background:#fff;border:1px solid #e8eaf0;border-radius:10px;padding:24px}
-		.use-case h5{color:#302F40;font-size:16px;margin-bottom:6px}
-		.use-case p{color:#5c5c69;font-size:14px}
-
-		/* CTA section */
-		.cta-section{background:linear-gradient(135deg,#302F40 0%,#1a1930 100%);padding:80px 0;text-align:center}
-		.cta-section h2{color:#fff;font-size:clamp(28px,4vw,44px);margin-bottom:16px}
-		.cta-section p{color:#9ca3b0;font-size:18px;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto}
-		.cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
-
-		/* Form section */
-		.form-section{padding:70px 0;background:#fff}
-		.form-wrap{max-width:600px;margin:0 auto}
-		.form-wrap h2{color:#302F40;font-size:32px;margin-bottom:8px;text-align:center}
-		.form-wrap .sub{text-align:center;color:#5c5c69;margin-bottom:32px}
-		form label{display:block;font-size:14px;font-weight:600;color:#302F40;margin-bottom:6px}
-		form input,form select,form textarea{width:100%;padding:12px 14px;border:1.5px solid #dde1e8;border-radius:8px;font-size:15px;font-family:'Inter',sans-serif;color:#302F40;margin-bottom:18px;outline:none;transition:border 0.2s}
-		form input:focus,form select:focus,form textarea:focus{border-color:#0080FE}
-		form textarea{height:100px;resize:vertical}
-		form button{width:100%;background:#0080FE;color:#fff;padding:15px;border:none;border-radius:8px;font-size:17px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
-		form button:hover{background:#006ce0}
-		.form-note{text-align:center;font-size:13px;color:#888;margin-top:12px}
-
-		/* Testimonials section */
-		.testimonials-section{padding:70px 0;background:#fff}
-		.testimonials-header{text-align:center;margin-bottom:50px}
-		.testimonials-header h2{font-size:clamp(26px,4vw,42px);color:#302F40;margin-bottom:8px}
-		.testimonials-header .rating{font-size:14px;color:#5c5c69;margin-top:8px}
-		.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-		.testimonial-card{background:#f8f9fa;border-radius:12px;padding:28px;border:1px solid #e8eaf0}
-		.testimonial-card .stars{color:#f4b400;font-size:16px;margin-bottom:12px;letter-spacing:2px}
-		.testimonial-card .review{font-style:italic;color:#302F40;font-size:15px;line-height:1.6;margin-bottom:16px}
-		.testimonial-card .author{font-weight:600;color:#302F40;font-size:14px;margin-bottom:2px}
-		.testimonial-card .role{font-size:13px;color:#5c5c69}
-		.testimonials-link{text-align:center;margin-top:36px}
-		.testimonials-link a{color:#0080FE;text-decoration:none;font-weight:600;font-size:15px}
-		.testimonials-link a:hover{text-decoration:underline}
-
-		/* Footer */
-		footer{background:#302F40;color:#9ca3b0;text-align:center;padding:24px;font-size:14px}
-		footer a{color:#60a5fa;text-decoration:none}
-
-		@media(max-width:600px){
-			.hero-btns{flex-direction:column}
-			.btn-primary,.btn-whatsapp{justify-content:center}
-		}
-	</style>
-	<!-- Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
-	<script>
-		window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-6L0PFQRYF6');
-	</script>
-<script type="application/ld+json">
+	<link rel="canonical" href="https://www.dronesurveycr.com/lp-construction.html">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Construction Drone Surveys Costa Rica | DroneSurveyCR">
+	<meta property="og:description" content="LiDAR-grade topographic drone surveys for construction teams in Costa Rica. Results in 72 hours. Centimeter accuracy. Serving all of Costa Rica.">
+	<meta property="og:url" content="https://www.dronesurveycr.com/lp-construction.html">
+	<meta property="og:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:site_name" content="DroneSurveyCR">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Construction Drone Surveys Costa Rica | DroneSurveyCR">
+	<meta name="twitter:description" content="LiDAR-grade topographic drone surveys for construction teams in Costa Rica. Results in 72 hours. Centimeter accuracy.">
+	<meta name="twitter:image" content="https://www.dronesurveycr.com/images/dji-zenmuse-l1-lidar.jpg">
+	<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -174,330 +54,351 @@
   "serviceType": "Drone Survey",
   "category": "Construction"
 }
-</script>
+	</script>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/site.css">
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6L0PFQRYF6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-6L0PFQRYF6');
+	</script>
 </head>
 <body>
 
-<nav>
+<!-- Top bar -->
+<div id="top-bar">
 	<div class="container">
 		<div class="inner">
-			<a href="index.html" class="logo">DroneSurveyCR.com</a>
-			<a href="https://wa.me/50672938970" class="nav-cta" target="_blank" rel="noopener">💬 WhatsApp Us</a>
-		</div>
-	</div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-	<div class="container">
-		<div class="hero-badge">🏗️ FOR CONSTRUCTION TEAMS IN COSTA RICA</div>
-		<h1>Your Topographic Survey.<br><span>Done in 72 Hours.</span></h1>
-		<p class="sub">LiDAR-grade aerial surveys for construction projects across Costa Rica. Centimeter-accurate 3D data — delivered faster and cheaper than traditional surveying.</p>
-		<div class="hero-btns">
-			<a href="#quote" class="btn-primary">📋 Get a Free Quote</a>
-			<a href="https://wa.me/50672938970" class="btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp Us Now</a>
-		</div>
-		<div class="hero-stats">
-			<div class="stat"><strong>72hrs</strong><span>Typical delivery time</span></div>
-			<div class="stat"><strong>±1–3cm</strong><span>LiDAR accuracy</span></div>
-			<div class="stat"><strong>50+</strong><span>Projects completed</span></div>
-			<div class="stat"><strong>7 yrs</strong><span>In Costa Rica</span></div>
-		</div>
-	</div>
-</section>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-	<div class="container">
-		<div class="trust-inner">
-			<div class="trust-item">
-				<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-				Centimeter-accurate LiDAR
+			<div class="lang-switcher">
+				<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+				<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+				<button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
 			</div>
-			<div class="trust-item">
-				<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-				Results in 72 hours
-			</div>
-			<div class="trust-item">
-				<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-				All of Costa Rica
-			</div>
-			<div class="trust-item">
-				<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-				LiDAR + Photogrammetry
-			</div>
-			<div class="trust-item">
-				<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-				50+ satisfied clients
+			<div style="display:flex;align-items:center;gap:16px;">
+				<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:13px;font-weight:500;">💬 +506 7293-8970</a>
+				<button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:6px;padding:3px 10px;font-size:13px;font-family:inherit;transition:all 0.15s;" title="Toggle light/dark mode">🌙</button>
 			</div>
 		</div>
 	</div>
 </div>
 
-<!-- PROBLEM -->
-<section class="section">
+<!-- Header -->
+<header id="site-header">
 	<div class="container">
-		<p class="section-label">The problem</p>
-		<h2>Traditional Surveys Are Slowing Down Your Projects</h2>
-		<p>Bad survey data — or delayed survey data — is one of the top causes of construction cost overruns in Costa Rica. Here's what your team is risking right now:</p>
-		<div class="problem-grid">
-			<div class="problem-card">
-				<div class="icon">⏳</div>
-				<h4>Weeks of waiting</h4>
-				<p>Traditional ground surveys take 2–4 weeks. Your project timeline can't afford that delay.</p>
+		<div class="inner">
+			<div class="logo">
+				<a href="index.html">
+					<img src="images/logo-round.png" alt="Drone Survey Costa Rica" height="34">
+					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
+				</a>
 			</div>
-			<div class="problem-card">
-				<div class="icon">💸</div>
-				<h4>Costly rework</h4>
-				<p>Inaccurate topographic data leads to wrong cut-and-fill calculations, bad drainage, and expensive redesigns.</p>
-			</div>
-			<div class="problem-card">
-				<div class="icon">⛰️</div>
-				<h4>Inaccessible terrain</h4>
-				<p>Costa Rica's slopes, jungle, and irregular terrain make ground surveys dangerous and incomplete.</p>
-			</div>
-			<div class="problem-card">
-				<div class="icon">📋</div>
-				<h4>Dispute risk</h4>
-				<p>No proper aerial documentation means change order disputes are harder to win — and more costly to lose.</p>
-			</div>
+			<nav>
+				<ul>
+					<li><a href="index.html" data-i18n="nav.home">Home</a></li>
+					<li>
+						<a href="services/index.html" data-i18n="nav.services">Services</a>
+						<ul>
+							<li><a href="services/lidar-mapping.html" data-i18n="nav.lidar">Lidar Drone Surveying</a></li>
+							<li><a href="services/geopositioning.html" data-i18n="nav.geo">GPS Geopositioning</a></li>
+							<li><a href="services/photogrammetry.html">Photogrammetry</a></li>
+						</ul>
+					</li>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="blog/index.html">Blog</a></li>
+					<li><a href="quote.html" data-i18n="nav.quote">Get a Quote</a></li>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.whatsapp">WhatsApp</a></li>
+				</ul>
+			</nav>
 		</div>
 	</div>
-</section>
+</header>
 
-<!-- SOLUTION -->
-<section class="solution-section">
-	<div class="container">
-		<p class="section-label">The solution</p>
-		<h2>LiDAR Drone Surveys — Built for Construction</h2>
-		<div class="solution-grid">
-			<div class="solution-visual">
-				<div class="tag">DELIVERABLE EXAMPLE</div>
-				<h3>3D Terrain Model</h3>
-				<p>LiDAR point cloud with centimeter-level accuracy — ready for AutoCAD, Civil 3D, and Revit</p>
+<main>
+
+	<!-- Page hero -->
+	<section class="page-hero">
+		<div class="container">
+			<nav class="breadcrumb" aria-label="Breadcrumb">
+				<a href="index.html">Home</a> / <span>Construction</span>
+			</nav>
+			<div class="tag">For Construction Teams in Costa Rica</div>
+			<h1>Your Topographic Survey. Done in 72 Hours.</h1>
+			<p class="lead">LiDAR-grade aerial surveys for construction projects across Costa Rica. Centimeter-accurate 3D data — delivered faster and cheaper than traditional surveying.</p>
+			<a href="quote.html" class="btn btn-primary">Get a Quote</a>
+		</div>
+	</section>
+
+	<!-- Banner image -->
+	<section>
+		<div class="container">
+			<img src="images/droneservicesprocessing.webp" alt="LiDAR drone survey data processing for a construction site in Costa Rica" loading="lazy" style="display:block;width:100%;height:420px;object-fit:cover;border-radius:12px;border:1px solid var(--border);">
+		</div>
+	</section>
+
+	<!-- Problem -->
+	<section>
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">The Problem</div>
+				<h2>Traditional Surveys Are Slowing Down Your Projects</h2>
+				<p>Bad survey data — or delayed survey data — is one of the top causes of construction cost overruns in Costa Rica. Here's what your team is risking right now.</p>
 			</div>
-			<div class="deliverables">
-				<div class="deliverable">
-					<div class="check"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
-					<div><h5>LiDAR Point Clouds</h5><p>Millions of laser-measured data points. Centimeter-accurate 3D representation of your entire site.</p></div>
+			<div class="info-grid">
+				<div class="info-card">
+					<h3>Weeks of Waiting</h3>
+					<p>Traditional ground surveys take 2–4 weeks. Your project timeline can't afford that delay.</p>
 				</div>
-				<div class="deliverable">
-					<div class="check"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
-					<div><h5>Digital Elevation Models (DEM)</h5><p>High-resolution elevation data for cut-and-fill calculations, drainage design, and grading plans.</p></div>
+				<div class="info-card">
+					<h3>Costly Rework</h3>
+					<p>Inaccurate topographic data leads to wrong cut-and-fill calculations, bad drainage, and expensive redesigns.</p>
 				</div>
-				<div class="deliverable">
-					<div class="check"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
-					<div><h5>Orthomosaic Maps</h5><p>Georeferenced aerial imagery stitched into a single accurate map — perfect for planning and documentation.</p></div>
+				<div class="info-card">
+					<h3>Inaccessible Terrain</h3>
+					<p>Costa Rica's slopes, jungle, and irregular terrain make ground surveys dangerous and incomplete.</p>
 				</div>
-				<div class="deliverable">
-					<div class="check"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
-					<div><h5>Contour Maps</h5><p>Auto-generated contour lines at your specified interval. Import directly into design software.</p></div>
-				</div>
-				<div class="deliverable">
-					<div class="check"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.17l7.879-7.877a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
-					<div><h5>Progress Monitoring Reports</h5><p>Regular aerial site documentation for phase tracking, client reporting, and change order protection.</p></div>
+				<div class="info-card">
+					<h3>Dispute Risk</h3>
+					<p>No proper aerial documentation means change order disputes are harder to win — and more costly to lose.</p>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!-- HOW IT WORKS -->
-<section class="section" style="background:#fff">
-	<div class="container">
-		<p class="section-label">How it works</p>
-		<h2>From Inquiry to Delivered Data in 4 Steps</h2>
-		<div class="steps">
-			<div class="step"><div class="step-num">1</div><h4>Send us your project details</h4><p>Location, site area, and what you need. WhatsApp or online form — your choice.</p></div>
-			<div class="step"><div class="step-num">2</div><h4>Get a same-day quote</h4><p>We'll send you a custom quote, usually within a few hours of your inquiry.</p></div>
-			<div class="step"><div class="step-num">3</div><h4>We fly your site</h4><p>Our team arrives with LiDAR-equipped drones and completes the flight mission — typically in a single day.</p></div>
-			<div class="step"><div class="step-num">4</div><h4>Receive your data</h4><p>Processed deliverables — DEMs, point clouds, orthomosaics — delivered within 72 hours of the flight.</p></div>
-		</div>
-	</div>
-</section>
-
-<!-- USE CASES -->
-<section class="section" style="background:#f4f6fb">
-	<div class="container">
-		<p class="section-label">Use cases</p>
-		<h2>What Construction Teams Use Us For</h2>
-		<div class="use-cases">
-			<div class="use-case"><h5>🏗️ Pre-construction surveys</h5><p>Full topographic data before breaking ground — so your engineers design on accurate terrain.</p></div>
-			<div class="use-case"><h5>📐 Cut & fill calculations</h5><p>Precise volume data for earthworks planning and material cost estimation.</p></div>
-			<div class="use-case"><h5>💧 Drainage & grading</h5><p>Real elevation models that reveal drainage paths and grading requirements before you pour concrete.</p></div>
-			<div class="use-case"><h5>📸 Progress documentation</h5><p>Weekly or monthly aerial photo/video documentation for client reports and dispute protection.</p></div>
-			<div class="use-case"><h5>🗺️ Site boundary mapping</h5><p>Accurate boundary surveys overlaid on georeferenced imagery — no more manual GPS walks.</p></div>
-			<div class="use-case"><h5>⛰️ Steep terrain surveys</h5><p>Safe aerial data collection on slopes, forests, and sites too dangerous for ground crews.</p></div>
-		</div>
-	</div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials-section">
-	<div class="container">
-		<div class="testimonials-header">
-			<h2>Trusted by Property Owners & Professionals Across Costa Rica</h2>
-			<p class="testimonials-rating">⭐⭐⭐⭐⭐ 5.0 out of 5 · 25 Google reviews</p>
-		</div>
-		<div class="testimonials-grid">
-			<div class="testimonial-card">
-				<p class="testimonial-text"><em>"Outstanding service and professionalism. The drone survey provided exactly what we needed for our project — accurate, detailed, and delivered on time."</em></p>
-				<p class="testimonial-author">— Travis Comstock</p>
+	<!-- Solution / deliverables -->
+	<section>
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">The Solution</div>
+				<h2>LiDAR Drone Surveys — Built for Construction</h2>
+				<p>Centimeter-accurate 3D data ready for AutoCAD, Civil 3D, and Revit. Every project includes the deliverables your engineers actually need.</p>
 			</div>
-			<div class="testimonial-card">
-				<p class="testimonial-text"><em>"Excelente trabajo. Los datos que recibimos fueron muy precisos y nos ayudaron enormemente en la planificación del proyecto."</em></p>
-				<p class="testimonial-author">— Javier Mora Balma</p>
+			<ul class="check-list">
+				<li><strong>LiDAR Point Clouds</strong> — Millions of laser-measured data points. Centimeter-accurate 3D representation of your entire site.</li>
+				<li><strong>Digital Elevation Models (DEM)</strong> — High-resolution elevation data for cut-and-fill calculations, drainage design, and grading plans.</li>
+				<li><strong>Orthomosaic Maps</strong> — Georeferenced aerial imagery stitched into a single accurate map — perfect for planning and documentation.</li>
+				<li><strong>Contour Maps</strong> — Auto-generated contour lines at your specified interval. Import directly into design software.</li>
+				<li><strong>Progress Monitoring Reports</strong> — Regular aerial site documentation for phase tracking, client reporting, and change order protection.</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- How it works -->
+	<section>
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">How It Works</div>
+				<h2>From Inquiry to Delivered Data in 4 Steps</h2>
 			</div>
-			<div class="testimonial-card">
-				<p class="testimonial-text"><em>"Professional team, incredible results. The topographic data saved us thousands of dollars in planning costs. Highly recommended."</em></p>
-				<p class="testimonial-author">— Marco Corvetto</p>
+			<div class="info-grid">
+				<div class="info-card">
+					<h3>1. Send Us Your Project Details</h3>
+					<p>Location, site area, and what you need. WhatsApp or online form — your choice.</p>
+				</div>
+				<div class="info-card">
+					<h3>2. Get a Same-Day Quote</h3>
+					<p>We'll send you a custom quote, usually within a few hours of your inquiry.</p>
+				</div>
+				<div class="info-card">
+					<h3>3. We Fly Your Site</h3>
+					<p>Our team arrives with LiDAR-equipped drones and completes the flight mission — typically in a single day.</p>
+				</div>
+				<div class="info-card">
+					<h3>4. Receive Your Data</h3>
+					<p>Processed deliverables — DEMs, point clouds, orthomosaics — delivered within 72 hours of the flight.</p>
+				</div>
 			</div>
 		</div>
-		<p class="testimonials-link"><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener">Read all 25 reviews on Google →</a></p>
-	</div>
-</section>
+	</section>
 
-<!-- QUOTE FORM -->
-<section class="form-section" id="quote">
-	<div class="container">
-		<div class="form-wrap">
-			<h2>Get Your Free Project Quote</h2>
-			<p class="sub">Tell us about your project and we'll send a custom quote — usually within the same day.</p>
-			<form id="constructionForm" onsubmit="return submitConstructionForm(event)">
-				<label for="con-name">Your Name *</label>
-				<input type="text" id="con-name" placeholder="Juan Pérez" required>
-
-				<label for="con-company">Company / Project Name</label>
-				<input type="text" id="con-company" placeholder="Constructora XYZ">
-
-				<label for="con-email">Email Address *</label>
-				<input type="email" id="con-email" placeholder="juan@empresa.com" required>
-
-				<label for="con-phone">WhatsApp / Phone</label>
-				<input type="tel" id="con-phone" placeholder="+506 XXXX XXXX">
-
-				<label for="con-service">Service Needed *</label>
-				<select id="con-service" required>
-					<option value="">Select a service...</option>
-					<option>Topographic Survey (LiDAR)</option>
-					<option>Topographic Survey (Photogrammetry)</option>
-					<option>Construction Progress Monitoring</option>
-					<option>Cut & Fill Volume Calculation</option>
-					<option>Site Boundary Mapping</option>
-					<option>Other</option>
-				</select>
-
-				<label for="con-location">Project Location *</label>
-				<input type="text" id="con-location" placeholder="e.g. Guanacaste, Cartago, San José..." required>
-
-				<label for="con-area">Approximate Site Area</label>
-				<input type="text" id="con-area" placeholder="e.g. 5 hectares, 200m x 400m...">
-
-				<label for="con-message">Additional Details</label>
-				<textarea id="con-message" placeholder="Tell us about your project timeline, specific requirements, or any questions..."></textarea>
-
-				<button type="submit" id="con-submit-btn">📋 Send My Free Quote Request</button>
-			</form>
-			<script>
-			const SB_URL = 'https://bqszvlrzmeszeewufgio.supabase.co';
-			const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxc3p2bHJ6bWVzemVld3VmZ2lvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTcwMDEsImV4cCI6MjA5MTkzMzAwMX0.SkVeaxSd8lLMtmt1b3M5N3NhDZ4HJJEQjRP255KjMpk';
-			async function submitConstructionForm(e) {
-				e.preventDefault();
-				const btn = document.getElementById('con-submit-btn');
-				btn.disabled = true;
-				btn.textContent = '⏳ Sending...';
-				const nameParts = document.getElementById('con-name').value.trim().split(/\s+/);
-				const payload = {
-					first_name:         nameParts[0] || '',
-					last_name:          nameParts.slice(1).join(' ') || '',
-					email:              document.getElementById('con-email').value.trim(),
-					phone:              document.getElementById('con-phone').value.trim() || null,
-					company_name:       document.getElementById('con-company').value.trim() || null,
-					services_requested: document.getElementById('con-service').value,
-					state_province:     document.getElementById('con-location').value.trim(),
-					area_hectares:      null,
-					land_size_sq_km:    document.getElementById('con-area').value.trim() || null,
-					survey_type:        'Construction',
-					notes:              document.getElementById('con-message').value || null,
-					country:            'Costa Rica'
-				};
-				try {
-					await fetch(SB_URL + '/rest/v1/quote_submissions', {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-							'apikey': SB_KEY,
-							'Authorization': 'Bearer ' + SB_KEY,
-							'Prefer': 'return=minimal'
-						},
-						body: JSON.stringify(payload)
-					});
-					fetch(SB_URL + '/functions/v1/on-new-quote', {
-						method: 'POST',
-						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify({ record: payload })
-					}).catch(() => {});
-				} catch(err) { console.error(err); }
-				document.getElementById('constructionForm').innerHTML = '<div style="text-align:center;padding:30px"><h3 style="color:#0080FE">✅ Quote Request Sent!</h3><p>We\'ll get back to you within a few hours.</p><a href="https://wa.me/50672938970" style="color:#0080FE;font-weight:bold">💬 Or chat on WhatsApp now</a></div>';
-			}
-			</script>
-			<p class="form-note">Or contact us directly on <a href="https://wa.me/50672938970" target="_blank" rel="noopener" style="color:#0080FE">WhatsApp: +506 7293 8970</a></p>
+	<!-- Use cases -->
+	<section>
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">Use Cases</div>
+				<h2>What Construction Teams Use Us For</h2>
+			</div>
+			<div class="info-grid">
+				<div class="info-card">
+					<h3>Pre-Construction Surveys</h3>
+					<p>Full topographic data before breaking ground — so your engineers design on accurate terrain.</p>
+				</div>
+				<div class="info-card">
+					<h3>Cut &amp; Fill Calculations</h3>
+					<p>Precise volume data for earthworks planning and material cost estimation.</p>
+				</div>
+				<div class="info-card">
+					<h3>Drainage &amp; Grading</h3>
+					<p>Real elevation models that reveal drainage paths and grading requirements before you pour concrete.</p>
+				</div>
+				<div class="info-card">
+					<h3>Progress Documentation</h3>
+					<p>Weekly or monthly aerial photo/video documentation for client reports and dispute protection.</p>
+				</div>
+				<div class="info-card">
+					<h3>Site Boundary Mapping</h3>
+					<p>Accurate boundary surveys overlaid on georeferenced imagery — no more manual GPS walks.</p>
+				</div>
+				<div class="info-card">
+					<h3>Steep Terrain Surveys</h3>
+					<p>Safe aerial data collection on slopes, forests, and sites too dangerous for ground crews.</p>
+				</div>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!-- CTA -->
-<section class="cta-section">
-	<div class="container">
-		<h2>Ready to Survey Your Site?</h2>
-		<p>Get centimeter-accurate topographic data for your construction project — in 72 hours.</p>
-		<div class="cta-btns">
-			<a href="#quote" class="btn-primary">📋 Get a Free Quote</a>
-			<a href="https://wa.me/50672938970" class="btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp +506 7293 8970</a>
+	<!-- Why us / prose + highlight -->
+	<section>
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">Why DroneSurveyCR</div>
+				<h2>Faster, Safer, More Accurate Survey Data</h2>
+			</div>
+			<div class="prose">
+				<p>Construction teams across Costa Rica trust us for centimeter-accurate LiDAR data delivered in days, not weeks. Our DJI Matrice 350 RTK platform paired with the Zenmuse L1 sensor captures 240,000 points per second, penetrating dense canopy to map the true ground surface beneath. We serve all of Costa Rica — from Guanacaste to the Caribbean coast — and handle the required DGAC flight permits.</p>
+			</div>
+			<div class="highlight-box">
+				<h3>72-Hour Turnaround, Centimeter Accuracy</h3>
+				<p>Typical delivery in 72 hours · ±1–3 cm LiDAR accuracy · 50+ projects completed · 7+ years in Costa Rica · 5.0★ across 25 Google reviews. <a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Read all 25 reviews on Google →</a></p>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<footer class="site-footer">
+	<!-- Testimonials -->
+	<section>
+		<div class="container">
+			<div class="section-label">
+				<div class="tag">Reviews</div>
+				<h2>Trusted by Property Owners &amp; Professionals Across Costa Rica</h2>
+				<p>⭐⭐⭐⭐⭐ &nbsp;<strong style="color:var(--heading);">5.0 out of 5</strong> &nbsp;·&nbsp; 25 Google reviews</p>
+			</div>
+			<div class="info-grid">
+				<div class="info-card">
+					<p><em>"Outstanding service and professionalism. The drone survey provided exactly what we needed for our project — accurate, detailed, and delivered on time."</em></p>
+					<p><strong>— Travis Comstock</strong></p>
+				</div>
+				<div class="info-card">
+					<p><em>"Excelente trabajo. Los datos que recibimos fueron muy precisos y nos ayudaron enormemente en la planificación del proyecto."</em></p>
+					<p><strong>— Javier Mora Balma</strong></p>
+				</div>
+				<div class="info-card">
+					<p><em>"Professional team, incredible results. The topographic data saved us thousands of dollars in planning costs. Highly recommended."</em></p>
+					<p><strong>— Marco Corvetto</strong></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Closing CTA -->
+	<section class="inner-cta">
+		<div class="container">
+			<h2>Ready to Survey Your Site?</h2>
+			<p>Get centimeter-accurate topographic data for your construction project — in 72 hours.</p>
+			<div class="hero-actions">
+				<a href="quote.html" class="btn btn-primary">Get a Quote</a>
+				<a href="https://wa.me/50672938970" class="btn btn-green" target="_blank" rel="noopener noreferrer">💬 WhatsApp +506 7293 8970</a>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
 	<div class="container">
 		<div class="footer-grid">
-			<div>
-				<h4>Drone Survey Costa Rica</h4>
-				<p>Professional aerial surveying with LiDAR, GPS, and drone technology across Costa Rica. Centimeter-accurate mapping for real estate, construction, agriculture, and environmental projects.</p>
+			<div class="footer-brand">
+				<img src="images/logo-round.png" alt="Drone Survey Costa Rica" height="32">
+				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
+				<div class="footer-contact">
+					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
+					<a href="#">📍 Costa Rica</a>
+				</div>
 			</div>
-			<div>
-				<h4>Services</h4>
+			<div class="footer-col">
+				<h5>Services</h5>
 				<ul>
-					<li><a href="services/lidar-mapping.html">LiDAR Mapping</a></li>
-					<li><a href="services/geopositioning.html">GPS Surveys</a></li>
-					<li><a href="quote.html">Aerial Video</a></li>
-					<li><a href="quote.html">Get a Quote</a></li>
+					<li><a href="services/lidar-mapping.html">Lidar Drone Mapping</a></li>
+					<li><a href="services/photogrammetry.html">Photogrammetry</a></li>
+					<li><a href="services/geopositioning.html">GPS Geopositioning</a></li>
+					<li><a href="quote.html">Get a Free Quote</a></li>
 				</ul>
 			</div>
-			<div>
-				<h4>Resources</h4>
+			<div class="footer-col">
+				<h5>Company</h5>
 				<ul>
-					<li><a href="blog/">Blog</a></li>
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="https://invoice.zoho.com/portal/dronesurveycostarica/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
-				</ul>
-			</div>
-			<div>
-				<h4>Contact</h4>
-				<ul>
-					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp: +506 7293 8970</a></li>
-					<li><a href="mailto:dronesurveycr@gmail.com">dronesurveycr@gmail.com</a></li>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="blog/index.html">Blog</a></li>
+					<li><a href="services/index.html">All Services</a></li>
+						<li><a href="about.html">About</a></li>
 					<li><a href="https://g.co/kgs/VnbxFYr" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h5>Connect</h5>
+				<ul>
+					<li><a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+					<li><a href="quote.html">Get a Quote</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="footer-bottom">
-			<p>&copy; 2026 Drone Survey Costa Rica. All rights reserved. | <a href="sitemap.xml">Sitemap</a></p>
+			<p>&copy; 2026 Drone Survey Costa Rica — All rights reserved</p>
+			<p><a href="sitemap.xml">Sitemap</a></p>
 		</div>
 	</div>
-<div style="text-align:center;padding:10px 0;font-size:13px;"><a href="blog/drone-survey-costs-costa-rica-2026.html" style="color:#0080FE;">View Drone Survey Pricing Guide</a> | <a href="services/lidar-mapping.html" style="color:#0080FE;">LiDAR Mapping Details</a></div>
 </footer>
 
-<script src="components.js" defer></script>
+<script>
+const translations = {
+	en: {
+		'nav.home': 'Home', 'nav.services': 'Services', 'nav.lidar': 'Lidar Drone Surveying', 'nav.geo': 'GPS Geopositioning', 'nav.video': 'Aerial Video & Photos', 'nav.quote': 'Get a Quote', 'nav.portal': 'Client Portal', 'nav.whatsapp': 'WhatsApp',
+	},
+	es: {
+		'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lidar': 'Mapeo Lidar', 'nav.geo': 'Geoposicionamiento', 'nav.video': 'Video y Fotos Aéreas', 'nav.quote': 'Solicitar Cotización', 'nav.portal': 'Portal del Cliente', 'nav.whatsapp': 'WhatsApp',
+	},
+	fr: {
+		'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lidar': 'Cartographie Lidar', 'nav.geo': 'Géopositionnement', 'nav.video': 'Vidéo et Photos Aériennes', 'nav.quote': 'Demander un Devis', 'nav.portal': 'Portail Client', 'nav.whatsapp': 'WhatsApp',
+	}
+};
+
+function setLang(lang) {
+	localStorage.setItem('lang', lang);
+	document.documentElement.lang = lang;
+	['en','es','fr'].forEach(l => {
+		document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+	});
+	document.querySelectorAll('[data-i18n]').forEach(el => {
+		const key = el.getAttribute('data-i18n');
+		const text = (translations[lang] || translations.en)[key];
+		if (text !== undefined) el.textContent = text;
+	});
+}
+
+(function() {
+	const saved = localStorage.getItem('lang') || 'en';
+	setLang(saved);
+})();
+
+function toggleTheme() {
+	const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+	const next = isLight ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', next);
+	localStorage.setItem('theme', next);
+	document.getElementById('theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+}
+
+(function() {
+	const saved = localStorage.getItem('theme') || 'light';
+	document.documentElement.setAttribute('data-theme', saved);
+	const btn = document.getElementById('theme-toggle');
+	if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+})();
+</script>
 </body>
 </html>
