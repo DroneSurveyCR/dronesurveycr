@@ -145,7 +145,7 @@
 		<div class="inner">
 			<div class="logo">
 				<a href="index.html">
-					<img src="images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="34">
+					<img src="images/logo-round.png" alt="Drone Survey Costa Rica" height="34">
 					<span class="logo-name">Drone Survey<br><span>Costa Rica</span></span>
 				</a>
 			</div>
@@ -212,7 +212,7 @@
 			<div class="section-label">
 				<div class="tag">Locations</div>
 				<h2>Project Locations</h2>
-				<p>Click on markers to view project details and open the 3D point cloud viewer.</p>
+				<p>Every marker is placed at its true GPS location. Click a marker to see the project and open its 3D LiDAR point cloud.</p>
 			</div>
 			<div class="map-wrap">
 				<div id="map"></div>
@@ -228,41 +228,7 @@
 			<div class="section-label">
 				<div class="tag">All Projects</div>
 				<h2>Completed Survey Projects</h2>
-				<p>Access detailed 3D point cloud data, topographic maps, and orthophotos for each completed project.</p>
-			</div>
-
-			<!-- Featured info cards with images -->
-			<div class="info-grid" style="margin-bottom:48px;">
-				<div class="info-card">
-					<img class="card-thumb" src="images/dji-zenmuse-l1-lidar.jpg" alt="LiDAR Survey — Southern Zone">
-					<h3>LiDAR Drone Surveys</h3>
-					<p>Centimeter-accurate laser scanning that penetrates dense forest canopy to map the true ground surface — used across our Southern Zone projects.</p>
-				</div>
-				<div class="info-card">
-					<img class="card-thumb" src="images/pix4dmatic-drone-mapping-software.webp" alt="Topographic mapping and data processing">
-					<h3>Topographic Mapping</h3>
-					<p>From raw point clouds to fully processed topographic maps and orthophotos, delivered within 3–7 business days of the flight mission.</p>
-				</div>
-				<div class="info-card">
-					<img class="card-thumb" src="images/dji-d-rtk-2-base-station-tripod4.png" alt="GPS RTK Base Station Geopositioning">
-					<h3>GPS Geopositioning</h3>
-					<p>GPS RTK base station establishes exact geographic coordinates for boundary demarcation, land registration, and precise survey control.</p>
-				</div>
-				<div class="info-card">
-					<img class="card-thumb" src="images/analize.jpg" alt="3D point cloud analysis">
-					<h3>3D Point Cloud Analysis</h3>
-					<p>Every project includes interactive 3D point cloud data accessible via our online viewer — explore terrain from any angle, anytime.</p>
-				</div>
-				<div class="info-card">
-					<img class="card-thumb" src="images/fly.jpg" alt="Drone mission execution in Costa Rica">
-					<h3>Flight Mission Execution</h3>
-					<p>Fully autonomous flight missions executed by our expert team, covering everything from pre-flight planning to on-site data capture.</p>
-				</div>
-				<div class="info-card">
-					<img class="card-thumb" src="images/plan.jpg" alt="Virtual mission planning software">
-					<h3>Virtual Mission Planning</h3>
-					<p>Mission planning software lets us visualize the drone's flight path and run time before a single flight — ensuring efficient, complete coverage.</p>
-				</div>
+				<p>Each project opens an interactive 3D LiDAR point cloud you can explore from any angle.</p>
 			</div>
 
 			<!-- Full projects list -->
@@ -287,7 +253,7 @@
 	<div class="container">
 		<div class="footer-grid">
 			<div class="footer-brand">
-				<img src="images/dscrlogo.jpg" alt="Drone Survey Costa Rica" height="32">
+				<img src="images/logo-round.png" alt="Drone Survey Costa Rica" height="32">
 				<p>Professional aerial surveying in Costa Rica using Lidar &amp; photogrammetry. Centimeter-accurate data since 2017.</p>
 				<div class="footer-contact">
 					<a href="https://wa.me/50672938970" target="_blank" rel="noopener noreferrer">💬 +506 7293-8970 (WhatsApp)</a>
@@ -333,29 +299,29 @@
 
 <script>
 	const projects = [
-		{ name: 'ALEGRIA_1', location: 'Alegría, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.25, -83.85], potraeId: 'ALEGRIA_1_WEB' },
-		{ name: 'Ainsley', location: 'Ainsley, Southern Zone', zone: 'Southern Zone', service: 'Topographic Map', coords: [9.22, -83.88], potraeId: 'Ainsley_WEB' },
-		{ name: 'Brett Barú River', location: 'Barú River, Dominical', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.28, -83.82], potraeId: 'Brett_Baru_River_1_WEB' },
-		{ name: 'Bryce Ojochal', location: 'Ojochal, Southern Zone', zone: 'Southern Zone', service: 'Land Assessment', coords: [9.22, -83.75], potraeId: 'Bryce_Ojochal_WEB' },
-		{ name: 'Bryce Portálón', location: 'Portálón, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.26, -83.78], potraeId: 'Bryce_Portalon_3_WEB' },
-		{ name: 'Cañavida', location: 'Cañavida, Guanacaste', zone: 'Guanacaste', service: 'LiDAR Survey', coords: [10.4, -85.45], potraeId: 'CANA_VIDA_WEB' },
-		{ name: 'Cedrela', location: 'Cedrela, Central Valley', zone: 'Central Valley', service: 'Topographic Map', coords: [9.93, -84.08], potraeId: 'CEDRELA_WEB' },
-		{ name: 'Dominicalito', location: 'Dominicalito, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.30, -83.85], potraeId: 'DOMINICALITO_WEB' },
-		{ name: 'Envision', location: 'Envision, Southern Zone', zone: 'Southern Zone', service: 'Environmental Assessment', coords: [9.27, -83.88], potraeId: 'ENVISION_WEB' },
-		{ name: 'Marco', location: 'Marco, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.24, -83.84], potraeId: 'MARCO_WEB' },
-		{ name: 'Mata de Plátano', location: 'Mata de Plátano, Central Valley', zone: 'Central Valley', service: 'Land Analysis', coords: [9.95, -84.06], potraeId: 'Mata_Platano_WEB' },
-		{ name: 'Ocaso', location: 'Ocaso, Central Valley', zone: 'Central Valley', service: 'LiDAR Survey', coords: [9.90, -84.10], potraeId: 'OCASO_WEB' },
-		{ name: 'Santa Teresa', location: 'Santa Teresa, Nicoya', zone: 'Nicoya Peninsula', service: 'LiDAR Survey', coords: [9.64, -85.17], potraeId: 'SANTA_TERESA_WEB' },
-		{ name: 'Santa Teresa 2', location: 'Santa Teresa, Nicoya', zone: 'Nicoya Peninsula', service: 'Topographic Map', coords: [9.65, -85.16], potraeId: 'SANTA_TERESA_2_WEB' },
-		{ name: 'Santa Teresa 6H', location: 'Santa Teresa, Nicoya', zone: 'Nicoya Peninsula', service: 'LiDAR Survey', coords: [9.63, -85.18], potraeId: 'SANTA_TERESA_6H_WEB' },
-		{ name: 'Selva 3', location: 'Selva, Southern Zone', zone: 'Southern Zone', service: 'Forest Survey', coords: [9.25, -83.80], potraeId: 'SELVA3_WEB' },
-		{ name: 'Selva 4', location: 'Selva, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.26, -83.81], potraeId: 'SELVA_4_WEB' },
-		{ name: 'San Josecito Uvita', location: 'San Josecito, Uvita', zone: 'Southern Zone', service: 'Land Assessment', coords: [9.28, -83.83], potraeId: 'San_Josesito_Uvita_WEB' },
-		{ name: 'Tomer Selva', location: 'Tomer Selva, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.29, -83.86], potraeId: 'TOMER_SELVA_WEB' },
-		{ name: 'Vista Architects', location: 'Vista Architects, Southern Zone', zone: 'Southern Zone', service: 'Architectural Survey', coords: [9.23, -83.87], potraeId: 'Vista_Architects_WEB' },
-		{ name: 'Portalon Brian', location: 'Portálón, Southern Zone', zone: 'Southern Zone', service: 'LiDAR Survey', coords: [9.27, -83.77], potraeId: 'Portalon_Brian_WEB' },
-		{ name: 'Santa Teresa Boundary', location: 'Santa Teresa, Nicoya', zone: 'Nicoya Peninsula', service: 'GPS Boundary Survey', coords: [9.62, -85.19], potraeId: 'SANTA_TERESA_BOUNDARY_WEB' },
-		{ name: 'Vista Architects 2026', location: 'Vista Architects, Southern Zone', zone: 'Southern Zone', service: 'Architectural Survey', coords: [9.22, -83.86], potraeId: 'Vista_Architects_2026_WEB' }
+	{ name: "ALEGRIA 1", location: "San Mateo", service: "LiDAR Survey", coords: [9.96565, -84.499637], view: "https://serviciosdronescostarica.com/LidarCloud/ALEGRIA_1_WEB/" },
+	{ name: "Ainsley", location: "Barú, Pérez Zeledón", service: "Topographic Map", coords: [9.281405, -83.806929], view: "https://serviciosdronescostarica.com/LidarCloud/Ainsley_WEB/" },
+	{ name: "Brett Barú River", location: "Savegre, Quepos", service: "LiDAR Survey", coords: [9.270146, -83.85997], view: "https://serviciosdronescostarica.com/LidarCloud/Brett_Baru_River_1_WEB/" },
+	{ name: "Bryce Ojochal", location: "Puerto Cortés, Osa", service: "Land Assessment", coords: [9.089404, -83.602948], view: "https://serviciosdronescostarica.com/LidarCloud/Bryce_Ojochal_WEB/" },
+	{ name: "Bryce Portalón", location: "Savegre, Quepos", service: "LiDAR Survey", coords: [9.352885, -83.970217], view: "https://serviciosdronescostarica.com/LidarCloud/Bryce_Portalon_3_WEB/" },
+	{ name: "Cañavida", location: "Bahía Ballena, Osa", service: "LiDAR Survey", coords: [9.144079, -83.70257], view: "https://serviciosdronescostarica.com/LidarCloud/CANA_VIDA_WEB/" },
+	{ name: "Cedrela", location: "Santa María, Dota", service: "Topographic Map", coords: [9.640722, -83.935533], view: "https://serviciosdronescostarica.com/LidarCloud/CEDRELA_WEB/" },
+	{ name: "Dominicalito", location: "Bahía Ballena, Osa", service: "LiDAR Survey", coords: [9.243643, -83.843199], view: "https://serviciosdronescostarica.com/LidarCloud/DOMINICALITO_WEB/" },
+	{ name: "Envision", location: "Bahía Ballena, Osa", service: "Environmental Survey", coords: [9.184533, -83.767852], view: "https://serviciosdronescostarica.com/LidarCloud/ENVISION_WEB/" },
+	{ name: "Marco", location: "Garabito", service: "LiDAR Survey", coords: [9.659924, -84.63036], view: "https://serviciosdronescostarica.com/LidarCloud/MARCO_WEB/" },
+	{ name: "Mata de Plátano", location: "Carara, Turrubares", service: "Land Analysis", coords: [9.609476, -84.534177], view: "https://serviciosdronescostarica.com/LidarCloud/Mata_Platano_WEB/" },
+	{ name: "Ocaso", location: "Garabito", service: "LiDAR Survey", coords: [9.642628, -84.605865], view: "https://serviciosdronescostarica.com/LidarCloud/OCASO_WEB/" },
+	{ name: "Portalón Brian", location: "Savegre, Quepos", service: "LiDAR Survey", coords: [9.394628, -83.966977], view: "https://serviciosdronescostarica.com/LidarCloud/Portalon_Brian_WEB/" },
+	{ name: "Santa Teresa 2", location: "Cóbano, Puntarenas", service: "Topographic Map", coords: [9.663734, -85.183923], view: "https://serviciosdronescostarica.com/LidarCloud/SANTA_TERESA_2_WEB/" },
+	{ name: "Santa Teresa 6H", location: "Cóbano, Puntarenas", service: "LiDAR Survey", coords: [9.663751, -85.18307], view: "https://serviciosdronescostarica.com/LidarCloud/SANTA_TERESA_6H_WEB/" },
+	{ name: "Santa Teresa Boundary", location: "Cóbano, Puntarenas", service: "GPS Boundary Survey", coords: [9.664181, -85.184189], view: "https://serviciosdronescostarica.com/LidarCloud/SANTA_TERESA_BOUNDARY_WEB/" },
+	{ name: "Santa Teresa", location: "Cóbano, Puntarenas", service: "LiDAR Survey", coords: [9.664181, -85.184189], view: "https://serviciosdronescostarica.com/LidarCloud/SANTA_TERESA_WEB/" },
+	{ name: "Selva 3", location: "Bahía Ballena, Osa", service: "Forest Survey", coords: [9.141122, -83.700029], view: "https://serviciosdronescostarica.com/LidarCloud/SELVA3_WEB/" },
+	{ name: "Selva 4", location: "Bahía Ballena, Osa", service: "LiDAR Survey", coords: [9.152735, -83.702845], view: "https://serviciosdronescostarica.com/LidarCloud/SELVA_4_WEB/" },
+	{ name: "San Josecito Uvita", location: "Bahía Ballena, Osa", service: "Land Assessment", coords: [9.211758, -83.751646], view: "https://serviciosdronescostarica.com/LidarCloud/San%20Josesito_Uvita_WEB/" },
+	{ name: "Tomer Selva", location: "Bahía Ballena, Osa", service: "LiDAR Survey", coords: [9.148582, -83.701606], view: "https://serviciosdronescostarica.com/LidarCloud/TOMER_SELVA_WEB/" },
+	{ name: "Vista Architects 2026", location: "Bahía Ballena, Osa", service: "Architectural Survey", coords: [9.211655, -83.809925], view: "https://serviciosdronescostarica.com/LidarCloud/Vista_Architects_2026_WEB/" },
+	{ name: "Vista Architects", location: "Bahía Ballena, Osa", service: "Architectural Survey", coords: [9.23201, -83.813308], view: "https://serviciosdronescostarica.com/LidarCloud/Vista_Architects_WEB/" },
 	];
 
 	/* Map */
@@ -386,12 +352,15 @@
 		var marker = L.marker(project.coords);
 		marker.bindPopup(
 			'<div class="popup-title">' + project.name + '</div>' +
-			'<div class="popup-location">' + project.location + '</div>' +
-			'<a href="portfolio-viewer.html?project=' + project.potraeId + '" class="popup-btn">View 3D Point Cloud &rarr;</a>'
+			'<div class="popup-location">📍 ' + project.location + '</div>' +
+			'<a href="' + project.view + '" target="_blank" rel="noopener noreferrer" class="popup-btn">View 3D Point Cloud &rarr;</a>'
 		);
 		markerClusters.addLayer(marker);
 	});
 	map.addLayer(markerClusters);
+	if (markerClusters.getBounds().isValid()) {
+		map.fitBounds(markerClusters.getBounds(), { padding: [40, 40], maxZoom: 11 });
+	}
 
 	/* Projects card list */
 	var grid = document.getElementById('projectsGrid');
@@ -401,11 +370,10 @@
 		card.innerHTML =
 			'<h3>' + project.name + '</h3>' +
 			'<div class="card-tags-row">' +
-				'<span class="card-tag-chip zone">' + project.zone + '</span>' +
+				'<span class="card-tag-chip zone">📍 ' + project.location + '</span>' +
 				'<span class="card-tag-chip">' + project.service + '</span>' +
 			'</div>' +
-			'<p style="color:var(--muted);font-size:14px;margin-bottom:4px;">' + project.location + '</p>' +
-			'<a href="portfolio-viewer.html?project=' + project.potraeId + '" class="card-link">' +
+			'<a href="' + project.view + '" target="_blank" rel="noopener noreferrer" class="card-link">' +
 				'View 3D Point Cloud &rarr;' +
 			'</a>';
 		grid.appendChild(card);
